@@ -1,0 +1,159 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<xsd:schema xmlns:ns0="http://expediente.ws.senasa.gob.pe" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     targetNamespace="http://expediente.ws.senasa.gob.pe">
+    <xsd:complexType name="auditoria">
+        <xsd:sequence>
+            <xsd:element name="estado" type="xsd:boolean"/>
+            <xsd:element name="mensajeSistema" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="mensajeUsuario" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="expediente">
+        <xsd:sequence>
+            <xsd:element name="auditoria" type="ns0:auditoria" minOccurs="0"/>
+            <xsd:element name="canal" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="cerrado" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codigoCentroTramite" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codigoProcedimientoTupa" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codigoServicio" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codigoSolicitud" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codigoStdDoc" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="descripcionAreaGestion" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="descripcionCentroTramite" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="descripcionProcedimietoTupa" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="descripcionServicio" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="estado" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="fecha" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="idPersona" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="nombreRazonSocial" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="numero" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="ordenVuce" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="ucmId" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="anexarDocumentoExpediente">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="arg1" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="arg2" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="anexarDocumentoExpedienteResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:auditoria" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="cerrarExpediente">
+        <xsd:sequence>
+            <xsd:element name="codigoCentro" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codigoExpediente" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="personaId" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codigoProcedimiento" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="userId" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="documentos" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="cerrarExpedienteResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:expediente" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="cierreTotal">
+        <xsd:sequence>
+            <xsd:element name="numeroExpediente" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="usuario" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="estadoDictamen" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="cierreTotalResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:auditoria" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerExpedienteStd">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerExpedienteStdResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:expediente" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerExpedienteTupa">
+        <xsd:sequence>
+            <xsd:element name="numeroExpediente" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerExpedienteTupaResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:expediente" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerExpedienteVuce">
+        <xsd:sequence>
+            <xsd:element name="numeroExpediente" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="numeroOrden" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerExpedienteVuceResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:expediente" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerOrdenPorMTO">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerOrdenPorMTOResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:expediente" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="registrarExpediente">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="arg1" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="arg2" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="arg3" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="registrarExpedienteResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:expediente" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="registrarTrazabilidadTUPAInicio">
+        <xsd:sequence>
+            <xsd:element name="codigoExpediente" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codigoRecibo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="canal" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="userName" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="registrarTrazabilidadTUPAInicioResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:auditoria" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="anexarDocumentoExpediente" type="ns0:anexarDocumentoExpediente"/>
+    <xsd:element name="anexarDocumentoExpedienteResponse" type="ns0:anexarDocumentoExpedienteResponse"/>
+    <xsd:element name="cerrarExpediente" type="ns0:cerrarExpediente"/>
+    <xsd:element name="cerrarExpedienteResponse" type="ns0:cerrarExpedienteResponse"/>
+    <xsd:element name="cierreTotal" type="ns0:cierreTotal"/>
+    <xsd:element name="cierreTotalResponse" type="ns0:cierreTotalResponse"/>
+    <xsd:element name="obtenerExpedienteStd" type="ns0:obtenerExpedienteStd"/>
+    <xsd:element name="obtenerExpedienteStdResponse" type="ns0:obtenerExpedienteStdResponse"/>
+    <xsd:element name="obtenerExpedienteTupa" type="ns0:obtenerExpedienteTupa"/>
+    <xsd:element name="obtenerExpedienteTupaResponse" type="ns0:obtenerExpedienteTupaResponse"/>
+    <xsd:element name="obtenerExpedienteVuce" type="ns0:obtenerExpedienteVuce"/>
+    <xsd:element name="obtenerExpedienteVuceResponse" type="ns0:obtenerExpedienteVuceResponse"/>
+    <xsd:element name="obtenerOrdenPorMTO" type="ns0:obtenerOrdenPorMTO"/>
+    <xsd:element name="obtenerOrdenPorMTOResponse" type="ns0:obtenerOrdenPorMTOResponse"/>
+    <xsd:element name="registrarExpediente" type="ns0:registrarExpediente"/>
+    <xsd:element name="registrarExpedienteResponse" type="ns0:registrarExpedienteResponse"/>
+    <xsd:element name="registrarTrazabilidadTUPAInicio" type="ns0:registrarTrazabilidadTUPAInicio"/>
+    <xsd:element name="registrarTrazabilidadTUPAInicioResponse" type="ns0:registrarTrazabilidadTUPAInicioResponse"/>
+</xsd:schema>
+<!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is JAX-WS RI 2.3.0-wls122140-b190328.0053 svn-revision#unknown. -->

@@ -1,0 +1,50 @@
+jun 23, 2024 3:59:46 PM pe.gob.senasa.vuce.integrador.helper.LogHelper info
+INFO[APP]: Iniciando proceso BPM start (com.oracle.bpmn.process.bpmtupa.IniciarSolicitudCanalVUCEService)
+jun 23, 2024 3:59:46 PM pe.gob.senasa.vuce.integrador.helper.LogHelper info
+INFO[APP]: Servicio: 014 | Documento: 220210003319 | Documento Ref: O2022197788
+jun 23, 2024 4:12:04 PM pe.gob.senasa.vuce.integrador.helper.LogHelper info
+INFO[APP]: Iniciando proceso BPM start (com.oracle.bpmn.process.bpmtupa.IniciarSolicitudCanalVUCEService)
+jun 23, 2024 4:12:04 PM pe.gob.senasa.vuce.integrador.helper.LogHelper info
+INFO[APP]: Servicio: 014 | Documento: 220210003319 | Documento Ref: O2022197788
+jun 23, 2024 4:12:04 PM pe.gob.senasa.vuce.integrador.helper.LogHelper info
+INFO[APP]: No hay mensajes pendientes.
+jun 23, 2024 4:13:51 PM pe.gob.senasa.vuce.integrador.helper.LogHelper info
+INFO[APP]: Iniciando proceso BPM start (com.oracle.bpmn.process.bpmtupa.IniciarSolicitudCanalVUCEService)
+jun 23, 2024 4:13:51 PM pe.gob.senasa.vuce.integrador.helper.LogHelper info
+INFO[APP]: Servicio: 014 | Documento: 220210003319 | Documento Ref: O2022197788
+jun 23, 2024 4:22:50 PM pe.gob.senasa.vuce.integrador.helper.LogHelper info
+INFO[APP]: No hay mensajes pendientes.
+jun 23, 2024 4:23:13 PM pe.gob.senasa.vuce.integrador.helper.LogHelper info
+INFO[APP]: Iniciando proceso BPM start (com.oracle.bpmn.process.bpmtupa.IniciarSolicitudCanalVUCEService)
+jun 23, 2024 4:23:13 PM pe.gob.senasa.vuce.integrador.helper.LogHelper info
+INFO[APP]: Servicio: 014 | Documento: 220210003319 | Documento Ref: O2022197788
+jun 23, 2024 4:23:14 PM pe.gob.senasa.vuce.integrador.helper.LogHelper info
+INFO[APP]: MethodCreateInstance: start / false / public void com.oracle.bpmn.process.bpmtupa.IniciarSolicitudCanalVUCEService.start(java.lang.String,java.lang.String,java.lang.String)
+jun 23, 2024 4:23:14 PM org.apache.cxf.service.factory.ReflectionServiceFactoryBean buildServiceFromWSDL
+INFORMACIÓN: Creating Service {http://xmlns.oracle.com/bpmn/bpmnProcess/IniciarSolicitudCanalVUCE}IniciarSolicitudCanalVUCE.service from WSDL: http://srvvldsoabpm.senasa.gob.pe:7011/soa-infra/services/BPM_SENASA/BpmTUPA/IniciarSolicitudCanalVUCE.service?WSDL
+jun 23, 2024 4:23:14 PM pe.gob.senasa.vuce.integrador.helper.LogHelper info
+INFO[APP]: No hay mensajes pendientes.
+jun 23, 2024 4:25:31 PM pe.gob.senasa.vuce.integrador.helper.LogHelper info
+INFO[APP]: Iniciando proceso BPM start (com.oracle.bpmn.process.bpmtupa.IniciarSolicitudCanalVUCEService)
+jun 23, 2024 4:25:31 PM pe.gob.senasa.vuce.integrador.helper.LogHelper info
+INFO[APP]: Servicio: 014 | Documento: 220210003319 | Documento Ref: O2022197788
+jun 23, 2024 4:25:32 PM pe.gob.senasa.vuce.integrador.helper.LogHelper info
+INFO[APP]: MethodCreateInstance: start / false / public void com.oracle.bpmn.process.bpmtupa.IniciarSolicitudCanalVUCEService.start(java.lang.String,java.lang.String,java.lang.String)
+jun 23, 2024 4:25:32 PM org.apache.cxf.service.factory.ReflectionServiceFactoryBean buildServiceFromWSDL
+INFORMACIÓN: Creating Service {http://xmlns.oracle.com/bpmn/bpmnProcess/IniciarSolicitudCanalVUCE}IniciarSolicitudCanalVUCE.service from WSDL: http://srvvldsoabpm.senasa.gob.pe:7011/soa-infra/services/BPM_SENASA/BpmTUPA/IniciarSolicitudCanalVUCE.service?WSDL
+jun 23, 2024 4:25:32 PM pe.gob.senasa.vuce.integrador.helper.LogHelper info
+INFO[APP]: Fin proceso BPM start | Instancia: 1719177932855
+jun 23, 2024 4:25:33 PM pe.gob.senasa.vuce.integrador.helper.LogHelper info
+INFO[APP]: No hay mensajes pendientes.
+jun 23, 2024 4:39:46 PM pe.gob.senasa.vuce.integrador.helper.LogHelper info
+INFO[APP]: Iniciando proceso BPM start (com.oracle.bpmn.process.bpmtupa.IniciarSolicitudCanalVUCEService)
+jun 23, 2024 4:39:46 PM pe.gob.senasa.vuce.integrador.helper.LogHelper info
+INFO[APP]: Servicio: 014 | Documento: 220210003319 | Documento Ref: O2022197788
+jun 23, 2024 4:39:46 PM pe.gob.senasa.vuce.integrador.helper.LogHelper info
+INFO[APP]: MethodCreateInstance: start / false / public void com.oracle.bpmn.process.bpmtupa.IniciarSolicitudCanalVUCEService.start(java.lang.String,java.lang.String,java.lang.String)
+jun 23, 2024 4:39:46 PM org.apache.cxf.service.factory.ReflectionServiceFactoryBean buildServiceFromWSDL
+INFORMACIÓN: Creating Service {http://xmlns.oracle.com/bpmn/bpmnProcess/IniciarSolicitudCanalVUCE}IniciarSolicitudCanalVUCE.service from WSDL: http://srvvldsoabpm.senasa.gob.pe:7011/soa-infra/services/BPM_SENASA/BpmTUPA/IniciarSolicitudCanalVUCE.service?WSDL
+jun 23, 2024 4:39:47 PM pe.gob.senasa.vuce.integrador.helper.LogHelper info
+INFO[APP]: Fin proceso BPM start | Instancia: 1719178787366
+jun 23, 2024 4:39:47 PM pe.gob.senasa.vuce.integrador.helper.LogHelper info
+INFO[APP]: No hay mensajes pendientes.

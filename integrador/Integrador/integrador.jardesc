@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jardesc>
+    <jar path="C:/Users/grudy/Documents/senasa/vuce/proyectos/senasa-vuce-bpm-backend/build/IntegradorComplete.jar"/>
+    <options buildIfNeeded="true" compress="true" descriptionLocation="/Integrador/integrador.jardesc" exportErrors="true" exportWarnings="true" includeDirectoryEntries="false" overwrite="true" saveDescription="true" storeRefactorings="false" useSourceFolders="false"/>
+    <storedRefactorings deprecationInfo="true" structuralOnly="false"/>
+    <selectedProjects/>
+    <manifest generateManifest="false" mainClassHandleIdentifier="=Integrador/&lt;pe.gob.senasa.vuce.integrador.main{MainIntegrador.java[MainIntegrador" manifestLocation="/Integrador/META-INF/MANIFEST.MF" manifestVersion="1.0" reuseManifest="true" saveManifest="true" usesManifest="true">
+        <sealing sealJar="false">
+            <packagesToSeal/>
+            <packagesToUnSeal/>
+        </sealing>
+    </manifest>
+    <selectedElements exportClassFiles="true" exportJavaFiles="false" exportOutputFolder="false">
+        <javaElement handleIdentifier="=BPMProcessClient"/>
+        <folder path="/Integrador/META-INF"/>
+        <file path="/Integrador/adapterconfig.xml"/>
+        <file path="/Integrador/app.properties"/>
+        <file path="/Integrador/integrador.properties"/>
+        <file path="/Integrador/logging.properties"/>
+        <file path="/JarchLogger/.classpath"/>
+        <file path="/JarchLogger/.project"/>
+        <javaElement handleIdentifier="=WSVuceConsumer"/>
+        <javaElement handleIdentifier="=Integrador/&lt;pe.gob.senasa.vuce.integrador"/>
+        <javaElement handleIdentifier="=Integrador/&lt;pe.gob.senasa.vuce.integrador.bean"/>
+        <javaElement handleIdentifier="=Integrador/&lt;pe.gob.senasa.vuce.integrador.exception"/>
+        <javaElement handleIdentifier="=Integrador/&lt;pe.gob.senasa.vuce.integrador.gestion"/>
+        <javaElement handleIdentifier="=Integrador/&lt;pe.gob.senasa.vuce.integrador.helper"/>
+        <javaElement handleIdentifier="=Integrador/&lt;pe.gob.senasa.vuce.integrador.main"/>
+        <javaElement handleIdentifier="=Integrador/&lt;pe.gob.senasa.vuce.integrador.mappers"/>
+        <javaElement handleIdentifier="=Integrador/&lt;pe.gob.senasa.vuce.integrador.test"/>
+        <javaElement handleIdentifier="=JarchLogger/src"/>
+    </selectedElements>
+</jardesc>

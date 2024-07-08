@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?oracleBPM version="12.1.3" fileRevision="20120601"?>
+<processDocumentation xmlns="http://xmlns.oracle.com/bpm/taskMetadataService/processDocumentation">
+   <component name="GenerarIIV">
+      <topicDocumentations>
+         <topicDocumentation name="GenerarIIV">
+            <labels>
+               <label locale="en">Generar IIV</label>
+            </labels>
+         </topicDocumentation>
+         <topicDocumentation name="ACT41535799336762">
+            <labels>
+               <label locale="en">Registrar Documento Anexo</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT41569008712974">
+            <labels>
+               <label locale="en">Iniciar</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT41569221366578">
+            <labels>
+               <label locale="en">Obtener Ucmid</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT41569258191156">
+            <labels>
+               <label locale="en">Generar IIV Preliminar</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT41569334785254">
+            <labels>
+               <label locale="en">Registrar Documento</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="EVT41535747181096">
+            <labels>
+               <label locale="en">Start</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="EVT41535747181043">
+            <labels>
+               <label locale="en">End</label>
+            </labels>
+         </topicDocumentation>
+         <topicDocumentation name="EVT41570574134215">
+            <labels>
+               <label locale="en">End</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="EVT41570590382555">
+            <labels>
+               <label locale="en">End</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="GTW41569323373217">
+            <labels>
+               <label locale="en">¿Tiene Ucmid?</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="GTW41570570316931">
+            <labels>
+               <label locale="en">¿Requiere IIV?</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf41535747181047"/>
+         <topicDocumentation name="sf41535861152688"/>
+         <topicDocumentation name="sf41569010391587"/>
+         <topicDocumentation name="sf41569226545577"/>
+         <topicDocumentation name="sf4156926430273"/>
+         <topicDocumentation name="sf41569332953830">
+            <labels>
+               <label locale="en"></label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf41569335968242"/>
+         <topicDocumentation name="sf41569361355964">
+            <labels>
+               <label locale="en"></label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf41570572895721">
+            <labels>
+               <label locale="en"></label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf41570577931187">
+            <labels>
+               <label locale="en"></label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+      </topicDocumentations>
+   </component>
+</processDocumentation>

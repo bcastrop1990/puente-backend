@@ -1,0 +1,112 @@
+jun 23, 2024 3:59:46 PM  
+STDERR: Exception in thread "main" 
+jun 23, 2024 3:59:46 PM  
+STDERR: java.lang.UnsupportedClassVersionError: com/oracle/bpmn/process/bpmtupa/IniciarSolicitudCanalVUCEService has been compiled by a more recent version of the Java Runtime (class file version 61.0), this version of the Java Runtime only recognizes class file versions up to 52.0
+jun 23, 2024 3:59:46 PM  
+STDERR: 	at java.lang.ClassLoader.defineClass1(Native Method)
+jun 23, 2024 3:59:46 PM  
+STDERR: 	at java.lang.ClassLoader.defineClass(ClassLoader.java:756)
+jun 23, 2024 3:59:46 PM  
+STDERR: 	at java.security.SecureClassLoader.defineClass(SecureClassLoader.java:142)
+jun 23, 2024 3:59:46 PM  
+STDERR: 	at java.net.URLClassLoader.defineClass(URLClassLoader.java:468)
+jun 23, 2024 3:59:46 PM  
+STDERR: 	at java.net.URLClassLoader.access$100(URLClassLoader.java:74)
+jun 23, 2024 3:59:46 PM  
+STDERR: 	at java.net.URLClassLoader$1.run(URLClassLoader.java:369)
+jun 23, 2024 3:59:46 PM  
+STDERR: 	at java.net.URLClassLoader$1.run(URLClassLoader.java:363)
+jun 23, 2024 3:59:46 PM  
+STDERR: 	at java.security.AccessController.doPrivileged(Native Method)
+jun 23, 2024 3:59:46 PM  
+STDERR: 	at java.net.URLClassLoader.findClass(URLClassLoader.java:362)
+jun 23, 2024 3:59:46 PM  
+STDERR: 	at java.lang.ClassLoader.loadClass(ClassLoader.java:418)
+jun 23, 2024 3:59:46 PM  
+STDERR: 	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:355)
+jun 23, 2024 3:59:46 PM  
+STDERR: 	at java.lang.ClassLoader.loadClass(ClassLoader.java:351)
+jun 23, 2024 3:59:46 PM  
+STDERR: 	at java.lang.Class.forName0(Native Method)
+jun 23, 2024 3:59:46 PM  
+STDERR: 	at java.lang.Class.forName(Class.java:264)
+jun 23, 2024 3:59:46 PM  
+STDERR: 	at pe.gob.senasa.vuce.integrador.gestion.GestionProcesoBPM.crearInstanciaProceso(GestionProcesoBPM.java:58)
+jun 23, 2024 3:59:46 PM  
+STDERR: 	at pe.gob.senasa.vuce.integrador.gestion.GestionProcesoBPM.lanzarProcesoBPM(GestionProcesoBPM.java:25)
+jun 23, 2024 3:59:46 PM  
+STDERR: 	at pe.gob.senasa.vuce.integrador.Integrador.ejecutarAccion(Integrador.java:83)
+jun 23, 2024 3:59:46 PM  
+STDERR: 	at pe.gob.senasa.vuce.integrador.main.MainIntegrador.main(MainIntegrador.java:10)
+jun 23, 2024 4:12:04 PM  
+STDERR: java.lang.ClassNotFoundException: com.oracle.bpmn.process.bpmtupa.IniciarSolicitudCanalVUCEService
+jun 23, 2024 4:12:04 PM  
+STDERR: 	at java.net.URLClassLoader.findClass(URLClassLoader.java:382)
+jun 23, 2024 4:12:04 PM  
+STDERR: 	at java.lang.ClassLoader.loadClass(ClassLoader.java:418)
+jun 23, 2024 4:12:04 PM  
+STDERR: 	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:355)
+jun 23, 2024 4:12:04 PM  
+STDERR: 	at java.lang.ClassLoader.loadClass(ClassLoader.java:351)
+jun 23, 2024 4:12:04 PM  
+STDERR: 	at java.lang.Class.forName0(Native Method)
+jun 23, 2024 4:12:04 PM  
+STDERR: 	at java.lang.Class.forName(Class.java:264)
+jun 23, 2024 4:12:04 PM  
+STDERR: 	at pe.gob.senasa.vuce.integrador.gestion.GestionProcesoBPM.crearInstanciaProceso(GestionProcesoBPM.java:58)
+jun 23, 2024 4:12:04 PM  
+STDERR: 	at pe.gob.senasa.vuce.integrador.gestion.GestionProcesoBPM.lanzarProcesoBPM(GestionProcesoBPM.java:38)
+jun 23, 2024 4:12:04 PM  
+STDERR: 	at pe.gob.senasa.vuce.integrador.Integrador.ejecutarAccion(Integrador.java:83)
+jun 23, 2024 4:12:04 PM  
+STDERR: 	at pe.gob.senasa.vuce.integrador.main.MainIntegrador.main(MainIntegrador.java:10)
+jun 23, 2024 4:13:51 PM  
+STDERR: Exception in thread "main" 
+jun 23, 2024 4:13:51 PM  
+STDERR: java.lang.UnsupportedClassVersionError: com/oracle/bpmn/process/bpmtupa/IniciarSolicitudCanalVUCEService has been compiled by a more recent version of the Java Runtime (class file version 61.0), this version of the Java Runtime only recognizes class file versions up to 52.0
+jun 23, 2024 4:13:51 PM  
+STDERR: 	at java.lang.ClassLoader.defineClass1(Native Method)
+jun 23, 2024 4:13:51 PM  
+STDERR: 	at java.lang.ClassLoader.defineClass(ClassLoader.java:756)
+jun 23, 2024 4:13:51 PM  
+STDERR: 	at java.security.SecureClassLoader.defineClass(SecureClassLoader.java:142)
+jun 23, 2024 4:13:51 PM  
+STDERR: 	at java.net.URLClassLoader.defineClass(URLClassLoader.java:468)
+jun 23, 2024 4:13:51 PM  
+STDERR: 	at java.net.URLClassLoader.access$100(URLClassLoader.java:74)
+jun 23, 2024 4:13:51 PM  
+STDERR: 	at java.net.URLClassLoader$1.run(URLClassLoader.java:369)
+jun 23, 2024 4:13:51 PM  
+STDERR: 	at java.net.URLClassLoader$1.run(URLClassLoader.java:363)
+jun 23, 2024 4:13:51 PM  
+STDERR: 	at java.security.AccessController.doPrivileged(Native Method)
+jun 23, 2024 4:13:51 PM  
+STDERR: 	at java.net.URLClassLoader.findClass(URLClassLoader.java:362)
+jun 23, 2024 4:13:51 PM  
+STDERR: 	at java.lang.ClassLoader.loadClass(ClassLoader.java:418)
+jun 23, 2024 4:13:51 PM  
+STDERR: 	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:355)
+jun 23, 2024 4:13:51 PM  
+STDERR: 	at java.lang.ClassLoader.loadClass(ClassLoader.java:351)
+jun 23, 2024 4:13:51 PM  
+STDERR: 	at java.lang.Class.forName0(Native Method)
+jun 23, 2024 4:13:51 PM  
+STDERR: 	at java.lang.Class.forName(Class.java:264)
+jun 23, 2024 4:13:51 PM  
+STDERR: 	at pe.gob.senasa.vuce.integrador.gestion.GestionProcesoBPM.crearInstanciaProceso(GestionProcesoBPM.java:58)
+jun 23, 2024 4:13:51 PM  
+STDERR: 	at pe.gob.senasa.vuce.integrador.gestion.GestionProcesoBPM.lanzarProcesoBPM(GestionProcesoBPM.java:25)
+jun 23, 2024 4:13:51 PM  
+STDERR: 	at pe.gob.senasa.vuce.integrador.Integrador.ejecutarAccion(Integrador.java:83)
+jun 23, 2024 4:13:51 PM  
+STDERR: 	at pe.gob.senasa.vuce.integrador.main.MainIntegrador.main(MainIntegrador.java:10)
+jun 23, 2024 4:23:14 PM  
+STDERR: java.lang.NullPointerException
+jun 23, 2024 4:23:14 PM  
+STDERR: 	at pe.gob.senasa.vuce.integrador.gestion.GestionProcesoBPM.crearInstanciaProceso(GestionProcesoBPM.java:63)
+jun 23, 2024 4:23:14 PM  
+STDERR: 	at pe.gob.senasa.vuce.integrador.gestion.GestionProcesoBPM.lanzarProcesoBPM(GestionProcesoBPM.java:38)
+jun 23, 2024 4:23:14 PM  
+STDERR: 	at pe.gob.senasa.vuce.integrador.Integrador.ejecutarAccion(Integrador.java:83)
+jun 23, 2024 4:23:14 PM  
+STDERR: 	at pe.gob.senasa.vuce.integrador.main.MainIntegrador.main(MainIntegrador.java:10)

@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PLANTILLA_DORI-PEF1" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="889ca9cc-f985-4e2f-977c-8c4866f0cfb2">
+	<property name="ireport.zoom" value="1.3636363636363646"/>
+	<property name="ireport.x" value="242"/>
+	<property name="ireport.y" value="0"/>
+	<style name="marco">
+		<box topPadding="5" leftPadding="5" bottomPadding="5" rightPadding="5">
+			<topPen lineWidth="0.5"/>
+			<leftPen lineWidth="0.5"/>
+			<bottomPen lineWidth="0.5"/>
+			<rightPen lineWidth="0.5"/>
+		</box>
+	</style>
+	<parameter name="NEXPEDIENTE" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBTITULO" class="java.lang.String"/>
+	<parameter name="FIRMA" class="java.io.InputStream" isForPrompting="false"/>
+	<queryString>
+		<![CDATA[SELECT 'A' AS A FROM DUAL]]>
+	</queryString>
+	<field name="A" class="java.lang.String"/>
+	<variable name="NPERMISO" class="java.lang.String"/>
+	<variable name="TOTAL_PESO" class="java.math.BigDecimal"/>
+	<variable name="FECHAVIGENCIA" class="java.lang.String"/>
+	<variable name="FECHAEMISION" class="java.lang.String"/>
+	<variable name="TOTAL_PESO_2" class="java.math.BigDecimal"/>
+	<background>
+		<band height="802"/>
+	</background>
+	<title>
+		<band height="134" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="0f1fdb8a-baa0-4276-b68f-43745a1b65b2" x="63" y="50" width="424" height="16"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PERMISO FITOSANITARIO DE IMPORTACIÓN]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="fd1815f7-65c7-4ec8-8a72-58d55fb2b63a" x="100" y="66" width="351" height="16"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["N° de PFI: " + $P{SUBTITULO}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement uuid="5c06c970-f949-4f33-a967-acf1042db221" x="18" y="0" width="120" height="40"/>
+				<imageExpression><![CDATA[$P{SUBREPORT_DIR} + "logo.jpg"]]></imageExpression>
+			</image>
+			<textField evaluationTime="Report">
+				<reportElement uuid="dab7a46e-0e04-4c71-9b64-c22ddb3e8c04" x="427" y="115" width="126" height="16"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{FECHAVIGENCIA}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="5ea5f600-ea5b-4d68-9c83-7a24e230ac58" x="134" y="115" width="158" height="16"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Lima, " + $V{FECHAEMISION}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="0f1fdb8a-baa0-4276-b68f-43745a1b65b2" x="1" y="99" width="76" height="16"/>
+				<textElement>
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[N° Expediente:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0f1fdb8a-baa0-4276-b68f-43745a1b65b2" x="1" y="115" width="132" height="16"/>
+				<textElement>
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Lugar y Fecha de Emisión: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="44e16b3c-35c9-4adf-b54b-89cce4b52702" x="318" y="115" width="109" height="16"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Término de Vigencia:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="bdf01c43-4aea-4238-b144-23783b096392" x="78" y="99" width="112" height="16"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{NEXPEDIENTE}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="0f152b85-b4f5-4ede-b674-db0d3cdc4af7" x="138" y="8" width="293" height="36"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ESTE DOCUMENTO NO AUTORIZA EL INTERNAMIENTO DE LA MERCANCÍA AL PAÍS]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="133" splitType="Stretch">
+			<subreport>
+				<reportElement uuid="3a8c5956-a8a7-482f-98c2-d78714551f31" x="0" y="0" width="555" height="21"/>
+				<subreportParameter name="TOTAL_PESO">
+					<subreportParameterExpression><![CDATA[$V{TOTAL_PESO_2}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="NEXPEDIENTE">
+					<subreportParameterExpression><![CDATA[$P{NEXPEDIENTE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<returnValue subreportVariable="NPERMISO" toVariable="NPERMISO"/>
+				<returnValue subreportVariable="FECHAEMISION" toVariable="FECHAEMISION"/>
+				<returnValue subreportVariable="FECHAVIGENCIA" toVariable="FECHAVIGENCIA"/>
+				<returnValue subreportVariable="TOTAL_PESO" toVariable="TOTAL_PESO_2"/>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "datos_permiso.jasper"]]></subreportExpression>
+			</subreport>
+			<image>
+				<reportElement uuid="4d9aa715-48f9-4934-9f68-37f9192edece" positionType="Float" x="375" y="31" width="180" height="90"/>
+				<imageExpression><![CDATA[$P{FIRMA}]]></imageExpression>
+			</image>
+			<break>
+				<reportElement uuid="a44cb042-48a0-4607-8f01-74e660089e52" positionType="Float" x="0" y="130" width="555" height="1"/>
+			</break>
+		</band>
+		<band height="280">
+			<staticText>
+				<reportElement uuid="0f1fdb8a-baa0-4276-b68f-43745a1b65b2" x="0" y="92" width="78" height="16"/>
+				<textElement>
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[N° Expediente:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="bdf01c43-4aea-4238-b144-23783b096392" x="79" y="92" width="169" height="16"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{NEXPEDIENTE}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="0f1fdb8a-baa0-4276-b68f-43745a1b65b2" x="0" y="150" width="280" height="16"/>
+				<textElement>
+					<font fontName="SansSerif" size="11" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Productos Anexos:]]></text>
+			</staticText>
+			<subreport>
+				<reportElement uuid="710eb57c-3365-4c6b-98f8-94cab8d88b41" x="0" y="167" width="553" height="60"/>
+				<subreportParameter name="P_FLAG">
+					<subreportParameterExpression><![CDATA["A"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="P_NUMERO_PERMISO">
+					<subreportParameterExpression><![CDATA[$V{NPERMISO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<returnValue subreportVariable="TOTAL_PESO" toVariable="TOTAL_PESO"/>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "detalle_permiso.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement uuid="0f1fdb8a-baa0-4276-b68f-43745a1b65b2" x="0" y="108" width="131" height="16"/>
+				<textElement>
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Lugar y Fecha de Emisión: ]]></text>
+			</staticText>
+			<textField evaluationTime="Report">
+				<reportElement uuid="5ea5f600-ea5b-4d68-9c83-7a24e230ac58" x="132" y="108" width="186" height="16"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Lima, " + $V{FECHAEMISION}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="fd1815f7-65c7-4ec8-8a72-58d55fb2b63a" x="0" y="66" width="555" height="16"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["N° de PFI: " + $P{SUBTITULO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="0f1fdb8a-baa0-4276-b68f-43745a1b65b2" x="1" y="50" width="554" height="16"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PERMISO FITOSANITARIO DE IMPORTACIÓN]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="d06cedcd-a776-4d9f-96c7-965a32ef13c2" positionType="Float" x="100" y="273" width="377" height="1"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<textField evaluationTime="Report" isBlankWhenNull="true">
+				<reportElement uuid="3125712c-77e8-4273-afcc-aaee3e22b17e" positionType="Float" x="334" y="230" width="62" height="15"/>
+				<textElement textAlignment="Right">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{TOTAL_PESO} + $V{TOTAL_PESO_2}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement uuid="5c06c970-f949-4f33-a967-acf1042db221" x="19" y="0" width="120" height="40"/>
+				<imageExpression><![CDATA[$P{SUBREPORT_DIR} + "logo.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="0f152b85-b4f5-4ede-b674-db0d3cdc4af7" x="139" y="9" width="293" height="36"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ESTE DOCUMENTO NO AUTORIZA EL INTERNAMIENTO DE LA MERCANCÍA AL PAÍS]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="101">
+			<staticText>
+				<reportElement uuid="cc638229-60b7-456d-b2b0-021ef0da5124" style="marco" x="2" y="10" width="551" height="71">
+					<printWhenExpression><![CDATA[$V{PAGE_NUMBER} == 1]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font fontName="SansSerif" size="6" isBold="false"/>
+				</textElement>
+				<text><![CDATA[- Válido por 90 días calendario a partir de la fecha de su emisión y para un solo Embarque.
+- Cualquier enmendadura o añadidura invalida este documento.
+- EL SENASA podrá anular la validez del permiso Fitosanitario de Importación de detectarse plagas cuarentenarias en el país Exportador, en los embarques efectuados o cuando se establezcan nuevos requisitos fitosanitarios.
+- Todo envío que esté contenido en embalajes de madera, deberán cumplir con las disposiciones establecidas en la R.D N° 105-2005-AG-SENASA-DGSV
+- Ante la presencia de cualquier plaga determinada como cuarentenaria por el SENASA, los envíos se sujetaran a las disposiciones establecidas por la institución.
+- Las mercancías autorizadas en el presente documento, que sean transportadas como envíos de entrega rápida, serán aceptados para inspección cuando se presente la DSEER con subpartida arancelaria 9809.00.00.20 y 9809.00.00.30, según corresponda.]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="a79366c4-dd15-4469-bf68-473794b9b60e" x="368" y="81" width="175" height="20"/>
+				<textElement textAlignment="Right">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="7c4acf0e-c976-436c-8885-db2a577b69fb" x="543" y="81" width="10" height="20"/>
+				<textElement>
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<lastPageFooter>
+		<band height="101">
+			<staticText>
+				<reportElement uuid="cc638229-60b7-456d-b2b0-021ef0da5124" style="marco" x="79" y="10" width="474" height="71">
+					<printWhenExpression><![CDATA[$V{PAGE_NUMBER} == 1]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font fontName="SansSerif" size="6" isBold="false"/>
+				</textElement>
+				<text><![CDATA[- Válido por 90 días calendario a partir de la fecha de su emisión y para un solo Embarque.
+- Cualquier enmendadura o añadidura invalida este documento.
+- EL SENASA podrá anular la validez del permiso Fitosanitario de Importación de detectarse plagas cuarentenarias en el país Exportador, en los embarques efectuados o cuando se establezcan nuevos requisitos fitosanitarios.
+- Todo envío que esté contenido en embalajes de madera, deberán cumplir con las disposiciones establecidas en la R.D N° 105-2005-AG-SENASA-DGSV
+- Ante la presencia de cualquier plaga determinada como cuarentenaria por el SENASA, los envíos se sujetaran a las disposiciones establecidas por la institución.
+- Las mercancías autorizadas en el presente documento, que sean transportadas como envíos de entrega rápida, serán aceptados para inspección cuando se presente la DSEER con subpartida arancelaria 9809.00.00.20 y 9809.00.00.30, según corresponda.]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="a79366c4-dd15-4469-bf68-473794b9b60e" x="368" y="81" width="175" height="20"/>
+				<textElement textAlignment="Right">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="7c4acf0e-c976-436c-8885-db2a577b69fb" x="543" y="81" width="10" height="20"/>
+				<textElement>
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</lastPageFooter>
+</jasperReport>

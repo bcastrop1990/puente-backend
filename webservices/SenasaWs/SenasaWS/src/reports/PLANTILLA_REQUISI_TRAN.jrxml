@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PLANTILLA_REQUISI_TRAN" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="17c4decb-3e97-4a53-a1b9-2b800c5c0c4d">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="CodProducto" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="CodPaisProcedencia" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="CodPaisOrigen" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT TBL.Codigo_Requ_Tran_Producto,
+                     ROWNUM AS SECUENCIAL,
+                     TBL.Codi_Pais_Tpa_Procedencia,
+                     TBL.Pais_Procedencia,
+                     TBL.Codi_Pais_Tpa_Destino,
+                     TBL.Pais_Destino,
+                     TBL.Codi_Pais_Tpa_Origen,
+                     TBL.Pais_Origen,
+                     TBL.Codigo_Producto,
+                     TBL.Nombre_Producto,
+                     TBL.Nombre_Producto_Hijo,
+                     TBL.Codigo_Especie_Enfermedad,
+                     TBL.Codigo_Tratamiento,
+                     TBL.Codigo_Requisito_Sanitario,
+                     TBL.Codigo_Aplicacion,
+                     TBL.Aplicacion,
+		case LENGTH(TBL.Etiqueta)
+		WHEN  2 THEN TBL.Etiqueta
+		else '  '|| TBL.Etiqueta end
+		as Etiqueta,
+                     TBL.Etiqueta,
+                     TBL.Sangria,
+                     TBL.Indicador_Autorizacion,
+                     TBL.Indicador_Impresion,
+                     TBL.Documento_Adjunto_Id,
+                     TBL.Codigo_Puesto_Control_Ingreso,
+                     TBL.Puesto_Control_Ingreso,
+                     TBL.Codigo_Puesto_Control_Salida,
+                     TBL.Puesto_Control_Salida,
+                     TBL.Tipo_Requ_Tra_Pla,
+                     TBL.Codigo_Requ_Tra_Pla,
+                     TBL.Descripcion_Requ_Tra_Pla,
+                     TBL.Estado,
+                     TBL.Fech_Modi,
+                     TBL.Secuencial_Suspension,
+                     TBL.Fecha_Suspension,
+                     TBL.Motivo_Suspension,
+                     TBL.Documento_Id_Suspension,
+                     ROWNUM AS Orden, --ROW_NUMBER () OVER (ORDER BY TBL.Nombre_Producto) AS Orden,
+                     TBL.requisito_tipo,
+                     NULL AS Motivo,
+                     NULL AS Fecha,
+                     NULL AS Documento_Id
+                FROM (SELECT DISTINCT
+                             r.Codigo_Requ_Tran_Producto,
+                             '1' AS Secuencial,                --r.Secuencial,
+                             r.Codi_Pais_Tpa_Procedencia,
+                             Tpp.Nomb_Pais_Tpa Pais_Procedencia,
+                             NULL AS Codi_Pais_Tpa_Destino,
+                             NULL AS Pais_Destino,
+                             (SELECT Stragg (TRIM (o.Codi_Pais_Tpa_Origen))
+                                FROM Requ_Sani_Transito_Pais_Origen o
+                               WHERE o.Codigo_Requ_Tran_Producto =
+                                        r.Codigo_Requ_Tran_Producto)
+                                AS Codi_Pais_Tpa_Origen,
+                             (SELECT Stragg (TRIM (Px.Nomb_Pais_Tpa))
+                                FROM    Requ_Sani_Transito_Pais_Origen o
+                                     JOIN
+                                        Tpaises Px
+                                     ON o.Codi_Pais_Tpa_Origen =
+                                           Px.Codi_Pais_Tpa
+                               WHERE o.Codigo_Requ_Tran_Producto =
+                                        r.Codigo_Requ_Tran_Producto)
+                                AS Pais_Origen,
+                             r.Codigo_Producto,
+                             p.Nombre_Comercial_Producto
+                             || NVL2 (
+                                   p.Nombre_Cientifico_Producto,
+                                   ' (' || p.Nombre_Cientifico_Producto || ')',
+                                   '')
+                             || NVL2 (Ec.Desc_Nomb_Com,
+                                      ' : ' || Ec.Desc_Nomb_Com,
+                                      '')
+                                AS Nombre_Producto,
+                             '' AS Nombre_Producto_Hijo,
+                             r.Codigo_Especie_Enfermedad,
+                             r.Codigo_Tratamiento,
+                             r.Codigo_Requisito_Sanitario,
+                             (SELECT Stragg (t.Codigo_Aplicacion)
+                                FROM Requ_Sani_Transito_Aplicacion t
+                               WHERE t.Codigo_Requ_Tran_Producto =
+                                        r.Codigo_Requ_Tran_Producto)
+                                Codigo_Aplicacion,
+                             (SELECT Stragg (Ax.Descripcion_Aplicacion)
+                                FROM    Requ_Sani_Transito_Aplicacion t
+                                     JOIN
+                                        Aplicacion_Uso Ax
+                                     ON t.Codigo_Aplicacion =
+                                           Ax.Codigo_Aplicacion
+                               WHERE t.Codigo_Requ_Tran_Producto =
+                                        r.Codigo_Requ_Tran_Producto)
+                                Aplicacion,
+                             r.Etiqueta,
+                             r.Sangria,
+                             r.Indicador_Autorizacion,
+                             r.Indicador_Impresion,
+                             r.Documento_Adjunto_Id,
+                             r.Codigo_Puesto_Control_Ingreso,
+                             Pci.Descripcion_Centro_Tramite
+                                Puesto_Control_Ingreso,
+                             r.Codigo_Puesto_Control_Salida,
+                             Pcs.Descripcion_Centro_Tramite
+                                Puesto_Control_Salida,
+                             CASE
+                                WHEN r.Codigo_Requisito_Sanitario IS NOT NULL
+                                THEN
+                                   1
+                                WHEN r.Codigo_Tratamiento IS NOT NULL
+                                THEN
+                                   3
+                                WHEN r.Codigo_Especie_Enfermedad IS NOT NULL
+                                THEN
+                                   2
+                             END
+                                AS Tipo_Requ_Tra_Pla,
+                             CASE
+                                WHEN r.Codigo_Requisito_Sanitario IS NOT NULL
+                                THEN
+                                   r.Codigo_Requisito_Sanitario
+                                WHEN r.Codigo_Tratamiento IS NOT NULL
+                                THEN
+                                   r.Codigo_Tratamiento
+                                WHEN r.Codigo_Especie_Enfermedad IS NOT NULL
+                                THEN
+                                   r.Codigo_Especie_Enfermedad
+                             END
+                                AS Codigo_Requ_Tra_Pla,
+                             CASE
+                                WHEN r.Codigo_Requisito_Sanitario IS NOT NULL
+                                THEN
+                                   Rs.Descripcion_Requisito_Sanitari
+                                WHEN r.Codigo_Tratamiento IS NOT NULL
+                                THEN
+                                   Tr.Descripcion_Tratamiento
+                                WHEN r.Codigo_Especie_Enfermedad IS NOT NULL
+                                THEN
+                                   Ce.Nombre_Plaga
+                             END
+                                AS Descripcion_Requ_Tra_Pla,
+                             r.Estado,
+                             r.Fech_Modi,
+                             v.Secuencial Secuencial_Suspension,
+                             v.Fecha Fecha_Suspension,
+                             v.Motivo Motivo_Suspension,
+                             v.Documento_Id Documento_Id_Suspension,
+                             NULL AS Orden,
+                             'TI' AS requisito_tipo
+                        FROM Requ_Sani_Transito_Producto r
+                             LEFT JOIN Tpaises Tpp
+                                ON r.Codi_Pais_Tpa_Procedencia =
+                                      Tpp.Codi_Pais_Tpa
+                             LEFT JOIN Centro_Tramite Pci
+                                ON r.Codigo_Puesto_Control_Ingreso =
+                                      Pci.Codigo_Centro_Tramite
+                             LEFT JOIN Centro_Tramite Pcs
+                                ON r.Codigo_Puesto_Control_Salida =
+                                      Pcs.Codigo_Centro_Tramite
+                             LEFT JOIN Producto p
+                                ON r.Codigo_Producto = p.Codigo_Producto
+                             LEFT JOIN Sigsve.Catalogo_Especie_Comun Ec
+                                ON p.Codigo_Especie = Ec.Codigo_Especie
+                                   AND p.Codigo_Especie_Comun =
+                                         Ec.Codi_Secu_Com
+                             LEFT JOIN Requisitos_Sanitarios Rs
+                                ON r.Codigo_Requisito_Sanitario =
+                                      Rs.Codigo_Requisito_Sanitario
+                             LEFT JOIN Tratamiento Tr
+                                ON r.Codigo_Tratamiento = Tr.Codigo_Tratamiento
+                             LEFT JOIN Plaga_Requisito Ce
+                                ON r.Codigo_Especie_Enfermedad =
+                                      Ce.Codigo_Plaga
+                                   AND p.Codigo_Clase = Ce.Codigo_Clase
+                             LEFT JOIN (SELECT Codigo_Requ_Tran_Producto,
+                                               Secuencial,
+                                               Fecha,
+                                               Motivo,
+                                               Documento_Id,
+                                               Estado
+                                          FROM Requ_Sani_Transito_Suspension
+                                         WHERE Estado ='ACTIVO') v
+                                ON v.Codigo_Requ_Tran_Producto =
+                                      r.Codigo_Requ_Tran_Producto
+                       WHERE r.Codigo_Requ_Tran_Producto in (SELECT r.Codigo_Requ_Tran_Producto
+                      FROM Requ_Sani_Transito_Producto r
+                           LEFT JOIN Producto p
+                              ON r.Codigo_Producto = p.Codigo_Producto
+                           LEFT JOIN Sigsve.Catalogo_Especie_Comun Ec
+                              ON p.Codigo_Especie = Ec.Codigo_Especie
+                                 AND p.Codigo_Especie_Comun = Ec.Codi_Secu_Com
+                           LEFT JOIN (SELECT Codigo_Requ_Tran_Producto,
+                                             Secuencial,
+                                             Fecha,
+                                             Motivo,
+                                             Documento_Id,
+                                             Estado
+                                        FROM Requ_Sani_Transito_Suspension
+                                       WHERE Estado = 'ACTIVO')
+                                     v
+                              ON v.Codigo_Requ_Tran_Producto =
+                                    r.Codigo_Requ_Tran_Producto
+                     WHERE r.Secuencial = 1
+                           AND r.Codigo_Producto = $P{CodProducto}
+                           AND r.Codi_Pais_Tpa_Procedencia =				$P{CodPaisProcedencia}
+                          AND ( $P{CodPaisOrigen} IN
+                                        (SELECT CODI_PAIS_TPA_ORIGEN
+                                           FROM Requ_Sani_Transito_Pais_origen
+                                          WHERE CODIGO_REQU_TRAN_PRODUCTO =
+                        R.CODIGO_REQU_TRAN_PRODUCTO))
+                           AND r.Codi_Pais_Tpa_Destino = '4028' )  ) TBL
+            ORDER BY TBL.Etiqueta ASC]]>
+	</queryString>
+	<field name="CODIGO_REQU_TRAN_PRODUCTO" class="java.lang.String"/>
+	<field name="SECUENCIAL" class="java.math.BigDecimal"/>
+	<field name="CODI_PAIS_TPA_PROCEDENCIA" class="java.lang.String"/>
+	<field name="PAIS_PROCEDENCIA" class="java.lang.String"/>
+	<field name="CODI_PAIS_TPA_DESTINO" class="java.lang.String"/>
+	<field name="PAIS_DESTINO" class="java.lang.String"/>
+	<field name="CODI_PAIS_TPA_ORIGEN" class="java.lang.String"/>
+	<field name="PAIS_ORIGEN" class="java.lang.String"/>
+	<field name="CODIGO_PRODUCTO" class="java.lang.String"/>
+	<field name="NOMBRE_PRODUCTO" class="java.lang.String"/>
+	<field name="NOMBRE_PRODUCTO_HIJO" class="java.lang.String"/>
+	<field name="CODIGO_ESPECIE_ENFERMEDAD" class="java.lang.String"/>
+	<field name="CODIGO_TRATAMIENTO" class="java.lang.String"/>
+	<field name="CODIGO_REQUISITO_SANITARIO" class="java.lang.String"/>
+	<field name="CODIGO_APLICACION" class="java.lang.String"/>
+	<field name="APLICACION" class="java.lang.String"/>
+	<field name="ETIQUETA" class="java.lang.String"/>
+	<field name="SANGRIA" class="java.math.BigDecimal"/>
+	<field name="INDICADOR_AUTORIZACION" class="java.lang.String"/>
+	<field name="INDICADOR_IMPRESION" class="java.lang.String"/>
+	<field name="DOCUMENTO_ADJUNTO_ID" class="java.lang.String"/>
+	<field name="CODIGO_PUESTO_CONTROL_INGRESO" class="java.lang.String"/>
+	<field name="PUESTO_CONTROL_INGRESO" class="java.lang.String"/>
+	<field name="CODIGO_PUESTO_CONTROL_SALIDA" class="java.lang.String"/>
+	<field name="PUESTO_CONTROL_SALIDA" class="java.lang.String"/>
+	<field name="TIPO_REQU_TRA_PLA" class="java.math.BigDecimal"/>
+	<field name="CODIGO_REQU_TRA_PLA" class="java.lang.String"/>
+	<field name="DESCRIPCION_REQU_TRA_PLA" class="java.lang.String"/>
+	<field name="ESTADO" class="java.lang.String"/>
+	<field name="FECH_MODI" class="java.sql.Timestamp"/>
+	<field name="SECUENCIAL_SUSPENSION" class="java.math.BigDecimal"/>
+	<field name="FECHA_SUSPENSION" class="java.sql.Timestamp"/>
+	<field name="MOTIVO_SUSPENSION" class="java.lang.String"/>
+	<field name="DOCUMENTO_ID_SUSPENSION" class="java.lang.String"/>
+	<field name="ORDEN" class="java.math.BigDecimal"/>
+	<field name="REQUISITO_TIPO" class="java.lang.String"/>
+	<field name="MOTIVO" class="java.lang.String"/>
+	<field name="FECHA" class="java.lang.String"/>
+	<field name="DOCUMENTO_ID" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="fad436b2-6539-4a90-b8cf-bda19568b598" x="0" y="0" width="532" height="20"/>
+				<box leftPadding="6" rightPadding="3">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[7. REQUISITOS FITOSANITARIOS]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="a75f0bbb-5dc2-4856-b2a6-a11615927d3f" stretchType="RelativeToTallestObject" x="0" y="0" width="40" height="15"/>
+				<box leftPadding="6" rightPadding="3">
+					<leftPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{ETIQUETA}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="c8a6f67c-ea36-4d8d-8550-1335f6db9363" stretchType="RelativeToTallestObject" x="40" y="0" width="492" height="15"/>
+				<box leftPadding="6" rightPadding="3">
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{DESCRIPCION_REQU_TRA_PLA}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="1" splitType="Stretch">
+			<line>
+				<reportElement uuid="57d7910c-a585-4f13-bf0c-1321aab5f35c" positionType="Float" x="0" y="0" width="532" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+		</band>
+	</summary>
+</jasperReport>

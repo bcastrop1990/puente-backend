@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PLANTILLA_DORI-PIA1" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f8e97392-2a95-40cc-841c-30d14891e36d">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="357"/>
+	<style name="marco">
+		<box topPadding="5" leftPadding="5" bottomPadding="5" rightPadding="5">
+			<topPen lineWidth="0.5"/>
+			<leftPen lineWidth="0.5"/>
+			<bottomPen lineWidth="0.5"/>
+			<rightPen lineWidth="0.5"/>
+		</box>
+	</style>
+	<parameter name="NEXPEDIENTE" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ORACLE_REF_CURSOR" class="java.sql.ResultSet" isForPrompting="false"/>
+	<parameter name="FIRMA" class="java.io.InputStream" isForPrompting="false"/>
+	<parameter name="PERIODOCPE" class="java.lang.String"/>
+	<parameter name="SUBTITULO" class="java.lang.String"/>
+	<queryString language="plsql">
+		<![CDATA[{call Pckg_General.SP_GET_REPORTE_PFI($P{NEXPEDIENTE}, $P{ORACLE_REF_CURSOR})}]]>
+	</queryString>
+	<field name="f_numero_permiso" class="java.lang.String"/>
+	<field name="f_fecha_emision" class="java.lang.String"/>
+	<field name="f_fecha_vigencia" class="java.lang.String"/>
+	<field name="f_fecha_ampliacion" class="java.lang.String"/>
+	<variable name="NPERMISO" class="java.lang.String"/>
+	<title>
+		<band height="152" splitType="Stretch">
+			<image>
+				<reportElement uuid="5c06c970-f949-4f33-a967-acf1042db221" x="20" y="0" width="120" height="40"/>
+				<imageExpression><![CDATA[$P{SUBREPORT_DIR} + "logo.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="81a6256e-5b06-4d6f-8deb-0aceb72ed544" x="301" y="132" width="79" height="18"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ampliado hasta:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="44e16b3c-35c9-4adf-b54b-89cce4b52702" x="301" y="114" width="109" height="17"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Término de Vigencia:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ceb5c857-267a-431f-82bb-def4273337bb" x="4" y="114" width="83" height="17"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[N° Expediente:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a3703e75-c586-43ac-a77d-d800b29512f4" x="4" y="132" width="135" height="18"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Lugar y Fecha de Emisión:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0f152b85-b4f5-4ede-b674-db0d3cdc4af7" x="0" y="60" width="557" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PERMISO FITOSANITARIO DE IMPORTACIÓN]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="2a5ba6ed-e763-48fd-9bd4-347c4bb737b2" x="87" y="114" width="134" height="17"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{NEXPEDIENTE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="0c506d0e-a33d-4bf5-8c6c-3a31f655e7f3" x="139" y="132" width="150" height="18"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Lima, " + $F{f_fecha_emision}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="0483bd82-b341-4162-aad1-60ab52d2f786" x="411" y="114" width="112" height="17"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{f_fecha_vigencia}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="9be36e48-bbbb-40c6-a006-f35e12433fe8" x="381" y="132" width="142" height="18"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{f_fecha_ampliacion}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="d7096341-d387-4d1b-9c83-7d150ee4ceb8" x="439" y="12" width="100" height="20" forecolor="#999999"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[AMPLIADO]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="745b200e-0389-48ef-86cd-5cf066417734" x="0" y="80" width="553" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["N° de PFI: " + $P{SUBTITULO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="0f152b85-b4f5-4ede-b674-db0d3cdc4af7" x="140" y="8" width="293" height="36"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ESTE DOCUMENTO NO AUTORIZA EL INTERNAMIENTO DE LA MERCANCÍA AL PAÍS]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="136">
+			<subreport>
+				<reportElement uuid="ebc58d91-2d0a-4355-8437-94df99964cb7" x="2" y="0" width="552" height="22"/>
+				<subreportParameter name="NEXPEDIENTE">
+					<subreportParameterExpression><![CDATA[$P{NEXPEDIENTE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="ORACLE_REF_CURSOR"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<returnValue subreportVariable="NPERMISO" toVariable="NPERMISO"/>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "datos_permiso.jasper"]]></subreportExpression>
+			</subreport>
+			<break>
+				<reportElement uuid="86425913-1cdb-432a-9c40-d2181f028f68" positionType="Float" x="0" y="133" width="555" height="1"/>
+			</break>
+			<image>
+				<reportElement uuid="4d9aa715-48f9-4934-9f68-37f9192edece" positionType="Float" x="375" y="32" width="180" height="90"/>
+				<imageExpression><![CDATA[$P{FIRMA}]]></imageExpression>
+			</image>
+		</band>
+		<band height="469">
+			<staticText>
+				<reportElement uuid="0e16424f-5790-4fce-affb-cf7e7f414e79" x="4" y="55" width="83" height="17"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[N° Expediente:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d76ade86-26b8-40b9-a72b-990057323e12" x="3" y="72" width="84" height="16"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[N° de PFI:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="7c6df708-8bea-4d4e-8983-b15407d7e32a" x="0" y="93" width="555" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PROCEDIMIENTO POSENTRADA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e88c3382-4a95-4556-ac38-1d6f47040db5" x="3" y="113" width="532" height="18"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[La Cuarentena Posentrada de:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="54da3e3e-17be-4b4d-8883-47ea5fa63e64" x="0" y="199" width="551" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Se efectuará bajo el siguiente procedimiento:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b4ce5305-7c98-4b2e-9340-2aeaea2c259c" x="1" y="219" width="552" height="154"/>
+				<textElement textAlignment="Justified">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[1. El importador efectuará el pago correspondiente por  las inspecciones obligatorias previo a la instalación del material en el lugar de producción de CPE.
+2. El Representante legal de la empresa y el profesional responsable, se comprometen a dar las facilidades y el apoyo necesario a los inspectores del SENASA a fin de dar estricto cumplimento a los procedimiento de posentrada establecidos.
+3. Luego de contar con el dictamen favorable de la inspección fitosanitaria en PCC de ingreso, este comunicará a la  dirección del SENASA en donde se realizará la posentrada, a fin de verificar, constatar y autorizar la instalación del material, levantando el Acta de Instalación correspondiente.
+4. El profesional responsable de la conducción del lugar de producción coordinará con la Dirección del SENASA para efectuar las inspecciones y seguimiento de la cuarentena.
+5. El Inspector durante la CPE realizará la inspección fitosanitaria del material Vegetativo, podrá tomar las muestras en casos necesarios y procederá a remitirlas al Laboratorio  de  Sanidad Vegetal  del SENASA para su diagnostico, cuyo costo será asumido por el importador.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="3b367b55-bca3-47d3-a98c-d22a0fa08fcd" x="2" y="399" width="549" height="66"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[7. El usuario deberá mantener las condiciones de aprobación del lugar de producción, durante todo el período que demande la CPE.
+8. La detección de algún problema fitosanitario durante el período de cuarentena, dará lugar a que el inspector determine las medidas fitosanitarias de acuerdo a la legislación vigente en resguardo a la sanidad agraria. Estas medidas pueden ser destrucción, tratamiento y otras que determine el SENASA.
+]]></text>
+			</staticText>
+			<subreport>
+				<reportElement uuid="9e4dadf5-8376-4564-ad89-7ae451dfd677" x="2" y="131" width="553" height="60"/>
+				<subreportParameter name="P_FLAG">
+					<subreportParameterExpression><![CDATA['PA']]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="P_NUMERO_PERMISO">
+					<subreportParameterExpression><![CDATA[$F{f_numero_permiso}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "detalle_permiso.jasper"]]></subreportExpression>
+			</subreport>
+			<textField>
+				<reportElement uuid="a77bec0e-606f-420f-8369-abfac2a165bd" x="87" y="55" width="167" height="17"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{NEXPEDIENTE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="3a91d891-a378-4dda-b05f-af4ebcaa3811" x="2" y="373" width="550" height="27"/>
+				<textElement verticalAlignment="Top" markup="html">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["6. El período a que se sujetará la cuarentena posentrada será <b> " + $P{PERIODOCPE} + " </b>meses  contando a partir de la fecha de la instalación del material. El SENASA podrá prolongar dicho período por  motivos estrictamente fitosanitarios."]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement uuid="5c06c970-f949-4f33-a967-acf1042db221" x="19" y="0" width="120" height="40"/>
+				<imageExpression><![CDATA[$P{SUBREPORT_DIR} + "logo.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="d7096341-d387-4d1b-9c83-7d150ee4ceb8" x="358" y="0" width="97" height="20" forecolor="#999999"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[AMPLIADO]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="bdf01c43-4aea-4238-b144-23783b096392" x="87" y="72" width="448" height="16"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{SUBTITULO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="102">
+			<staticText>
+				<reportElement uuid="cc638229-60b7-456d-b2b0-021ef0da5124" style="marco" x="0" y="10" width="555" height="71"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="6"/>
+				</textElement>
+				<text><![CDATA[- Válido por 90 días calendario a partir de la fecha de su emisión y para un solo Embarque.
+- Cualquier enmendadura o añadidura invalida este documento.
+- EL SENASA podrá anular la validez del permiso Fitosanitario de Importación de detectarse plagas cuarentenarias en el país Exportador, en los embarques efectuados o cuando se establezcan nuevos requisitos fitosanitarios.
+- Todo envío que esté contenido en embalajes de madera, deberán cumplir con las disposiciones establecidas en la R.D N° 105-2005-AG-SENASA-DGSV
+- Ante la presencia de cualquier plaga determinada como cuarentenaria por el SENASA, los envíos se sujetaran a las disposiciones establecidas por la institución.
+- Las mercancías autorizadas en el presente documento, que sean transportadas como envíos de entrega rápida, serán aceptados para inspección cuando se presente la DSEER con subpartida arancelaria 9809.00.00.20 y 9809.00.00.30, según corresponda.]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="a79366c4-dd15-4469-bf68-473794b9b60e" x="360" y="81" width="175" height="20"/>
+				<textElement textAlignment="Right">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="7c4acf0e-c976-436c-8885-db2a577b69fb" x="535" y="81" width="17" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<lastPageFooter>
+		<band height="102">
+			<textField>
+				<reportElement uuid="a79366c4-dd15-4469-bf68-473794b9b60e" x="360" y="81" width="175" height="20"/>
+				<textElement textAlignment="Right">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="cc638229-60b7-456d-b2b0-021ef0da5124" style="marco" x="80" y="10" width="475" height="71"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="6"/>
+				</textElement>
+				<text><![CDATA[- Válido por 90 días calendario a partir de la fecha de su emisión y para un solo Embarque.
+- Cualquier enmendadura o añadidura invalida este documento.
+- EL SENASA podrá anular la validez del permiso Fitosanitario de Importación de detectarse plagas cuarentenarias en el país Exportador, en los embarques efectuados o cuando se establezcan nuevos requisitos fitosanitarios.
+- Todo envío que esté contenido en embalajes de madera, deberán cumplir con las disposiciones establecidas en la R.D N° 105-2005-AG-SENASA-DGSV
+- Ante la presencia de cualquier plaga determinada como cuarentenaria por el SENASA, los envíos se sujetaran a las disposiciones establecidas por la institución.
+- Las mercancías autorizadas en el presente documento, que sean transportadas como envíos de entrega rápida, serán aceptados para inspección cuando se presente la DSEER con subpartida arancelaria 9809.00.00.20 y 9809.00.00.30, según corresponda.]]></text>
+			</staticText>
+			<textField evaluationTime="Report">
+				<reportElement uuid="7c4acf0e-c976-436c-8885-db2a577b69fb" x="535" y="81" width="17" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</lastPageFooter>
+</jasperReport>

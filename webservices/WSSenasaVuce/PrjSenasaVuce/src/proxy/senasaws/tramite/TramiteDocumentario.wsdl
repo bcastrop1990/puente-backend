@@ -1,0 +1,474 @@
+<definitions name="TramiteDocumentario"
+             targetNamespace="http://tramitedocumentario.ws.senasa.gob.pe"
+             xmlns="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:tns="http://tramitedocumentario.ws.senasa.gob.pe"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <types>
+        <xsd:schema>
+            <xsd:import namespace="http://tramitedocumentario.ws.senasa.gob.pe"
+                        schemaLocation="TramiteDocumentarioPort_xsd_1.xsd"/>
+        </xsd:schema>
+    </types>
+    <message name="generarDocumentoTramite">
+        <part name="parameters" element="tns:generarDocumentoTramite"/>
+    </message>
+    <message name="generarDocumentoTramiteResponse">
+        <part name="parameters" element="tns:generarDocumentoTramiteResponse"/>
+    </message>
+    <message name="previsualizarIngresoDocTramite">
+        <part name="parameters" element="tns:previsualizarIngresoDocTramite"/>
+    </message>
+    <message name="previsualizarIngresoDocTramiteResponse">
+        <part name="parameters"
+              element="tns:previsualizarIngresoDocTramiteResponse"/>
+    </message>
+    <message name="eliminarNumeracioDocumento">
+        <part name="parameters" element="tns:eliminarNumeracioDocumento"/>
+    </message>
+    <message name="eliminarNumeracioDocumentoResponse">
+        <part name="parameters"
+              element="tns:eliminarNumeracioDocumentoResponse"/>
+    </message>
+    <message name="registrarDocumento">
+        <part name="parameters" element="tns:registrarDocumento"/>
+    </message>
+    <message name="registrarDocumentoResponse">
+        <part name="parameters" element="tns:registrarDocumentoResponse"/>
+    </message>
+    <message name="actualizarDocumento">
+        <part name="parameters" element="tns:actualizarDocumento"/>
+    </message>
+    <message name="actualizarDocumentoResponse">
+        <part name="parameters" element="tns:actualizarDocumentoResponse"/>
+    </message>
+    <message name="actualizarArchivo">
+        <part name="parameters" element="tns:actualizarArchivo"/>
+    </message>
+    <message name="actualizarArchivoResponse">
+        <part name="parameters" element="tns:actualizarArchivoResponse"/>
+    </message>
+    <message name="eliminarDocumentoAdjunto">
+        <part name="parameters" element="tns:eliminarDocumentoAdjunto"/>
+    </message>
+    <message name="eliminarDocumentoAdjuntoResponse">
+        <part name="parameters" element="tns:eliminarDocumentoAdjuntoResponse"/>
+    </message>
+    <message name="obtenerAdjuntos">
+        <part name="parameters" element="tns:obtenerAdjuntos"/>
+    </message>
+    <message name="obtenerAdjuntosResponse">
+        <part name="parameters" element="tns:obtenerAdjuntosResponse"/>
+    </message>
+    <message name="verificaParticipacion">
+        <part name="parameters" element="tns:verificaParticipacion"/>
+    </message>
+    <message name="verificaParticipacionResponse">
+        <part name="parameters" element="tns:verificaParticipacionResponse"/>
+    </message>
+    <message name="consultaSTDGeneral">
+        <part name="parameters" element="tns:consultaSTDGeneral"/>
+    </message>
+    <message name="consultaSTDGeneralResponse">
+        <part name="parameters" element="tns:consultaSTDGeneralResponse"/>
+    </message>
+    <message name="consultaSTDGeneralExterno">
+        <part name="parameters" element="tns:consultaSTDGeneralExterno"/>
+    </message>
+    <message name="consultaSTDGeneralExternoResponse">
+        <part name="parameters"
+              element="tns:consultaSTDGeneralExternoResponse"/>
+    </message>
+    <message name="consultaSTDDocumentos">
+        <part name="parameters" element="tns:consultaSTDDocumentos"/>
+    </message>
+    <message name="consultaSTDDocumentosResponse">
+        <part name="parameters" element="tns:consultaSTDDocumentosResponse"/>
+    </message>
+    <message name="consultaSTDxIdFinal">
+        <part name="parameters" element="tns:consultaSTDxIdFinal"/>
+    </message>
+    <message name="consultaSTDxIdFinalResponse">
+        <part name="parameters" element="tns:consultaSTDxIdFinalResponse"/>
+    </message>
+    <message name="obtenerEncargatura">
+        <part name="parameters" element="tns:obtenerEncargatura"/>
+    </message>
+    <message name="obtenerEncargaturaResponse">
+        <part name="parameters" element="tns:obtenerEncargaturaResponse"/>
+    </message>
+    <message name="obtenerEncargado">
+        <part name="parameters" element="tns:obtenerEncargado"/>
+    </message>
+    <message name="obtenerEncargadoResponse">
+        <part name="parameters" element="tns:obtenerEncargadoResponse"/>
+    </message>
+    <message name="eliminarDocumentoSTD">
+        <part name="parameters" element="tns:eliminarDocumentoSTD"/>
+    </message>
+    <message name="eliminarDocumentoSTDResponse">
+        <part name="parameters" element="tns:eliminarDocumentoSTDResponse"/>
+    </message>
+    <message name="obtenerBandejaElectronica">
+        <part name="parameters" element="tns:obtenerBandejaElectronica"/>
+    </message>
+    <message name="obtenerBandejaElectronicaResponse">
+        <part name="parameters"
+              element="tns:obtenerBandejaElectronicaResponse"/>
+    </message>
+    <message name="procesarDocumentoElectronico">
+        <part name="parameters" element="tns:procesarDocumentoElectronico"/>
+    </message>
+    <message name="procesarDocumentoElectronicoResponse">
+        <part name="parameters"
+              element="tns:procesarDocumentoElectronicoResponse"/>
+    </message>
+    <message name="obtenerExpedienteStd">
+        <part name="parameters" element="tns:obtenerExpedienteStd"/>
+    </message>
+    <message name="obtenerExpedienteStdResponse">
+        <part name="parameters" element="tns:obtenerExpedienteStdResponse"/>
+    </message>
+    <message name="obtenerDocumentoStd">
+        <part name="parameters" element="tns:obtenerDocumentoStd"/>
+    </message>
+    <message name="obtenerDocumentoStdResponse">
+        <part name="parameters" element="tns:obtenerDocumentoStdResponse"/>
+    </message>
+    <message name="obtenerTiposDocMesaPartes">
+        <part name="parameters" element="tns:obtenerTiposDocMesaPartes"/>
+    </message>
+    <message name="obtenerTiposDocMesaPartesResponse">
+        <part name="parameters"
+              element="tns:obtenerTiposDocMesaPartesResponse"/>
+    </message>
+    <message name="registrarExpediente">
+        <part name="parameters" element="tns:registrarExpediente"/>
+    </message>
+    <message name="registrarExpedienteResponse">
+        <part name="parameters" element="tns:registrarExpedienteResponse"/>
+    </message>
+    <message name="anexarDocumentoExpediente">
+        <part name="parameters" element="tns:anexarDocumentoExpediente"/>
+    </message>
+    <message name="anexarDocumentoExpedienteResponse">
+        <part name="parameters"
+              element="tns:anexarDocumentoExpedienteResponse"/>
+    </message>
+    <portType name="TramiteDocumentario">
+        <operation name="generarDocumentoTramite">
+            <input message="tns:generarDocumentoTramite"/>
+            <output message="tns:generarDocumentoTramiteResponse"/>
+        </operation>
+        <operation name="previsualizarIngresoDocTramite">
+            <input message="tns:previsualizarIngresoDocTramite"/>
+            <output message="tns:previsualizarIngresoDocTramiteResponse"/>
+        </operation>
+        <operation name="eliminarNumeracioDocumento">
+            <input message="tns:eliminarNumeracioDocumento"/>
+            <output message="tns:eliminarNumeracioDocumentoResponse"/>
+        </operation>
+        <operation name="registrarDocumento">
+            <input message="tns:registrarDocumento"/>
+            <output message="tns:registrarDocumentoResponse"/>
+        </operation>
+        <operation name="actualizarDocumento">
+            <input message="tns:actualizarDocumento"/>
+            <output message="tns:actualizarDocumentoResponse"/>
+        </operation>
+        <operation name="actualizarArchivo">
+            <input message="tns:actualizarArchivo"/>
+            <output message="tns:actualizarArchivoResponse"/>
+        </operation>
+        <operation name="eliminarDocumentoAdjunto">
+            <input message="tns:eliminarDocumentoAdjunto"/>
+            <output message="tns:eliminarDocumentoAdjuntoResponse"/>
+        </operation>
+        <operation name="obtenerAdjuntos">
+            <input message="tns:obtenerAdjuntos"/>
+            <output message="tns:obtenerAdjuntosResponse"/>
+        </operation>
+        <operation name="verificaParticipacion">
+            <input message="tns:verificaParticipacion"/>
+            <output message="tns:verificaParticipacionResponse"/>
+        </operation>
+        <operation name="consultaSTDGeneral">
+            <input message="tns:consultaSTDGeneral"/>
+            <output message="tns:consultaSTDGeneralResponse"/>
+        </operation>
+        <operation name="consultaSTDGeneralExterno">
+            <input message="tns:consultaSTDGeneralExterno"/>
+            <output message="tns:consultaSTDGeneralExternoResponse"/>
+        </operation>
+        <operation name="consultaSTDDocumentos">
+            <input message="tns:consultaSTDDocumentos"/>
+            <output message="tns:consultaSTDDocumentosResponse"/>
+        </operation>
+        <operation name="consultaSTDxIdFinal">
+            <input message="tns:consultaSTDxIdFinal"/>
+            <output message="tns:consultaSTDxIdFinalResponse"/>
+        </operation>
+        <operation name="obtenerEncargatura">
+            <input message="tns:obtenerEncargatura"/>
+            <output message="tns:obtenerEncargaturaResponse"/>
+        </operation>
+        <operation name="obtenerEncargado">
+            <input message="tns:obtenerEncargado"/>
+            <output message="tns:obtenerEncargadoResponse"/>
+        </operation>
+        <operation name="eliminarDocumentoSTD">
+            <input message="tns:eliminarDocumentoSTD"/>
+            <output message="tns:eliminarDocumentoSTDResponse"/>
+        </operation>
+        <operation name="obtenerBandejaElectronica">
+            <input message="tns:obtenerBandejaElectronica"/>
+            <output message="tns:obtenerBandejaElectronicaResponse"/>
+        </operation>
+        <operation name="procesarDocumentoElectronico">
+            <input message="tns:procesarDocumentoElectronico"/>
+            <output message="tns:procesarDocumentoElectronicoResponse"/>
+        </operation>
+        <operation name="obtenerExpedienteStd">
+            <input message="tns:obtenerExpedienteStd"/>
+            <output message="tns:obtenerExpedienteStdResponse"/>
+        </operation>
+        <operation name="obtenerDocumentoStd">
+            <input message="tns:obtenerDocumentoStd"/>
+            <output message="tns:obtenerDocumentoStdResponse"/>
+        </operation>
+        <operation name="obtenerTiposDocMesaPartes">
+            <input message="tns:obtenerTiposDocMesaPartes"/>
+            <output message="tns:obtenerTiposDocMesaPartesResponse"/>
+        </operation>
+        <operation name="registrarExpediente">
+            <input message="tns:registrarExpediente"/>
+            <output message="tns:registrarExpedienteResponse"/>
+        </operation>
+        <operation name="anexarDocumentoExpediente">
+            <input message="tns:anexarDocumentoExpediente"/>
+            <output message="tns:anexarDocumentoExpedienteResponse"/>
+        </operation>
+    </portType>
+    <binding name="TramiteDocumentarioPortBinding"
+             type="tns:TramiteDocumentario">
+        <soap:binding style="document"
+                      transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="generarDocumentoTramite">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="previsualizarIngresoDocTramite">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="eliminarNumeracioDocumento">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="registrarDocumento">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="actualizarDocumento">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="actualizarArchivo">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="eliminarDocumentoAdjunto">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="obtenerAdjuntos">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="verificaParticipacion">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="consultaSTDGeneral">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="consultaSTDGeneralExterno">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="consultaSTDDocumentos">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="consultaSTDxIdFinal">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="obtenerEncargatura">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="obtenerEncargado">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="eliminarDocumentoSTD">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="obtenerBandejaElectronica">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="procesarDocumentoElectronico">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="obtenerExpedienteStd">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="obtenerDocumentoStd">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="obtenerTiposDocMesaPartes">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="registrarExpediente">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="anexarDocumentoExpediente">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="TramiteDocumentario">
+        <port name="TramiteDocumentarioPort"
+              binding="tns:TramiteDocumentarioPortBinding">
+            <soap:address location="http://bpmqa.senasa.gob.pe:7003/senasaws/TramiteDocumentarioPort"/>
+        </port>
+    </service>
+</definitions>
+
+
+
+

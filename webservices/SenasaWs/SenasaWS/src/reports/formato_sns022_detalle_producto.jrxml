@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="formato_sns022_detalle_producto" pageWidth="555" pageHeight="802" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="89965372-83cc-42e0-9f34-1cf0c59fc170">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<template><![CDATA[$P{SUBREPORT_DIR}+"estilosInforme.jrtx"]]></template>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ORDENVUCE" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select (select nombre_comercial_producto
+          from finalbpm.producto
+         where codigo_producto = tbl_id_prod.valor)
+          producto_vuce,
+       tbl_cantidad_envase.valor cantidad_envase,
+       (select descripcion_tipo_envase
+          from finalbpm.tipo_envase
+         where codigo_tipo_envase = tbl_cod_envase_prod.valor)
+          envase,
+       tbl_peso.valor peso_neto,
+       (select desc_unid_med
+          from siga.unidad_medida
+         where codi_unid_med = tbl_unidad_medida.valor)
+          unidad_de_medida
+  from (select cxv.indice, cxv.valor
+          from vuce.valor_campo_ebxml cxv, vuce.campo_ebxml cx, vuce.ebxml eb
+         where     cxv.id_campo_ebxml = cx.id
+               and cx.id_ebxml = eb.id
+               and cxv.id_transaccion = (select id_transaccion
+                                           from vuce.documento
+                                          where doc_numero = $P{ORDENVUCE})
+               and cx.alias = 'ID_PROD'
+               and eb.cod_formato = 'SNS022') tbl_id_prod,
+       (select cxv.indice, cxv.valor
+          from vuce.valor_campo_ebxml cxv, vuce.campo_ebxml cx, vuce.ebxml eb
+         where     cxv.id_campo_ebxml = cx.id
+               and cx.id_ebxml = eb.id
+               and cxv.id_transaccion = (select id_transaccion
+                                           from vuce.documento
+                                          where doc_numero = $P{ORDENVUCE})
+               and cx.alias = 'CANT_ENVASE_PROD'
+               and eb.cod_formato = 'SNS022') tbl_cantidad_envase,
+       (select cxv.indice, cxv.valor
+          from vuce.valor_campo_ebxml cxv, vuce.campo_ebxml cx, vuce.ebxml eb
+         where     cxv.id_campo_ebxml = cx.id
+               and cx.id_ebxml = eb.id
+               and cxv.id_transaccion = (select id_transaccion
+                                           from vuce.documento
+                                          where doc_numero = $P{ORDENVUCE})
+               and cx.alias = 'COD_ENVASE_PROD'
+               and eb.cod_formato = 'SNS022') tbl_cod_envase_prod,
+       (select cxv.indice, cxv.valor
+          from vuce.valor_campo_ebxml cxv, vuce.campo_ebxml cx, vuce.ebxml eb
+         where     cxv.id_campo_ebxml = cx.id
+               and cx.id_ebxml = eb.id
+               and cxv.id_transaccion = (select id_transaccion
+                                           from vuce.documento
+                                          where doc_numero = $P{ORDENVUCE})
+               and cx.alias = 'PESO_NETO'
+               and eb.cod_formato = 'SNS022') tbl_peso,
+       (select cxv.indice, cxv.valor
+          from vuce.valor_campo_ebxml cxv, vuce.campo_ebxml cx, vuce.ebxml eb
+         where     cxv.id_campo_ebxml = cx.id
+               and cx.id_ebxml = eb.id
+               and cxv.id_transaccion = (select id_transaccion
+                                           from vuce.documento
+                                          where doc_numero = $P{ORDENVUCE})
+               and cx.alias = 'UNIDAD_MEDIDA_PESO'
+               and eb.cod_formato = 'SNS022') tbl_unidad_medida
+ where     tbl_id_prod.indice = tbl_cantidad_envase.indice
+       and tbl_id_prod.indice = tbl_cod_envase_prod.indice
+       and tbl_id_prod.indice = tbl_peso.indice
+       and tbl_id_prod.indice = tbl_unidad_medida.indice
+       and tbl_cantidad_envase.indice = tbl_cod_envase_prod.indice
+       and tbl_cantidad_envase.indice = tbl_peso.indice
+       and tbl_cantidad_envase.indice = tbl_unidad_medida.indice
+       and tbl_cod_envase_prod.indice = tbl_peso.indice
+       and tbl_cod_envase_prod.indice = tbl_unidad_medida.indice
+       and tbl_peso.indice = tbl_unidad_medida.indice
+ORDER BY 1 ASC]]>
+	</queryString>
+	<field name="PRODUCTO_VUCE" class="java.lang.String"/>
+	<field name="CANTIDAD_ENVASE" class="java.lang.String"/>
+	<field name="ENVASE" class="java.lang.String"/>
+	<field name="PESO_NETO" class="java.lang.String"/>
+	<field name="UNIDAD_DE_MEDIDA" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="37b97c8c-6a84-4568-a404-b04c1bfec274" style="cajaLista" positionType="Float" x="0" y="0" width="188" height="20"/>
+				<textElement/>
+				<text><![CDATA[PRODUCTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="547ddb89-bb89-4211-b439-9b890164970b" style="cajaLista" positionType="Float" x="188" y="0" width="85" height="20"/>
+				<textElement/>
+				<text><![CDATA[CANTIDAD ENVASE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0dce5e86-63d2-488e-99bc-f249804a573a" style="cajaLista" positionType="Float" x="273" y="0" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[TIPO ENVASE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="bd457516-8405-4fec-af6e-1596397f100c" style="cajaLista" positionType="Float" mode="Opaque" x="373" y="0" width="82" height="20"/>
+				<textElement/>
+				<text><![CDATA[PESO NETO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f5812cea-adb5-49a5-aca3-c1e71166c04c" style="cajaLista" positionType="Float" x="455" y="0" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[UNIDAD MEDIDA]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="264fa8a6-3561-4364-8879-674f5f23bfc7" style="detalleLista" positionType="Float" stretchType="RelativeToTallestObject" x="0" y="0" width="188" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{PRODUCTO_VUCE}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="e5ea6545-178b-474b-91f2-d4aba35fe05e" style="detalleLista" positionType="Float" stretchType="RelativeToTallestObject" x="188" y="0" width="85" height="20"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{CANTIDAD_ENVASE}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="737fb78d-4cb1-4f7f-bce2-9d420777b1f2" style="detalleLista" positionType="Float" stretchType="RelativeToTallestObject" x="273" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{ENVASE}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="ff9293c2-f12f-4c9a-8f2f-03859fd7dce0" style="detalleLista" positionType="Float" stretchType="RelativeToTallestObject" x="373" y="0" width="82" height="20"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{PESO_NETO}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="8410f1c2-208d-47f4-8b35-9f8dd9fa0455" style="detalleLista" positionType="Float" stretchType="RelativeToTallestObject" x="455" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{UNIDAD_DE_MEDIDA}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

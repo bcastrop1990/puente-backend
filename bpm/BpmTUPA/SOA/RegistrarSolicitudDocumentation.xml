@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?oracleBPM version="12.1.3" fileRevision="20120601"?>
+<processDocumentation xmlns="http://xmlns.oracle.com/bpm/taskMetadataService/processDocumentation">
+   <component name="RegistrarSolicitud">
+      <topicDocumentations>
+         <topicDocumentation name="RegistrarSolicitud">
+            <labels>
+               <label locale="en">Registrar Solicitud</label>
+            </labels>
+         </topicDocumentation>
+         <topicDocumentation name="ACT41471358865244">
+            <labels>
+               <label locale="en">Registrar Solicitud</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT41471362966216">
+            <labels>
+               <label locale="en">Registrar requisitos</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT41471568672668">
+            <labels>
+               <label locale="en">Generar Documento Resolutivo</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT4157852464747">
+            <labels>
+               <label locale="en">Registrar trazabilidad Inicio</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT41579257952440">
+            <labels>
+               <label locale="en">Proceso TUPA</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT41579307936189">
+            <labels>
+               <label locale="en">Registrar Trazabilidad Requisitos</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="EVT41471358865252">
+            <labels>
+               <label locale="en">Start</label>
+            </labels>
+         </topicDocumentation>
+         <topicDocumentation name="EVT41471358865217">
+            <labels>
+               <label locale="en">End</label>
+            </labels>
+         </topicDocumentation>
+         <topicDocumentation name="EVT41644263579587">
+            <labels>
+               <label locale="en">End</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="EVT41646886688475">
+            <labels>
+               <label locale="en">End</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="GTW41644261813598">
+            <labels>
+               <label locale="en">Accion</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="GTW41646882665432">
+            <labels>
+               <label locale="en">Accion</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf41471358865259"/>
+         <topicDocumentation name="sf41471358865238"/>
+         <topicDocumentation name="sf41471365214788"/>
+         <topicDocumentation name="sf41471572312663"/>
+         <topicDocumentation name="sf41578531844694"/>
+         <topicDocumentation name="sf41579261212067"/>
+         <topicDocumentation name="sf41644262961014"/>
+         <topicDocumentation name="sf41644264959273">
+            <labels>
+               <label locale="en">Salir</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf41646884002798"/>
+         <topicDocumentation name="sf41646885531288"/>
+         <topicDocumentation name="sf4164688761554">
+            <labels>
+               <label locale="en">Salir</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+      </topicDocumentations>
+   </component>
+</processDocumentation>

@@ -1,0 +1,613 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<jdevws:WebServiceProxy xmlns:jdevws="http://xmlns.oracle.com/jdeveloper/10130/webserviceproxy">
+   <list n="CHILD_NODES">
+      <url path="TramiteDocumentario_Service.xml"/>
+      <url path="TramiteDocumentario.wsdl"/>
+      <url path="TramiteDocumentarioPort_xsd_1.xsd"/>
+      <url path="DocumentoElectronico.java"/>
+      <url path="Expediente.java"/>
+      <url path="Encargatura.java"/>
+      <url path="AnexoPFI.java"/>
+      <url path="ProductosCPE.java"/>
+      <url path="RegistrarExpedienteResponse.java"/>
+      <url path="AnexarDocumentoExpedienteResponse.java"/>
+      <url path="Documento.java"/>
+      <url path="TramiteDocumentarioPortClient.java"/>
+      <url path="VerificaParticipacion.java"/>
+      <url path="RequisitoDao.java"/>
+      <url path="ExportacionZooSanitaria.java"/>
+      <url path="GenerarDocumentoTramiteResponse.java"/>
+      <url path="ObtenerDocumentoStd.java"/>
+      <url path="Trazabilidad.java"/>
+      <url path="EliminarDocumentoAdjuntoResponse.java"/>
+      <url path="ActualizarDocumentoResponse.java"/>
+      <url path="AgenteAduanas.java"/>
+      <url path="RegistroCPE.java"/>
+      <url path="ObtenerBandejaElectronica.java"/>
+      <url path="EliminarDocumentoAdjunto.java"/>
+      <url path="ProductoPZI.java"/>
+      <url path="PrevisualizarIngresoDocTramiteResponse.java"/>
+      <url path="PaisOrigenProductoPFI.java"/>
+      <url path="ServicioTUPA.java"/>
+      <url path="ConsultaSTDGeneralExterno.java"/>
+      <url path="ConsultaSTDGeneralExternoResponse.java"/>
+      <url path="LugaresProduccionCPE.java"/>
+      <url path="SubTipo.java"/>
+      <url path="ConsultaSTDxIdFinal.java"/>
+      <url path="Propiedad.java"/>
+      <url path="EquipoTecnicoCPE.java"/>
+      <url path="LugarProduccionProductoPFI.java"/>
+      <url path="ProcesarDocumentoElectronico.java"/>
+      <url path="ConsultaSTDxIdFinalResponse.java"/>
+      <url path="ActualizarArchivo.java"/>
+      <url path="LugarProduccionAnexoPFI.java"/>
+      <url path="RegistrarDocumento.java"/>
+      <url path="ReciboPago.java"/>
+      <url path="PrevisualizarIngresoDocTramite.java"/>
+      <url path="TramiteDocumentario.java"/>
+      <url path="EliminarDocumentoSTDResponse.java"/>
+      <url path="TramiteDocumentario_Service.java"/>
+      <url path="Memorandum.java"/>
+      <url path="ObtenerAdjuntos.java"/>
+      <url path="ObtenerBandejaElectronicaResponse.java"/>
+      <url path="PermisoZoosanitarioImportacion.java"/>
+      <url path="ConsultaSTDGeneral.java"/>
+      <url path="ObjectFactory.java"/>
+      <url path="ObtenerTiposDocMesaPartes.java"/>
+      <url path="package-info.java"/>
+      <url path="VerificaParticipacionResponse.java"/>
+      <url path="Audit.java"/>
+      <url path="EliminarDocumentoSTD.java"/>
+      <url path="ConsultaSTDDocumentosResponse.java"/>
+      <url path="PuntoIngresoAnexoPFI.java"/>
+      <url path="ObtenerEncargadoResponse.java"/>
+      <url path="ReciboServicio.java"/>
+      <url path="PaisOrigenAnexoPFI.java"/>
+      <url path="ConsultaSTDGeneralResponse.java"/>
+      <url path="ObtenerExpedienteStdResponse.java"/>
+      <url path="Area.java"/>
+      <url path="ObtenerEncargaturaResponse.java"/>
+      <url path="ObtenerAdjuntosResponse.java"/>
+      <url path="PuntoIngresoProductoPFI.java"/>
+      <url path="PermisoFitosanitarioImportacion.java"/>
+      <url path="DocumentoSTD.java"/>
+      <url path="ConsultaSTDDocumentos.java"/>
+      <url path="ReporteSTD.java"/>
+      <url path="ObtenerEncargatura.java"/>
+      <url path="RegistrarDocumentoResponse.java"/>
+      <url path="GenerarDocumentoTramite.java"/>
+      <url path="ObtenerExpedienteStd.java"/>
+      <url path="ObtenerTiposDocMesaPartesResponse.java"/>
+      <url path="ProductoPFI.java"/>
+      <url path="ActualizarArchivoResponse.java"/>
+      <url path="EliminarNumeracioDocumentoResponse.java"/>
+      <url path="ObtenerDocumentoStdResponse.java"/>
+      <url path="Solicitante.java"/>
+      <url path="RegistrarExpediente.java"/>
+      <url path="ActualizarDocumento.java"/>
+      <url path="ObtenerEncargado.java"/>
+      <url path="AnexarDocumentoExpediente.java"/>
+      <url path="EliminarNumeracioDocumento.java"/>
+      <url path="ProcesarDocumentoElectronicoResponse.java"/>
+      <url path="AnexoPZI.java"/>
+   </list>
+   <hash n="DATA_MODEL">
+      <value n="ATTACHMENT_ENCODING" v="MTOM"/>
+      <value n="FIXED_WSDL" v="false"/>
+      <list n="LOCAL_FILES"/>
+      <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.WebServiceProxy"/>
+      <url n="ORACLE_WEBSERVICES_XML" path="TramiteDocumentario_Service.xml"/>
+      <hash n="PROPERTY_GROUPS">
+         <hash n="WSDL_TO_JAVA_PROPERTIES">
+            <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.java.WSDLToJavaProperties"/>
+            <value n="WSDL2JAVA_DEFAULT_PACKAGE" v="proxy.senasaws.tramite"/>
+            <value n="WSDL2JAVA_ROOT_VALUE_PACKAGE" v="proxy.senasaws.tramite"/>
+         </hash>
+      </hash>
+      <value n="PROXY_ASYNC_METHODS" v="FOR_ENABLED"/>
+      <list n="PROXY_CLIENTS">
+         <url path="TramiteDocumentarioPortClient.java"/>
+      </list>
+      <value n="PROXY_MAPPING_URL"/>
+      <url n="PROXY_ORIGINAL_WSDL_URL" protocol="http" host="bpmdes.senasa.gob.pe" port="7003" path="/senasaws/TramiteDocumentarioPort" query="wsdl"/>
+      <hash n="PROXY_PORTS">
+         <hash n="TramiteDocumentarioPort">
+            <value n="ACCESSES_DOC_WRAPPPED" v="true"/>
+            <value n="ACCESSES_RPC_ENCODED" v="false"/>
+            <value n="CLASS_NAME" v="proxy.senasaws.tramite.TramiteDocumentario"/>
+            <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyPort"/>
+            <value n="NAME" v="TramiteDocumentarioPort"/>
+            <hash n="OPERATIONS">
+               <hash n="actualizarArchivo">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="actualizarDocumento">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="anexarDocumentoExpediente">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="consultaSTDDocumentos">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="consultaSTDGeneral">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="consultaSTDGeneralExterno">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="consultaSTDxIdFinal">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="eliminarDocumentoAdjunto">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="eliminarDocumentoSTD">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="eliminarNumeracioDocumento">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="generarDocumentoTramite">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="obtenerAdjuntos">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="obtenerBandejaElectronica">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="obtenerDocumentoStd">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="obtenerEncargado">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="obtenerEncargatura">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="obtenerExpedienteStd">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="obtenerTiposDocMesaPartes">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="previsualizarIngresoDocTramite">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="procesarDocumentoElectronico">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="registrarDocumento">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="registrarExpediente">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="verificaParticipacion">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+            </hash>
+            <hash n="PROPERTY_GROUPS">
+               <hash n="WS_CLIENT_POLICY">
+                  <value n="addressing"/>
+                  <list n="management"/>
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.policy.PolicyClientModel"/>
+                  <value n="mtom"/>
+                  <hash n="POLICY_OVERRIDE_PROPERTIES"/>
+                  <list n="security"/>
+                  <value n="wsrm"/>
+               </hash>
+            </hash>
+            <url n="PROXY_ORIGINAL_PORT_ENDPOINT" protocol="http" host="bpm.senasa.gob.pe" port="7003" path="/senasaws/TramiteDocumentarioPort"/>
+            <url n="PROXY_PORT_ENDPOINT" protocol="http" host="bpmqa.senasa.gob.pe" port="7003" path="/senasaws/TramiteDocumentarioPort"/>
+         </hash>
+      </hash>
+      <value n="PROXY_SERVICE_NAME" v="TramiteDocumentario"/>
+      <value n="PROXY_SERVICE_NAMESPACE" v="http://tramitedocumentario.ws.senasa.gob.pe"/>
+      <url n="PROXY_TARGET_PROJECT" path="../../../../PrjSenasaVuce.jpr"/>
+      <list n="PROXY_WSDL_IMPORT_LIST">
+         <url path="TramiteDocumentarioPort_xsd_1.xsd"/>
+      </list>
+      <url n="PROXY_WSDL_URL" path="TramiteDocumentario.wsdl"/>
+      <hash n="REFERENCED_WEBSERVICE">
+         <list n="BD_">
+            <hash>
+               <value n="BOUND_PORT_TYPE" v="{http://tramitedocumentario.ws.senasa.gob.pe}TramiteDocumentario"/>
+               <value n="DEFAULT_NAME" v="false"/>
+               <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPBinding"/>
+               <value n="NAME" v="{http://tramitedocumentario.ws.senasa.gob.pe}TramiteDocumentarioPortBinding"/>
+               <list n="OP_BINDINGS">
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="proxy.senasaws.tramite.Documento.generarDocumentoTramite.byte[].java.lang.String.proxy.senasaws.tramite.Documento"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="byte[].previsualizarIngresoDocTramite.byte[].java.lang.String.proxy.senasaws.tramite.Documento"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="void.eliminarNumeracioDocumento.java.lang.String.java.lang.String.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="java.lang.String.registrarDocumento.proxy.senasaws.tramite.DocumentoSTD.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="void.actualizarDocumento.proxy.senasaws.tramite.DocumentoSTD.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="void.actualizarArchivo.proxy.senasaws.tramite.DocumentoSTD.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="void.eliminarDocumentoAdjunto.proxy.senasaws.tramite.DocumentoSTD"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="java.util.List&lt;proxy.senasaws.tramite.DocumentoSTD>.obtenerAdjuntos.proxy.senasaws.tramite.DocumentoSTD"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="int.verificaParticipacion.proxy.senasaws.tramite.DocumentoSTD"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="java.util.List&lt;proxy.senasaws.tramite.ReporteSTD>.consultaSTDGeneral.proxy.senasaws.tramite.ReporteSTD"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="java.util.List&lt;proxy.senasaws.tramite.ReporteSTD>.consultaSTDGeneralExterno.proxy.senasaws.tramite.ReporteSTD"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="java.util.List&lt;proxy.senasaws.tramite.DocumentoSTD>.consultaSTDDocumentos.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="java.util.List&lt;proxy.senasaws.tramite.ReporteSTD>.consultaSTDxIdFinal.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="java.util.List&lt;proxy.senasaws.tramite.Encargatura>.obtenerEncargatura.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="java.util.List&lt;proxy.senasaws.tramite.Encargatura>.obtenerEncargado.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="java.lang.Boolean.eliminarDocumentoSTD.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="java.util.List&lt;proxy.senasaws.tramite.DocumentoElectronico>.obtenerBandejaElectronica"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="void.procesarDocumentoElectronico.java.lang.String.java.lang.String.java.lang.String.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="proxy.senasaws.tramite.Expediente.obtenerExpedienteStd.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="proxy.senasaws.tramite.DocumentoSTD.obtenerDocumentoStd.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="java.util.List&lt;proxy.senasaws.tramite.SubTipo>.obtenerTiposDocMesaPartes"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="proxy.senasaws.tramite.Expediente.registrarExpediente.java.lang.String.java.lang.String.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="proxy.senasaws.tramite.Audit.anexarDocumentoExpediente.java.lang.String.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+               </list>
+               <hash n="PROPERTY_GROUPS"/>
+            </hash>
+         </list>
+         <list n="BINDING_FILES"/>
+         <value n="GUID" v="c9775457-0186-1000-800b-14141650ca51"/>
+         <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.WebServiceProxy$ProxyJavaWebService"/>
+         <list n="PO_">
+            <hash>
+               <value n="DEFAULT_NAME" v="false"/>
+               <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPPort"/>
+               <value n="NAME" v="TramiteDocumentarioPort"/>
+               <value n="PORT_BINDING_NAME" v="{http://tramitedocumentario.ws.senasa.gob.pe}TramiteDocumentarioPortBinding"/>
+               <list n="PORT_OPS">
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="proxy.senasaws.tramite.Documento.generarDocumentoTramite.byte[].java.lang.String.proxy.senasaws.tramite.Documento"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="byte[].previsualizarIngresoDocTramite.byte[].java.lang.String.proxy.senasaws.tramite.Documento"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="void.eliminarNumeracioDocumento.java.lang.String.java.lang.String.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="java.lang.String.registrarDocumento.proxy.senasaws.tramite.DocumentoSTD.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="void.actualizarDocumento.proxy.senasaws.tramite.DocumentoSTD.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="void.actualizarArchivo.proxy.senasaws.tramite.DocumentoSTD.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="void.eliminarDocumentoAdjunto.proxy.senasaws.tramite.DocumentoSTD"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="java.util.List&lt;proxy.senasaws.tramite.DocumentoSTD>.obtenerAdjuntos.proxy.senasaws.tramite.DocumentoSTD"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="int.verificaParticipacion.proxy.senasaws.tramite.DocumentoSTD"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="java.util.List&lt;proxy.senasaws.tramite.ReporteSTD>.consultaSTDGeneral.proxy.senasaws.tramite.ReporteSTD"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="java.util.List&lt;proxy.senasaws.tramite.ReporteSTD>.consultaSTDGeneralExterno.proxy.senasaws.tramite.ReporteSTD"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="java.util.List&lt;proxy.senasaws.tramite.DocumentoSTD>.consultaSTDDocumentos.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="java.util.List&lt;proxy.senasaws.tramite.ReporteSTD>.consultaSTDxIdFinal.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="java.util.List&lt;proxy.senasaws.tramite.Encargatura>.obtenerEncargatura.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="java.util.List&lt;proxy.senasaws.tramite.Encargatura>.obtenerEncargado.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="java.lang.Boolean.eliminarDocumentoSTD.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="java.util.List&lt;proxy.senasaws.tramite.DocumentoElectronico>.obtenerBandejaElectronica"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="void.procesarDocumentoElectronico.java.lang.String.java.lang.String.java.lang.String.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="proxy.senasaws.tramite.Expediente.obtenerExpedienteStd.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="proxy.senasaws.tramite.DocumentoSTD.obtenerDocumentoStd.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="java.util.List&lt;proxy.senasaws.tramite.SubTipo>.obtenerTiposDocMesaPartes"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="proxy.senasaws.tramite.Expediente.registrarExpediente.java.lang.String.java.lang.String.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="proxy.senasaws.tramite.Audit.anexarDocumentoExpediente.java.lang.String.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+               </list>
+               <hash n="PROPERTY_GROUPS"/>
+               <url n="URL" protocol="http" host="bpm.senasa.gob.pe" port="7003" path="/senasaws/TramiteDocumentarioPort"/>
+            </hash>
+         </list>
+         <hash n="PROPERTY_GROUPS">
+            <hash n="WSDL_TO_JAVA_PROPERTIES">
+               <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.java.WSDLToJavaProperties"/>
+               <value n="WSDL2JAVA_DEFAULT_PACKAGE" v="proxy.senasaws.tramite"/>
+               <value n="WSDL2JAVA_ROOT_VALUE_PACKAGE" v="proxy.senasaws.tramite"/>
+            </hash>
+         </hash>
+         <list n="PT_">
+            <hash>
+               <value n="AUTO_SERVICE_INTERFACE"/>
+               <value n="DEFAULT_NAME" v="false"/>
+               <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.java.JavaPortType"/>
+               <value n="NAME" v="{http://tramitedocumentario.ws.senasa.gob.pe}TramiteDocumentario"/>
+               <hash n="PROPERTY_GROUPS"/>
+               <value n="PT_CLASS" v="proxy.senasaws.tramite.TramiteDocumentarioImpl"/>
+               <value n="PT_SERVICE_INTERFACE" v="proxy.senasaws.tramite.TramiteDocumentario"/>
+            </hash>
+         </list>
+         <url n="TARGET_PROJECT" path="../../../../PrjSenasaVuce.jpr"/>
+         <value n="WS_CREATE_ONEWAY_OPERATIONS" v="true"/>
+         <value n="WS_ORIG_GEN_DIRECTION" v="TOP_DOWN"/>
+         <value n="WS_TARGET_NAMESPACE" v="http://tramitedocumentario.ws.senasa.gob.pe"/>
+         <value n="WS_URI" v="TramiteDocumentario"/>
+         <url n="WS_WSDL_FILE" path="TramiteDocumentario.wsdl"/>
+      </hash>
+      <value n="SERVICE_ASYNC" v="false"/>
+      <value n="USE_WSDL_LOCATION" v="true"/>
+   </hash>
+</jdevws:WebServiceProxy>

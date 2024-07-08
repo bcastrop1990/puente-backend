@@ -1,0 +1,194 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<xsd:schema xmlns:ns0="http://pagos.ws.senasa.gob.pe" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     targetNamespace="http://pagos.ws.senasa.gob.pe">
+    <xsd:complexType name="recibo">
+        <xsd:sequence>
+            <xsd:element name="SFechaRecibo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codigoCentroTramite" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codigoExpediente" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codigoRecibo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codigoSolicitud" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="dniRuc" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="estado" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="fechaRecibo" type="xsd:dateTime" minOccurs="0"/>
+            <xsd:element name="metadatos" type="ns0:propiedad" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+            <xsd:element name="montoPagado" type="xsd:double" minOccurs="0"/>
+            <xsd:element name="montoRecibo" type="xsd:double" minOccurs="0"/>
+            <xsd:element name="montoSaldo" type="xsd:double" minOccurs="0"/>
+            <xsd:element name="numeroRecibo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="observacion" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="personaId" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="prefijo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="reciboServicio" type="ns0:reciboServicio" minOccurs="0" maxOccurs="unbounded"
+                 nillable="true"/>
+            <xsd:element name="urlRecibo" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="servicioPago">
+        <xsd:sequence>
+            <xsd:element name="cantidadServicio" type="xsd:double" minOccurs="0"/>
+            <xsd:element name="codigoServicio" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="listaAnalisis" type="ns0:conceptoPago" minOccurs="0" maxOccurs="unbounded"
+                 nillable="true"/>
+            <xsd:element name="listaProductos" type="ns0:conceptoPago" minOccurs="0" maxOccurs="unbounded"
+                 nillable="true"/>
+            <xsd:element name="listaVacunas" type="ns0:conceptoPago" minOccurs="0" maxOccurs="unbounded"
+                 nillable="true"/>
+            <xsd:element name="montoAPagar" type="xsd:double" minOccurs="0"/>
+            <xsd:element name="nombreServicio" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="nombreTipoServicio" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="tipoServicio" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="servicioPagos">
+        <xsd:sequence>
+            <xsd:element name="listaServicioPago" type="ns0:servicioPago" minOccurs="0" maxOccurs="unbounded"
+                 nillable="true"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="actualizarRecibo">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="arg1" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="arg2" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="arg3" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="actualizarReciboResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="existeNumeroBoleta">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="existeNumeroBoletaResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:boolean" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="generarReciboPago">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="ns0:recibo" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="generarReciboPagoResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="guardarReciboPago">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="ns0:recibo" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="guardarReciboPagoResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerRecibo">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerReciboResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:recibo" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerReciboVUCE">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="arg1" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="arg2" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerReciboVUCEResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:recibo" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerTarifario">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="ns0:servicioPagos" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerTarifarioResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:servicioPago" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerTipoPagos"/>
+    <xsd:complexType name="obtenerTipoPagosResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:tipoPago" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="registrarPago">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="arg1" type="xsd:int" minOccurs="0"/>
+            <xsd:element name="arg2" type="xsd:double" minOccurs="0"/>
+            <xsd:element name="arg3" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="arg4" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="arg5" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="arg6" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="registrarPagoResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="propiedad">
+        <xsd:sequence>
+            <xsd:element name="XPropiedad" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="XValor" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="reciboServicio">
+        <xsd:sequence>
+            <xsd:element name="cantidad" type="xsd:double" minOccurs="0"/>
+            <xsd:element name="codigoRecibo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codigoServicio" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="montoServicio" type="xsd:double" minOccurs="0"/>
+            <xsd:element name="nombreServicio" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="conceptoPago">
+        <xsd:sequence>
+            <xsd:element name="cantidadPeso" type="xsd:double" minOccurs="0"/>
+            <xsd:element name="codigoConcepto" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="montoAPagar" type="xsd:double" minOccurs="0"/>
+            <xsd:element name="unidadMedida" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="tipoPago">
+        <xsd:sequence>
+            <xsd:element name="codigoTipoPago" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="descripcionTipoPago" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="actualizarRecibo" type="ns0:actualizarRecibo"/>
+    <xsd:element name="actualizarReciboResponse" type="ns0:actualizarReciboResponse"/>
+    <xsd:element name="existeNumeroBoleta" type="ns0:existeNumeroBoleta"/>
+    <xsd:element name="existeNumeroBoletaResponse" type="ns0:existeNumeroBoletaResponse"/>
+    <xsd:element name="generarReciboPago" type="ns0:generarReciboPago"/>
+    <xsd:element name="generarReciboPagoResponse" type="ns0:generarReciboPagoResponse"/>
+    <xsd:element name="guardarReciboPago" type="ns0:guardarReciboPago"/>
+    <xsd:element name="guardarReciboPagoResponse" type="ns0:guardarReciboPagoResponse"/>
+    <xsd:element name="obtenerRecibo" type="ns0:obtenerRecibo"/>
+    <xsd:element name="obtenerReciboResponse" type="ns0:obtenerReciboResponse"/>
+    <xsd:element name="obtenerReciboVUCE" type="ns0:obtenerReciboVUCE"/>
+    <xsd:element name="obtenerReciboVUCEResponse" type="ns0:obtenerReciboVUCEResponse"/>
+    <xsd:element name="obtenerTarifario" type="ns0:obtenerTarifario"/>
+    <xsd:element name="obtenerTarifarioResponse" type="ns0:obtenerTarifarioResponse"/>
+    <xsd:element name="obtenerTipoPagos" type="ns0:obtenerTipoPagos"/>
+    <xsd:element name="obtenerTipoPagosResponse" type="ns0:obtenerTipoPagosResponse"/>
+    <xsd:element name="registrarPago" type="ns0:registrarPago"/>
+    <xsd:element name="registrarPagoResponse" type="ns0:registrarPagoResponse"/>
+</xsd:schema>
+<!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is JAX-WS RI 2.3.0-wls122140-b190328.0053 svn-revision#unknown. -->

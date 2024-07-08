@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+            xmlns="http://soa.senasa.gob.pe/service/ORG/IIV/proceso_pago-v1.0"
+            targetNamespace="http://soa.senasa.gob.pe/service/ORG/PAGO/proceso_pago-v1.0" elementFormDefault="qualified">
+  <xsd:element name="pago">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="canal" type="xsd:int"/>
+        <xsd:element name="ordenVuce" type="xsd:string"/>               
+        <xsd:element name="numeroExpediente" type="xsd:string"/>
+        <xsd:element name="numeroRecibo" type="xsd:string"/>        
+        <xsd:element name="codigoServicio" type="xsd:string"/>        
+        <xsd:element name="fechaRecibo" type="xsd:string"/>        
+        <xsd:element name="codigoRecibo" type="xsd:string"/>
+        <xsd:element name="sede" type="xsd:string"/>  
+        <xsd:element name="ucmid" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

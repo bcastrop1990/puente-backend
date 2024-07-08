@@ -1,0 +1,476 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<xsd:schema xmlns:ns0="http://inspeccion.ws.senasa.gob.pe" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     targetNamespace="http://inspeccion.ws.senasa.gob.pe">
+    <xsd:complexType name="concepto">
+        <xsd:sequence>
+            <xsd:element name="cantidadCtaRetencion" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codigoCtaRetencion" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="estado" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="fechaRespuesta" type="xsd:dateTime" minOccurs="0"/>
+            <xsd:element name="idConcepto" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="idInspeccion" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="idInspeccionProducto" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="idLote" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="idProducto" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="numeroSolicitudAnalisis" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="reglon" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="respuesta" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="tipoConceptoRetencion" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="urlDocumento" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="actualizarProductoInspeccion">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="ns0:productoInspeccion" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="actualizarProductoInspeccionResponse"/>
+    <xsd:complexType name="consultarConcepto">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="consultarConceptoResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:concepto" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="consultarLote">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="consultarLoteResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:lote" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="generarInformeInspeccionPreliminar">
+        <xsd:sequence>
+            <xsd:element name="tipo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codigoExpediente" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="titulo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="ucmid" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="generarInformeInspeccionPreliminarResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="listaMotivo"/>
+    <xsd:complexType name="listaMotivoResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:actividadVigilancia" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="listaServicioAnalisisAnimal">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="listaServicioAnalisisAnimalResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:vigilanciaActivaPruebas" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="listaServicioAnalisisVegetal">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="listaServicioAnalisisVegetalResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:pruebaDiagnostica" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="listaTipoEspecieAnimal"/>
+    <xsd:complexType name="listaTipoEspecieAnimalResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:especiesAnimales" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="listarRazaAnimal">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="listarRazaAnimalResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:raza" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="listarSexoAnimal"/>
+    <xsd:complexType name="listarSexoAnimalResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:sexo" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="listarTipoCrianzas"/>
+    <xsd:complexType name="listarTipoCrianzasResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:tipoCrianza" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="listarTipoIdentificacionAnimal"/>
+    <xsd:complexType name="listarTipoIdentificacionAnimalResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:tipoIdentificacionAnimal" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="listarTiposRechazos"/>
+    <xsd:complexType name="listarTiposRechazosResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:tipoRechazo" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="listarUnidadTiempo"/>
+    <xsd:complexType name="listarUnidadTiempoResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:unidadMedida" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerAreaLaboratorioXClase">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerAreaLaboratorioXClaseResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:areaLaboratorio" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerProcedenciaOrigenMuestra"/>
+    <xsd:complexType name="obtenerProcedenciaOrigenMuestraResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:procedenciaOrigenMuestra" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerProductosInspeccionExp">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerProductosInspeccionExpResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:productoInspeccion" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerTipoMuestrasXClase">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="arg1" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerTipoMuestrasXClaseResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:tipoMuestra" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="registrarConcepto">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="ns0:concepto" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="registrarConceptoResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="registrarLote">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="ns0:lote" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="registrarLoteResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="respuestaSolicitudAnalisisLaboratorio">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="arg1" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="respuestaSolicitudAnalisisLaboratorioResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:respuestaAnalisisLaboratorio" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="solicitudAnalisisLaboratorioAnimal">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="ns0:solicitudAnalisisAnimal" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="solicitudAnalisisLaboratorioAnimalResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="solicitudAnalisisLaboratorioVegetal">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="ns0:solicitudAnalisisVegetal" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="solicitudAnalisisLaboratorioVegetalResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="productoInspeccion">
+        <xsd:sequence>
+            <xsd:element name="cantidad" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="cantidadActual" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codigoProducto" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codigoProductoInspeccion" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codigoServicio" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="estado" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="expediente" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="idInspeccion" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="personaId" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="reglon" type="xsd:int"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="lote">
+        <xsd:sequence>
+            <xsd:element name="cantidadLote" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="estado" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="idInspeccion" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="idInspeccionProducto" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="idLote" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="idProducto" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="observacion" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="reglon" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="actividadVigilancia">
+        <xsd:sequence>
+            <xsd:element name="descVigiAct" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="tipoVigiAct" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="vigilanciaActivaPruebas">
+        <xsd:sequence>
+            <xsd:element name="codiEnfeTea" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codiFichaSit" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codiPrueTPD" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="nombEnfeTea" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="nombPrueTPD" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="pruebaDiagnostica">
+        <xsd:sequence>
+            <xsd:element name="codiAreaLab" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codiPrueTPD" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="nomPrueTPD" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="especiesAnimales">
+        <xsd:sequence>
+            <xsd:element name="espeAnimAni" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="flagTransito" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="nombEspeAni" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="nomnbCortAni" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="raza">
+        <xsd:sequence>
+            <xsd:element name="espeAnimAni" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="nombRazaRaz" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="razaAnimRaz" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="sexo">
+        <xsd:sequence>
+            <xsd:element name="codigoSexo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="desripcionSexo" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="tipoCrianza">
+        <xsd:sequence>
+            <xsd:element name="descripcionTipoCrianza" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="idTipoCrianza" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="tipoIdentificacionAnimal">
+        <xsd:sequence>
+            <xsd:element name="codIdentf" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="descTipoIdentificacion" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="tipoRechazo">
+        <xsd:sequence>
+            <xsd:element name="codigoTipoRechazo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="tipoRechazo" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="unidadMedida">
+        <xsd:sequence>
+            <xsd:element name="codUnidadMedida" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="unidadMedida" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="areaLaboratorio">
+        <xsd:sequence>
+            <xsd:element name="abreAreaLab" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codiAreaLab" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codiEmplPer" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="nombAreaLab" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="tipoLaboLab" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="procedenciaOrigenMuestra">
+        <xsd:sequence>
+            <xsd:element name="codiProMue" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="descProcMue" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="estaProcMue" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="tipoMuestra">
+        <xsd:sequence>
+            <xsd:element name="codiTipoMue" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="flagSarvf" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="nomTipoMue" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="respuestaAnalisisLaboratorio">
+        <xsd:complexContent>
+            <xsd:extension base="ns0:respuesta">
+                <xsd:sequence>
+                    <xsd:element name="numeroUCM" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="resultadoDetalle" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="resultadoEspera" type="xsd:boolean"/>
+                    <xsd:element name="urlUCM" type="xsd:string" minOccurs="0"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="respuesta">
+        <xsd:sequence>
+            <xsd:element name="mensajeError" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="statusCode" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="solicitudAnalisisAnimal">
+        <xsd:sequence>
+            <xsd:element name="cantidadAnimales" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codigoSede" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="fechaEjecucion" type="xsd:dateTime" minOccurs="0"/>
+            <xsd:element name="idDepartamento" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="idDistrito" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="idMotivo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="idPersona" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="idProvincia" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="listaDetalle" type="ns0:detalleSolicitudAnalisisAnimal" minOccurs="0"
+                 maxOccurs="unbounded" nillable="true"/>
+            <xsd:element name="listaidAnalisis" type="xsd:string" minOccurs="0" maxOccurs="unbounded"
+                 nillable="true"/>
+            <xsd:element name="opcionRecinto" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="predio" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="producto" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="tipoCrianza" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="tipoSolicitud" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="detalleSolicitudAnalisisAnimal">
+        <xsd:sequence>
+            <xsd:element name="cantidadMuestra" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="categoriaAnimal" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="edad" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="fechaColeccion" type="xsd:dateTime" minOccurs="0"/>
+            <xsd:element name="fechaEnvio" type="xsd:dateTime" minOccurs="0"/>
+            <xsd:element name="idSexo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="idTipoEspecieAnimal" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="idTipoIdentificacion" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="idTipoMuestra" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="identificacionAnimal" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="raza" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="unidadTiempo" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="solicitudAnalisisVegetal">
+        <xsd:sequence>
+            <xsd:element name="codiTipoSol" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codigoDepartamento" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codigoDireccionEjecutiva" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codigoDistrito" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codigoEmplPer" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codigoInspector" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codigoPaisOrigen" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codigoProvincia" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codigoSolicitante" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codigoTipUsu" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="fechaSolicitud" type="xsd:dateTime" minOccurs="0"/>
+            <xsd:element name="listaMuestra" type="ns0:detalleSolicitudAnalisisVegetal" minOccurs="0"
+                 maxOccurs="unbounded" nillable="true"/>
+            <xsd:element name="numeroRecibo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="producto" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="servicioTupa" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="tipoEnvase" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="usoPropuesto" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="detalleSolicitudAnalisisVegetal">
+        <xsd:sequence>
+            <xsd:element name="cantidadMuestra" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codigoMuestra" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codigoOrigen" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="fechaColeccion" type="xsd:dateTime" minOccurs="0"/>
+            <xsd:element name="fechaRemiteMuestra" type="xsd:dateTime" minOccurs="0"/>
+            <xsd:element name="idAreaLaboratorio" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="idProcedenciaMuestra" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="idTipoMuestra" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="idUnidadMedida" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="listaCodigoAnalisis" type="xsd:string" minOccurs="0" maxOccurs="unbounded"
+                 nillable="true"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="actualizarProductoInspeccion" type="ns0:actualizarProductoInspeccion"/>
+    <xsd:element name="actualizarProductoInspeccionResponse" type="ns0:actualizarProductoInspeccionResponse"/>
+    <xsd:element name="consultarConcepto" type="ns0:consultarConcepto"/>
+    <xsd:element name="consultarConceptoResponse" type="ns0:consultarConceptoResponse"/>
+    <xsd:element name="consultarLote" type="ns0:consultarLote"/>
+    <xsd:element name="consultarLoteResponse" type="ns0:consultarLoteResponse"/>
+    <xsd:element name="generarInformeInspeccionPreliminar" type="ns0:generarInformeInspeccionPreliminar"/>
+    <xsd:element name="generarInformeInspeccionPreliminarResponse" type="ns0:generarInformeInspeccionPreliminarResponse"/>
+    <xsd:element name="listaMotivo" type="ns0:listaMotivo"/>
+    <xsd:element name="listaMotivoResponse" type="ns0:listaMotivoResponse"/>
+    <xsd:element name="listaServicioAnalisisAnimal" type="ns0:listaServicioAnalisisAnimal"/>
+    <xsd:element name="listaServicioAnalisisAnimalResponse" type="ns0:listaServicioAnalisisAnimalResponse"/>
+    <xsd:element name="listaServicioAnalisisVegetal" type="ns0:listaServicioAnalisisVegetal"/>
+    <xsd:element name="listaServicioAnalisisVegetalResponse" type="ns0:listaServicioAnalisisVegetalResponse"/>
+    <xsd:element name="listaTipoEspecieAnimal" type="ns0:listaTipoEspecieAnimal"/>
+    <xsd:element name="listaTipoEspecieAnimalResponse" type="ns0:listaTipoEspecieAnimalResponse"/>
+    <xsd:element name="listarRazaAnimal" type="ns0:listarRazaAnimal"/>
+    <xsd:element name="listarRazaAnimalResponse" type="ns0:listarRazaAnimalResponse"/>
+    <xsd:element name="listarSexoAnimal" type="ns0:listarSexoAnimal"/>
+    <xsd:element name="listarSexoAnimalResponse" type="ns0:listarSexoAnimalResponse"/>
+    <xsd:element name="listarTipoCrianzas" type="ns0:listarTipoCrianzas"/>
+    <xsd:element name="listarTipoCrianzasResponse" type="ns0:listarTipoCrianzasResponse"/>
+    <xsd:element name="listarTipoIdentificacionAnimal" type="ns0:listarTipoIdentificacionAnimal"/>
+    <xsd:element name="listarTipoIdentificacionAnimalResponse" type="ns0:listarTipoIdentificacionAnimalResponse"/>
+    <xsd:element name="listarTiposRechazos" type="ns0:listarTiposRechazos"/>
+    <xsd:element name="listarTiposRechazosResponse" type="ns0:listarTiposRechazosResponse"/>
+    <xsd:element name="listarUnidadTiempo" type="ns0:listarUnidadTiempo"/>
+    <xsd:element name="listarUnidadTiempoResponse" type="ns0:listarUnidadTiempoResponse"/>
+    <xsd:element name="obtenerAreaLaboratorioXClase" type="ns0:obtenerAreaLaboratorioXClase"/>
+    <xsd:element name="obtenerAreaLaboratorioXClaseResponse" type="ns0:obtenerAreaLaboratorioXClaseResponse"/>
+    <xsd:element name="obtenerProcedenciaOrigenMuestra" type="ns0:obtenerProcedenciaOrigenMuestra"/>
+    <xsd:element name="obtenerProcedenciaOrigenMuestraResponse" type="ns0:obtenerProcedenciaOrigenMuestraResponse"/>
+    <xsd:element name="obtenerProductosInspeccionExp" type="ns0:obtenerProductosInspeccionExp"/>
+    <xsd:element name="obtenerProductosInspeccionExpResponse" type="ns0:obtenerProductosInspeccionExpResponse"/>
+    <xsd:element name="obtenerTipoMuestrasXClase" type="ns0:obtenerTipoMuestrasXClase"/>
+    <xsd:element name="obtenerTipoMuestrasXClaseResponse" type="ns0:obtenerTipoMuestrasXClaseResponse"/>
+    <xsd:element name="registrarConcepto" type="ns0:registrarConcepto"/>
+    <xsd:element name="registrarConceptoResponse" type="ns0:registrarConceptoResponse"/>
+    <xsd:element name="registrarLote" type="ns0:registrarLote"/>
+    <xsd:element name="registrarLoteResponse" type="ns0:registrarLoteResponse"/>
+    <xsd:element name="respuestaSolicitudAnalisisLaboratorio" type="ns0:respuestaSolicitudAnalisisLaboratorio"/>
+    <xsd:element name="respuestaSolicitudAnalisisLaboratorioResponse" type="ns0:respuestaSolicitudAnalisisLaboratorioResponse"/>
+    <xsd:element name="solicitudAnalisisLaboratorioAnimal" type="ns0:solicitudAnalisisLaboratorioAnimal"/>
+    <xsd:element name="solicitudAnalisisLaboratorioAnimalResponse" type="ns0:solicitudAnalisisLaboratorioAnimalResponse"/>
+    <xsd:element name="solicitudAnalisisLaboratorioVegetal" type="ns0:solicitudAnalisisLaboratorioVegetal"/>
+    <xsd:element name="solicitudAnalisisLaboratorioVegetalResponse" type="ns0:solicitudAnalisisLaboratorioVegetalResponse"/>
+</xsd:schema>
+<!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is JAX-WS RI 2.3.0-wls122140-b190328.0053 svn-revision#unknown. -->

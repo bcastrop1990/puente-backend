@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<schema targetNamespace="http://xmlns.oracle.com/bpel/workflow/task" xmlns:tns="http://xmlns.oracle.com/bpel/workflow/task" attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ns0="http://soa.senasa.gob.pe/service/ORG/procedimiento/proceso_procedimiento_tupa-v1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://soa.senasa.gob.pe/service/ORG/procedimiento/proceso_procedimiento_tupa-v1.0" schemaLocation="../Schemas/ProcesoProcedimientoTUPA.xsd"/>
+   <complexType name="HTGenerarDocumentoResolutivoPayloadType">
+      <sequence>
+         <element ref="ns0:procedimiento"/>
+         <element name="numeroExp" type="xsd:string"/>
+         <element name="asunto" type="xsd:string"/>
+         <element name="remitente" type="xsd:string"/>
+         <element name="estadoProceso" type="xsd:string"/>
+      </sequence>
+   </complexType>
+</schema>

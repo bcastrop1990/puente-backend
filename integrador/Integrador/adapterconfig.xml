@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<config>
+  <adapter type="scs" default="true" name="senasaprod">
+    <config>
+      <property name="port">4444</property>
+      <property name="host">webcenterqa.senasa.gob.pe</property>
+      <property name="type">socket</property>
+    </config>
+    <beans template="classpath:/META-INF/resources/adapter/adapter-services-scs.jxml"/>
+  </adapter>
+</config>

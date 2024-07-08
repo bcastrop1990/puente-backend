@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://soa.senasa.gob.pe/service/ORG/procedimiento/proceso_procedimiento_tupa-v1.0"
+            targetNamespace="http://soa.senasa.gob.pe/service/ORG/procedimiento/proceso_procedimiento_tupa-v1.0" elementFormDefault="qualified">
+  <xsd:element name="procedimiento">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="numeroSolicitud" type="xsd:string"/>
+        <xsd:element name="numeroExpediente" type="xsd:string"/>
+        <xsd:element name="estadoSolicitud" type="xsd:string"/>
+        <xsd:element name="estadoExpediente" type="xsd:string"/>
+        <xsd:element name="codigoSede" type="xsd:string"/>
+        <xsd:element name="codigoCentroTramite" type="xsd:string"/>        
+        <xsd:element name="codigoProcedimiento" type="xsd:string"/>
+        <xsd:element name="codigoClase" type="xsd:string"/>
+        <xsd:element name="flagRequiereInspeccion" type="xsd:boolean"/>
+        <xsd:element name="flagModificacionCertificado" type="xsd:boolean"/>
+        <xsd:element name="canal" type="xsd:int"/>
+        <xsd:element name="usuarioMesaPartes" type="xsd:string"/>
+        <xsd:element name="usuarioResponsable" type="xsd:string"/>
+        <xsd:element name="idSolicitante" type="xsd:string"/>
+        <xsd:element name="codigoServicio" type="xsd:string"/>
+        <xsd:element name="codigoRecibo" type="xsd:string"/>
+        <xsd:element name="ordenVuce" type="xsd:string"/>
+        <xsd:element name="codigoStdDoc" type="xsd:string"/>
+        <xsd:element name="descripcionServicio" type="xsd:string"/>
+        <xsd:element name="nombreResponsable" type="xsd:string"/>
+        <xsd:element name="secuencial" type="xsd:int"/>
+        <xsd:element name="plazo" type="xsd:string"/>
+        <xsd:element name="descProcedimientoTUPA" type="xsd:string"/>
+        <xsd:element name="nombreSolicitante" type="xsd:string"/>
+        <xsd:element name="cfeUcmId" type="xsd:string"/>
+        <xsd:element name="cfeNombre" type="xsd:string"/>
+        <xsd:element name="areaRemitente" type="xsd:string"/>
+        <xsd:element name="subAreaRemitente" type="xsd:string"/>
+        <xsd:element name="usuarioDestinatario" type="xsd:string"/>
+        <xsd:element name="nombreDestinatario" type="xsd:string"/>
+        <xsd:element name="areaDestinatario" type="xsd:string"/>
+        <xsd:element name="subAreaDestinatario" type="xsd:string"/>
+        <xsd:element name="observaciones" type="xsd:string"/>
+        <xsd:element name="ucmidDerivacion" type="xsd:string"/>        
+        <xsd:element name="documentosAdjuntos" type="documentoAdjunto" minOccurs="0" maxOccurs="unbounded"
+                 nillable="true"/>
+        <xsd:element name="tiempoCaducidad" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:complexType name="documentoAdjunto">
+        <xsd:sequence>
+            <xsd:element name="ucmid" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="nombre" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

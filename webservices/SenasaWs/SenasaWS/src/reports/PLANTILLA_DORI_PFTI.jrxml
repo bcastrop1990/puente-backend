@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PLANTILLA_DORI_PFTI" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f92df0f5-f6ad-4f74-9b59-fcef14369121">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="153"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="NEXPEDIENTE" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBTITULO" class="java.lang.String"/>
+	<parameter name="FIRMA" class="java.io.InputStream" isForPrompting="false"/>
+	<queryString>
+		<![CDATA[SELECT distinct t.Codigo_Expediente,
+             t.Numero_Permiso,
+             t.Centro_Tramite_Solicitud,
+             c.Descripcion_Centro_Tramite,
+             to_char(t.Fecha_Emision,'DD/MM/YYYY') Fecha_Emision,
+             t.Fecha_Emision + 90 AS Fecha_Vigencia,
+             t.Persona_Id,
+             p.Nombre_Razon_Social,
+             p.Direccion,
+             p.Documento_Numero,
+             t.codigo_requ_tran_producto,
+             t1.Codigo_Centro_Tramite_Ing,
+             c2.Descripcion_Centro_Tramite AS Descripcion_Centro_Tramite_Ing,
+             t1.Codigo_Centro_Tramite_Sal,
+             C1.Descripcion_Centro_Tramite AS Descripcion_Centro_Tramite_Sal,
+
+
+              t2.Codi_Pais_Tpa_Procedencia,
+             i.Nomb_Pais_Tpa AS Nomb_Pais_Tpa_Procedencia,
+             t2.Codi_Pais_Tpa_Destino,
+             I1.Nomb_Pais_Tpa AS Nomb_Pais_Tpa_Destino,
+
+             t3.Codi_Pais_Tpa_Origen,
+             p.Nomb_Pais_Tpa AS Nomb_Pais_Tpa_Origen
+
+        FROM  Permiso_Pfti t,Permiso_Pfti_Producto_Ct t1, Centro_Tramite c, Persona p,
+        Centro_Tramite           c2,
+             Centro_Tramite           C1,
+             Permiso_Pfti_Producto t2,
+              Tpaises               i,
+             Tpaises               I1,
+             Permiso_Pfti_Pais_Origen t3, Tpaises p
+       WHERE t.Centro_Tramite_Solicitud = c.Codigo_Centro_Tramite
+         AND   T.NUMERO_PERMISO =T1.NUMERO_PERMISO (+)
+         and    T.NUMERO_PERMISO =T2.NUMERO_PERMISO (+)
+          and    T.NUMERO_PERMISO =T3.NUMERO_PERMISO (+)
+           AND t1.Codigo_Centro_Tramite_Ing = c2.Codigo_Centro_Tramite(+)
+         AND t1.Codigo_Centro_Tramite_Sal = C1.Codigo_Centro_Tramite(+)
+
+          AND t2.Codi_Pais_Tpa_Procedencia = i.Codi_Pais_Tpa(+)
+         AND t2.Codi_Pais_Tpa_Destino = I1.Codi_Pais_Tpa(+)
+         and t3.Codi_Pais_Tpa_Origen = p.Codi_Pais_Tpa
+         AND t.Persona_Id = p.Persona_Id
+         AND t.Codigo_Expediente =$P{NEXPEDIENTE}]]>
+	</queryString>
+	<field name="CODIGO_EXPEDIENTE" class="java.lang.String"/>
+	<field name="NUMERO_PERMISO" class="java.lang.String"/>
+	<field name="CENTRO_TRAMITE_SOLICITUD" class="java.lang.String"/>
+	<field name="DESCRIPCION_CENTRO_TRAMITE" class="java.lang.String"/>
+	<field name="FECHA_EMISION" class="java.lang.String"/>
+	<field name="FECHA_VIGENCIA" class="java.sql.Timestamp"/>
+	<field name="PERSONA_ID" class="java.lang.String"/>
+	<field name="NOMBRE_RAZON_SOCIAL" class="java.lang.String"/>
+	<field name="DIRECCION" class="java.lang.String"/>
+	<field name="DOCUMENTO_NUMERO" class="java.lang.String"/>
+	<field name="CODIGO_REQU_TRAN_PRODUCTO" class="java.lang.String"/>
+	<field name="CODIGO_CENTRO_TRAMITE_ING" class="java.lang.String"/>
+	<field name="DESCRIPCION_CENTRO_TRAMITE_ING" class="java.lang.String"/>
+	<field name="CODIGO_CENTRO_TRAMITE_SAL" class="java.lang.String"/>
+	<field name="DESCRIPCION_CENTRO_TRAMITE_SAL" class="java.lang.String"/>
+	<field name="CODI_PAIS_TPA_PROCEDENCIA" class="java.lang.String"/>
+	<field name="NOMB_PAIS_TPA_PROCEDENCIA" class="java.lang.String"/>
+	<field name="CODI_PAIS_TPA_DESTINO" class="java.lang.String"/>
+	<field name="NOMB_PAIS_TPA_DESTINO" class="java.lang.String"/>
+	<field name="CODI_PAIS_TPA_ORIGEN" class="java.lang.String"/>
+	<field name="NOMB_PAIS_TPA_ORIGEN" class="java.lang.String"/>
+	<variable name="CODPRODUCTO" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="234" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="8967e063-839a-4d10-8b92-719e756999d5" x="31" y="69" width="495" height="38"/>
+				<textElement textAlignment="Center">
+					<font size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Permiso Fitosanitario para el Transito Internacional]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1cec4c71-d0fb-49c2-b170-f0b6be8ad89c" x="10" y="191" width="536" height="43"/>
+				<box leftPadding="6" rightPadding="4"/>
+				<textElement textAlignment="Justified">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Las plantas, productos vegetales y artículos reglamentados foráneos en Tránsito Internacional por el territorio nacional, serán sometidos a medidas fitosanitarias establecidas por el SENASA y deben cumplir las normas vigentes (Decreto Legislativo N° 1059; D.S. N° 032-2003-AG, RD-0025-2016-MINAGRI-SENASA-DSV).]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="eb9d1e57-9c79-4c3a-9240-91b939f2dd81" x="10" y="158" width="98" height="20"/>
+				<box leftPadding="6"/>
+				<textElement>
+					<font isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[N° Expediente: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="21ad2380-f0e6-4c7d-997f-57f460597c7c" x="99" y="158" width="130" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{CODIGO_EXPEDIENTE}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement uuid="3042de43-d661-4ba0-9835-78a0b1cfec19" x="14" y="1" width="149" height="54"/>
+				<imageExpression><![CDATA[$P{SUBREPORT_DIR} +"logo.jpg"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement uuid="438af196-c8de-44e3-b74f-2a55da52b6b1" x="10" y="171" width="351" height="20"/>
+				<box leftPadding="6"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>Lugar y Fecha de Emisión:</b> Lima, "+$F{FECHA_EMISION}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="19ed7738-5f83-4d78-9cb4-650913d75935" x="197" y="90" width="282" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{SUBTITULO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="3918bb46-4462-49e7-af7a-e2222d3bc7c7" x="140" y="90" width="57" height="20"/>
+				<textElement/>
+				<text><![CDATA[N° de PFTI:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="eb9d1e57-9c79-4c3a-9240-91b939f2dd81" x="311" y="155" width="117" height="20"/>
+				<box leftPadding="6"/>
+				<textElement>
+					<font isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Termino de vigencia: ]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement uuid="432f2919-d8f4-48b8-a2b9-622bcba592f7" x="418" y="155" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{FECHA_VIGENCIA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="0d575f57-eaca-4a02-a105-3ab717aa80c5" x="104" y="109" width="358" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA["Este documento NO  AUTORIZA a realizar el tránsito internacional por el PERU"]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="198" splitType="Stretch">
+			<textField>
+				<reportElement uuid="d9f77b1e-50c7-471e-ae7f-15642dcc7036" x="14" y="0" width="532" height="30"/>
+				<box leftPadding="6" rightPadding="4">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>1.- USUARIO:</b>"+
+"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+$F{NOMBRE_RAZON_SOCIAL}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="77d92f81-1570-4ef3-abd8-a657bdef6bc7" x="14" y="30" width="532" height="20"/>
+				<box leftPadding="6" rightPadding="3">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[2.- Producto Vegetal / Artículo Reglamentado]]></text>
+			</staticText>
+			<subreport>
+				<reportElement uuid="7638cbec-57e3-47c3-8156-5ffc85639201" x="14" y="50" width="532" height="5"/>
+				<subreportParameter name="NUMPERMISO">
+					<subreportParameterExpression><![CDATA[$F{NUMERO_PERMISO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="NOMB_PAIS_TPA_ORIGEN">
+					<subreportParameterExpression><![CDATA[$F{NOMB_PAIS_TPA_ORIGEN}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="NOMB_PAIS_TPA_PROCEDENCIA">
+					<subreportParameterExpression><![CDATA[$F{NOMB_PAIS_TPA_PROCEDENCIA}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="NOMB_PAIS_TPA_DESTINO">
+					<subreportParameterExpression><![CDATA[$F{NOMB_PAIS_TPA_DESTINO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="DESCRIPCION_CENTRO_TRAMITE_ING">
+					<subreportParameterExpression><![CDATA[$F{DESCRIPCION_CENTRO_TRAMITE_ING}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="DESCRIPCION_CENTRO_TRAMITE_SAL">
+					<subreportParameterExpression><![CDATA[$F{DESCRIPCION_CENTRO_TRAMITE_SAL}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="CODI_PAIS_TPA_PROCEDENCIA">
+					<subreportParameterExpression><![CDATA[$F{CODI_PAIS_TPA_PROCEDENCIA}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="CODI_PAIS_TPA_ORIGEN">
+					<subreportParameterExpression><![CDATA[$F{CODI_PAIS_TPA_ORIGEN}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "PLANTILLAPFTISUB.jasper"]]></subreportExpression>
+			</subreport>
+			<image>
+				<reportElement uuid="c22f735f-b7e9-4ee0-9543-573c15fb1c22" positionType="Float" x="338" y="55" width="208" height="88"/>
+				<imageExpression><![CDATA[$P{FIRMA}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="eb9d1e57-9c79-4c3a-9240-91b939f2dd81" positionType="Float" x="21" y="153" width="516" height="41"/>
+				<box leftPadding="6">
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font size="6" isBold="false" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[-          Valido por 90 días calendario a partir de la fecha de su emisión y para un solo embarque.
+-          El SENASA podrá anular la validez del PFTI de detectarse plagas cuarentenarias en el país Exportador, en los embarques efectuados o cuando se establezcan nuevos
+           requisitos fitosanitarios.
+-         Todo envío que este contenido en embalajes de madera, deberán cumplir con las disposiciones establecidas en la R.D N° 105-2005-AG-SENASA-DGSV.
+-          Ante la presencia de cualquier plaga determinada como cuarentenaria por el SENASA, los envíos serán rechazados de ingresar al país.
+]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>

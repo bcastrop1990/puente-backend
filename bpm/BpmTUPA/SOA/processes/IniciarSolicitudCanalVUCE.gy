@@ -1,0 +1,29 @@
+//Content Format Version: 1.0
+
+//########################################################################################
+//####                                                                                ####
+//####          THIS IS AN AUTO GENERATED FILE. PLEASE DO NOT MANUALLY MODIFY         ####
+//#### CHANGES TO THIS FILE MAY PRODUCE UNEXPECTED BEHAVIOR AND WOULD BE OVERWRITTEN  ####
+//####                                                                                ####
+//########################################################################################
+package oracle.scripting.bpmn.process;
+
+
+
+public class IniciarSolicitudCanalVUCE{
+
+public void methodACT41750283557088()
+{
+	if("INICIO".equals(procedimiento.estadoExpediente)){
+	    viEstado = "INICIO";
+	    manual = "0";
+	    estadoProceso = "EXPEDIENTE INICIADO - VUCE";
+	}else{
+	    viEstado = "GESTIONAR";
+	    manual= "1";
+	    estadoProceso = "EXPEDIENTE GESTIONADO - VUCE";
+	}
+}
+
+
+}

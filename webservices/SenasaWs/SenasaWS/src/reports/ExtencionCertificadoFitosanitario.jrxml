@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ExtencionCertificadoFitosanitario_fn" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="efa38d27-0e05-4f66-97ad-34b1df9cf775">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="74"/>
+	<queryString>
+		<![CDATA[select columna01, columna02,columna03,columna04 from (select rownum orden, columna01, columna02,columna03,columna04 ,fls  from (SELECT TRIM (TO_CHAR (SUM (I.CANTIDAD_PESO_SOLICITADO), '99999999,999,999,999,999,999,999,999.999')) || ' ' || UM.CABRUNDMED || ' - ' || C.NOMBRE_COMERCIAL_PRODUCTO
+                            as columna01,TRIM (C.NOMBRE_CIENTIFICO_PRODUCTO) columna02,I.MARC_DIST_PROD  columna03,
+                            sum(I.CANT_PROD) || ' - ' || TE.DESCRIPCION_TIPO_ENVASE columna04
+                            ,min(to_number(i.secuencial_producto)) fls     FROM INFO_INSP_VERI_PRODUCTO i, finalbpm.producto c, SENASA.UNIDAD_MEDIDA um, finalbpm.TIPO_ENVASE TE
+                                WHERE codigo_iiv = '000000065516' AND I.codigo_producto = C.codigo_producto AND TRIM (UM.CUNDMED) = TRIM (I.CODI_UNID_MED) and TE.CODIGO_TIPO_ENVASE = I.TIP_ENV_PROD
+                             GROUP BY C.NOMBRE_COMERCIAL_PRODUCTO,C.NOMBRE_CIENTIFICO_PRODUCTO,I.MARC_DIST_PROD,TE.DESCRIPCION_TIPO_ENVASE  ,UM.CABRUNDMED order by min(to_number(i.secuencial_producto)) asc )) where orden >4]]>
+	</queryString>
+	<field name="COLUMNA01" class="java.lang.String"/>
+	<field name="COLUMNA02" class="java.lang.String"/>
+	<field name="COLUMNA03" class="java.lang.String"/>
+	<field name="COLUMNA04" class="java.lang.String"/>
+	<background>
+		<band height="802" splitType="Stretch">
+			<image>
+				<reportElement uuid="259b0dbf-6c0c-4b60-9f78-c6cd0f51da38" x="0" y="0" width="569" height="802"/>
+				<imageExpression><![CDATA["FondoExtendido.png"]]></imageExpression>
+			</image>
+		</band>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="213" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="be379094-872b-440d-8f15-317bf23fd9db" x="23" y="192" width="149" height="11"/>
+				<box leftPadding="2" rightPadding="2">
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font size="7" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Cantidad declarada y nombre del producto -
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="28cc5a58-f786-4302-8ce2-059361777868" x="172" y="192" width="129" height="11"/>
+				<box leftPadding="2" rightPadding="2">
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Nombre botánico de las plantas –]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="5a436487-1fb4-4780-a4ae-1e10c78f1475" x="387" y="192" width="142" height="11"/>
+				<box leftPadding="2" rightPadding="2">
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Numero y descripción de bultos –]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="779610c4-f930-4413-a1a3-377ddce4042a" x="23" y="200" width="149" height="13"/>
+				<box leftPadding="2" rightPadding="2">
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font size="8" isBold="false" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Declared quantity and name of product]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="779610c4-f930-4413-a1a3-377ddce4042a" x="172" y="200" width="129" height="13"/>
+				<box leftPadding="2" rightPadding="2">
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font size="8" isBold="false" isItalic="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Botanical name of plants]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="779610c4-f930-4413-a1a3-377ddce4042a" x="387" y="200" width="142" height="13"/>
+				<box leftPadding="2" rightPadding="2">
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font size="8" isBold="false" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Number and description of packages]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="4664eddf-cc3e-4b13-8193-172e9e60fb1b" x="301" y="192" width="86" height="11"/>
+				<box leftPadding="2" rightPadding="2">
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font size="7" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Marcas distintivas -]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="764478b1-25e0-421f-b32d-e9952faa025e" x="301" y="200" width="86" height="13"/>
+				<box leftPadding="2" rightPadding="2">
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[distinguishing marks]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="5bf3c61a-16be-4a51-8089-d6f34b9039e0" stretchType="RelativeToBandHeight" x="97" y="115" width="17" height="20"/>
+				<textElement/>
+				<text><![CDATA[2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="5bf3c61a-16be-4a51-8089-d6f34b9039e0" stretchType="RelativeToBandHeight" x="166" y="115" width="17" height="20"/>
+				<textElement/>
+				<text><![CDATA[2]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="13" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="8425e538-b975-4383-919e-c58424255ac2" stretchType="RelativeToTallestObject" x="23" y="0" width="149" height="13"/>
+				<box leftPadding="2" rightPadding="2">
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{COLUMNA01}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="a1efd3c1-e24c-46ce-82a4-6097df28e944" stretchType="RelativeToTallestObject" x="172" y="0" width="129" height="13"/>
+				<box leftPadding="2" rightPadding="2">
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{COLUMNA02}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="eb016184-6607-48c2-849d-1b6cd3074702" stretchType="RelativeToTallestObject" x="301" y="0" width="86" height="13"/>
+				<box leftPadding="2" rightPadding="2">
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{COLUMNA03}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="d838b5e8-b36d-4032-a716-1519b883a57e" stretchType="RelativeToTallestObject" x="387" y="0" width="142" height="13"/>
+				<box leftPadding="2" rightPadding="2">
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{COLUMNA04}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,19 @@
+//Content Format Version: 1.0
+
+//########################################################################################
+//####                                                                                ####
+//####          THIS IS AN AUTO GENERATED FILE. PLEASE DO NOT MANUALLY MODIFY         ####
+//#### CHANGES TO THIS FILE MAY PRODUCE UNEXPECTED BEHAVIOR AND WOULD BE OVERWRITTEN  ####
+//####                                                                                ####
+//########################################################################################
+package oracle.scripting.catalog.modeloDatos;
+
+
+@com.oracle.scripting.lang.annotations.CatalogType(element = "E", 
+			namespace = "http://soa.senasa.gob.pe/service/ORG/IIV/proceso_generar_iiv-v1.0", 
+			name = "informe", 
+			location = "/Schemas/ProcesoGenerarIIV.xsd", 
+			module = "ModeloDatos") 
+public class Informe{
+
+}

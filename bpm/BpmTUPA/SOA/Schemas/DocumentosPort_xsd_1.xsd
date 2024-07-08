@@ -1,0 +1,749 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<xsd:schema xmlns:ns0="http://documentos.ws.senasa.gob.pe" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     targetNamespace="http://documentos.ws.senasa.gob.pe">
+    <xsd:complexType name="dato">
+        <xsd:sequence>
+            <xsd:element name="anchoPagPixel" type="xsd:int"/>
+            <xsd:element name="cpe" type="xsd:boolean"/>
+            <xsd:element name="etiqueta" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="listaRequisitos" type="ns0:requisitoSanitario" minOccurs="0" maxOccurs="unbounded"
+                 nillable="true"/>
+            <xsd:element name="valor" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="informacion">
+        <xsd:sequence>
+            <xsd:element name="listaDatosRemplazar" type="ns0:dato" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+            <xsd:element name="listaDatosRequisitos" type="ns0:dato" minOccurs="0"/>
+            <xsd:element name="listaDatosTablas" type="ns0:dato" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+            <xsd:element name="metadatos" type="ns0:propiedad" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="crearDocumento">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="arg1" type="ns0:documento" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="crearDocumentoExpoFito">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="arg1" type="ns0:informacion" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="crearDocumentoExpoFitoResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="crearDocumentoResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="ejecutarIngreso">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="xsd:base64Binary" minOccurs="0" nillable="true"/>
+            <xsd:element name="arg1" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="arg2" type="ns0:documento" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="ejecutarIngresoResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="eliminarNumeroDocumento">
+        <xsd:sequence>
+            <xsd:element name="numero" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="eliminarNumeroDocumentoResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:boolean" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="generarDocumento">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="arg1" type="ns0:informacion" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="generarDocumentoAutorizacionSEExpoZoo">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="arg1" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="generarDocumentoAutorizacionSEExpoZooResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="generarDocumentoIIVFIto">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="generarDocumentoIIVFItoResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:boolean" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="generarDocumentoRegistroGCA">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="arg1" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="arg2" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="generarDocumentoRegistroGCAResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="generarDocumentoResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="generarNumeroDocumento">
+        <xsd:sequence>
+            <xsd:element name="subTipo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="area" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="subArea" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="personaId" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="generarNumeroDocumentoResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="grabarDocumentoStdHijo">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="ns0:documentoSTD" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="grabarDocumentoStdHijoResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:documentoSTD" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="ObtenerCodDocumentoStdPadre">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="ObtenerCodDocumentoStdPadreResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerDocumento">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="arg1" type="ns0:documento" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerDocumentoResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:base64Binary" minOccurs="0" nillable="true"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerFirmante">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="arg1" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerFirmanteResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:firmante" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerUrlDocumento">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerUrlDocumentoResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="previsualizarIngreso">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="xsd:base64Binary" minOccurs="0" nillable="true"/>
+            <xsd:element name="arg1" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="arg2" type="ns0:documento" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="previsualizarIngresoResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:base64Binary" minOccurs="0" nillable="true"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="requisitoSanitario">
+        <xsd:sequence>
+            <xsd:element name="clase" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codigoRequisito" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="descripcionRequisito" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="etiqueta" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="orden" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="sangria" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="propiedad">
+        <xsd:sequence>
+            <xsd:element name="XPropiedad" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="XValor" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="documento">
+        <xsd:sequence>
+            <xsd:element name="agencia" type="ns0:agenteAduanas" minOccurs="0"/>
+            <xsd:element name="ampliacion" type="xsd:boolean"/>
+            <xsd:element name="apfi" type="ns0:anexoPFI" minOccurs="0"/>
+            <xsd:element name="cez" type="ns0:exportacionZooSanitaria" minOccurs="0"/>
+            <xsd:element name="codigoCentroTramite" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codigoServicio" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="cpe" type="ns0:registroCPE" minOccurs="0"/>
+            <xsd:element name="direccionEjecutiva" type="ns0:area" minOccurs="0"/>
+            <xsd:element name="encargatura" type="xsd:boolean"/>
+            <xsd:element name="estado" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="listaFirmantes" type="xsd:string" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+            <xsd:element name="memorandum" type="ns0:memorandum" minOccurs="0"/>
+            <xsd:element name="metadatos" type="ns0:propiedad" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+            <xsd:element name="modificacion" type="xsd:boolean"/>
+            <xsd:element name="pfi" type="ns0:permisoFitosanitarioImportacion" minOccurs="0"/>
+            <xsd:element name="previsualizar" type="xsd:boolean"/>
+            <xsd:element name="pzi" type="ns0:permisoZoosanitarioImportacion" minOccurs="0"/>
+            <xsd:element name="reciboPago" type="ns0:reciboPago" minOccurs="0"/>
+            <xsd:element name="requisitosSanitarios" type="ns0:requisitoDao" minOccurs="0" maxOccurs="unbounded"
+                 nillable="true"/>
+            <xsd:element name="servicioTupa" type="ns0:servicioTUPA" minOccurs="0"/>
+            <xsd:element name="serviciosTUPARecibo" type="ns0:reciboServicio" minOccurs="0" maxOccurs="unbounded"
+                 nillable="true"/>
+            <xsd:element name="sinFirma" type="xsd:boolean"/>
+            <xsd:element name="solicitante" type="ns0:solicitante" minOccurs="0"/>
+            <xsd:element name="subtipo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="ucmId" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="agenteAduanas">
+        <xsd:sequence>
+            <xsd:element name="departamento" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="distrito" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="dniRepresentanteLegal" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="dniRuc" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="domicilioLegal" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="email" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="fax" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="idPersona" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="nombreRazonSocial" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="nombreRepresentanteLegal" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="provincia" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="telefono" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="telefonoMovil" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="urbanizacion" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="anexoPFI">
+        <xsd:sequence>
+            <xsd:element name="cantidad" type="xsd:double" minOccurs="0"/>
+            <xsd:element name="cantidadPlantas" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codUniMed" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codigo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codigoPadre" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="desTipoEnvase" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="desUniMed" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="descRaza" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="descSexo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="descripcion" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="descripcionPadre" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="edad" type="xsd:int"/>
+            <xsd:element name="idRaza" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="idSexo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="isAnimalVivo" type="xsd:boolean" minOccurs="0"/>
+            <xsd:element name="nombreCientifico" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="nombreCientificoPadre" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="paisDestino" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="paisProcedencia" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="partidaArancelaria" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="partidaArancelariaPadre" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="pesoNeto" type="xsd:double" minOccurs="0"/>
+            <xsd:element name="tipoEnvase" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="usoDestino" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="exportacionZooSanitaria">
+        <xsd:sequence>
+            <xsd:element name="anexosCEZ" type="ns0:anexoPZI" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+            <xsd:element name="codigoImportador" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="direccionEjecutiva" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="direccionImportador" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="fechaEmbarque" type="xsd:dateTime" minOccurs="0"/>
+            <xsd:element name="fechaEmision" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="fechaInspeccion" type="xsd:dateTime" minOccurs="0"/>
+            <xsd:element name="fechasDesembarque" type="xsd:dateTime" minOccurs="0"/>
+            <xsd:element name="horaInspeccion" type="xsd:dateTime" minOccurs="0"/>
+            <xsd:element name="lugarInspeccion" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="lugarUbicacionEnvio" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="medioTransporte" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="noCertificado" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="noFolio" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="nombreImportador" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="observacion" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="paisDestino" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="paisOrigen" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="productosCEZ" type="ns0:productoPZI" minOccurs="0" maxOccurs="unbounded"
+                 nillable="true"/>
+            <xsd:element name="puntoLlegada" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="puntoSalida" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="solicitante" type="ns0:solicitante" minOccurs="0"/>
+            <xsd:element name="urlCEZDefinitivo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="usoDestino" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="usuario" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="anexoPZI">
+        <xsd:sequence>
+            <xsd:element name="cantidad" type="xsd:double" minOccurs="0"/>
+            <xsd:element name="cantidadAnimal" type="xsd:int" minOccurs="0"/>
+            <xsd:element name="codPaisDestino" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codUniMed" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codigo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codigoPadre" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="desDestino" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="desTipoEnvase" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="desUniMed" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="descripcion" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="descripcionPadre" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="edadAnimal" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="especieAnimal" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="isAnimalVivo" type="xsd:boolean" minOccurs="0"/>
+            <xsd:element name="nombreCientifico" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="nombreCientificoPadre" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="nroIdentfAnimal" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="paisProcedencia" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="partidaArancelaria" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="partidaArancelariaPadre" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="pesoNeto" type="xsd:double" minOccurs="0"/>
+            <xsd:element name="razaAnimal" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="sexoAnimal" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="tipoEnvase" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="usoDestino" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="productoPZI">
+        <xsd:sequence>
+            <xsd:element name="animalesVivos" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="cantidad" type="xsd:double" minOccurs="0"/>
+            <xsd:element name="codProducto" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codUniMed" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="contieneAnexos" type="xsd:boolean" minOccurs="0"/>
+            <xsd:element name="desTipoEnvase" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="descRaza" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="descSexo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="descUniMed" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="descripcion" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="edad" type="xsd:int" minOccurs="0"/>
+            <xsd:element name="esAnimal" type="xsd:boolean" minOccurs="0"/>
+            <xsd:element name="especie" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="idRaza" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="idSexo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="identificacion" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="nombreCientifico" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="numeroAnimales" type="xsd:int" minOccurs="0"/>
+            <xsd:element name="paisProcedencia" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="partidaArancelaria" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="pesoNeto" type="xsd:double" minOccurs="0"/>
+            <xsd:element name="tipoEnvase" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="usoDestino" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="solicitante">
+        <xsd:sequence>
+            <xsd:element name="codigoSolicitante" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="departamento" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="distrito" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="dniRepresentanteLegal" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="dniRuc" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="domicilioLegal" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="email" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="nombreDepartamento" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="nombreDistrito" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="nombreImportador" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="nombreProvincia" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="nombreRazonSocial" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="nombreRepresentanteLegal" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="provincia" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="telefono" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="telefonoMovil" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="tipoDocumento" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="tipoSolicitante" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="urbanizacion" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="registroCPE">
+        <xsd:sequence>
+            <xsd:element name="codigoPersona" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="direccionSede" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="equipoTecnicoCPE" type="ns0:equipoTecnicoCPE" minOccurs="0" maxOccurs="unbounded"
+                 nillable="true"/>
+            <xsd:element name="estado" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="fechaEmision" type="xsd:dateTime" minOccurs="0"/>
+            <xsd:element name="lugaresProduccionCPE" type="ns0:lugaresProduccionCPE" minOccurs="0" maxOccurs="unbounded"
+                 nillable="true"/>
+            <xsd:element name="noCertificado" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="noFolio" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="nombreSede" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="productosCPE" type="ns0:productosCPE" minOccurs="0" maxOccurs="unbounded"
+                 nillable="true"/>
+            <xsd:element name="sede" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="solicitante" type="ns0:solicitante" minOccurs="0"/>
+            <xsd:element name="urlRegistroCPE" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="usuario" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="equipoTecnicoCPE">
+        <xsd:sequence>
+            <xsd:element name="apellido" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="dni" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="flagVuce" type="xsd:int"/>
+            <xsd:element name="funcion" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="indicadorAceptacion" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="nombre" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="observacion" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="personaId" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="secuencial" type="xsd:int"/>
+            <xsd:element name="titulo" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="lugaresProduccionCPE">
+        <xsd:sequence>
+            <xsd:element name="area" type="xsd:double" minOccurs="0"/>
+            <xsd:element name="departamento" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="descDepartamento" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="descDistrito" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="descProvincia" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="direccion" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="distrito" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="fechaInspeccion" type="xsd:dateTime" minOccurs="0"/>
+            <xsd:element name="flagVuce" type="xsd:int"/>
+            <xsd:element name="indicadorAcpt" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="nombre" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="observacion" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="provincia" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="recomendacion" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="secuencial" type="xsd:int"/>
+            <xsd:element name="tipoPredio" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="productosCPE">
+        <xsd:sequence>
+            <xsd:element name="cantidad" type="xsd:double" minOccurs="0"/>
+            <xsd:element name="codigoProducto" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="descOrigen" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="descripcion" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="fechaAdenda" type="xsd:dateTime" minOccurs="0"/>
+            <xsd:element name="flagVuce" type="xsd:int"/>
+            <xsd:element name="nombreCientifico" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="origen" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="partidaArancelaria" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="planta" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="secuencial" type="xsd:int"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="area">
+        <xsd:sequence>
+            <xsd:element name="abreviatura" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codigoArea" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="jefeArea" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="nombreArea" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="memorandum">
+        <xsd:sequence>
+            <xsd:element name="areaDestino" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="asunto" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="fechaRegistro" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="numeroDocumento" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="personaDestino" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="referencia" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="subTipo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="subareaDestino" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="permisoFitosanitarioImportacion">
+        <xsd:sequence>
+            <xsd:element name="anexosPFI" type="ns0:anexoPFI" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+            <xsd:element name="cadenaProductos" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codigoRequImpoProducto" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="descDireccionEjecutiva" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="direccionEjecutiva" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="fechaAmpliacion" type="xsd:dateTime" minOccurs="0"/>
+            <xsd:element name="fechaDeEmicion" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="fechaVigencia" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="indicadorAmpliacion" type="xsd:boolean"/>
+            <xsd:element name="lugaresProduccionAnexoPFI" type="ns0:lugarProduccionAnexoPFI" minOccurs="0"
+                 maxOccurs="unbounded" nillable="true"/>
+            <xsd:element name="lugaresProduccionProductoPFI" type="ns0:lugarProduccionProductoPFI"
+                 minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+            <xsd:element name="noCertificado" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="noFolio" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="numeroInspecciones" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="paisesOrigenAnexoPFI" type="ns0:paisOrigenAnexoPFI" minOccurs="0" maxOccurs="unbounded"
+                 nillable="true"/>
+            <xsd:element name="paisesOrigenProductoPFI" type="ns0:paisOrigenProductoPFI" minOccurs="0"
+                 maxOccurs="unbounded" nillable="true"/>
+            <xsd:element name="periodoVegetativo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="productosPFI" type="ns0:productoPFI" minOccurs="0" maxOccurs="unbounded"
+                 nillable="true"/>
+            <xsd:element name="puntoIngresoAnexoPFI" type="ns0:puntoIngresoAnexoPFI" minOccurs="0" maxOccurs="unbounded"
+                 nillable="true"/>
+            <xsd:element name="puntoIngresoProductoPFI" type="ns0:puntoIngresoProductoPFI" minOccurs="0"
+                 maxOccurs="unbounded" nillable="true"/>
+            <xsd:element name="secuencial" type="xsd:double" minOccurs="0"/>
+            <xsd:element name="solicitante" type="ns0:solicitante" minOccurs="0"/>
+            <xsd:element name="urlPFIDefinitivo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="userName" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="lugarProduccionAnexoPFI">
+        <xsd:sequence>
+            <xsd:element name="codigoAnexo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="descripcionAnexo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="lugarProduccionAnexo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="nombreCientificoAnexo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="partidaArancelariaAnexo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="tipoEnvaseAnexo" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="lugarProduccionProductoPFI">
+        <xsd:sequence>
+            <xsd:element name="codigoProducto" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="descLugarProduccion" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="descripcionProducto" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="lugarProduccionProducto" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="nombreCientificoProducto" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="partidaArancelariaProducto" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="tipoEnvaseProducto" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="paisOrigenAnexoPFI">
+        <xsd:sequence>
+            <xsd:element name="codigoAnexo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="descripcionAnexo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="nombreCientificoAnexo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="paisOrigenAnexo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="partidaArancelariaAnexo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="tipoEnvaseAnexo" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="paisOrigenProductoPFI">
+        <xsd:sequence>
+            <xsd:element name="codigoLugarProduccion" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codigoProducto" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="descLugarProduccion" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="descPaisOrigenProducto" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="descripcionProducto" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="lugarProduccion" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="nombreCientificoProducto" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="paisOrigenProducto" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="partidaArancelariaProducto" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="tipoEnvaseProducto" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="productoPFI">
+        <xsd:sequence>
+            <xsd:element name="cantidad" type="xsd:double" minOccurs="0"/>
+            <xsd:element name="cantidadPlantas" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codUniMed" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codigoProducto" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="contieneAnexos" type="xsd:boolean"/>
+            <xsd:element name="desTipoEnvase" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="descPaisDestino" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="descPaisProcedencia" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="descUniMed" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="descripcion" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="nombreCientifico" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="paisDestino" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="paisProcedencia" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="partidaArancelaria" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="pesoNeto" type="xsd:double" minOccurs="0"/>
+            <xsd:element name="tipoEnvase" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="usoDestino" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="puntoIngresoAnexoPFI">
+        <xsd:sequence>
+            <xsd:element name="cantidad" type="xsd:double" minOccurs="0"/>
+            <xsd:element name="codigoAnexo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="descripcionAnexo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="nombreCientificoAnexo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="partidaArancelariaAnexo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="pesoNeto" type="xsd:double" minOccurs="0"/>
+            <xsd:element name="puntoIngresoAnexo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="tipoEnvaseAnexo" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="puntoIngresoProductoPFI">
+        <xsd:sequence>
+            <xsd:element name="cantidad" type="xsd:double" minOccurs="0"/>
+            <xsd:element name="codigoProducto" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="descPuntoIngresoProducto" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="descPuntoSalidaProducto" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="descripcionProducto" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="nombreCientificoProducto" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="partidaArancelariaProducto" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="pesoNeto" type="xsd:double" minOccurs="0"/>
+            <xsd:element name="puntoIngresoProducto" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="puntoSalidaProducto" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="tipoEnvaseProducto" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="permisoZoosanitarioImportacion">
+        <xsd:sequence>
+            <xsd:element name="anexosPZI" type="ns0:anexoPFI" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+            <xsd:element name="codReqImpProducto" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="descDireccionEjecutiva" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="direccionEjecutiva" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="fechaAmpliacion" type="xsd:dateTime" minOccurs="0"/>
+            <xsd:element name="fechaEmision" type="xsd:dateTime" minOccurs="0"/>
+            <xsd:element name="fechaEntrega" type="xsd:dateTime" minOccurs="0"/>
+            <xsd:element name="fechaProbableIngreso" type="xsd:dateTime" minOccurs="0"/>
+            <xsd:element name="fechaProbableSalida" type="xsd:dateTime" minOccurs="0"/>
+            <xsd:element name="indicadorAmpliacion" type="xsd:boolean"/>
+            <xsd:element name="noCertificado" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="noFolio" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="paisesOrigenAnexoPZI" type="ns0:paisOrigenAnexoPFI" minOccurs="0" maxOccurs="unbounded"
+                 nillable="true"/>
+            <xsd:element name="paisesOrigenProductoPZI" type="ns0:paisOrigenProductoPFI" minOccurs="0"
+                 maxOccurs="unbounded" nillable="true"/>
+            <xsd:element name="productoPZI" type="ns0:productoPZI" minOccurs="0"/>
+            <xsd:element name="puntoIngreso" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="puntoSalida" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="puntosIngresoProductoPZI" type="ns0:puntoIngresoProductoPFI" minOccurs="0"
+                 maxOccurs="unbounded" nillable="true"/>
+            <xsd:element name="solicitante" type="ns0:solicitante" minOccurs="0"/>
+            <xsd:element name="urlPZIDefinitivo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="usuario" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="reciboPago">
+        <xsd:sequence>
+            <xsd:element name="fechaHora" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="numeroExpediente" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="numeroRecibo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="sedeSenasa" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="valorPagado" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="valorSaldo" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="requisitoDao">
+        <xsd:sequence>
+            <xsd:element name="clase" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codigoRequisito" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="descripcionRequisito" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="etiqueta" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="orden" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="sangria" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="servicioTUPA">
+        <xsd:sequence>
+            <xsd:element name="codServicioTupa" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codigoCentroTramite" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codigoClase" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codigoExpediente" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codigoSolicitud" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="descripcionCentroTramite" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="estado" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="flagImpoExpo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="indicadorCobroPorProducto" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="nombreServicioTupa" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="plazo" type="xsd:float"/>
+            <xsd:element name="valorServicioTupa" type="xsd:float"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="reciboServicio">
+        <xsd:sequence>
+            <xsd:element name="cantidad" type="xsd:double" minOccurs="0"/>
+            <xsd:element name="codigoRecibo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codigoServicio" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="montoServicio" type="xsd:double" minOccurs="0"/>
+            <xsd:element name="nombreServicio" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="documentoSTD">
+        <xsd:sequence>
+            <xsd:element name="archivoFisico" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="archivoFolio" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="auditoria" type="ns0:audit" minOccurs="0"/>
+            <xsd:element name="autor" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="autorId" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codigo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codigoDocPadre" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="confidencial" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="escenario" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="estado" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="fechaCrea" type="xsd:dateTime" minOccurs="0"/>
+            <xsd:element name="fechahora" type="xsd:dateTime" minOccurs="0"/>
+            <xsd:element name="indicadorObligatorio" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="isDocPrincipal" type="xsd:boolean" minOccurs="0"/>
+            <xsd:element name="nombre" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="numeroExpediente" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="subTipo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="tipo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="tipo_doc" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="ucmId" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="audit">
+        <xsd:sequence>
+            <xsd:element name="estado" type="xsd:boolean"/>
+            <xsd:element name="mensajeSistema" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="mensajeUsuario" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="firmante">
+        <xsd:sequence>
+            <xsd:element name="lugar" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="nomencaltura" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="userName" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="crearDocumento" type="ns0:crearDocumento"/>
+    <xsd:element name="crearDocumentoExpoFito" type="ns0:crearDocumentoExpoFito"/>
+    <xsd:element name="crearDocumentoExpoFitoResponse" type="ns0:crearDocumentoExpoFitoResponse"/>
+    <xsd:element name="crearDocumentoResponse" type="ns0:crearDocumentoResponse"/>
+    <xsd:element name="ejecutarIngreso" type="ns0:ejecutarIngreso"/>
+    <xsd:element name="ejecutarIngresoResponse" type="ns0:ejecutarIngresoResponse"/>
+    <xsd:element name="eliminarNumeroDocumento" type="ns0:eliminarNumeroDocumento"/>
+    <xsd:element name="eliminarNumeroDocumentoResponse" type="ns0:eliminarNumeroDocumentoResponse"/>
+    <xsd:element name="generarDocumento" type="ns0:generarDocumento"/>
+    <xsd:element name="generarDocumentoAutorizacionSEExpoZoo" type="ns0:generarDocumentoAutorizacionSEExpoZoo"/>
+    <xsd:element name="generarDocumentoAutorizacionSEExpoZooResponse" type="ns0:generarDocumentoAutorizacionSEExpoZooResponse"/>
+    <xsd:element name="generarDocumentoIIVFIto" type="ns0:generarDocumentoIIVFIto"/>
+    <xsd:element name="generarDocumentoIIVFItoResponse" type="ns0:generarDocumentoIIVFItoResponse"/>
+    <xsd:element name="generarDocumentoRegistroGCA" type="ns0:generarDocumentoRegistroGCA"/>
+    <xsd:element name="generarDocumentoRegistroGCAResponse" type="ns0:generarDocumentoRegistroGCAResponse"/>
+    <xsd:element name="generarDocumentoResponse" type="ns0:generarDocumentoResponse"/>
+    <xsd:element name="generarNumeroDocumento" type="ns0:generarNumeroDocumento"/>
+    <xsd:element name="generarNumeroDocumentoResponse" type="ns0:generarNumeroDocumentoResponse"/>
+    <xsd:element name="grabarDocumentoStdHijo" type="ns0:grabarDocumentoStdHijo"/>
+    <xsd:element name="grabarDocumentoStdHijoResponse" type="ns0:grabarDocumentoStdHijoResponse"/>
+    <xsd:element name="ObtenerCodDocumentoStdPadre" type="ns0:ObtenerCodDocumentoStdPadre"/>
+    <xsd:element name="ObtenerCodDocumentoStdPadreResponse" type="ns0:ObtenerCodDocumentoStdPadreResponse"/>
+    <xsd:element name="obtenerDocumento" type="ns0:obtenerDocumento"/>
+    <xsd:element name="obtenerDocumentoResponse" type="ns0:obtenerDocumentoResponse"/>
+    <xsd:element name="obtenerFirmante" type="ns0:obtenerFirmante"/>
+    <xsd:element name="obtenerFirmanteResponse" type="ns0:obtenerFirmanteResponse"/>
+    <xsd:element name="obtenerUrlDocumento" type="ns0:obtenerUrlDocumento"/>
+    <xsd:element name="obtenerUrlDocumentoResponse" type="ns0:obtenerUrlDocumentoResponse"/>
+    <xsd:element name="previsualizarIngreso" type="ns0:previsualizarIngreso"/>
+    <xsd:element name="previsualizarIngresoResponse" type="ns0:previsualizarIngresoResponse"/>
+</xsd:schema>
+<!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is JAX-WS RI 2.3.0-wls122140-b190328.0053 svn-revision#unknown. -->

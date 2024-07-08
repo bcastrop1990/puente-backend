@@ -1,0 +1,899 @@
+<xs:schema xmlns:tns="http://tramitedocumentario.ws.senasa.gob.pe" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+     version="1.0" targetNamespace="http://tramitedocumentario.ws.senasa.gob.pe">
+    <xs:element name="actualizarArchivo" type="tns:actualizarArchivo"/>
+    <xs:element name="actualizarArchivoResponse" type="tns:actualizarArchivoResponse"/>
+    <xs:element name="actualizarDocumento" type="tns:actualizarDocumento"/>
+    <xs:element name="actualizarDocumentoResponse" type="tns:actualizarDocumentoResponse"/>
+    <xs:element name="anexarDocumentoExpediente" type="tns:anexarDocumentoExpediente"/>
+    <xs:element name="anexarDocumentoExpedienteResponse" type="tns:anexarDocumentoExpedienteResponse"/>
+    <xs:element name="consultaSTDDocumentos" type="tns:consultaSTDDocumentos"/>
+    <xs:element name="consultaSTDDocumentosResponse" type="tns:consultaSTDDocumentosResponse"/>
+    <xs:element name="consultaSTDGeneral" type="tns:consultaSTDGeneral"/>
+    <xs:element name="consultaSTDGeneralExterno" type="tns:consultaSTDGeneralExterno"/>
+    <xs:element name="consultaSTDGeneralExternoResponse" type="tns:consultaSTDGeneralExternoResponse"/>
+    <xs:element name="consultaSTDGeneralResponse" type="tns:consultaSTDGeneralResponse"/>
+    <xs:element name="consultaSTDxIdFinal" type="tns:consultaSTDxIdFinal"/>
+    <xs:element name="consultaSTDxIdFinalResponse" type="tns:consultaSTDxIdFinalResponse"/>
+    <xs:element name="eliminarDocumentoAdjunto" type="tns:eliminarDocumentoAdjunto"/>
+    <xs:element name="eliminarDocumentoAdjuntoResponse" type="tns:eliminarDocumentoAdjuntoResponse"/>
+    <xs:element name="eliminarDocumentoSTD" type="tns:eliminarDocumentoSTD"/>
+    <xs:element name="eliminarDocumentoSTDResponse" type="tns:eliminarDocumentoSTDResponse"/>
+    <xs:element name="eliminarNumeracioDocumento" type="tns:eliminarNumeracioDocumento"/>
+    <xs:element name="eliminarNumeracioDocumentoResponse" type="tns:eliminarNumeracioDocumentoResponse"/>
+    <xs:element name="generarDocumentoTramite" type="tns:generarDocumentoTramite"/>
+    <xs:element name="generarDocumentoTramiteResponse" type="tns:generarDocumentoTramiteResponse"/>
+    <xs:element name="obtenerAdjuntos" type="tns:obtenerAdjuntos"/>
+    <xs:element name="obtenerAdjuntosResponse" type="tns:obtenerAdjuntosResponse"/>
+    <xs:element name="obtenerBandejaElectronica" type="tns:obtenerBandejaElectronica"/>
+    <xs:element name="obtenerBandejaElectronicaResponse" type="tns:obtenerBandejaElectronicaResponse"/>
+    <xs:element name="obtenerDocumentoStd" type="tns:obtenerDocumentoStd"/>
+    <xs:element name="obtenerDocumentoStdResponse" type="tns:obtenerDocumentoStdResponse"/>
+    <xs:element name="obtenerEncargado" type="tns:obtenerEncargado"/>
+    <xs:element name="obtenerEncargadoResponse" type="tns:obtenerEncargadoResponse"/>
+    <xs:element name="obtenerEncargatura" type="tns:obtenerEncargatura"/>
+    <xs:element name="obtenerEncargaturaResponse" type="tns:obtenerEncargaturaResponse"/>
+    <xs:element name="obtenerExpedienteStd" type="tns:obtenerExpedienteStd"/>
+    <xs:element name="obtenerExpedienteStdResponse" type="tns:obtenerExpedienteStdResponse"/>
+    <xs:element name="obtenerTiposDocMesaPartes" type="tns:obtenerTiposDocMesaPartes"/>
+    <xs:element name="obtenerTiposDocMesaPartesResponse" type="tns:obtenerTiposDocMesaPartesResponse"/>
+    <xs:element name="previsualizarIngresoDocTramite" type="tns:previsualizarIngresoDocTramite"/>
+    <xs:element name="previsualizarIngresoDocTramiteResponse" type="tns:previsualizarIngresoDocTramiteResponse"/>
+    <xs:element name="procesarDocumentoElectronico" type="tns:procesarDocumentoElectronico"/>
+    <xs:element name="procesarDocumentoElectronicoResponse" type="tns:procesarDocumentoElectronicoResponse"/>
+    <xs:element name="registrarDocumento" type="tns:registrarDocumento"/>
+    <xs:element name="registrarDocumentoResponse" type="tns:registrarDocumentoResponse"/>
+    <xs:element name="registrarExpediente" type="tns:registrarExpediente"/>
+    <xs:element name="registrarExpedienteResponse" type="tns:registrarExpedienteResponse"/>
+    <xs:element name="verificaParticipacion" type="tns:verificaParticipacion"/>
+    <xs:element name="verificaParticipacionResponse" type="tns:verificaParticipacionResponse"/>
+    <xs:complexType name="trazabilidad">
+        <xs:sequence>
+            <xs:element name="accion" type="xs:string" minOccurs="0"/>
+            <xs:element name="canal" type="xs:string" minOccurs="0"/>
+            <xs:element name="codigoElemento" type="xs:string" minOccurs="0"/>
+            <xs:element name="codigoElementoRespuesta" type="xs:string" minOccurs="0"/>
+            <xs:element name="descripcionAsunto" type="xs:string" minOccurs="0"/>
+            <xs:element name="destinatarioAreaEntidad" type="xs:string" minOccurs="0"/>
+            <xs:element name="destinatarioPersona" type="xs:string" minOccurs="0"/>
+            <xs:element name="destinatarioSubAreaEntidad" type="xs:string" minOccurs="0"/>
+            <xs:element name="estado" type="xs:string" minOccurs="0"/>
+            <xs:element name="expedienteDefinitivo" type="xs:string" minOccurs="0"/>
+            <xs:element name="expedienteTemp" type="xs:string" minOccurs="0"/>
+            <xs:element name="fechaHora" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="notas" type="xs:string" minOccurs="0"/>
+            <xs:element name="proceso" type="xs:string" minOccurs="0"/>
+            <xs:element name="proveido" type="xs:string" minOccurs="0"/>
+            <xs:element name="remitenteAreaEntidad" type="xs:string" minOccurs="0"/>
+            <xs:element name="remitentePersona" type="xs:string" minOccurs="0"/>
+            <xs:element name="remitenteSubAreaEntidad" type="xs:string" minOccurs="0"/>
+            <xs:element name="urgencia" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="documentoSTD">
+        <xs:sequence>
+            <xs:element name="archivoFisico" type="xs:string" minOccurs="0"/>
+            <xs:element name="archivoFolio" type="xs:string" minOccurs="0"/>
+            <xs:element name="auditoria" type="tns:audit" minOccurs="0"/>
+            <xs:element name="autor" type="xs:string" minOccurs="0"/>
+            <xs:element name="autorId" type="xs:string" minOccurs="0"/>
+            <xs:element name="codigo" type="xs:string" minOccurs="0"/>
+            <xs:element name="codigoDocPadre" type="xs:string" minOccurs="0"/>
+            <xs:element name="confidencial" type="xs:string" minOccurs="0"/>
+            <xs:element name="escenario" type="xs:string" minOccurs="0"/>
+            <xs:element name="estado" type="xs:string" minOccurs="0"/>
+            <xs:element name="fechaCrea" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="fechahora" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="indicadorObligatorio" type="xs:string" minOccurs="0"/>
+            <xs:element name="isDocPrincipal" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="nombre" type="xs:string" minOccurs="0"/>
+            <xs:element name="numeroExpediente" type="xs:string" minOccurs="0"/>
+            <xs:element name="subTipo" type="xs:string" minOccurs="0"/>
+            <xs:element name="tipo" type="xs:string" minOccurs="0"/>
+            <xs:element name="tipo_doc" type="xs:string" minOccurs="0"/>
+            <xs:element name="ucmId" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="audit">
+        <xs:sequence>
+            <xs:element name="estado" type="xs:boolean"/>
+            <xs:element name="mensajeSistema" type="xs:string" minOccurs="0"/>
+            <xs:element name="mensajeUsuario" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="obtenerDocumentoStd">
+        <xs:sequence>
+            <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+            <xs:element name="arg1" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="obtenerDocumentoStdResponse">
+        <xs:sequence>
+            <xs:element name="return" type="tns:documentoSTD" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="previsualizarIngresoDocTramite">
+        <xs:sequence>
+            <xs:element name="arg0" type="xs:base64Binary" minOccurs="0"/>
+            <xs:element name="arg1" type="xs:string" minOccurs="0"/>
+            <xs:element name="arg2" type="tns:documento" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="documento">
+        <xs:sequence>
+            <xs:element name="agencia" type="tns:agenteAduanas" minOccurs="0"/>
+            <xs:element name="ampliacion" type="xs:boolean"/>
+            <xs:element name="apfi" type="tns:anexoPFI" minOccurs="0"/>
+            <xs:element name="cez" type="tns:exportacionZooSanitaria" minOccurs="0"/>
+            <xs:element name="codigoCentroTramite" type="xs:string" minOccurs="0"/>
+            <xs:element name="codigoServicio" type="xs:string" minOccurs="0"/>
+            <xs:element name="cpe" type="tns:registroCPE" minOccurs="0"/>
+            <xs:element name="direccionEjecutiva" type="tns:area" minOccurs="0"/>
+            <xs:element name="encargatura" type="xs:boolean"/>
+            <xs:element name="estado" type="xs:string" minOccurs="0"/>
+            <xs:element name="listaFirmantes" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="memorandum" type="tns:memorandum" minOccurs="0"/>
+            <xs:element name="metadatos" type="tns:propiedad" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="modificacion" type="xs:boolean"/>
+            <xs:element name="pfi" type="tns:permisoFitosanitarioImportacion" minOccurs="0"/>
+            <xs:element name="previsualizar" type="xs:boolean"/>
+            <xs:element name="pzi" type="tns:permisoZoosanitarioImportacion" minOccurs="0"/>
+            <xs:element name="reciboPago" type="tns:reciboPago" minOccurs="0"/>
+            <xs:element name="requisitosSanitarios" type="tns:requisitoDao" nillable="true" minOccurs="0"
+                 maxOccurs="unbounded"/>
+            <xs:element name="servicioTupa" type="tns:servicioTUPA" minOccurs="0"/>
+            <xs:element name="serviciosTUPARecibo" type="tns:reciboServicio" nillable="true" minOccurs="0"
+                 maxOccurs="unbounded"/>
+            <xs:element name="sinFirma" type="xs:boolean"/>
+            <xs:element name="solicitante" type="tns:solicitante" minOccurs="0"/>
+            <xs:element name="subtipo" type="xs:string" minOccurs="0"/>
+            <xs:element name="ucmId" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="agenteAduanas">
+        <xs:sequence>
+            <xs:element name="departamento" type="xs:string" minOccurs="0"/>
+            <xs:element name="distrito" type="xs:string" minOccurs="0"/>
+            <xs:element name="dniRepresentanteLegal" type="xs:string" minOccurs="0"/>
+            <xs:element name="dniRuc" type="xs:string" minOccurs="0"/>
+            <xs:element name="domicilioLegal" type="xs:string" minOccurs="0"/>
+            <xs:element name="email" type="xs:string" minOccurs="0"/>
+            <xs:element name="fax" type="xs:string" minOccurs="0"/>
+            <xs:element name="idPersona" type="xs:string" minOccurs="0"/>
+            <xs:element name="nombreRazonSocial" type="xs:string" minOccurs="0"/>
+            <xs:element name="nombreRepresentanteLegal" type="xs:string" minOccurs="0"/>
+            <xs:element name="provincia" type="xs:string" minOccurs="0"/>
+            <xs:element name="telefono" type="xs:string" minOccurs="0"/>
+            <xs:element name="telefonoMovil" type="xs:string" minOccurs="0"/>
+            <xs:element name="urbanizacion" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="anexoPFI">
+        <xs:sequence>
+            <xs:element name="cantidad" type="xs:double" minOccurs="0"/>
+            <xs:element name="cantidadPlantas" type="xs:string" minOccurs="0"/>
+            <xs:element name="codUniMed" type="xs:string" minOccurs="0"/>
+            <xs:element name="codigo" type="xs:string" minOccurs="0"/>
+            <xs:element name="codigoPadre" type="xs:string" minOccurs="0"/>
+            <xs:element name="desTipoEnvase" type="xs:string" minOccurs="0"/>
+            <xs:element name="desUniMed" type="xs:string" minOccurs="0"/>
+            <xs:element name="descRaza" type="xs:string" minOccurs="0"/>
+            <xs:element name="descSexo" type="xs:string" minOccurs="0"/>
+            <xs:element name="descripcion" type="xs:string" minOccurs="0"/>
+            <xs:element name="descripcionPadre" type="xs:string" minOccurs="0"/>
+            <xs:element name="edad" type="xs:int"/>
+            <xs:element name="idRaza" type="xs:string" minOccurs="0"/>
+            <xs:element name="idSexo" type="xs:string" minOccurs="0"/>
+            <xs:element name="isAnimalVivo" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="nombreCientifico" type="xs:string" minOccurs="0"/>
+            <xs:element name="nombreCientificoPadre" type="xs:string" minOccurs="0"/>
+            <xs:element name="paisDestino" type="xs:string" minOccurs="0"/>
+            <xs:element name="paisProcedencia" type="xs:string" minOccurs="0"/>
+            <xs:element name="partidaArancelaria" type="xs:string" minOccurs="0"/>
+            <xs:element name="partidaArancelariaPadre" type="xs:string" minOccurs="0"/>
+            <xs:element name="pesoNeto" type="xs:double" minOccurs="0"/>
+            <xs:element name="tipoEnvase" type="xs:string" minOccurs="0"/>
+            <xs:element name="usoDestino" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="exportacionZooSanitaria">
+        <xs:sequence>
+            <xs:element name="anexosCEZ" type="tns:anexoPZI" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="codigoImportador" type="xs:string" minOccurs="0"/>
+            <xs:element name="direccionEjecutiva" type="xs:string" minOccurs="0"/>
+            <xs:element name="direccionImportador" type="xs:string" minOccurs="0"/>
+            <xs:element name="fechaEmbarque" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="fechaEmision" type="xs:string" minOccurs="0"/>
+            <xs:element name="fechaInspeccion" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="fechasDesembarque" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="horaInspeccion" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="lugarInspeccion" type="xs:string" minOccurs="0"/>
+            <xs:element name="lugarUbicacionEnvio" type="xs:string" minOccurs="0"/>
+            <xs:element name="medioTransporte" type="xs:string" minOccurs="0"/>
+            <xs:element name="noCertificado" type="xs:string" minOccurs="0"/>
+            <xs:element name="noFolio" type="xs:string" minOccurs="0"/>
+            <xs:element name="nombreImportador" type="xs:string" minOccurs="0"/>
+            <xs:element name="observacion" type="xs:string" minOccurs="0"/>
+            <xs:element name="paisDestino" type="xs:string" minOccurs="0"/>
+            <xs:element name="paisOrigen" type="xs:string" minOccurs="0"/>
+            <xs:element name="productosCEZ" type="tns:productoPZI" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="puntoLlegada" type="xs:string" minOccurs="0"/>
+            <xs:element name="puntoSalida" type="xs:string" minOccurs="0"/>
+            <xs:element name="solicitante" type="tns:solicitante" minOccurs="0"/>
+            <xs:element name="urlCEZDefinitivo" type="xs:string" minOccurs="0"/>
+            <xs:element name="usoDestino" type="xs:string" minOccurs="0"/>
+            <xs:element name="usuario" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="anexoPZI">
+        <xs:sequence>
+            <xs:element name="cantidad" type="xs:double" minOccurs="0"/>
+            <xs:element name="cantidadAnimal" type="xs:int" minOccurs="0"/>
+            <xs:element name="codPaisDestino" type="xs:string" minOccurs="0"/>
+            <xs:element name="codUniMed" type="xs:string" minOccurs="0"/>
+            <xs:element name="codigo" type="xs:string" minOccurs="0"/>
+            <xs:element name="codigoPadre" type="xs:string" minOccurs="0"/>
+            <xs:element name="desDestino" type="xs:string" minOccurs="0"/>
+            <xs:element name="desTipoEnvase" type="xs:string" minOccurs="0"/>
+            <xs:element name="desUniMed" type="xs:string" minOccurs="0"/>
+            <xs:element name="descripcion" type="xs:string" minOccurs="0"/>
+            <xs:element name="descripcionPadre" type="xs:string" minOccurs="0"/>
+            <xs:element name="edadAnimal" type="xs:string" minOccurs="0"/>
+            <xs:element name="especieAnimal" type="xs:string" minOccurs="0"/>
+            <xs:element name="isAnimalVivo" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="nombreCientifico" type="xs:string" minOccurs="0"/>
+            <xs:element name="nombreCientificoPadre" type="xs:string" minOccurs="0"/>
+            <xs:element name="nroIdentfAnimal" type="xs:string" minOccurs="0"/>
+            <xs:element name="paisProcedencia" type="xs:string" minOccurs="0"/>
+            <xs:element name="partidaArancelaria" type="xs:string" minOccurs="0"/>
+            <xs:element name="partidaArancelariaPadre" type="xs:string" minOccurs="0"/>
+            <xs:element name="pesoNeto" type="xs:double" minOccurs="0"/>
+            <xs:element name="razaAnimal" type="xs:string" minOccurs="0"/>
+            <xs:element name="sexoAnimal" type="xs:string" minOccurs="0"/>
+            <xs:element name="tipoEnvase" type="xs:string" minOccurs="0"/>
+            <xs:element name="usoDestino" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="productoPZI">
+        <xs:sequence>
+            <xs:element name="animalesVivos" type="xs:string" minOccurs="0"/>
+            <xs:element name="cantidad" type="xs:double" minOccurs="0"/>
+            <xs:element name="codProducto" type="xs:string" minOccurs="0"/>
+            <xs:element name="codUniMed" type="xs:string" minOccurs="0"/>
+            <xs:element name="contieneAnexos" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="desTipoEnvase" type="xs:string" minOccurs="0"/>
+            <xs:element name="descRaza" type="xs:string" minOccurs="0"/>
+            <xs:element name="descSexo" type="xs:string" minOccurs="0"/>
+            <xs:element name="descUniMed" type="xs:string" minOccurs="0"/>
+            <xs:element name="descripcion" type="xs:string" minOccurs="0"/>
+            <xs:element name="edad" type="xs:int" minOccurs="0"/>
+            <xs:element name="esAnimal" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="especie" type="xs:string" minOccurs="0"/>
+            <xs:element name="idRaza" type="xs:string" minOccurs="0"/>
+            <xs:element name="idSexo" type="xs:string" minOccurs="0"/>
+            <xs:element name="identificacion" type="xs:string" minOccurs="0"/>
+            <xs:element name="nombreCientifico" type="xs:string" minOccurs="0"/>
+            <xs:element name="numeroAnimales" type="xs:int" minOccurs="0"/>
+            <xs:element name="paisProcedencia" type="xs:string" minOccurs="0"/>
+            <xs:element name="partidaArancelaria" type="xs:string" minOccurs="0"/>
+            <xs:element name="pesoNeto" type="xs:double" minOccurs="0"/>
+            <xs:element name="tipoEnvase" type="xs:string" minOccurs="0"/>
+            <xs:element name="usoDestino" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="solicitante">
+        <xs:sequence>
+            <xs:element name="codigoSolicitante" type="xs:string" minOccurs="0"/>
+            <xs:element name="departamento" type="xs:string" minOccurs="0"/>
+            <xs:element name="distrito" type="xs:string" minOccurs="0"/>
+            <xs:element name="dniRepresentanteLegal" type="xs:string" minOccurs="0"/>
+            <xs:element name="dniRuc" type="xs:string" minOccurs="0"/>
+            <xs:element name="domicilioLegal" type="xs:string" minOccurs="0"/>
+            <xs:element name="email" type="xs:string" minOccurs="0"/>
+            <xs:element name="nombreDepartamento" type="xs:string" minOccurs="0"/>
+            <xs:element name="nombreDistrito" type="xs:string" minOccurs="0"/>
+            <xs:element name="nombreImportador" type="xs:string" minOccurs="0"/>
+            <xs:element name="nombreProvincia" type="xs:string" minOccurs="0"/>
+            <xs:element name="nombreRazonSocial" type="xs:string" minOccurs="0"/>
+            <xs:element name="nombreRepresentanteLegal" type="xs:string" minOccurs="0"/>
+            <xs:element name="provincia" type="xs:string" minOccurs="0"/>
+            <xs:element name="telefono" type="xs:string" minOccurs="0"/>
+            <xs:element name="telefonoMovil" type="xs:string" minOccurs="0"/>
+            <xs:element name="tipoDocumento" type="xs:string" minOccurs="0"/>
+            <xs:element name="tipoSolicitante" type="xs:string" minOccurs="0"/>
+            <xs:element name="urbanizacion" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="registroCPE">
+        <xs:sequence>
+            <xs:element name="codigoPersona" type="xs:string" minOccurs="0"/>
+            <xs:element name="direccionSede" type="xs:string" minOccurs="0"/>
+            <xs:element name="equipoTecnicoCPE" type="tns:equipoTecnicoCPE" nillable="true" minOccurs="0"
+                 maxOccurs="unbounded"/>
+            <xs:element name="estado" type="xs:string" minOccurs="0"/>
+            <xs:element name="fechaEmision" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="lugaresProduccionCPE" type="tns:lugaresProduccionCPE" nillable="true"
+                 minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="noCertificado" type="xs:string" minOccurs="0"/>
+            <xs:element name="noFolio" type="xs:string" minOccurs="0"/>
+            <xs:element name="nombreSede" type="xs:string" minOccurs="0"/>
+            <xs:element name="productosCPE" type="tns:productosCPE" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="sede" type="xs:string" minOccurs="0"/>
+            <xs:element name="solicitante" type="tns:solicitante" minOccurs="0"/>
+            <xs:element name="urlRegistroCPE" type="xs:string" minOccurs="0"/>
+            <xs:element name="usuario" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="equipoTecnicoCPE">
+        <xs:sequence>
+            <xs:element name="apellido" type="xs:string" minOccurs="0"/>
+            <xs:element name="dni" type="xs:string" minOccurs="0"/>
+            <xs:element name="flagVuce" type="xs:int"/>
+            <xs:element name="funcion" type="xs:string" minOccurs="0"/>
+            <xs:element name="indicadorAceptacion" type="xs:string" minOccurs="0"/>
+            <xs:element name="nombre" type="xs:string" minOccurs="0"/>
+            <xs:element name="observacion" type="xs:string" minOccurs="0"/>
+            <xs:element name="personaId" type="xs:string" minOccurs="0"/>
+            <xs:element name="secuencial" type="xs:int"/>
+            <xs:element name="titulo" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="lugaresProduccionCPE">
+        <xs:sequence>
+            <xs:element name="area" type="xs:double" minOccurs="0"/>
+            <xs:element name="departamento" type="xs:string" minOccurs="0"/>
+            <xs:element name="descDepartamento" type="xs:string" minOccurs="0"/>
+            <xs:element name="descDistrito" type="xs:string" minOccurs="0"/>
+            <xs:element name="descProvincia" type="xs:string" minOccurs="0"/>
+            <xs:element name="direccion" type="xs:string" minOccurs="0"/>
+            <xs:element name="distrito" type="xs:string" minOccurs="0"/>
+            <xs:element name="fechaInspeccion" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="flagVuce" type="xs:int"/>
+            <xs:element name="indicadorAcpt" type="xs:string" minOccurs="0"/>
+            <xs:element name="nombre" type="xs:string" minOccurs="0"/>
+            <xs:element name="observacion" type="xs:string" minOccurs="0"/>
+            <xs:element name="provincia" type="xs:string" minOccurs="0"/>
+            <xs:element name="recomendacion" type="xs:string" minOccurs="0"/>
+            <xs:element name="secuencial" type="xs:int"/>
+            <xs:element name="tipoPredio" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="productosCPE">
+        <xs:sequence>
+            <xs:element name="cantidad" type="xs:double" minOccurs="0"/>
+            <xs:element name="codigoProducto" type="xs:string" minOccurs="0"/>
+            <xs:element name="descOrigen" type="xs:string" minOccurs="0"/>
+            <xs:element name="descripcion" type="xs:string" minOccurs="0"/>
+            <xs:element name="fechaAdenda" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="flagVuce" type="xs:int"/>
+            <xs:element name="nombreCientifico" type="xs:string" minOccurs="0"/>
+            <xs:element name="origen" type="xs:string" minOccurs="0"/>
+            <xs:element name="partidaArancelaria" type="xs:string" minOccurs="0"/>
+            <xs:element name="planta" type="xs:string" minOccurs="0"/>
+            <xs:element name="secuencial" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="area">
+        <xs:sequence>
+            <xs:element name="abreviatura" type="xs:string" minOccurs="0"/>
+            <xs:element name="codigoArea" type="xs:string" minOccurs="0"/>
+            <xs:element name="jefeArea" type="xs:string" minOccurs="0"/>
+            <xs:element name="nombreArea" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="memorandum">
+        <xs:sequence>
+            <xs:element name="areaDestino" type="xs:string" minOccurs="0"/>
+            <xs:element name="asunto" type="xs:string" minOccurs="0"/>
+            <xs:element name="fechaRegistro" type="xs:string" minOccurs="0"/>
+            <xs:element name="numeroDocumento" type="xs:string" minOccurs="0"/>
+            <xs:element name="personaDestino" type="xs:string" minOccurs="0"/>
+            <xs:element name="referencia" type="xs:string" minOccurs="0"/>
+            <xs:element name="subTipo" type="xs:string" minOccurs="0"/>
+            <xs:element name="subareaDestino" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="propiedad">
+        <xs:sequence>
+            <xs:element name="XPropiedad" type="xs:string" minOccurs="0"/>
+            <xs:element name="XValor" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="permisoFitosanitarioImportacion">
+        <xs:sequence>
+            <xs:element name="anexosPFI" type="tns:anexoPFI" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="cadenaProductos" type="xs:string" minOccurs="0"/>
+            <xs:element name="codigoRequImpoProducto" type="xs:string" minOccurs="0"/>
+            <xs:element name="descDireccionEjecutiva" type="xs:string" minOccurs="0"/>
+            <xs:element name="direccionEjecutiva" type="xs:string" minOccurs="0"/>
+            <xs:element name="fechaAmpliacion" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="fechaDeEmicion" type="xs:string" minOccurs="0"/>
+            <xs:element name="fechaVigencia" type="xs:string" minOccurs="0"/>
+            <xs:element name="indicadorAmpliacion" type="xs:boolean"/>
+            <xs:element name="lugaresProduccionAnexoPFI" type="tns:lugarProduccionAnexoPFI" nillable="true"
+                 minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="lugaresProduccionProductoPFI" type="tns:lugarProduccionProductoPFI"
+                 nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="noCertificado" type="xs:string" minOccurs="0"/>
+            <xs:element name="noFolio" type="xs:string" minOccurs="0"/>
+            <xs:element name="numeroInspecciones" type="xs:string" minOccurs="0"/>
+            <xs:element name="paisesOrigenAnexoPFI" type="tns:paisOrigenAnexoPFI" nillable="true" minOccurs="0"
+                 maxOccurs="unbounded"/>
+            <xs:element name="paisesOrigenProductoPFI" type="tns:paisOrigenProductoPFI" nillable="true"
+                 minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="periodoVegetativo" type="xs:string" minOccurs="0"/>
+            <xs:element name="productosPFI" type="tns:productoPFI" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="puntoIngresoAnexoPFI" type="tns:puntoIngresoAnexoPFI" nillable="true"
+                 minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="puntoIngresoProductoPFI" type="tns:puntoIngresoProductoPFI" nillable="true"
+                 minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="secuencial" type="xs:double" minOccurs="0"/>
+            <xs:element name="solicitante" type="tns:solicitante" minOccurs="0"/>
+            <xs:element name="urlPFIDefinitivo" type="xs:string" minOccurs="0"/>
+            <xs:element name="userName" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="lugarProduccionAnexoPFI">
+        <xs:sequence>
+            <xs:element name="codigoAnexo" type="xs:string" minOccurs="0"/>
+            <xs:element name="descripcionAnexo" type="xs:string" minOccurs="0"/>
+            <xs:element name="lugarProduccionAnexo" type="xs:string" minOccurs="0"/>
+            <xs:element name="nombreCientificoAnexo" type="xs:string" minOccurs="0"/>
+            <xs:element name="partidaArancelariaAnexo" type="xs:string" minOccurs="0"/>
+            <xs:element name="tipoEnvaseAnexo" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="lugarProduccionProductoPFI">
+        <xs:sequence>
+            <xs:element name="codigoProducto" type="xs:string" minOccurs="0"/>
+            <xs:element name="descLugarProduccion" type="xs:string" minOccurs="0"/>
+            <xs:element name="descripcionProducto" type="xs:string" minOccurs="0"/>
+            <xs:element name="lugarProduccionProducto" type="xs:string" minOccurs="0"/>
+            <xs:element name="nombreCientificoProducto" type="xs:string" minOccurs="0"/>
+            <xs:element name="partidaArancelariaProducto" type="xs:string" minOccurs="0"/>
+            <xs:element name="tipoEnvaseProducto" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="paisOrigenAnexoPFI">
+        <xs:sequence>
+            <xs:element name="codigoAnexo" type="xs:string" minOccurs="0"/>
+            <xs:element name="descripcionAnexo" type="xs:string" minOccurs="0"/>
+            <xs:element name="nombreCientificoAnexo" type="xs:string" minOccurs="0"/>
+            <xs:element name="paisOrigenAnexo" type="xs:string" minOccurs="0"/>
+            <xs:element name="partidaArancelariaAnexo" type="xs:string" minOccurs="0"/>
+            <xs:element name="tipoEnvaseAnexo" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="paisOrigenProductoPFI">
+        <xs:sequence>
+            <xs:element name="codigoLugarProduccion" type="xs:string" minOccurs="0"/>
+            <xs:element name="codigoProducto" type="xs:string" minOccurs="0"/>
+            <xs:element name="descLugarProduccion" type="xs:string" minOccurs="0"/>
+            <xs:element name="descPaisOrigenProducto" type="xs:string" minOccurs="0"/>
+            <xs:element name="descripcionProducto" type="xs:string" minOccurs="0"/>
+            <xs:element name="lugarProduccion" type="xs:string" minOccurs="0"/>
+            <xs:element name="nombreCientificoProducto" type="xs:string" minOccurs="0"/>
+            <xs:element name="paisOrigenProducto" type="xs:string" minOccurs="0"/>
+            <xs:element name="partidaArancelariaProducto" type="xs:string" minOccurs="0"/>
+            <xs:element name="tipoEnvaseProducto" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="productoPFI">
+        <xs:sequence>
+            <xs:element name="cantidad" type="xs:double" minOccurs="0"/>
+            <xs:element name="cantidadPlantas" type="xs:string" minOccurs="0"/>
+            <xs:element name="codUniMed" type="xs:string" minOccurs="0"/>
+            <xs:element name="codigoProducto" type="xs:string" minOccurs="0"/>
+            <xs:element name="contieneAnexos" type="xs:boolean"/>
+            <xs:element name="desTipoEnvase" type="xs:string" minOccurs="0"/>
+            <xs:element name="descPaisDestino" type="xs:string" minOccurs="0"/>
+            <xs:element name="descPaisProcedencia" type="xs:string" minOccurs="0"/>
+            <xs:element name="descUniMed" type="xs:string" minOccurs="0"/>
+            <xs:element name="descripcion" type="xs:string" minOccurs="0"/>
+            <xs:element name="nombreCientifico" type="xs:string" minOccurs="0"/>
+            <xs:element name="paisDestino" type="xs:string" minOccurs="0"/>
+            <xs:element name="paisProcedencia" type="xs:string" minOccurs="0"/>
+            <xs:element name="partidaArancelaria" type="xs:string" minOccurs="0"/>
+            <xs:element name="pesoNeto" type="xs:double" minOccurs="0"/>
+            <xs:element name="tipoEnvase" type="xs:string" minOccurs="0"/>
+            <xs:element name="usoDestino" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="puntoIngresoAnexoPFI">
+        <xs:sequence>
+            <xs:element name="cantidad" type="xs:double" minOccurs="0"/>
+            <xs:element name="codigoAnexo" type="xs:string" minOccurs="0"/>
+            <xs:element name="descripcionAnexo" type="xs:string" minOccurs="0"/>
+            <xs:element name="nombreCientificoAnexo" type="xs:string" minOccurs="0"/>
+            <xs:element name="partidaArancelariaAnexo" type="xs:string" minOccurs="0"/>
+            <xs:element name="pesoNeto" type="xs:double" minOccurs="0"/>
+            <xs:element name="puntoIngresoAnexo" type="xs:string" minOccurs="0"/>
+            <xs:element name="tipoEnvaseAnexo" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="puntoIngresoProductoPFI">
+        <xs:sequence>
+            <xs:element name="cantidad" type="xs:double" minOccurs="0"/>
+            <xs:element name="codigoProducto" type="xs:string" minOccurs="0"/>
+            <xs:element name="descPuntoIngresoProducto" type="xs:string" minOccurs="0"/>
+            <xs:element name="descPuntoSalidaProducto" type="xs:string" minOccurs="0"/>
+            <xs:element name="descripcionProducto" type="xs:string" minOccurs="0"/>
+            <xs:element name="nombreCientificoProducto" type="xs:string" minOccurs="0"/>
+            <xs:element name="partidaArancelariaProducto" type="xs:string" minOccurs="0"/>
+            <xs:element name="pesoNeto" type="xs:double" minOccurs="0"/>
+            <xs:element name="puntoIngresoProducto" type="xs:string" minOccurs="0"/>
+            <xs:element name="puntoSalidaProducto" type="xs:string" minOccurs="0"/>
+            <xs:element name="tipoEnvaseProducto" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="permisoZoosanitarioImportacion">
+        <xs:sequence>
+            <xs:element name="anexosPZI" type="tns:anexoPFI" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="codReqImpProducto" type="xs:string" minOccurs="0"/>
+            <xs:element name="descDireccionEjecutiva" type="xs:string" minOccurs="0"/>
+            <xs:element name="direccionEjecutiva" type="xs:string" minOccurs="0"/>
+            <xs:element name="fechaAmpliacion" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="fechaEmision" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="fechaEntrega" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="fechaProbableIngreso" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="fechaProbableSalida" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="indicadorAmpliacion" type="xs:boolean"/>
+            <xs:element name="noCertificado" type="xs:string" minOccurs="0"/>
+            <xs:element name="noFolio" type="xs:string" minOccurs="0"/>
+            <xs:element name="paisesOrigenAnexoPZI" type="tns:paisOrigenAnexoPFI" nillable="true" minOccurs="0"
+                 maxOccurs="unbounded"/>
+            <xs:element name="paisesOrigenProductoPZI" type="tns:paisOrigenProductoPFI" nillable="true"
+                 minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="productoPZI" type="tns:productoPZI" minOccurs="0"/>
+            <xs:element name="puntoIngreso" type="xs:string" minOccurs="0"/>
+            <xs:element name="puntoSalida" type="xs:string" minOccurs="0"/>
+            <xs:element name="puntosIngresoProductoPZI" type="tns:puntoIngresoProductoPFI" nillable="true"
+                 minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="solicitante" type="tns:solicitante" minOccurs="0"/>
+            <xs:element name="urlPZIDefinitivo" type="xs:string" minOccurs="0"/>
+            <xs:element name="usuario" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="reciboPago">
+        <xs:sequence>
+            <xs:element name="fechaHora" type="xs:string" minOccurs="0"/>
+            <xs:element name="numeroExpediente" type="xs:string" minOccurs="0"/>
+            <xs:element name="numeroRecibo" type="xs:string" minOccurs="0"/>
+            <xs:element name="sedeSenasa" type="xs:string" minOccurs="0"/>
+            <xs:element name="valorPagado" type="xs:string" minOccurs="0"/>
+            <xs:element name="valorSaldo" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="requisitoDao">
+        <xs:sequence>
+            <xs:element name="clase" type="xs:string" minOccurs="0"/>
+            <xs:element name="codigoRequisito" type="xs:string" minOccurs="0"/>
+            <xs:element name="descripcionRequisito" type="xs:string" minOccurs="0"/>
+            <xs:element name="etiqueta" type="xs:string" minOccurs="0"/>
+            <xs:element name="orden" type="xs:string" minOccurs="0"/>
+            <xs:element name="sangria" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="servicioTUPA">
+        <xs:sequence>
+            <xs:element name="codServicioTupa" type="xs:string" minOccurs="0"/>
+            <xs:element name="codigoCentroTramite" type="xs:string" minOccurs="0"/>
+            <xs:element name="codigoClase" type="xs:string" minOccurs="0"/>
+            <xs:element name="codigoExpediente" type="xs:string" minOccurs="0"/>
+            <xs:element name="codigoSolicitud" type="xs:string" minOccurs="0"/>
+            <xs:element name="descripcionCentroTramite" type="xs:string" minOccurs="0"/>
+            <xs:element name="estado" type="xs:string" minOccurs="0"/>
+            <xs:element name="flagImpoExpo" type="xs:string" minOccurs="0"/>
+            <xs:element name="indicadorCobroPorProducto" type="xs:string" minOccurs="0"/>
+            <xs:element name="nombreServicioTupa" type="xs:string" minOccurs="0"/>
+            <xs:element name="plazo" type="xs:float"/>
+            <xs:element name="valorServicioTupa" type="xs:float"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="reciboServicio">
+        <xs:sequence>
+            <xs:element name="cantidad" type="xs:double" minOccurs="0"/>
+            <xs:element name="codigoRecibo" type="xs:string" minOccurs="0"/>
+            <xs:element name="codigoServicio" type="xs:string" minOccurs="0"/>
+            <xs:element name="montoServicio" type="xs:double" minOccurs="0"/>
+            <xs:element name="nombreServicio" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="previsualizarIngresoDocTramiteResponse">
+        <xs:sequence>
+            <xs:element name="return" type="xs:base64Binary" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="consultaSTDGeneral">
+        <xs:sequence>
+            <xs:element name="arg0" type="tns:reporteSTD" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="reporteSTD">
+        <xs:sequence>
+            <xs:element name="accion" type="xs:string" minOccurs="0"/>
+            <xs:element name="anio" type="xs:string" minOccurs="0"/>
+            <xs:element name="areaEntidadDest" type="xs:string" minOccurs="0"/>
+            <xs:element name="areaEntidadRem" type="xs:string" minOccurs="0"/>
+            <xs:element name="asunto" type="xs:string" minOccurs="0"/>
+            <xs:element name="codElemento" type="xs:string" minOccurs="0"/>
+            <xs:element name="codElementoRpta" type="xs:string" minOccurs="0"/>
+            <xs:element name="estado" type="xs:string" minOccurs="0"/>
+            <xs:element name="fecha" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="fechaHora" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="fechaRegDesde" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="fechaRegHasta" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="idAreaEntidadDest" type="xs:string" minOccurs="0"/>
+            <xs:element name="idAreaEntidadRem" type="xs:string" minOccurs="0"/>
+            <xs:element name="idPersonaDest" type="xs:string" minOccurs="0"/>
+            <xs:element name="idPersonaRem" type="xs:string" minOccurs="0"/>
+            <xs:element name="idProceso" type="xs:string" minOccurs="0"/>
+            <xs:element name="idSubAreaEntidadDest" type="xs:string" minOccurs="0"/>
+            <xs:element name="idSubAreaEntidadRem" type="xs:string" minOccurs="0"/>
+            <xs:element name="idSubTipoDocumental" type="xs:string" minOccurs="0"/>
+            <xs:element name="idTipoDocumental" type="xs:string" minOccurs="0"/>
+            <xs:element name="idTipoOrigenDestino" type="xs:string" minOccurs="0"/>
+            <xs:element name="notas" type="xs:string" minOccurs="0"/>
+            <xs:element name="numeroDocumento" type="xs:string" minOccurs="0"/>
+            <xs:element name="personaDest" type="xs:string" minOccurs="0"/>
+            <xs:element name="personaRem" type="xs:string" minOccurs="0"/>
+            <xs:element name="proveido" type="xs:string" minOccurs="0"/>
+            <xs:element name="subAreaEntidadDest" type="xs:string" minOccurs="0"/>
+            <xs:element name="subAreaEntidadRem" type="xs:string" minOccurs="0"/>
+            <xs:element name="urgencia" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="consultaSTDGeneralResponse">
+        <xs:sequence>
+            <xs:element name="return" type="tns:reporteSTD" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="procesarDocumentoElectronico">
+        <xs:sequence>
+            <xs:element name="idEntidad" type="xs:string" minOccurs="0"/>
+            <xs:element name="idTransaccion" type="xs:string" minOccurs="0"/>
+            <xs:element name="codigoDocumento" type="xs:string" minOccurs="0"/>
+            <xs:element name="accion" type="xs:string" minOccurs="0"/>
+            <xs:element name="usuario" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="procesarDocumentoElectronicoResponse">
+        <xs:sequence/>
+    </xs:complexType>
+    <xs:complexType name="obtenerExpedienteStd">
+        <xs:sequence>
+            <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="obtenerExpedienteStdResponse">
+        <xs:sequence>
+            <xs:element name="return" type="tns:expediente" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="expediente">
+        <xs:sequence>
+            <xs:element name="auditoria" type="tns:audit" minOccurs="0"/>
+            <xs:element name="idPersona" type="xs:string" minOccurs="0"/>
+            <xs:element name="numero" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="obtenerEncargado">
+        <xs:sequence>
+            <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="obtenerEncargadoResponse">
+        <xs:sequence>
+            <xs:element name="return" type="tns:encargatura" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="encargatura">
+        <xs:sequence>
+            <xs:element name="areaEncargado" type="xs:string" minOccurs="0"/>
+            <xs:element name="areaEncargatura" type="xs:string" minOccurs="0"/>
+            <xs:element name="codigoEncargado" type="xs:string" minOccurs="0"/>
+            <xs:element name="codigoEncargatura" type="xs:string" minOccurs="0"/>
+            <xs:element name="fechaFinEncargatura" type="xs:string" minOccurs="0"/>
+            <xs:element name="fechaIniEncargatura" type="xs:string" minOccurs="0"/>
+            <xs:element name="nombreEncargado" type="xs:string" minOccurs="0"/>
+            <xs:element name="nombreEncargatura" type="xs:string" minOccurs="0"/>
+            <xs:element name="subAreaEncargado" type="xs:string" minOccurs="0"/>
+            <xs:element name="subAreaEncargatura" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="eliminarDocumentoSTD">
+        <xs:sequence>
+            <xs:element name="pcodigoSTD" type="xs:string" minOccurs="0"/>
+            <xs:element name="pIdUcm" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="eliminarDocumentoSTDResponse">
+        <xs:sequence>
+            <xs:element name="return" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="obtenerTiposDocMesaPartes">
+        <xs:sequence/>
+    </xs:complexType>
+    <xs:complexType name="obtenerTiposDocMesaPartesResponse">
+        <xs:sequence>
+            <xs:element name="return" type="tns:subTipo" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="subTipo">
+        <xs:sequence>
+            <xs:element name="codigoSubTipo" type="xs:string" minOccurs="0"/>
+            <xs:element name="ddoctype" type="xs:string" minOccurs="0"/>
+            <xs:element name="descripcion" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="eliminarDocumentoAdjunto">
+        <xs:sequence>
+            <xs:element name="arg0" type="tns:documentoSTD" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="eliminarDocumentoAdjuntoResponse">
+        <xs:sequence/>
+    </xs:complexType>
+    <xs:complexType name="verificaParticipacion">
+        <xs:sequence>
+            <xs:element name="arg0" type="tns:documentoSTD" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="verificaParticipacionResponse">
+        <xs:sequence>
+            <xs:element name="return" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="consultaSTDxIdFinal">
+        <xs:sequence>
+            <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="consultaSTDxIdFinalResponse">
+        <xs:sequence>
+            <xs:element name="return" type="tns:reporteSTD" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="registrarExpediente">
+        <xs:sequence>
+            <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+            <xs:element name="arg1" type="xs:string" minOccurs="0"/>
+            <xs:element name="arg2" type="xs:string" minOccurs="0"/>
+            <xs:element name="arg3" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="registrarExpedienteResponse">
+        <xs:sequence>
+            <xs:element name="return" type="tns:expediente" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="eliminarNumeracioDocumento">
+        <xs:sequence>
+            <xs:element name="subTipo" type="xs:string" minOccurs="0"/>
+            <xs:element name="area" type="xs:string" minOccurs="0"/>
+            <xs:element name="subArea" type="xs:string" minOccurs="0"/>
+            <xs:element name="personaId" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="eliminarNumeracioDocumentoResponse">
+        <xs:sequence/>
+    </xs:complexType>
+    <xs:complexType name="registrarDocumento">
+        <xs:sequence>
+            <xs:element name="arg0" type="tns:documentoSTD" minOccurs="0"/>
+            <xs:element name="arg1" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="registrarDocumentoResponse">
+        <xs:sequence>
+            <xs:element name="return" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="actualizarArchivo">
+        <xs:sequence>
+            <xs:element name="arg0" type="tns:documentoSTD" minOccurs="0"/>
+            <xs:element name="arg1" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="actualizarArchivoResponse">
+        <xs:sequence/>
+    </xs:complexType>
+    <xs:complexType name="obtenerEncargatura">
+        <xs:sequence>
+            <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="obtenerEncargaturaResponse">
+        <xs:sequence>
+            <xs:element name="return" type="tns:encargatura" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="obtenerAdjuntos">
+        <xs:sequence>
+            <xs:element name="arg0" type="tns:documentoSTD" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="obtenerAdjuntosResponse">
+        <xs:sequence>
+            <xs:element name="return" type="tns:documentoSTD" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="anexarDocumentoExpediente">
+        <xs:sequence>
+            <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+            <xs:element name="arg1" type="xs:string" minOccurs="0"/>
+            <xs:element name="arg2" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="anexarDocumentoExpedienteResponse">
+        <xs:sequence>
+            <xs:element name="return" type="tns:audit" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="obtenerBandejaElectronica">
+        <xs:sequence/>
+    </xs:complexType>
+    <xs:complexType name="obtenerBandejaElectronicaResponse">
+        <xs:sequence>
+            <xs:element name="return" type="tns:documentoElectronico" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="documentoElectronico">
+        <xs:sequence>
+            <xs:element name="area" type="xs:string" minOccurs="0"/>
+            <xs:element name="asunto" type="xs:string" minOccurs="0"/>
+            <xs:element name="codigoElemento" type="xs:string" minOccurs="0"/>
+            <xs:element name="entidad" type="xs:string" minOccurs="0"/>
+            <xs:element name="entidadDocumentoNumero" type="xs:string" minOccurs="0"/>
+            <xs:element name="entidadDocumentoTipo" type="xs:string" minOccurs="0"/>
+            <xs:element name="entidadIdPersona" type="xs:string" minOccurs="0"/>
+            <xs:element name="entidadNombre" type="xs:string" minOccurs="0"/>
+            <xs:element name="fecha" type="xs:string" minOccurs="0"/>
+            <xs:element name="idEntidad" type="xs:string" minOccurs="0"/>
+            <xs:element name="idTransaccion" type="xs:string" minOccurs="0"/>
+            <xs:element name="numeroDocumento" type="xs:string" minOccurs="0"/>
+            <xs:element name="remitente" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="generarDocumentoTramite">
+        <xs:sequence>
+            <xs:element name="documentoFisico" type="xs:base64Binary" minOccurs="0"/>
+            <xs:element name="nombre" type="xs:string" minOccurs="0"/>
+            <xs:element name="documento" type="tns:documento" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="generarDocumentoTramiteResponse">
+        <xs:sequence>
+            <xs:element name="return" type="tns:documento" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="actualizarDocumento">
+        <xs:sequence>
+            <xs:element name="arg0" type="tns:documentoSTD" minOccurs="0"/>
+            <xs:element name="arg1" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="actualizarDocumentoResponse">
+        <xs:sequence/>
+    </xs:complexType>
+    <xs:complexType name="consultaSTDGeneralExterno">
+        <xs:sequence>
+            <xs:element name="arg0" type="tns:reporteSTD" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="consultaSTDGeneralExternoResponse">
+        <xs:sequence>
+            <xs:element name="return" type="tns:reporteSTD" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="consultaSTDDocumentos">
+        <xs:sequence>
+            <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="consultaSTDDocumentosResponse">
+        <xs:sequence>
+            <xs:element name="return" type="tns:documentoSTD" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<config>
+    <adapter type="scs" name="senasades">
+		<config>
+			<property name="port">4444</property>
+			<property name="host">ucmdes.senasa.gob.pe</property>
+			<property name="type">socket</property>
+		</config>
+    <beans template="classpath:/META-INF/resources/adapter/adapter-services-scs.jxml"/>
+	</adapter>
+  
+   <adapter type="scs" name="senasates">
+		<config>
+			<property name="port">4444</property>
+			<property name="host">ucmtes.senasa.gob.pe</property>
+			<property name="type">socket</property>
+		</config>
+    <beans template="classpath:/META-INF/resources/adapter/adapter-services-scs.jxml"/>
+	</adapter>
+  
+  <adapter  type="scs" default="true" name="senasaprod">
+		<config>
+			<property name="port">4444</property>
+			<property name="host">ucm.senasa.gob.pe</property>
+			<property name="type">socket</property>
+		</config>
+    <beans template="classpath:/META-INF/resources/adapter/adapter-services-scs.jxml"/>
+	</adapter>
+</config>

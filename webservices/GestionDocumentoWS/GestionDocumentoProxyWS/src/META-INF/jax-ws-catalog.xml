@@ -1,0 +1,4 @@
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+  <system systemId="http://10.0.0.36/GestionDocumentoWS/GestionDocumentoWSPort?WSDL"
+          uri="http://10.0.0.36:7001/GestionDocumentoWS/GestionDocumentoWSPort?WSDL"/>
+</catalog>

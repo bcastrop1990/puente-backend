@@ -1,0 +1,40 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+        <groupId>pe.gob.senasa.bpm</groupId>
+        <artifactId>modules</artifactId>
+        <version>1.0.0</version>
+    </parent>
+  <groupId>pe.gob.senasa.bpm.integracion</groupId>
+  <artifactId>HWBpmApi</artifactId>
+  <name>HWBpmApi</name>
+  <dependencies>
+  	<dependency>
+  		<groupId>pe.gob.senasa.bpm.integracion</groupId>
+  		<artifactId>HwRuntimeServiceClient</artifactId>
+  		<version>${bpm.api.version}</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>pe.gob.senasa.bpm.integracion</groupId>
+  		<artifactId>HwTaskQueryServiceClient</artifactId>
+  		<version>${bpm.api.version}</version>
+  	</dependency>
+  	<dependency>
+		<groupId>pe.gob.senasa.bpm.integracion</groupId>
+		<artifactId>HWTaskServiceClient</artifactId>
+		<version>${bpm.api.version}</version>		
+	</dependency>
+	<dependency>
+		<groupId>pe.gob.senasa.bpm.integracion</groupId>
+		<artifactId>HWTaskSchemaClient</artifactId>
+		<version>${bpm.api.version}</version>
+	</dependency>
+	
+  </dependencies>
+  
+  <packaging>war</packaging>
+  <build>
+	<finalName>bpmapi</finalName>
+  </build>
+  
+</project>

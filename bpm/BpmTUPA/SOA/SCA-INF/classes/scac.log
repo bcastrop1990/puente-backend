@@ -1,0 +1,35 @@
+2024-06-27 22:59:36.288/1.384 Oracle Coherence 12.2.1.3.0 <Info> (thread=main, member=n/a): Loaded operational configuration from "jar:file:/D:/Oracle/MiddlewareBPM12.2.1.3.0/coherence/lib/coherence.jar!/tangosol-coherence.xml"
+2024-06-27 22:59:36.320/1.415 Oracle Coherence 12.2.1.3.0 <Info> (thread=main, member=n/a): Loaded operational overrides from "jar:file:/D:/Oracle/MiddlewareBPM12.2.1.3.0/coherence/lib/coherence.jar!/tangosol-coherence-override-dev.xml"
+2024-06-27 22:59:36.321/1.416 Oracle Coherence 12.2.1.3.0 <D5> (thread=main, member=n/a): Optional configuration override "/tangosol-coherence-override.xml" is not specified
+2024-06-27 22:59:36.324/1.419 Oracle Coherence 12.2.1.3.0 <D5> (thread=main, member=n/a): Optional configuration override "cache-factory-config.xml" is not specified
+2024-06-27 22:59:36.325/1.420 Oracle Coherence 12.2.1.3.0 <D5> (thread=main, member=n/a): Optional configuration override "cache-factory-builder-config.xml" is not specified
+2024-06-27 22:59:36.326/1.421 Oracle Coherence 12.2.1.3.0 <D5> (thread=main, member=n/a): Optional configuration override "/custom-mbeans.xml" is not specified
+
+Oracle Coherence Version 12.2.1.3.0 Build 68243
+ Grid Edition: Development mode
+Copyright (c) 2000, 2017, Oracle and/or its affiliates. All rights reserved.
+
+2024-06-27 22:59:36.817/1.912 Oracle Coherence GE 12.2.1.3.0 <Info> (thread=main, member=n/a): Created cache factory com.tangosol.net.ExtensibleConfigurableCacheFactory
+2024-06-27 22:59:36.918/2.013 Oracle Coherence GE 12.2.1.3.0 <Info> (thread=main, member=n/a): The cluster name has not been configured, a value of "grudy's cluster" has been automatically generated
+jun 27, 2024 10:59:37 PM oracle.soa.scac.ValidateComposite loadWSDLs
+ADVERTENCIA: Validating WSDLs from WSDLManager....  with option UseSoaInfraMds:false
+jun 27, 2024 10:59:37 PM oracle.fabric.common.wsdl.SchemaManager isIncrementalBuildSupported
+INFORMACIÓN: XMLSchema incremental build enabled.
+jun 27, 2024 10:59:41 PM oracle.bpm.log.JdkLogger warn
+ADVERTENCIA: No se ha podido añadir el objeto 'GenerarDocumentoResolutivo' al catálogo porque ya existe un objeto con propiedad única 'field.namespacedObject.id' y valor 'PROCESS||GenerarDocumentoResolutivo'.
+java.lang.IllegalArgumentException: The provided typeRef does not correspond to a type
+	at oracle.bpm.project.catalog.ProjectCatalogImpl.getTypeFromRef(ProjectCatalogImpl.java:147)
+	at oracle.bpm.project.compiler.ProjectCompiler.compileCatalog(ProjectCompiler.java:607)
+	at oracle.bpm.project.compiler.ProjectCompiler.compile(ProjectCompiler.java:195)
+	at oracle.bpm.fusion.sca.validator.BPMNComponentValidator.isValidBpmProject(BPMNComponentValidator.java:147)
+	at oracle.bpm.fusion.sca.validator.BPMNComponentValidator.validate(BPMNComponentValidator.java:89)
+	at oracle.bpm.fusion.sca.validator.BPMNComponentValidator.validate(BPMNComponentValidator.java:67)
+	at oracle.soa.scac.bpmn.BPMNComponentValidator.validate(BPMNComponentValidator.java:56)
+	at oracle.soa.scac.ValidateComposite.validateComponentTypeServicesReferences(ValidateComposite.java:1177)
+	at oracle.soa.scac.ValidateComposite.doValidation0(ValidateComposite.java:607)
+	at oracle.soa.scac.ValidateComposite.doValidation(ValidateComposite.java:586)
+	at oracle.soa.scac.ValidateComposite.run0(ValidateComposite.java:234)
+	at oracle.soa.scac.ValidateComposite.run(ValidateComposite.java:215)
+	at oracle.soa.scac.ValidateComposite.main(ValidateComposite.java:207)
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option PermSize=32m; support was removed in 8.0
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=256m; support was removed in 8.0

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="formato_vuce_cabecera" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0dc33346-17b1-49a2-bcd4-d4a9c58017da">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="ORDENVUCE" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select Y.COD_FORMATO || ' - '|| X.DESCRIPCION_SERVICIO FORMATO,(SELECT 'EXPEDIENTE Nº ' || S.CODIGO_EXPEDIENTE FROM FINALBPM.SOLICITUD s
+WHERE S.ORDEN_VUCE = $P{ORDENVUCE} AND (select cod_formato from vuce.documento where doc_numero = $P{ORDENVUCE}) = Y.COD_FORMATO) nroexpediente
+from finalbpm.servicio_tupa x,
+vuce.servicio_vuce y
+where X.ESTADO = 'ACTIVO'
+and X.CODIGO_SERVICIO = Y.ID_SENASA
+and Y.COD_FORMATO = (select cod_formato from vuce.documento where doc_numero = $P{ORDENVUCE})]]>
+	</queryString>
+	<field name="FORMATO" class="java.lang.String"/>
+	<field name="NROEXPEDIENTE" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="b89ccc41-aa48-4996-9330-5d58c063fdde" positionType="Float" x="-20" y="-20" width="596" height="99" backcolor="#004B92"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="52c921b4-7c8c-4fb0-9c6e-89d8c96e72e4" positionType="Float" x="156" y="-3" width="389" height="49" forecolor="#FFFFFF"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FORMATO}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement uuid="067aa349-ea97-4a27-bf73-0f60d680379c" positionType="Float" x="0" y="0" width="139" height="62"/>
+				<imageExpression><![CDATA[$P{SUBREPORT_DIR}+"logotipo_senasa.png"]]></imageExpression>
+			</image>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="4596d0d3-d087-41fe-8c8e-0d658a249400" x="156" y="52" width="389" height="20" forecolor="#FFFFFF"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NROEXPEDIENTE}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

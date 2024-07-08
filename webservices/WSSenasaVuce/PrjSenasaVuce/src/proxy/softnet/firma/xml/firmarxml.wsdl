@@ -1,0 +1,47 @@
+<definitions
+     name="firmarxml"
+     targetNamespace="http://clases/"
+     xmlns="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:wsp="http://www.w3.org/ns/ws-policy"
+     xmlns:tns="http://clases/"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+     xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata"
+     xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+    >
+    <types>
+        <xsd:schema>
+            <xsd:import namespace="http://clases/" schemaLocation="firmarxml_xsd_1.xsd"/>
+        </xsd:schema>
+    </types>
+    <message name="firmar">
+        <part name="parameters" element="tns:firmar"/>
+    </message>
+    <message name="firmarResponse">
+        <part name="parameters" element="tns:firmarResponse"/>
+    </message>
+    <portType name="firmarxml">
+        <operation name="firmar">
+            <input message="tns:firmar" wsam:Action="http://clases/firmarxml/firmarRequest"/>
+            <output message="tns:firmarResponse" wsam:Action="http://clases/firmarxml/firmarResponse"/>
+        </operation>
+    </portType>
+    <binding name="firmarxmlPortBinding" type="tns:firmarxml">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="firmar">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="firmarxml">
+        <port name="firmarxmlPort" binding="tns:firmarxmlPortBinding">
+            <soap:address location="http://servicios.senasa.gob.pe:7003/IntegracionTrustedXML/firmarxml"/>
+        </port>
+    </service>
+</definitions>

@@ -1,0 +1,327 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<xsd:schema xmlns:ns0="http://funcionario.ws.senasa.gob.pe" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     targetNamespace="http://funcionario.ws.senasa.gob.pe">
+    <xsd:complexType name="funcionario">
+        <xsd:sequence>
+            <xsd:element name="abreviaturaArea" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="abreviaturaSubArea" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codigoArea" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codigoSubArea" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="condicion" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="correo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="idFuncionario" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="idJefe" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="nombre" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="nombreArea" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="nombreSubArea" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="userName" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="autenticarUsuario">
+        <xsd:sequence>
+            <xsd:element name="login" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="password" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="autenticarUsuarioResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:int"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="buscarDestinatarioPorCentroTramite">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="arg1" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="buscarDestinatarioPorCentroTramiteResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="buscarFuncionariosPorNombre">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="buscarFuncionariosPorNombreResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:funcionario" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerAreas"/>
+    <xsd:complexType name="obtenerAreasResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:area" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerEntidades"/>
+    <xsd:complexType name="obtenerEntidadesPorFiltro">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="arg1" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerEntidadesPorFiltroResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:entidad" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerEntidadesResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:entidad" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerFuncionarioConAsistentes">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerFuncionarioConAsistentesResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:funcionario" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerFuncionarioPorIdPersona">
+        <xsd:sequence>
+            <xsd:element name="idPersona" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerFuncionarioPorIdPersonaResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:funcionario" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerFuncionarioPorNombre">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerFuncionarioPorNombreResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:funcionario" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerFuncionarioPorUserName">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerFuncionarioPorUserNameResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:funcionario" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerFuncionarios">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="arg1" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerFuncionariosResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:funcionario" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerFuncionariosSubordinados">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="arg1" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="arg2" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerFuncionariosSubordinadosResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:funcionario" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerJefeInmediato">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerJefeInmediatoResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:funcionario" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerJefePorDepartamento">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="arg1" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerJefePorDepartamentoResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:funcionario" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerJefePorSede">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="arg1" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerJefePorSedeResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:funcionario" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerReemplazo">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerReemplazoResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:funcionario" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerSubTipos">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerSubTiposResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:subTipo" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerSubareas">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerSubareasResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:subArea" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerSubentidades">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerSubentidadesResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:subEntidad" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerTipos"/>
+    <xsd:complexType name="obtenerTiposIE">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerTiposIEResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:docType" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerTiposResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:docType" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="validarUsuario">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="arg1" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="arg2" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="validarUsuarioResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:boolean"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="area">
+        <xsd:sequence>
+            <xsd:element name="abreviatura" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codigoArea" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="jefeArea" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="nombreArea" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="entidad">
+        <xsd:sequence>
+            <xsd:element name="emailEntidad" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="idEntidad" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="nombre" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="subTipo">
+        <xsd:sequence>
+            <xsd:element name="codigoSubTipo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="ddoctype" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="descripcion" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="subArea">
+        <xsd:complexContent>
+            <xsd:extension base="ns0:area">
+                <xsd:sequence>
+                    <xsd:element name="codigoPadre" type="xsd:string" minOccurs="0"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="subEntidad">
+        <xsd:sequence>
+            <xsd:element name="codigoSubEntidad" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="idEntidad" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="nombreEntidad" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="docType">
+        <xsd:sequence>
+            <xsd:element name="ddoctype" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="descripcion" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="autenticarUsuario" type="ns0:autenticarUsuario"/>
+    <xsd:element name="autenticarUsuarioResponse" type="ns0:autenticarUsuarioResponse"/>
+    <xsd:element name="buscarDestinatarioPorCentroTramite" type="ns0:buscarDestinatarioPorCentroTramite"/>
+    <xsd:element name="buscarDestinatarioPorCentroTramiteResponse" type="ns0:buscarDestinatarioPorCentroTramiteResponse"/>
+    <xsd:element name="buscarFuncionariosPorNombre" type="ns0:buscarFuncionariosPorNombre"/>
+    <xsd:element name="buscarFuncionariosPorNombreResponse" type="ns0:buscarFuncionariosPorNombreResponse"/>
+    <xsd:element name="obtenerAreas" type="ns0:obtenerAreas"/>
+    <xsd:element name="obtenerAreasResponse" type="ns0:obtenerAreasResponse"/>
+    <xsd:element name="obtenerEntidades" type="ns0:obtenerEntidades"/>
+    <xsd:element name="obtenerEntidadesPorFiltro" type="ns0:obtenerEntidadesPorFiltro"/>
+    <xsd:element name="obtenerEntidadesPorFiltroResponse" type="ns0:obtenerEntidadesPorFiltroResponse"/>
+    <xsd:element name="obtenerEntidadesResponse" type="ns0:obtenerEntidadesResponse"/>
+    <xsd:element name="obtenerFuncionarioConAsistentes" type="ns0:obtenerFuncionarioConAsistentes"/>
+    <xsd:element name="obtenerFuncionarioConAsistentesResponse" type="ns0:obtenerFuncionarioConAsistentesResponse"/>
+    <xsd:element name="obtenerFuncionarioPorIdPersona" type="ns0:obtenerFuncionarioPorIdPersona"/>
+    <xsd:element name="obtenerFuncionarioPorIdPersonaResponse" type="ns0:obtenerFuncionarioPorIdPersonaResponse"/>
+    <xsd:element name="obtenerFuncionarioPorNombre" type="ns0:obtenerFuncionarioPorNombre"/>
+    <xsd:element name="obtenerFuncionarioPorNombreResponse" type="ns0:obtenerFuncionarioPorNombreResponse"/>
+    <xsd:element name="obtenerFuncionarioPorUserName" type="ns0:obtenerFuncionarioPorUserName"/>
+    <xsd:element name="obtenerFuncionarioPorUserNameResponse" type="ns0:obtenerFuncionarioPorUserNameResponse"/>
+    <xsd:element name="obtenerFuncionarios" type="ns0:obtenerFuncionarios"/>
+    <xsd:element name="obtenerFuncionariosResponse" type="ns0:obtenerFuncionariosResponse"/>
+    <xsd:element name="obtenerFuncionariosSubordinados" type="ns0:obtenerFuncionariosSubordinados"/>
+    <xsd:element name="obtenerFuncionariosSubordinadosResponse" type="ns0:obtenerFuncionariosSubordinadosResponse"/>
+    <xsd:element name="obtenerJefeInmediato" type="ns0:obtenerJefeInmediato"/>
+    <xsd:element name="obtenerJefeInmediatoResponse" type="ns0:obtenerJefeInmediatoResponse"/>
+    <xsd:element name="obtenerJefePorDepartamento" type="ns0:obtenerJefePorDepartamento"/>
+    <xsd:element name="obtenerJefePorDepartamentoResponse" type="ns0:obtenerJefePorDepartamentoResponse"/>
+    <xsd:element name="obtenerJefePorSede" type="ns0:obtenerJefePorSede"/>
+    <xsd:element name="obtenerJefePorSedeResponse" type="ns0:obtenerJefePorSedeResponse"/>
+    <xsd:element name="obtenerReemplazo" type="ns0:obtenerReemplazo"/>
+    <xsd:element name="obtenerReemplazoResponse" type="ns0:obtenerReemplazoResponse"/>
+    <xsd:element name="obtenerSubTipos" type="ns0:obtenerSubTipos"/>
+    <xsd:element name="obtenerSubTiposResponse" type="ns0:obtenerSubTiposResponse"/>
+    <xsd:element name="obtenerSubareas" type="ns0:obtenerSubareas"/>
+    <xsd:element name="obtenerSubareasResponse" type="ns0:obtenerSubareasResponse"/>
+    <xsd:element name="obtenerSubentidades" type="ns0:obtenerSubentidades"/>
+    <xsd:element name="obtenerSubentidadesResponse" type="ns0:obtenerSubentidadesResponse"/>
+    <xsd:element name="obtenerTipos" type="ns0:obtenerTipos"/>
+    <xsd:element name="obtenerTiposIE" type="ns0:obtenerTiposIE"/>
+    <xsd:element name="obtenerTiposIEResponse" type="ns0:obtenerTiposIEResponse"/>
+    <xsd:element name="obtenerTiposResponse" type="ns0:obtenerTiposResponse"/>
+    <xsd:element name="validarUsuario" type="ns0:validarUsuario"/>
+    <xsd:element name="validarUsuarioResponse" type="ns0:validarUsuarioResponse"/>
+</xsd:schema>
+<!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is JAX-WS RI 2.3.0-wls122140-b190328.0053 svn-revision#unknown. -->

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<config>
+    <adapter type="scs" name="ucm">
+		<config>
+			<property name="port">4444</property>
+      <property name="host">ucm.senasa.gob.pe</property>
+      <!--<property name="port">4545</property>-->
+			<!--<property name="host">192.168.85.129</property>-->
+			<!--<property name="host">10.0.0.104</property>-->
+			<property name="type">socket</property>
+		</config>
+    <beans template="classpath:/META-INF/resources/adapter/adapter-services-scs.jxml"/>
+	</adapter>   
+
+    <adapter type="scs" default="true" name="senasades">
+		<config>
+			<property name="port">4444</property>
+      <!--<property name="port">4545</property>-->
+			<property name="host">webcenterqa.senasa.gob.pe</property>
+			<!--<property name="host">10.0.0.104</property>-->
+			<property name="type">socket</property>
+		</config>
+    <beans template="classpath:/META-INF/resources/adapter/adapter-services-scs.jxml"/>
+	</adapter> 
+  
+  <adapter  type="scs" name="senasates">
+		<config>
+			<property name="port">4444</property>
+      <!--<property name="port">4545</property>-->
+			<property name="host">webcenterqa.senasa.gob.pe</property>
+			<!--<property name="host">10.0.0.104</property>-->
+			<property name="type">socket</property>
+		</config>
+    <beans template="classpath:/META-INF/resources/adapter/adapter-services-scs.jxml"/>
+	</adapter>
+</config>

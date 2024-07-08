@@ -1,0 +1,69 @@
+//Content Format Version: 1.0
+
+//########################################################################################
+//####                                                                                ####
+//####          THIS IS AN AUTO GENERATED FILE. PLEASE DO NOT MANUALLY MODIFY         ####
+//#### CHANGES TO THIS FILE MAY PRODUCE UNEXPECTED BEHAVIOR AND WOULD BE OVERWRITTEN  ####
+//####                                                                                ####
+//########################################################################################
+package oracle.scripting.bpmn.process;
+
+
+
+public class GenerarIIV{
+
+public void methodACT41569008712974()
+{
+	if("107".equals(informe.codigoProcedimiento)){
+	    informe.plantilla = "IMPO_FITO";
+	}else if("112".equals(informe.codigoProcedimiento)){
+	    informe.plantilla = "IMPO_ZOO";
+	}else if("101".equals(informe.codigoProcedimiento) || "102".equals(informe.codigoProcedimiento) || "104".equals(informe.codigoProcedimiento)){
+	    informe.plantilla = "IMPO_IA";
+	}else if("106".equals(informe.codigoProcedimiento)){
+	    informe.plantilla = "IMPO_IP";
+	}else if("108".equals(informe.codigoProcedimiento)){
+	    informe.plantilla = "EXPO_FITO";
+	}else if("113".equals(informe.codigoProcedimiento)){
+	    informe.plantilla = "EXPO_ZOO";
+	}else if("169".equals(informe.codigoProcedimiento)){
+	    informe.plantilla = "IMPO_IA";
+	}else{
+	    informe.plantilla = "";
+	}
+	
+	if(informe.plantilla.startsWith("IMPO")){
+	  informe.codigo = "876";
+	  if("IMPO_FITO".equals(informe.plantilla)){
+	    informe.tipo = "DORI";  
+	    informe.subtipo = "IIVI"; 
+	    informe.titulo = "IIV IMPO FITO-" + informe.numeroExpediente; 
+	  }else if("IMPO_ZOO".equals(informe.plantilla)){
+	    informe.tipo = "DORI";  
+	    informe.subtipo = "IIVZ"; 
+	    informe.titulo = "IIV IMPO ZOO-" + informe.numeroExpediente; 
+	  }else if("IMPO_IA".equals(informe.plantilla)){
+	    informe.tipo = "OTRS";  
+	    informe.subtipo = "DGEN"; 
+	    informe.titulo = "IIV IMPO IA-" + informe.numeroExpediente; 
+	  }else if("IMPO_IP".equals(informe.plantilla)){
+	    informe.tipo = "OTRS";  
+	    informe.subtipo = "DGEN"; 
+	    informe.titulo = "IIV IMPO IP-" + informe.numeroExpediente; 
+	  }
+	}else if(informe.plantilla.startsWith("EXPO")){
+	  informe.codigo = "875";
+	  informe.tipo = "DORE";
+	  if("EXPO_FITO".equals(informe.plantilla)){
+	    informe.subtipo = "ICFI"; 
+	    informe.titulo = "IIV EXPO FITO-" + informe.numeroExpediente; 
+	  }else if("EXPO_ZOO".equals(informe.plantilla)){
+	    informe.subtipo = "ICZO"; 
+	    informe.titulo = "IIV EXPO ZOO-" + informe.numeroExpediente; 
+	  }
+	}
+	estadoProceso = "GENERANDO IIV";
+}
+
+
+}

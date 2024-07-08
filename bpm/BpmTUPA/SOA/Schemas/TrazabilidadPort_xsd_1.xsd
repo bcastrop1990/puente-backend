@@ -1,0 +1,67 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<xsd:schema xmlns:ns0="http://trazabilidad.ws.senasa.gob.pe" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     targetNamespace="http://trazabilidad.ws.senasa.gob.pe">
+    <xsd:complexType name="auditoria">
+        <xsd:sequence>
+            <xsd:element name="estado" type="xsd:boolean"/>
+            <xsd:element name="mensajeSistema" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="mensajeUsuario" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="trazabilidad">
+        <xsd:sequence>
+            <xsd:element name="accion" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="auditoria" type="ns0:auditoria" minOccurs="0"/>
+            <xsd:element name="canal" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codigoElemento" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codigoElementoRespuesta" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="descripcionAsunto" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="destinatarioAreaEntidad" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="destinatarioPersona" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="destinatarioSubAreaEntidad" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="destinatarioUsuario" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="estado" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="fechaHora" type="xsd:dateTime" minOccurs="0"/>
+            <xsd:element name="idFinal" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="idOriginal" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="notas" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="proceso" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="proveido" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="remitenteAreaEntidad" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="remitentePersona" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="remitenteSubAreaEntidad" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="remitenteUsuario" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="secuencial" type="xsd:int"/>
+            <xsd:element name="secuencialSuperior" type="xsd:int"/>
+            <xsd:element name="ucmid" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="urgencia" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="actualizarTrazabilidad">
+        <xsd:sequence>
+            <xsd:element name="usuario" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="trazabilidad" type="ns0:trazabilidad" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="actualizarTrazabilidadResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:auditoria" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="insertarTrazabilidad">
+        <xsd:sequence>
+            <xsd:element name="usuario" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="trazabilidad" type="ns0:trazabilidad" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="insertarTrazabilidadResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:trazabilidad" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="actualizarTrazabilidad" type="ns0:actualizarTrazabilidad"/>
+    <xsd:element name="actualizarTrazabilidadResponse" type="ns0:actualizarTrazabilidadResponse"/>
+    <xsd:element name="insertarTrazabilidad" type="ns0:insertarTrazabilidad"/>
+    <xsd:element name="insertarTrazabilidadResponse" type="ns0:insertarTrazabilidadResponse"/>
+</xsd:schema>
+<!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is JAX-WS RI 2.3.0-wls122140-b190328.0053 svn-revision#unknown. -->

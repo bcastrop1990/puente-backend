@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PLANTILLAPFTISUB" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="89f4aedb-0740-406a-a98a-73c4fd73c9ce">
+	<property name="ireport.zoom" value="2.4157650000000026"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="NUMPERMISO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="NOMB_PAIS_TPA_ORIGEN" class="java.lang.String"/>
+	<parameter name="NOMB_PAIS_TPA_PROCEDENCIA" class="java.lang.String"/>
+	<parameter name="NOMB_PAIS_TPA_DESTINO" class="java.lang.String"/>
+	<parameter name="DESCRIPCION_CENTRO_TRAMITE_ING" class="java.lang.String"/>
+	<parameter name="DESCRIPCION_CENTRO_TRAMITE_SAL" class="java.lang.String"/>
+	<parameter name="CODI_PAIS_TPA_PROCEDENCIA" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="CODI_PAIS_TPA_ORIGEN" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT t.Numero_Permiso,
+             t.Secuencial,
+             t.Codigo_Producto,
+             r.Partida_Arancelaria || ' ' || r.Indicador_Senasa_Crf AS 		   Partida,
+             p.Nombre_Comercial_Producto,
+             p.Nombre_Cientifico_Producto,
+             t.Codigo_Tipo_Envase,
+             e.Descripcion_Tipo_Envase,
+             t.Cantidad_Envase,
+             t.Codi_Unid_Med,
+             u.Desc_Unid_Med,
+             t.Cantidad_Peso_Permiso,
+             t.Codigo_Aplicacion,
+             a.Descripcion_Aplicacion,
+             t.Codi_Pais_Tpa_Procedencia,
+             i.Nomb_Pais_Tpa AS Nomb_Pais_Tpa_Procedencia,
+             t.Codi_Pais_Tpa_Destino,
+             I1.Nomb_Pais_Tpa AS Nomb_Pais_Tpa_Destino
+        FROM Permiso_Pfti_Producto t,
+             Producto              p,
+             Tipo_Envase           e,
+             Siga.Unidad_Medida    u,
+             Aplicacion_Uso        a,
+             Tpaises               i,
+             Tpaises               I1,
+             Partida_Arancelaria   r
+       WHERE t.Codigo_Producto = p.Codigo_Producto(+)
+         AND t.Codigo_Tipo_Envase = e.Codigo_Tipo_Envase(+)
+         AND t.Codi_Unid_Med = u.Codi_Unid_Med(+)
+         AND t.Codigo_Aplicacion = a.Codigo_Aplicacion(+)
+         AND t.Codi_Pais_Tpa_Procedencia = i.Codi_Pais_Tpa(+)
+         AND t.Codi_Pais_Tpa_Destino = I1.Codi_Pais_Tpa(+)
+         AND p.Codigo_Partida_Arancelaria = r.Codigo_Partida_Arancelaria(+)
+         AND t.Numero_Permiso=$P{NUMPERMISO}]]>
+	</queryString>
+	<field name="NUMERO_PERMISO" class="java.lang.String"/>
+	<field name="SECUENCIAL" class="java.math.BigDecimal"/>
+	<field name="CODIGO_PRODUCTO" class="java.lang.String"/>
+	<field name="PARTIDA" class="java.lang.String"/>
+	<field name="NOMBRE_COMERCIAL_PRODUCTO" class="java.lang.String"/>
+	<field name="NOMBRE_CIENTIFICO_PRODUCTO" class="java.lang.String"/>
+	<field name="CODIGO_TIPO_ENVASE" class="java.lang.String"/>
+	<field name="DESCRIPCION_TIPO_ENVASE" class="java.lang.String"/>
+	<field name="CANTIDAD_ENVASE" class="java.math.BigDecimal"/>
+	<field name="CODI_UNID_MED" class="java.lang.String"/>
+	<field name="DESC_UNID_MED" class="java.lang.String"/>
+	<field name="CANTIDAD_PESO_PERMISO" class="java.math.BigDecimal"/>
+	<field name="CODIGO_APLICACION" class="java.lang.String"/>
+	<field name="DESCRIPCION_APLICACION" class="java.lang.String"/>
+	<field name="CODI_PAIS_TPA_PROCEDENCIA" class="java.lang.String"/>
+	<field name="NOMB_PAIS_TPA_PROCEDENCIA" class="java.lang.String"/>
+	<field name="CODI_PAIS_TPA_DESTINO" class="java.lang.String"/>
+	<field name="NOMB_PAIS_TPA_DESTINO" class="java.lang.String"/>
+	<variable name="CODPRODUCTO" class="java.lang.String">
+		<variableExpression><![CDATA[$F{CODIGO_PRODUCTO}]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{CODIGO_PRODUCTO}]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="28" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="2a7a4aa6-4502-48f6-a879-877011255dda" x="0" y="0" width="95" height="28"/>
+				<box leftPadding="6" rightPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Partida Arancelaria]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="29461227-5e74-4577-89f4-11f5dc26ce13" x="95" y="0" width="136" height="28"/>
+				<box leftPadding="6" rightPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descripción del producto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="720c975a-6494-4956-9f36-301b88204839" x="231" y="0" width="111" height="28"/>
+				<box leftPadding="6" rightPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre científico]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="940ad3a5-03f9-45dd-bc93-30ce0393ad0f" x="342" y="0" width="60" height="28"/>
+				<box leftPadding="6" rightPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Peso (Kg)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a950c048-e2a8-40d9-9c4c-6b9b489986e1" x="402" y="15" width="66" height="13"/>
+				<box leftPadding="6" rightPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cantidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ab682125-986f-4f60-a52b-1b0ef8443cca" x="468" y="15" width="64" height="13"/>
+				<box leftPadding="6" rightPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tipo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b04e6db2-efe1-4ebf-8381-4154bb806669" x="402" y="0" width="130" height="15"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Envase]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="81" splitType="Stretch">
+			<textField>
+				<reportElement uuid="d09c7a1d-6765-4e32-acc3-bd5df4a425e9" x="0" y="0" width="95" height="20"/>
+				<box leftPadding="6" rightPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PARTIDA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="b2c126ea-0683-43cc-bdc5-6eac16864e08" x="95" y="0" width="136" height="20"/>
+				<box leftPadding="6" rightPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NOMBRE_COMERCIAL_PRODUCTO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="c4698b27-53dd-4125-aab0-26453b663952" x="231" y="0" width="111" height="20"/>
+				<box leftPadding="6" rightPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font size="9" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NOMBRE_CIENTIFICO_PRODUCTO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="0a6580cc-841d-425a-9324-76395f059e0e" x="342" y="0" width="60" height="20"/>
+				<box leftPadding="6" rightPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CANTIDAD_PESO_PERMISO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="7117c2a8-5b5c-4158-b51d-b4188716d58d" x="402" y="0" width="66" height="20"/>
+				<box leftPadding="6" rightPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CANTIDAD_ENVASE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="a51e3163-6714-4064-9d0c-c0c936cc1f10" x="468" y="0" width="64" height="20"/>
+				<box leftPadding="6" rightPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DESC_UNID_MED}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="48d50d23-c541-4e79-9889-1228ac5390dd" positionType="Float" x="0" y="20" width="177" height="30"/>
+				<box leftPadding="6" rightPadding="3">
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>3.- PAIS DE ORIGEN:</b>"+
+"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+$P{NOMB_PAIS_TPA_ORIGEN}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="48d50d23-c541-4e79-9889-1228ac5390dd" positionType="Float" x="359" y="20" width="173" height="30"/>
+				<box leftPadding="6" rightPadding="3">
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>5.- PAIS DESTINO:</b>"+
+"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+$P{NOMB_PAIS_TPA_DESTINO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="48d50d23-c541-4e79-9889-1228ac5390dd" positionType="Float" x="177" y="20" width="182" height="30"/>
+				<box leftPadding="6" rightPadding="3">
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>4.- PAIS DE PROCEDENCIA:</b>"+
+"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+$P{NOMB_PAIS_TPA_PROCEDENCIA}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement uuid="f2967b65-f2b4-44e2-8c89-e3128d658c85" positionType="Float" stretchType="RelativeToTallestObject" x="0" y="50" width="532" height="31"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<textField isBlankWhenNull="false">
+				<reportElement uuid="72704e33-36f2-43b7-87f7-2fdca9534f91" positionType="Float" x="0" y="50" width="271" height="14"/>
+				<box leftPadding="6" rightPadding="3">
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>6.- PUESTO DE CONTROL DE INGRESO:</b>"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="72704e33-36f2-43b7-87f7-2fdca9534f91" positionType="Float" stretchType="RelativeToTallestObject" x="0" y="63" width="271" height="18" forecolor="#000000"/>
+				<box leftPadding="6" rightPadding="3">
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="html">
+					<paragraph leftIndent="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{DESCRIPCION_CENTRO_TRAMITE_ING}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="72704e33-36f2-43b7-87f7-2fdca9534f91" positionType="Float" x="271" y="50" width="261" height="14"/>
+				<box leftPadding="6" rightPadding="3">
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>7.- PUESTO DE CONTROL DE SALIDA:</b>"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="72704e33-36f2-43b7-87f7-2fdca9534f91" positionType="Float" stretchType="RelativeToTallestObject" x="271" y="63" width="261" height="17"/>
+				<box leftPadding="6" rightPadding="3">
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="html">
+					<paragraph leftIndent="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{DESCRIPCION_CENTRO_TRAMITE_SAL}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="50">
+			<subreport>
+				<reportElement uuid="e0cf7f1b-3781-4d88-af22-99e50941c894" positionType="Float" x="0" y="0" width="532" height="11"/>
+				<subreportParameter name="CodProducto">
+					<subreportParameterExpression><![CDATA[$F{CODIGO_PRODUCTO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="CodPaisProcedencia">
+					<subreportParameterExpression><![CDATA[$P{CODI_PAIS_TPA_PROCEDENCIA}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="CodPaisOrigen">
+					<subreportParameterExpression><![CDATA[$P{CODI_PAIS_TPA_ORIGEN}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "PLANTILLA_REQUISI_TRAN.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

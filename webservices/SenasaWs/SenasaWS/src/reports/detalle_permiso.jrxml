@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="detalle_permiso" language="groovy" pageWidth="554" pageHeight="802" whenNoDataType="AllSectionsNoDetail" columnWidth="554" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="df1b6ca5-110a-4cb1-b2a2-10658076dccc">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="marco">
+		<box topPadding="1" leftPadding="2" bottomPadding="1" rightPadding="2">
+			<topPen lineWidth="0.5"/>
+			<leftPen lineWidth="0.5"/>
+			<bottomPen lineWidth="0.5"/>
+			<rightPen lineWidth="0.5"/>
+		</box>
+	</style>
+	<parameter name="P_NUMERO_PERMISO" class="java.lang.String"/>
+	<parameter name="P_FLAG" class="java.lang.String"/>
+	<parameter name="REF_CURSOR" class="java.sql.ResultSet" isForPrompting="false"/>
+	<queryString language="plsql">
+		<![CDATA[{call Pckg_General.SP_GET_REPORTE_PFI_PROD_ANEXOS($P{P_NUMERO_PERMISO},$P{P_FLAG},$P{REF_CURSOR})}]]>
+	</queryString>
+	<field name="CODIGO_PRODUCTO" class="java.lang.String"/>
+	<field name="NOMBRE_COMERCIAL_PRODUCTO" class="java.lang.String"/>
+	<field name="PARTIDA_ARANCELARIA" class="java.lang.String"/>
+	<field name="NOMBRE_CIENTIFICO_PRODUCTO" class="java.lang.String"/>
+	<field name="CANTIDAD_PLANTAS" class="java.math.BigDecimal"/>
+	<field name="CANTIDAD_ENVASE" class="java.math.BigDecimal"/>
+	<field name="CANTIDAD_PESO" class="java.math.BigDecimal"/>
+	<field name="DESCRIPCION_TIPO_ENVASE" class="java.lang.String"/>
+	<variable name="TOTAL_PESO" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{CANTIDAD_PESO}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="42" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="40843ba0-4670-48c2-a4ed-6b0ee7edf0b1" style="marco" x="396" y="0" width="108" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Envase]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="2269fd84-9826-48cc-933a-b9e75c12060f" style="marco" x="396" y="15" width="47" height="27"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cantidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="7ec5b48c-f524-48d1-a953-7bba6e93e5e5" style="marco" x="504" y="0" width="50" height="42"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Número de Unidades]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f172542b-bce6-44fd-a9ef-f64cf8295d74" style="marco" x="443" y="15" width="61" height="27"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tipo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="51e3bbfe-c8fe-49ee-896e-2b4f2ccf7cb7" style="marco" x="334" y="0" width="62" height="42"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Peso (Kg)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="94e829bf-e9e0-412d-a9c5-8de3606e5c24" style="marco" x="0" y="0" width="97" height="42"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Partida Arancelaria]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="17d8a37a-0b8d-41d9-937e-0e1159459c59" style="marco" x="217" y="0" width="117" height="42"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre científico]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d4844654-11c2-4308-a74d-de2b76261abc" style="marco" x="97" y="0" width="120" height="42"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descripción del producto]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="528de2e0-ffa1-44dc-891f-6a74d4fee958" style="marco" stretchType="RelativeToTallestObject" x="0" y="0" width="97" height="15"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PARTIDA_ARANCELARIA}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="bcdd4aee-a76d-4fc3-81f9-291062d08353" style="marco" stretchType="RelativeToTallestObject" x="97" y="0" width="120" height="15"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NOMBRE_COMERCIAL_PRODUCTO}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="38b7807b-aa5d-451f-bff8-9bc23a9ab577" style="marco" stretchType="RelativeToTallestObject" x="217" y="0" width="117" height="15"/>
+				<textElement>
+					<font fontName="SansSerif" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NOMBRE_CIENTIFICO_PRODUCTO}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="69745d4b-8960-4c41-b1e4-f2c222942655" style="marco" stretchType="RelativeToTallestObject" x="334" y="0" width="62" height="15"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CANTIDAD_PESO}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="44b813b7-cc31-4854-b5e9-a14130526f1d" style="marco" stretchType="RelativeToTallestObject" x="396" y="0" width="47" height="15"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CANTIDAD_ENVASE}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="eef1523d-2d90-4416-b565-14590478e84f" style="marco" stretchType="RelativeToTallestObject" x="443" y="0" width="61" height="15"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DESCRIPCION_TIPO_ENVASE}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="48660b4c-2070-49ca-babe-3da7b2094090" style="marco" stretchType="RelativeToTallestObject" x="504" y="0" width="50" height="15"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CANTIDAD_PLANTAS}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

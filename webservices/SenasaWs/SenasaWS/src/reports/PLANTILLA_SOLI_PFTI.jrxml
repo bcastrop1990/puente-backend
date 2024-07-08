@@ -1,0 +1,570 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PLANTILLA_SOLI_PFTI" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a18ed01a-460e-43bd-8272-a6e3aa2909ed">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="NEXPEDIENTE" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT distinct t.Codigo_Expediente,
+             t.Numero_Permiso,
+             t.Centro_Tramite_Solicitud,
+             c.Descripcion_Centro_Tramite,
+             to_char(t.Fecha_Emision,'DD/MM/YY') Fecha_Emision,
+             t.Fecha_Emision + 90 AS Fecha_Vigencia,
+             t.Persona_Id,
+             p.Nombre_Razon_Social,
+             p.Direccion,
+             p.Documento_Numero,
+             t.codigo_requ_tran_producto,
+             t1.Codigo_Centro_Tramite_Ing,
+             c2.Descripcion_Centro_Tramite AS Descripcion_Centro_Tramite_Ing,
+             t1.Codigo_Centro_Tramite_Sal,
+             C1.Descripcion_Centro_Tramite AS Descripcion_Centro_Tramite_Sal,
+             t2.Codi_Pais_Tpa_Procedencia,
+             i.Nomb_Pais_Tpa AS Nomb_Pais_Tpa_Procedencia,
+             t2.Codi_Pais_Tpa_Destino,
+             I1.Nomb_Pais_Tpa AS Nomb_Pais_Tpa_Destino,
+             t3.Codi_Pais_Tpa_Origen,
+             p2.Nomb_Pais_Tpa AS Nomb_Pais_Tpa_Origen,
+             dep.nomb_dpto_dpt ,dis.nomb_dist_tdi,
+             pro.nomb_prov_tpr ,cent.nomb_ccpp_tcp,
+             p.telefono, p.correo_electronico,
+             pers.nombre_razon_social nombre,
+             pers.documento_numero numero,
+             pers2.nombre_razon_social nomagente,
+             pers2.documento_numero numagente
+        FROM
+             Permiso_Pfti t,Permiso_Pfti_Producto_Ct t1, Centro_Tramite c, Persona p,
+             Centro_Tramite           c2,
+             Centro_Tramite           C1,
+             Permiso_Pfti_Producto t2,
+             Tpaises               i,
+             Tpaises               I1,
+             tdepartamentos dep,
+             tprovincias pro,
+             tdistritos dis,
+             Permiso_Pfti_Pais_Origen t3,
+             Tpaises p2,
+             CENTROS_POBLADOS cent,
+             solicitud s,
+             persona pers,
+             tdepartamentos dep1,
+             tprovincias pro1,
+             tdistritos dis1,
+             CENTROS_POBLADOS cent1,
+             persona pers2,
+             Permiso_Pfti t4,
+             tdepartamentos dep2,
+             tprovincias pro2,
+             tdistritos dis2,
+             CENTROS_POBLADOS cent2
+
+       WHERE t.Centro_Tramite_Solicitud = c.Codigo_Centro_Tramite(+)
+             and   s.representante_id = pers.persona_id(+)
+             and s.codigo_expediente= t.codigo_expediente(+)
+             AND   T.NUMERO_PERMISO =T1.NUMERO_PERMISO (+)
+             and    T.NUMERO_PERMISO =T2.NUMERO_PERMISO (+)
+             and    T.NUMERO_PERMISO =T3.NUMERO_PERMISO (+)
+             AND t1.Codigo_Centro_Tramite_Ing = c2.Codigo_Centro_Tramite(+)
+             AND t1.Codigo_Centro_Tramite_Sal = C1.Codigo_Centro_Tramite(+)
+             AND t2.Codi_Pais_Tpa_Procedencia = i.Codi_Pais_Tpa(+)
+             AND t2.Codi_Pais_Tpa_Destino = I1.Codi_Pais_Tpa(+)
+             and t3.Codi_Pais_Tpa_Origen = p2.Codi_Pais_Tpa(+)
+             AND t.Persona_Id = p.Persona_Id(+)
+             and t.agente_id =pers2.persona_id(+)
+             AND (p.departamento_id = cent.CODI_DEPA_DPT(+))
+             AND (p.provincia_id = cent.CODI_PROV_TPR(+))
+             AND (p.distrito_id= cent.CODI_DIST_TDI(+))
+             AND (p.centro_poblado_id = cent.CODI_CCPP_TCP(+))
+             AND (p.departamento_id = dep.codi_depa_dpt(+))
+             AND (p.departamento_id = pro.codi_depa_dpt(+))
+             AND (p.provincia_id = pro.codi_prov_tpr(+))
+             AND (p.departamento_id = dis.codi_depa_dpt(+))
+             AND (p.provincia_id = dis.codi_prov_tpr(+))
+             AND (p.distrito_id= dis.codi_dist_tdi(+))
+             AND (p.distrito_id = dis.codi_dist_tdi(+))
+
+             AND (pers.departamento_id = cent1.CODI_DEPA_DPT(+))
+             AND (pers.provincia_id = cent1.CODI_PROV_TPR(+))
+             AND (pers.distrito_id= cent1.CODI_DIST_TDI(+))
+             AND (pers.centro_poblado_id = cent1.CODI_CCPP_TCP(+))
+             AND (pers.departamento_id = dep1.codi_depa_dpt(+))
+             AND (pers.departamento_id = pro1.codi_depa_dpt(+))
+             AND (pers.provincia_id = pro1.codi_prov_tpr(+))
+             AND (pers.departamento_id = dis1.codi_depa_dpt(+))
+             AND (pers.provincia_id = dis1.codi_prov_tpr(+))
+             AND (pers.distrito_id= dis1.codi_dist_tdi(+))
+             AND (pers.distrito_id = dis1.codi_dist_tdi(+))
+
+             AND (pers2.departamento_id = cent2.CODI_DEPA_DPT(+))
+             AND (pers2.provincia_id = cent2.CODI_PROV_TPR(+))
+             AND (pers2.distrito_id= cent2.CODI_DIST_TDI(+))
+             AND (pers2.centro_poblado_id = cent2.CODI_CCPP_TCP(+))
+             AND (pers2.departamento_id = dep2.codi_depa_dpt(+))
+             AND (pers2.departamento_id = pro2.codi_depa_dpt(+))
+             AND (pers2.provincia_id = pro2.codi_prov_tpr(+))
+             AND (pers2.departamento_id = dis2.codi_depa_dpt(+))
+             AND (pers2.provincia_id = dis2.codi_prov_tpr(+))
+             AND (pers2.distrito_id= dis2.codi_dist_tdi(+))
+             AND (pers2.distrito_id = dis2.codi_dist_tdi(+))
+
+             AND t.Codigo_Expediente =$P{NEXPEDIENTE}]]>
+	</queryString>
+	<field name="CODIGO_EXPEDIENTE" class="java.lang.String"/>
+	<field name="NUMERO_PERMISO" class="java.lang.String"/>
+	<field name="CENTRO_TRAMITE_SOLICITUD" class="java.lang.String"/>
+	<field name="DESCRIPCION_CENTRO_TRAMITE" class="java.lang.String"/>
+	<field name="FECHA_EMISION" class="java.lang.String"/>
+	<field name="FECHA_VIGENCIA" class="java.sql.Timestamp"/>
+	<field name="PERSONA_ID" class="java.lang.String"/>
+	<field name="NOMBRE_RAZON_SOCIAL" class="java.lang.String"/>
+	<field name="DIRECCION" class="java.lang.String"/>
+	<field name="DOCUMENTO_NUMERO" class="java.lang.String"/>
+	<field name="CODIGO_REQU_TRAN_PRODUCTO" class="java.lang.String"/>
+	<field name="CODIGO_CENTRO_TRAMITE_ING" class="java.lang.String"/>
+	<field name="DESCRIPCION_CENTRO_TRAMITE_ING" class="java.lang.String"/>
+	<field name="CODIGO_CENTRO_TRAMITE_SAL" class="java.lang.String"/>
+	<field name="DESCRIPCION_CENTRO_TRAMITE_SAL" class="java.lang.String"/>
+	<field name="CODI_PAIS_TPA_PROCEDENCIA" class="java.lang.String"/>
+	<field name="NOMB_PAIS_TPA_PROCEDENCIA" class="java.lang.String"/>
+	<field name="CODI_PAIS_TPA_DESTINO" class="java.lang.String"/>
+	<field name="NOMB_PAIS_TPA_DESTINO" class="java.lang.String"/>
+	<field name="CODI_PAIS_TPA_ORIGEN" class="java.lang.String"/>
+	<field name="NOMB_PAIS_TPA_ORIGEN" class="java.lang.String"/>
+	<field name="NOMB_DPTO_DPT" class="java.lang.String"/>
+	<field name="NOMB_DIST_TDI" class="java.lang.String"/>
+	<field name="NOMB_PROV_TPR" class="java.lang.String"/>
+	<field name="NOMB_CCPP_TCP" class="java.lang.String"/>
+	<field name="TELEFONO" class="java.lang.String"/>
+	<field name="CORREO_ELECTRONICO" class="java.lang.String"/>
+	<field name="NOMBRE" class="java.lang.String"/>
+	<field name="NUMERO" class="java.lang.String"/>
+	<field name="NOMAGENTE" class="java.lang.String"/>
+	<field name="NUMAGENTE" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="153" splitType="Stretch">
+			<image>
+				<reportElement uuid="6bc3e354-e031-483b-ae16-888b4ea39b28" x="26" y="10" width="149" height="67"/>
+				<imageExpression><![CDATA[$P{SUBREPORT_DIR} + "logo.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="fe3abe76-26af-471b-b06c-8db8b7dc8958" x="27" y="82" width="509" height="20"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SOLICITUD DE PERMISO FITOSANITARIO PARA EL TRANSITO INTERNACIONAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="28ce810d-fdf4-4544-83f1-48867572e382" x="27" y="113" width="123" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[DIRECCION EJECUTIVA:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="061dc21a-cc3c-4a2d-a799-ce4334abd9e3" x="146" y="113" width="120" height="20"/>
+				<textElement/>
+				<text><![CDATA[SENASA - CENTRAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="28ce810d-fdf4-4544-83f1-48867572e382" x="413" y="113" width="123" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[FECHA:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="d444240a-04eb-4c93-b9d5-ef84888688c1" x="455" y="113" width="81" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{FECHA_EMISION}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="eb9d1e57-9c79-4c3a-9240-91b939f2dd81" x="21" y="133" width="98" height="20"/>
+				<box leftPadding="6"/>
+				<textElement>
+					<font isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[N° Expediente: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="86cd7423-8b6d-4e56-903b-6eb407a00ca5" x="100" y="133" width="115" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{CODIGO_EXPEDIENTE}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="323" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="1755108b-0f66-4181-b5ca-fe906ef88bcf" mode="Opaque" x="27" y="1" width="100" height="20" forecolor="#FFFFFF" backcolor="#999999"/>
+				<box leftPadding="4"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[PARTE I:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ad1adc57-a304-4a20-851e-48a0b40178c5" mode="Opaque" x="72" y="1" width="464" height="20" forecolor="#FFFFFF" backcolor="#999999"/>
+				<box leftPadding="4"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[INFORMACION DE LA EMPRESA SOLICITANTE]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="d9f77b1e-50c7-471e-ae7f-15642dcc7036" x="27" y="30" width="348" height="30"/>
+				<box leftPadding="6" rightPadding="4">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>1.- NOMBRE RAZON SOCIAL:</b>"+
+"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+$F{NOMBRE_RAZON_SOCIAL}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="46de50b6-41e5-4e2d-8e5d-69535430433a" x="375" y="30" width="161" height="30"/>
+				<box leftPadding="4" rightPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>2.- RUC/DNI:</b>"+
+"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+$F{DOCUMENTO_NUMERO}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="c11c6ca4-cb41-49b7-be1f-cfd53df4e7b9" x="27" y="60" width="509" height="29"/>
+				<box leftPadding="6" rightPadding="3">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>3.- DOMICILIO LEGAL Av /Calle / Jr:</b>"+
+"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+$F{DIRECCION}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="fa3b6f5f-f0c3-4e2b-bf95-33b3c09a4c5b" x="27" y="89" width="170" height="16"/>
+				<box leftPadding="6" rightPadding="3">
+					<leftPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>4.- URBANIZACION:</b>"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="dd20ab2b-9613-4d99-8a81-c1c192a1774d" x="197" y="89" width="178" height="16"/>
+				<box leftPadding="6" rightPadding="3">
+					<leftPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>5.- DISTRITO:</b>"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="5b259343-7657-4694-ae22-ad169896e3ec" x="375" y="89" width="161" height="16"/>
+				<box leftPadding="6" rightPadding="3">
+					<leftPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>6.- PROVINCIA:</b>"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="6d671307-2f23-4030-ac2c-80661a732f16" x="27" y="120" width="170" height="15"/>
+				<box leftPadding="6" rightPadding="3">
+					<leftPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>7.- DEPARTAMENTO:</b>"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="883545c8-edb0-47ec-bac5-9213d3a670eb" x="197" y="120" width="178" height="15"/>
+				<box leftPadding="6" rightPadding="3">
+					<leftPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>8.- TELEFONO:</b>"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="d836563b-957b-4bc5-b11b-b281f1e1d994" x="375" y="120" width="161" height="15"/>
+				<box leftPadding="6" rightPadding="3">
+					<leftPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>9.- EMAIL:</b>"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="a75dbe8c-2409-478b-b39d-6e93479cb739" x="27" y="105" width="170" height="15"/>
+				<box leftPadding="20" rightPadding="3">
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[$F{NOMB_CCPP_TCP}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="37eb8d9a-9828-4362-9c22-693f413724a0" x="197" y="105" width="178" height="15"/>
+				<box leftPadding="20" rightPadding="3">
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[$F{NOMB_DIST_TDI}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="514a9f4e-95d6-497b-bec6-cef7324f159f" x="375" y="105" width="161" height="15"/>
+				<box leftPadding="20" rightPadding="3">
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[$F{NOMB_PROV_TPR}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="32138a18-ac0d-4311-80df-57f33cb3461c" x="27" y="135" width="170" height="20"/>
+				<box leftPadding="20" rightPadding="3">
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[$F{NOMB_DPTO_DPT}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="1c306ad1-a156-4f88-b190-c970fd52986d" x="197" y="135" width="178" height="20"/>
+				<box leftPadding="20" rightPadding="3">
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[$F{TELEFONO}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="0eb0ffdb-429b-4090-a368-d62e86698694" x="375" y="135" width="161" height="20"/>
+				<box leftPadding="20" rightPadding="3">
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[$F{CORREO_ELECTRONICO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="b69ef3a8-aec7-4972-9898-5b6a2f21f918" x="27" y="155" width="509" height="20"/>
+				<box leftPadding="6">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[10.- REPRESENTANTE LEGAL]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="27673edc-0468-4532-9886-ccc49c9d0725" x="27" y="191" width="348" height="20"/>
+				<box leftPadding="15" rightPadding="3">
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{NOMBRE}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="4fcfdc44-3e5d-452e-ae05-376c20b042b2" x="375" y="191" width="161" height="20"/>
+				<box leftPadding="15" rightPadding="3">
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{NUMERO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="3e6c9dd8-6ea2-4f96-85f1-2d4947a39989" x="27" y="175" width="348" height="16"/>
+				<box leftPadding="15">
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Top">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a3525357-436f-4582-be1c-7b556a8e2d57" x="375" y="175" width="161" height="16"/>
+				<box leftPadding="15">
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Top">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[DNI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b69ef3a8-aec7-4972-9898-5b6a2f21f918" x="27" y="211" width="509" height="20"/>
+				<box leftPadding="6">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[11.- AGENTE DE ADUANAS]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="1a30b092-2278-48c0-8d23-01becf8182e7" x="27" y="247" width="348" height="18"/>
+				<box leftPadding="15" rightPadding="3">
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NOMAGENTE}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="f9b0753b-ffa6-46db-afdf-71c115f1e3bf" x="375" y="247" width="161" height="18"/>
+				<box leftPadding="15" rightPadding="3">
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{NUMAGENTE}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="a3525357-436f-4582-be1c-7b556a8e2d57" x="375" y="231" width="161" height="16"/>
+				<box leftPadding="15">
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Top">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[DNI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="3e6c9dd8-6ea2-4f96-85f1-2d4947a39989" x="27" y="231" width="348" height="16"/>
+				<box leftPadding="15">
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Top">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1755108b-0f66-4181-b5ca-fe906ef88bcf" mode="Opaque" x="27" y="274" width="100" height="20" forecolor="#FFFFFF" backcolor="#999999"/>
+				<box leftPadding="4"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[PARTE II:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ad1adc57-a304-4a20-851e-48a0b40178c5" mode="Opaque" x="76" y="274" width="460" height="20" forecolor="#FFFFFF" backcolor="#999999"/>
+				<box leftPadding="4"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[INFORMACION DE PRODUCTO]]></text>
+			</staticText>
+			<subreport>
+				<reportElement uuid="d8d9ad37-810f-4df8-9162-512ca46cdc3c" x="27" y="303" width="509" height="11"/>
+				<subreportParameter name="NOMB_PAIS_TPA_ORIGEN">
+					<subreportParameterExpression><![CDATA[$F{NOMB_PAIS_TPA_ORIGEN}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="DESCRIPCION_CENTRO_TRAMITE_ING">
+					<subreportParameterExpression><![CDATA[$F{DESCRIPCION_CENTRO_TRAMITE_ING}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="NUMPERMISO">
+					<subreportParameterExpression><![CDATA[$F{NUMERO_PERMISO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="DESCRIPCION_CENTRO_TRAMITE_SAL">
+					<subreportParameterExpression><![CDATA[$F{DESCRIPCION_CENTRO_TRAMITE_SAL}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="NOMB_PAIS_TPA_DESTINO">
+					<subreportParameterExpression><![CDATA[$F{NOMB_PAIS_TPA_DESTINO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="NOMB_PAIS_TPA_PROCEDENCIA">
+					<subreportParameterExpression><![CDATA[$F{NOMB_PAIS_TPA_PROCEDENCIA}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "PFTI_PRODUCTO_SUB.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="124" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="e77b1947-7c37-4249-aed7-832dd9e7bd50" positionType="Float" x="26" y="10" width="510" height="28"/>
+				<textElement textAlignment="Justified"/>
+				<text><![CDATA[EL EXPEDIENTE SOLO SERA TRAMITADO SI EL PRODUCTO CUENTA CON LOS REQUISITOS FITOSANITARIOS ESTABLECIDOS.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="db289809-31da-4476-9440-6042d752d772" positionType="Float" x="26" y="39" width="510" height="26"/>
+				<textElement textAlignment="Justified">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Declaro bajo juramento que los datos consignados en la presente solicitud son verídicos y me someto a las sanciones de orden jurídico-técnico-administrativo por el incumplimiento, inexactitud, o falsedad de lo declarado.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="35bc4a0f-5424-4fe3-a803-e1a74a070ebe" positionType="Float" x="26" y="79" width="510" height="29"/>
+				<textElement textAlignment="Justified">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOTA: SOLICITUD DE PERMISO FITOSANITARIO PARA EL TRANSITO INTERNACIONAL DE SOLO UN EMBARQUE]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

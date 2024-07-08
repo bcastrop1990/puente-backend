@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="formato_iiv_expo_fito_01detalle" language="groovy" pageWidth="555" pageHeight="801" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="be230d4c-ad64-4866-a5ca-a6c02d06c9c0">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="PCODEXPEDIENTE" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT secuencial,
+       plaga,
+       unidadinfe,
+       porcentaje,
+       edplaga,
+       DECODE (PLAGAPAIS,
+               '1', 'ES CUARENTENARIA',
+               '2', 'SOSPECHOSA DE SER CUARENTENARIA',
+               '3', 'NO ES CUARENTENARIA')
+          PLAGAPAIS
+  FROM INF_INSP_PLAGA_CUARENTENA
+ WHERE CODIGO_EXPEDIENTE =  $P{PCODEXPEDIENTE}]]>
+	</queryString>
+	<field name="SECUENCIAL" class="java.math.BigDecimal"/>
+	<field name="PLAGA" class="java.lang.String"/>
+	<field name="UNIDADINFE" class="java.math.BigDecimal"/>
+	<field name="PORCENTAJE" class="java.math.BigDecimal"/>
+	<field name="EDPLAGA" class="java.lang.String"/>
+	<field name="PLAGAPAIS" class="java.lang.String"/>
+	<columnHeader>
+		<band height="20">
+			<staticText>
+				<reportElement uuid="e7ec6c7d-df1c-4a07-b3d8-3045436fa1ef" x="0" y="0" width="167" height="20"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+					<paragraph lineSpacing="Fixed" lineSpacingSize="7.0" leftIndent="7"/>
+				</textElement>
+				<text><![CDATA[PLAGAS DETECTADAS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e7ec6c7d-df1c-4a07-b3d8-3045436fa1ef" x="167" y="0" width="56" height="20"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+					<paragraph lineSpacing="Fixed" lineSpacingSize="7.0" leftIndent="7"/>
+				</textElement>
+				<text><![CDATA[UNIDADES INFESTADAS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e7ec6c7d-df1c-4a07-b3d8-3045436fa1ef" x="223" y="0" width="111" height="20"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+					<paragraph lineSpacing="Fixed" lineSpacingSize="7.0" leftIndent="7"/>
+				</textElement>
+				<text><![CDATA[E.D. DE LA PLAGA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e7ec6c7d-df1c-4a07-b3d8-3045436fa1ef" x="334" y="0" width="65" height="20"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+					<paragraph lineSpacing="Fixed" lineSpacingSize="7.0" leftIndent="7"/>
+				</textElement>
+				<text><![CDATA[% DE INFESTACION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e7ec6c7d-df1c-4a07-b3d8-3045436fa1ef" x="399" y="0" width="156" height="20"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+					<paragraph lineSpacing="Fixed" lineSpacingSize="7.0" leftIndent="7"/>
+				</textElement>
+				<text><![CDATA[SITUACION DE LA PLAGA]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="ae7a4338-ada7-48b6-b48d-edb282a66bf1" positionType="Float" stretchType="RelativeToTallestObject" x="0" y="0" width="167" height="15"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="7"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PLAGA}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="ae7a4338-ada7-48b6-b48d-edb282a66bf1" positionType="Float" stretchType="RelativeToTallestObject" x="167" y="0" width="56" height="15"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="7"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{UNIDADINFE}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="ae7a4338-ada7-48b6-b48d-edb282a66bf1" positionType="Float" stretchType="RelativeToTallestObject" x="223" y="0" width="111" height="15"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="7"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{EDPLAGA}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="###0.000" isBlankWhenNull="true">
+				<reportElement uuid="addee7bb-bbdb-4a07-a8f5-45a812c1e2c5" positionType="Float" stretchType="RelativeToTallestObject" x="334" y="0" width="65" height="15"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="7"/>
+					<paragraph leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PORCENTAJE}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="###0.000" isBlankWhenNull="true">
+				<reportElement uuid="addee7bb-bbdb-4a07-a8f5-45a812c1e2c5" positionType="Float" stretchType="RelativeToTallestObject" x="399" y="0" width="156" height="15"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="7"/>
+					<paragraph leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PLAGAPAIS}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

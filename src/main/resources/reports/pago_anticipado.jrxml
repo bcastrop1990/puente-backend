@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="pagoanticipado" pageWidth="595" pageHeight="841" whenNoDataType="AllSectionsNoDetail" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="785ba7a4-5ada-494f-b15d-78fdbf8a9665">
+	<property name="ireport.zoom" value="1.4641000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="PCODEXPEDIENTE" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select l.codigo_expediente,
+            r.codigo_recibo,
+            l.fecha_registro,
+            c.DESC_BSER_CAT,
+            ROUND((c.Prec_Sprom_Cat * 100) /
+                                                   (100 +
+                                                   (SELECT s.Valor_Nume_Par
+                                                        FROM Siga01.Sys_Parametros s
+                                                       WHERE s.Nom_Var_Par LIKE '%vgd_val_igv%')),
+                                                   2) Prec_Sprom_Cat,
+            count(l.codigo_analisis) as  conteo
+        from FINALBPM.EXPEDIENTE_ANALISIS_LAB l, SIGA.CATALOGO_BIEN_SERVICIO c,
+        finalbpm.recibo r, finalbpm.recibo_detalle rd, finalbpm.solicitud s
+where
+s.orden_vuce = L.ORDEN_MOS_NUMERO and
+r.codigo_solicitud = s.codigo_solicitud and
+r.codigo_recibo = rd.codigo_recibo and
+l.codigo_analisis = c.CODI_BSER_CAT and
+l.codigo_expediente = $P{PCODEXPEDIENTE} and
+l.secuencial = (select max(secuencial) from FINALBPM.EXPEDIENTE_ANALISIS_LAB where codigo_expediente = $P{PCODEXPEDIENTE})
+and rd.codigo_servicio = '006'
+group by l.codigo_expediente,r.codigo_recibo, l.fecha_registro, c.DESC_BSER_CAT,c.Prec_Sprom_Cat]]>
+	</queryString>
+	<field name="CODIGO_EXPEDIENTE" class="java.lang.String"/>
+	<field name="CODIGO_RECIBO" class="java.lang.String"/>
+	<field name="FECHA_REGISTRO" class="java.sql.Timestamp"/>
+	<field name="DESC_BSER_CAT" class="java.lang.String"/>
+	<field name="PREC_SPROM_CAT" class="java.math.BigDecimal"/>
+	<field name="CONTEO" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="58" splitType="Stretch">
+			<image>
+				<reportElement uuid="b55459e3-ce55-4144-af4a-4dcaa1e84d5f" x="29" y="12" width="86" height="36">
+					<printWhenExpression><![CDATA[false]]></printWhenExpression>
+				</reportElement>
+				<imageExpression><![CDATA[$P{SUBREPORT_DIR}+"logo.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="ad0108b7-ec97-4db5-87d4-c00421805480" x="0" y="27" width="595" height="21"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ - Detalle Recibo Analisis de Laboratorio - Pago Adelantado -]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="45" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="ad0108b7-ec97-4db5-87d4-c00421805480" x="39" y="10" width="76" height="15"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Expediente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ad0108b7-ec97-4db5-87d4-c00421805480" x="115" y="10" width="8" height="15"/>
+				<textElement/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="05a55c47-f948-4c28-825b-6b0d60857caf" x="123" y="10" width="100" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{CODIGO_EXPEDIENTE}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="ad0108b7-ec97-4db5-87d4-c00421805480" x="375" y="10" width="87" height="15"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha pagado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ad0108b7-ec97-4db5-87d4-c00421805480" x="462" y="10" width="8" height="15"/>
+				<textElement/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="05a55c47-f948-4c28-825b-6b0d60857caf" x="470" y="10" width="92" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{FECHA_REGISTRO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="ad0108b7-ec97-4db5-87d4-c00421805480" x="39" y="25" width="76" height="15"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nro. recibo]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="05a55c47-f948-4c28-825b-6b0d60857caf" x="123" y="25" width="100" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{CODIGO_RECIBO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="ad0108b7-ec97-4db5-87d4-c00421805480" x="115" y="25" width="8" height="15"/>
+				<textElement/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="16">
+			<staticText>
+				<reportElement uuid="4e3e16c8-b340-414b-baa0-960101763f5b" x="89" y="1" width="341" height="15"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Analisis de laboratorio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ad0108b7-ec97-4db5-87d4-c00421805480" x="39" y="1" width="50" height="15"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cantidad]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="168f960b-977a-42d7-9f40-ca8ad80e6ea0" x="39" y="15" width="524" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="8fe03708-b48c-4aef-a668-dfe0477ead64" x="427" y="1" width="71" height="15"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Costo Unitario]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="17" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="e6ec2c79-9f03-4d66-a2f0-b0be1561df61" x="92" y="3" width="335" height="14"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DESC_BSER_CAT}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="57978892-0439-4807-a033-c6ae13d44813" x="44" y="3" width="43" height="14"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CONTEO}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="ae12f40e-c195-4240-be4f-0298caaf3fb8" x="432" y="3" width="56" height="14"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PREC_SPROM_CAT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="61" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement uuid="1ba4447f-f06d-432f-be60-1de2edc35d17" x="39" y="27" width="100" height="15"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="616a33c7-f40a-4a95-aecc-a45e8abe859c" x="443" y="27" width="92" height="15"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="33be9a07-bb40-4d76-8963-66796fd6c124" x="535" y="27" width="28" height="15"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

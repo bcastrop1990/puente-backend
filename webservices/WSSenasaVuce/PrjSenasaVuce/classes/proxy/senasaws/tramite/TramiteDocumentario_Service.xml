@@ -1,0 +1,37 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle-webservice-clients xmlns:ns2="http://java.sun.com/xml/ns/javaee">
+   <webservice-client>
+      <service-qname localpart="TramiteDocumentario"
+                     namespaceURI="http://tramitedocumentario.ws.senasa.gob.pe"/>
+      <port-info>
+         <wsdl-port localpart="TramiteDocumentarioPort"
+                    namespaceURI="http://tramitedocumentario.ws.senasa.gob.pe"/>
+         <runtime/>
+         <operations>
+            <operation name="generarDocumentoTramite"/>
+            <operation name="previsualizarIngresoDocTramite"/>
+            <operation name="eliminarNumeracioDocumento"/>
+            <operation name="registrarDocumento"/>
+            <operation name="actualizarDocumento"/>
+            <operation name="actualizarArchivo"/>
+            <operation name="eliminarDocumentoAdjunto"/>
+            <operation name="obtenerAdjuntos"/>
+            <operation name="verificaParticipacion"/>
+            <operation name="consultaSTDGeneral"/>
+            <operation name="consultaSTDGeneralExterno"/>
+            <operation name="consultaSTDDocumentos"/>
+            <operation name="consultaSTDxIdFinal"/>
+            <operation name="obtenerEncargatura"/>
+            <operation name="obtenerEncargado"/>
+            <operation name="eliminarDocumentoSTD"/>
+            <operation name="obtenerBandejaElectronica"/>
+            <operation name="procesarDocumentoElectronico"/>
+            <operation name="obtenerExpedienteStd"/>
+            <operation name="obtenerDocumentoStd"/>
+            <operation name="obtenerTiposDocMesaPartes"/>
+            <operation name="registrarExpediente"/>
+            <operation name="anexarDocumentoExpediente"/>
+         </operations>
+      </port-info>
+   </webservice-client>
+</oracle-webservice-clients>

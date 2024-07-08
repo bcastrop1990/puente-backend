@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PLANTILLA_DORI-PEZI" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0062b864-29fe-46e8-ad12-95cbd95960ad">
+	<property name="ireport.zoom" value="1.4641000000000028"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="marco">
+		<box topPadding="5" leftPadding="5" bottomPadding="5" rightPadding="5">
+			<topPen lineWidth="0.5"/>
+			<leftPen lineWidth="0.5"/>
+			<bottomPen lineWidth="0.5"/>
+			<rightPen lineWidth="0.5"/>
+		</box>
+	</style>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FIRMA" class="java.io.InputStream"/>
+	<parameter name="NEXPEDIENTE" class="java.lang.String"/>
+	<parameter name="ORACLE_REF_CURSOR" class="java.sql.ResultSet" isForPrompting="false"/>
+	<parameter name="SUBTITULO" class="java.lang.String"/>
+	<queryString language="plsql">
+		<![CDATA[{call Pckg_General.SP_GET_REPORTE_PZI_CABESERA($P{NEXPEDIENTE}, $P{ORACLE_REF_CURSOR})}]]>
+	</queryString>
+	<field name="CODIGO_EXPEDIENTE" class="java.lang.String"/>
+	<field name="NUMERO_PERMISO" class="java.lang.String"/>
+	<field name="CENTRO_TRAMITE_SOLICITUD" class="java.lang.String"/>
+	<field name="DESCRIPCION_CENTRO_TRAMITE" class="java.lang.String"/>
+	<field name="INDICADOR_AMPLIACION" class="java.lang.String"/>
+	<field name="FECHA_EMISION" class="java.lang.String"/>
+	<field name="CODIGO_REQU_IMPO_PRODUCTO" class="java.lang.String"/>
+	<field name="FECHA_VIGENCIA" class="java.lang.String"/>
+	<field name="FECHA_AMPLIACION" class="java.lang.String"/>
+	<title>
+		<band height="165" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="0007b603-7697-424d-8a53-54af3c050c7a" x="0" y="104" width="189" height="20"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[N° Documento: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="5f405896-6a24-4e9f-b377-a23fd0e72b0a" x="322" y="126" width="109" height="19"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Término de Vigencia:]]></text>
+			</staticText>
+			<image>
+				<reportElement uuid="d5e2e700-7e2c-494b-9b70-acb3b93a9d73" x="19" y="0" width="120" height="40"/>
+				<imageExpression><![CDATA[$P{SUBREPORT_DIR} +"logo.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="ab83d35e-df04-4a95-9a0e-71b5e8782324" x="4" y="145" width="134" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Lugar y Fecha de Emisión:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="98a3c7e0-3947-4e60-adb3-f86203f778c6" x="1" y="68" width="554" height="36"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PERMISO SANITARIO PARA LA IMPORTACION DE ANIMALES VIVOS,
+PRODUCTOS Y SUBPRODUCTOS DE ORIGEN ANIMAL
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e57b3532-4f80-4ef0-ac53-71ac4065c78f" x="4" y="126" width="78" height="19"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[N° Expediente: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="280926da-929d-4b63-9d30-003780c0cfe3" x="82" y="126" width="141" height="19"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{CODIGO_EXPEDIENTE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="7c111fa9-6b98-40df-b50b-ba030aa68541" x="138" y="145" width="184" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{DESCRIPCION_CENTRO_TRAMITE}+", "+$F{FECHA_EMISION}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="6ab6654d-2e6b-4852-94f1-eae513ca3774" x="189" y="104" width="366" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{SUBTITULO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="75efe783-504b-4ebb-9ffd-f3e1dc9f6396" x="431" y="126" width="122" height="19"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{FECHA_VIGENCIA}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="127" splitType="Stretch">
+			<subreport>
+				<reportElement uuid="f156e4ae-8a12-4447-b45d-1a2049c22642" x="0" y="0" width="555" height="14"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="NEXPEDIENTE">
+					<subreportParameterExpression><![CDATA[$P{NEXPEDIENTE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "datos_permiso_pzi.jasper"]]></subreportExpression>
+			</subreport>
+			<image>
+				<reportElement uuid="4bea2ec0-8c29-4b17-9998-4851211290bc" positionType="Float" x="315" y="25" width="224" height="87"/>
+				<imageExpression><![CDATA[$P{FIRMA}]]></imageExpression>
+			</image>
+		</band>
+		<band/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement uuid="4f1e88c6-69e3-4ac3-a982-c0a411d5a91d" x="352" y="102" width="177" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Página  "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="4f54346b-3521-435d-8d79-7347e5c6b43c" x="529" y="101" width="23" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="83fbb77a-f471-43a2-b185-cd0cbda86ab0" style="marco" x="16" y="11" width="523" height="90"/>
+				<textElement verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[- El Certificado Sanitario de Exportación Original emitido por la Autoridad Oficial de país de Procedencia, acreditará el cumplimiento de los requisitos del anexo del presente documento, debiendo especificar una alternativa donde hayan opciones.
+- Cualquier enmendadura o añadidura invalida este documento.
+- Este Permiso tiene una validez de 90 días desde la fecha de su emisión y válido para un sólo embarque.
+- Este documento ampara la importación únicamente del producto y sus características arriba señaladas.
+- El SENASA podrá modificar, suspender o anular este permiso si se constata oficialmente que en el país exportador se han presentado enfermedades exóticas o de importancia cuarentenaria durante el proceso de importación.
+- El SENASA no asumirá responsabilidad alguna si el presente documento fuera utilizado con otros fines que no fueran estrictamente de índole zoosanitario.
+- Todo envío que esté contenido en embalajes de madera, deberán cumplir con las disposiciones establecidas en la R.D. Nº 105-2005-AG-SENASA-DGSV.
+- Este Documento es Intransferible.]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

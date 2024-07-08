@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="datos_soli" language="groovy" pageWidth="555" pageHeight="802" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="bcc8e66f-29ed-4b12-8e59-64f9edf45446">
+	<property name="ireport.zoom" value="1.6105100000000008"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="NEXPEDIENTE" class="java.lang.String"/>
+	<queryString language="plsql">
+		<![CDATA[{call Pckg_General.SP_GET_REPORTE_PFI($P{NEXPEDIENTE}, $P{ORACLE_REF_CURSOR})}]]>
+	</queryString>
+	<field name="f_tipo_persona" class="java.lang.String"/>
+	<field name="f_documento_persona" class="java.lang.String"/>
+	<field name="f_nombre_solicitante" class="java.lang.String"/>
+	<field name="f_domicilio_legal_solicitante" class="java.lang.String"/>
+	<field name="f_departamento_persona" class="java.lang.String"/>
+	<field name="f_provincia_persona" class="java.lang.String"/>
+	<field name="f_distrito_persona" class="java.lang.String"/>
+	<field name="f_telefono_persona" class="java.lang.String"/>
+	<field name="f_correo_electronico" class="java.lang.String"/>
+	<field name="f_nombre_representante" class="java.lang.String"/>
+	<field name="f_documento_numero" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="200" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="70d51393-f052-4daf-8f0e-dfcee213bc9f" x="0" y="0" width="555" height="30"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="70d51393-f052-4daf-8f0e-dfcee213bc9f" x="0" y="30" width="555" height="30"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="70d51393-f052-4daf-8f0e-dfcee213bc9f" x="0" y="60" width="555" height="30"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="70d51393-f052-4daf-8f0e-dfcee213bc9f" x="0" y="90" width="555" height="30"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="70d51393-f052-4daf-8f0e-dfcee213bc9f" x="0" y="120" width="555" height="30"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="c8d94b07-121d-420a-854a-b34becf84f30" x="5" y="0" width="115" height="20"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TIPO DE SOLICITANTE:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e3db5339-0f6e-402d-9d8d-42f8b1f135c9" x="5" y="30" width="145" height="20"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE O RAZON SOCIAL:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="2a1c81f5-a744-4b5b-aa6e-7735ab400125" x="342" y="30" width="49" height="20"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RUC/DNI:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0e141bac-94a5-40e0-bdfb-464692e468c6" x="5" y="60" width="159" height="20"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DOMICILIO LEGAL Av /Calle / Jr:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a8215de7-8005-403b-bee0-59c17af79d88" x="5" y="90" width="95" height="20"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[URBANIZACION:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="2a94eba4-ae10-46cf-9c0b-b1dcf6187467" x="197" y="90" width="52" height="20"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DISTRITO:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="584dcf43-d869-4d81-82ae-25e2a0969ee1" x="385" y="90" width="63" height="20"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PROVINCIA:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c1138606-ba4a-4f64-8a80-638b06d87fbd" x="5" y="120" width="90" height="20"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DEPARTAMENTO:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e2d55f91-ba67-45d0-80d2-18f422f81240" x="197" y="120" width="62" height="20"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TELEFONO:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="9847158d-3747-41c1-850c-a9c95c5c7cd1" x="385" y="120" width="35" height="20"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[EMAIL:]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement uuid="87e3bc5b-4545-465c-b2c3-89a995711162" x="0" y="150" width="555" height="20"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="93cd87d3-360b-4434-ad1f-03c02107d953" x="5" y="150" width="278" height="20"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPRESENTANTE LEGAL]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement uuid="70d51393-f052-4daf-8f0e-dfcee213bc9f" x="0" y="170" width="555" height="30"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="9ca325ad-4a0e-4891-85d1-65d99efc71aa" x="5" y="170" width="49" height="20"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="6f9a4e1d-465d-48f6-85d9-c5f575288554" x="342" y="170" width="25" height="20"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DNI:]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="416341f6-67a9-4fba-8f2e-e125b91aa50b" x="337" y="30" width="1" height="30"/>
+			</line>
+			<line>
+				<reportElement uuid="416341f6-67a9-4fba-8f2e-e125b91aa50b" x="191" y="90" width="1" height="60"/>
+			</line>
+			<line>
+				<reportElement uuid="416341f6-67a9-4fba-8f2e-e125b91aa50b" x="379" y="90" width="1" height="60"/>
+			</line>
+			<line>
+				<reportElement uuid="416341f6-67a9-4fba-8f2e-e125b91aa50b" x="336" y="170" width="1" height="30"/>
+			</line>
+			<textField>
+				<reportElement uuid="648d0398-1351-4684-97ff-4e44e2443242" x="391" y="40" width="164" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{f_documento_persona}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="8c9bb40c-72bf-49e4-8e15-13160b9a5b3a" x="150" y="40" width="188" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{f_nombre_solicitante}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d97f26ed-5f7c-4d1c-b699-be6af7e78e10" x="164" y="70" width="391" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{f_domicilio_legal_solicitante}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="85c7ef90-aa55-4efb-906c-5d7b02474713" x="95" y="130" width="96" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{f_departamento_persona}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="37a9ad93-70ce-41ff-8b5a-c631a65c8941" x="249" y="100" width="130" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{f_distrito_persona}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="f377aa53-38f4-4864-8442-6a864bfc8e75" x="448" y="100" width="107" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{f_provincia_persona}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement uuid="3234dbfc-a8af-48ca-a949-28835f06e953" x="259" y="130" width="120" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{f_telefono_persona}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="f41ee3a0-fdb2-43f7-b401-e17e5c5f5c34" x="420" y="130" width="135" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{f_correo_electronico}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="ca989b7f-244c-4a8a-b926-e11f9f2cf021" x="54" y="180" width="282" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{f_nombre_representante}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="2a7079d1-d644-4c30-82cf-edec79099511" x="367" y="180" width="188" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{f_documento_numero}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="97495526-9282-4e85-81d6-c06e0e2f4461" x="120" y="10" width="435" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{f_tipo_persona}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+</jasperReport>

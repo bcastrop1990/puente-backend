@@ -1,0 +1,39 @@
+<xs:schema xmlns:tns="http://clases/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://clases/">
+    <xs:element name="firmar" type="tns:firmar"/>
+    <xs:element name="firmarResponse" type="tns:firmarResponse"/>
+    <xs:element name="obtenerRespuesta" type="tns:obtenerRespuesta"/>
+    <xs:element name="obtenerRespuestaResponse" type="tns:obtenerRespuestaResponse"/>
+    <xs:complexType name="firmar">
+        <xs:sequence>
+            <xs:element name="certificado" type="xs:base64Binary" minOccurs="0"/>
+            <xs:element name="clavecertificado" type="xs:string" minOccurs="0"/>
+            <xs:element name="documento" type="xs:base64Binary" minOccurs="0"/>
+            <xs:element name="urltsa" type="xs:string" minOccurs="0"/>
+            <xs:element name="usertsa" type="xs:string" minOccurs="0"/>
+            <xs:element name="pwdtsa" type="xs:string" minOccurs="0"/>
+            <xs:element name="Pucmid" type="xs:string" minOccurs="0"/>
+            <xs:element name="PflagTipo" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="firmarResponse">
+        <xs:sequence>
+            <xs:element name="return" type="xs:base64Binary" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="obtenerRespuesta">
+        <xs:sequence/>
+    </xs:complexType>
+    <xs:complexType name="obtenerRespuestaResponse">
+        <xs:sequence>
+            <xs:element name="return" type="tns:respuesta" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="respuesta">
+        <xs:sequence>
+            <xs:element name="codigo" type="xs:string" minOccurs="0"/>
+            <xs:element name="mensaje" type="xs:string" minOccurs="0"/>
+            <xs:element name="mensajetecnico" type="xs:string" minOccurs="0"/>
+            <xs:element name="tipo" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

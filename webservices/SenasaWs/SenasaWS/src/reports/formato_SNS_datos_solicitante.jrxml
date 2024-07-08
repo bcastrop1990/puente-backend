@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="formato_SNS_datos_solicitante" pageWidth="555" pageHeight="802" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="f0002561-36da-4573-8f85-7ca8168c80bc">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<template><![CDATA[$P{SUBREPORT_DIR}+"estilosInforme.jrtx"]]></template>
+	<parameter name="ORDENVUCE" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select p.nombre_razon_social,
+       p.documento_numero,
+       p.direccion,
+       p.telefono,
+       dep.nomb_dpto_dpt,
+       pro.nomb_prov_tpr,
+       dis.nomb_dist_tdi,
+       td.nomb_docu_ide,
+       p.telefono_movil,
+       p.correo_electronico,
+       nvl(p.referencia_direccion, p.referencia) referencia,
+       vuce.Pckg_Lector_Ebxml.Fn_Valor_Texto($P{ORDENVUCE},'NOM_REPRES_LEGAL') representante
+  from persona p,
+       tdepartamentos dep,
+       tprovincias pro,
+       tdistritos dis,
+       tipos_documentos_identidad td
+ where     p.documento_numero =
+              vuce.pckg_lector_ebxml.fn_valor_texto ($P{ORDENVUCE} ,
+                                                     'RUC_CLIENTE')
+       and dep.codi_depa_dpt(+) = p.departamento_id
+       and pro.codi_depa_dpt(+) = p.departamento_id
+       and pro.codi_prov_tpr(+) = p.provincia_id
+       and dis.codi_depa_dpt(+) = p.departamento_id
+       and dis.codi_prov_tpr(+) = p.provincia_id
+       and dis.codi_dist_tdi(+) = p.distrito_id
+       and td.tipo_docu_ide(+) = p.documento_tipo]]>
+	</queryString>
+	<field name="NOMBRE_RAZON_SOCIAL" class="java.lang.String"/>
+	<field name="DOCUMENTO_NUMERO" class="java.lang.String"/>
+	<field name="DIRECCION" class="java.lang.String"/>
+	<field name="TELEFONO" class="java.lang.String"/>
+	<field name="NOMB_DPTO_DPT" class="java.lang.String"/>
+	<field name="NOMB_PROV_TPR" class="java.lang.String"/>
+	<field name="NOMB_DIST_TDI" class="java.lang.String"/>
+	<field name="NOMB_DOCU_IDE" class="java.lang.String"/>
+	<field name="TELEFONO_MOVIL" class="java.lang.String"/>
+	<field name="CORREO_ELECTRONICO" class="java.lang.String"/>
+	<field name="REFERENCIA" class="java.lang.String"/>
+	<field name="REPRESENTANTE" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="267" splitType="Stretch">
+			<rectangle radius="6">
+				<reportElement uuid="f3c42dc7-29dd-4639-a739-cda74ccbfb69" positionType="Float" mode="Transparent" x="0" y="237" width="555" height="30"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle radius="6">
+				<reportElement uuid="f3c42dc7-29dd-4639-a739-cda74ccbfb69" positionType="Float" mode="Transparent" x="0" y="13" width="555" height="210"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" x="19" y="115" width="125" height="17"/>
+				<textElement/>
+				<text><![CDATA[Distrito]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" x="19" y="163" width="125" height="17"/>
+				<textElement/>
+				<text><![CDATA[Referencia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" x="144" y="163" width="3" height="17"/>
+				<textElement/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" x="144" y="96" width="3" height="17"/>
+				<textElement/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" x="144" y="79" width="3" height="17"/>
+				<textElement/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a9772bd6-8941-4bd8-af95-79fe498167a9" style="cabecera" positionType="Float" x="15" y="1" width="145" height="20"/>
+				<textElement/>
+				<text><![CDATA[DATOS DEL SOLICITANTE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" x="144" y="28" width="3" height="17"/>
+				<textElement/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" x="144" y="180" width="3" height="17"/>
+				<textElement/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" x="19" y="180" width="125" height="17"/>
+				<textElement/>
+				<text><![CDATA[Teléfono]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" x="19" y="132" width="125" height="17"/>
+				<textElement/>
+				<text><![CDATA[Domicilio legal o dirección]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" x="19" y="79" width="125" height="17"/>
+				<textElement/>
+				<text><![CDATA[Departamento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" x="19" y="197" width="125" height="17"/>
+				<textElement/>
+				<text><![CDATA[Correo electrónico]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" x="436" y="181" width="27" height="15"/>
+				<textElement/>
+				<text><![CDATA[Fax :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" x="19" y="98" width="125" height="17"/>
+				<textElement/>
+				<text><![CDATA[Provincia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" x="144" y="132" width="3" height="17"/>
+				<textElement/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" x="19" y="62" width="125" height="17"/>
+				<textElement/>
+				<text><![CDATA[Razón social]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" x="144" y="197" width="3" height="17"/>
+				<textElement/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" x="19" y="27" width="125" height="17"/>
+				<textElement/>
+				<text><![CDATA[Tipo de documento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" x="290" y="27" width="115" height="17"/>
+				<textElement/>
+				<text><![CDATA[Número de documento :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" x="144" y="44" width="3" height="17"/>
+				<textElement/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" x="19" y="44" width="125" height="17"/>
+				<textElement/>
+				<text><![CDATA[Actividad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" x="144" y="61" width="3" height="17"/>
+				<textElement/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" x="290" y="180" width="39" height="17"/>
+				<textElement/>
+				<text><![CDATA[Celular :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" x="144" y="112" width="3" height="17"/>
+				<textElement/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="35de88e2-5289-43d6-a3e9-863a6a7dcfa1" style="informacion" x="154" y="62" width="389" height="17"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{NOMBRE_RAZON_SOCIAL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="3d263675-657b-4d5e-b62b-d1a8f30cc931" style="informacion" x="154" y="180" width="116" height="17"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{TELEFONO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="75a44fef-677f-4f5b-ad66-cd12bcfafdb0" style="informacion" x="154" y="132" width="389" height="31"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{DIRECCION}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="0ba60791-dd38-4489-8fbb-dbd2e1ea2495" style="informacion" x="405" y="28" width="138" height="16"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{DOCUMENTO_NUMERO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="340de9bf-0014-492f-a556-7c7eec6a4c21" style="informacion" x="154" y="79" width="389" height="17"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{NOMB_DPTO_DPT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="12b2e9e3-2bb5-4365-979d-99b1aaf675fa" style="informacion" x="154" y="98" width="389" height="17"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{NOMB_PROV_TPR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="326cce86-43cb-4f1d-b757-1bd652aed5f9" style="informacion" x="154" y="115" width="389" height="17"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{NOMB_DIST_TDI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="751aa46b-9da4-4405-831b-456482a94476" style="informacion" x="154" y="27" width="130" height="17"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{NOMB_DOCU_IDE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="188c3663-c3f9-4ca2-b13e-34adedc0d936" style="informacion" x="154" y="163" width="389" height="17"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{REFERENCIA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="374e8d71-189d-4cd7-8fcb-474cda753746" style="informacion" x="154" y="197" width="389" height="17"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{CORREO_ELECTRONICO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="5da941fb-dda3-498b-9afd-35d80e5e7f14" style="informacion" x="333" y="180" width="100" height="17"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{TELEFONO_MOVIL}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="a9772bd6-8941-4bd8-af95-79fe498167a9" style="cabecera" x="15" y="226" width="209" height="20"/>
+				<textElement/>
+				<text><![CDATA[DATOS DEL REPRESENTANTE LEGAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" x="144" y="246" width="3" height="17"/>
+				<textElement/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" x="19" y="246" width="125" height="17"/>
+				<textElement/>
+				<text><![CDATA[Representante legal]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="f72d3f94-f652-47ee-b58a-9cd84bba6830" style="informacion" x="154" y="246" width="389" height="17"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{REPRESENTANTE}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

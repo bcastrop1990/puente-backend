@@ -1,0 +1,27 @@
+//Content Format Version: 1.0
+
+//########################################################################################
+//####                                                                                ####
+//####          THIS IS AN AUTO GENERATED FILE. PLEASE DO NOT MANUALLY MODIFY         ####
+//#### CHANGES TO THIS FILE MAY PRODUCE UNEXPECTED BEHAVIOR AND WOULD BE OVERWRITTEN  ####
+//####                                                                                ####
+//########################################################################################
+package oracle.scripting.bpmn.process;
+
+
+
+public class GenerarDocumentoResolutivo{
+
+public void methodACT41587772188878()
+{
+	gestionado = "0";
+	idDestinatario = usuario;
+	if("VUCE".equals(canalDescripcion)){
+	  procedimiento.canal = 1;
+	}else{
+	  procedimiento.canal = 0;
+	}
+}
+
+
+}

@@ -1,0 +1,810 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="formato_SNS022" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="432919e1-bd52-4151-9156-094eb5bf3e4e">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<template><![CDATA[$P{SUBREPORT_DIR}+"estilosInforme.jrtx"]]></template>
+	<parameter name="ORDENVUCE" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT (CASE vuce.Pckg_Lector_Ebxml.Fn_Valor_Texto ( $P{ORDENVUCE},
+                                                    'FLAG_EXPORTACION')
+           WHEN 'S'
+           THEN
+              'SI'
+           WHEN 'N'
+           THEN
+              'NO'
+           ELSE
+              NULL
+        END)
+          exportacion,
+       (CASE vuce.Pckg_Lector_Ebxml.Fn_Valor_Texto ( $P{ORDENVUCE},
+                                                    'FLAG_REEXPORTACION')
+           WHEN 'S'
+           THEN
+              'SI'
+           WHEN 'N'
+           THEN
+              'NO'
+           ELSE
+              NULL
+        END)
+          REEXPORTACION,
+       (CASE vuce.Pckg_Lector_Ebxml.Fn_Valor_Texto ( $P{ORDENVUCE},
+                                                    'FLAG_PROD_PROCESA')
+           WHEN 'S'
+           THEN
+              'SI'
+           WHEN 'N'
+           THEN
+              'NO'
+           ELSE
+              NULL
+        END)
+          PRODucto_PROCESAdo,
+       (SELECT descripcion_centro_tramite
+          FROM FINALBPM.CENTRO_TRAMITE
+         WHERE codigo_centro_tramite =
+                  vuce.Pckg_Lector_Ebxml.Fn_Valor_Texto (
+                     $P{ORDENVUCE},
+                     'DIRECCION_EJECUTIVA'))
+          DIRECCION_EJECUTIVA,
+       (CASE vuce.Pckg_Lector_Ebxml.Fn_Valor_Texto ( $P{ORDENVUCE},
+                                                    'FLAG_PROCED_PREVIO')
+           WHEN 'S'
+           THEN
+              'SI'
+           WHEN 'N'
+           THEN
+              'NO'
+           ELSE
+              NULL
+        END)
+          procedimiento_esp_previos,
+       (CASE vuce.Pckg_Lector_Ebxml.Fn_Valor_Texto ( $P{ORDENVUCE}, 'FLAG_ONPF')
+           WHEN 'S' THEN 'SI'
+           WHEN 'N' THEN 'NO'
+           ELSE NULL
+        END)
+          FLAG_ONPF,
+       (CASE vuce.Pckg_Lector_Ebxml.Fn_Valor_Texto ( $P{ORDENVUCE},
+                                                    'ANTECEDENTE_EXPO')
+           WHEN 'S'
+           THEN
+              'SI'
+           WHEN 'N'
+           THEN
+              'NO'
+           ELSE
+              NULL
+        END)
+          ANTECEDENTE_EXPO,
+       (CASE vuce.Pckg_Lector_Ebxml.Fn_Valor_Texto ( $P{ORDENVUCE},
+                                                    'NO_REQUISITO_ANTEC')
+           WHEN 'S'
+           THEN
+              'SI'
+           WHEN 'N'
+           THEN
+              'NO'
+           ELSE
+              NULL
+        END)
+          NO_REQUIERE_ANTEC,
+
+       (CASE vuce.Pckg_Lector_Ebxml.Fn_Valor_Texto ( $P{ORDENVUCE},'FLAG_NEW_IMPORTADOR')
+            WHEN 'S' then
+                vuce.Pckg_Lector_Ebxml.Fn_Valor_Texto ( $P{ORDENVUCE},'NOMB_IMPORTADOR_N')
+            else
+
+            (SELECT NOMBRE_IMPORTADOR FROM FINALBPM.IMPORTADORES WHERE CODIGO_IMPORTADOR =vuce.Pckg_Lector_Ebxml.Fn_Valor_Texto ( $P{ORDENVUCE},'COD_IMPORTADOR'))
+
+
+        end )IMPORTADOR,
+        (CASE vuce.Pckg_Lector_Ebxml.Fn_Valor_Texto ( $P{ORDENVUCE},'FLAG_NEW_IMPORTADOR')
+            WHEN 'S' then
+                vuce.Pckg_Lector_Ebxml.Fn_Valor_Texto ( $P{ORDENVUCE},'DIREC_IMPORTADOR_N')
+            else
+
+            (SELECT DIRECCION_IMPORTADOR FROM FINALBPM.IMPORTADORES WHERE CODIGO_IMPORTADOR = vuce.Pckg_Lector_Ebxml.Fn_Valor_Texto ( $P{ORDENVUCE},'COD_IMPORTADOR'))
+
+        end ) DIRECCION_IMPORTADOR,
+       (CASE vuce.Pckg_Lector_Ebxml.Fn_Valor_Texto ( $P{ORDENVUCE},'FLAG_NEW_IMPORTADOR')
+            WHEN 'S' then
+                (SELECT nomb_pais_tpa FROM TPAISES WHERE CODI_PAIS_TPA = vuce.Pckg_Lector_Ebxml.Fn_Valor_Texto ( $P{ORDENVUCE},'COD_PAIS_IMPORTADOR_N'))
+
+            else
+
+            (SELECT nomb_pais_tpa FROM TPAISES WHERE CODI_PAIS_TPA = (SELECT CODI_PAIS_TPA FROM FINALBPM.IMPORTADORES WHERE CODIGO_IMPORTADOR = vuce.Pckg_Lector_Ebxml.Fn_Valor_Texto ( $P{ORDENVUCE}, 'COD_IMPORTADOR')))
+
+
+        end ) PAIS_IMPORTADOR,
+
+       (CASE vuce.Pckg_Lector_Ebxml.Fn_Valor_Texto ( $P{ORDENVUCE},
+                                                    'FLAG_NEW_IMPORTADOR')
+           WHEN 'S'
+           THEN
+              'SI'
+           WHEN 'N'
+           THEN
+              'NO'
+           ELSE
+              'NO'
+        END)
+          ES_NUEVO_IMPORTADOR,
+       (CASE vuce.Pckg_Lector_Ebxml.Fn_Valor_Texto (
+                $P{ORDENVUCE},
+                'FLAG_EMPACADORA_TRATAMIENTO')
+           WHEN 'S'
+           THEN
+              'SI'
+           WHEN 'N'
+           THEN
+              'NO'
+           ELSE
+              'NO'
+        END)
+          "ENVIO(A)",
+       (CASE vuce.Pckg_Lector_Ebxml.Fn_Valor_Texto (
+                $P{ORDENVUCE},
+                'FLAG_PLANTA_TRATAMIENTO')
+           WHEN 'S'
+           THEN
+              'SI'
+           WHEN 'N'
+           THEN
+              'NO'
+           ELSE
+              'NO'
+        END)
+          "ENVIO(B)",
+       (CASE vuce.Pckg_Lector_Ebxml.Fn_Valor_Texto ( $P{ORDENVUCE},
+                                                    'FLAG_CENTRO_INSPECCION')
+           WHEN 'S'
+           THEN
+              'SI'
+           WHEN 'N'
+           THEN
+              'NO'
+           ELSE
+              'NO'
+        END)
+          "ENVIO(C)",
+       (CASE vuce.Pckg_Lector_Ebxml.Fn_Valor_Texto ( $P{ORDENVUCE},
+                                                    'FLAG_PUESTO_CONTROL')
+           WHEN 'S'
+           THEN
+              'SI'
+           WHEN 'N'
+           THEN
+              'NO'
+           ELSE
+              'NO'
+        END)
+          "ENVIO(D)",
+       (CASE vuce.Pckg_Lector_Ebxml.Fn_Valor_Texto ( $P{ORDENVUCE},
+                                                    'FLAG_PLANTA_EMPACADORA')
+           WHEN 'S'
+           THEN
+              'SI'
+           WHEN 'N'
+           THEN
+              'NO'
+           ELSE
+              'NO'
+        END)
+          "ENVIO(E)",
+
+       (CASE vuce.Pckg_Lector_Ebxml.Fn_Valor_Texto ( $P{ORDENVUCE},
+                                                    'FLAG_PUESTO_CONTROL')
+        WHEN 'S' THEN
+            (SELECT nombre_lugar_inspeccion
+              FROM finalbpm.lugar_inspeccion
+             WHERE codigo_lugar_inspeccion =
+                      vuce.Pckg_Lector_Ebxml.Fn_Valor_Texto (
+                         $P{ORDENVUCE},
+                         'COD_LUGAR_INSPECCION'))
+        ELSE
+            vuce.pckg_lector_ebxml.Fn_Valor_Texto($P{ORDENVUCE},'NOMB_ALMACEN') || ' / ' || vuce.pckg_lector_ebxml.Fn_Valor_Texto($P{ORDENVUCE},'DIREC_ALMACEN')
+        END)desc_lugar_inspeccion,
+       TO_DATE (
+          vuce.Pckg_Lector_Ebxml.Fn_Valor_Texto ( $P{ORDENVUCE},
+                                                 'FECHA_INSPECCION'),
+          'YYYY-MM-DD',
+          'NLS_LANGUAGE=AMERICAN')
+          fecha_inspeccion,
+       vuce.Pckg_Lector_Ebxml.Fn_Valor_Texto ( $P{ORDENVUCE}, 'HORA_INSPECCION')
+          HORA_INSPECCION,
+       TO_DATE (
+          vuce.Pckg_Lector_Ebxml.Fn_Valor_Texto ( $P{ORDENVUCE},'FECH_PROB_EMBARQUE'),'YYYY-MM-DD','NLS_LANGUAGE=AMERICAN')
+          fecha_PROBABLE_ENBARQUE,
+       TO_DATE (vuce.Pckg_Lector_Ebxml.Fn_Valor_Texto ( $P{ORDENVUCE}, 'FECH_PROB_ARRIBO'),'YYYY-MM-DD','NLS_LANGUAGE=AMERICAN') fecha_PROBABLE_DESENBARQUE,
+       (SELECT DESCRIPCION_APLICACION
+          FROM FINALBPM.APLICACION_USO
+         WHERE CODIGO_APLICACION = vuce.Pckg_Lector_Ebxml.Fn_Valor_Texto ( $P{ORDENVUCE},'USO_PROD'))
+          USO_DESTINADO,
+       (SELECT NOMB_PAIS_TPA
+          FROM TPAISES
+         WHERE CODI_PAIS_TPA = vuce.Pckg_Lector_Ebxml.Fn_Valor_Texto ($P{ORDENVUCE},'ID_PAIS_DESTINO_PROD'))
+          PAIS_DESTINO,
+       (SELECT DESCRIPCION_MEDIO_TRANSPORTE
+          FROM FINALBPM.MEDIO_TRANSPORTE
+         WHERE CODIGO_MEDIO_TRANSPORTE =
+                  vuce.Pckg_Lector_Ebxml.Fn_Valor_Texto ( $P{ORDENVUCE}, 'MEDIO_TRANSPORTE'))
+          MEDIO_DE_TRANSPORTE,
+       (SELECT DECODE (puesto_id,
+                       '02', 'PUESTO DE CONTROL AEREO - CALLAO',
+                       '03', 'PUESTO DE CONTROL MARITIMO - CALLAO',
+                       nombre_puesto)
+                  nombre_puesto
+          FROM sau_puesto_control
+         WHERE puesto_id = vuce.Pckg_Lector_Ebxml.Fn_Valor_Texto ( $P{ORDENVUCE},'PTO_SALIDA'))
+          PUESTO_CONTROL_SALIDA,
+       (SELECT DESCRIPCION_PUERTO
+          FROM puerto
+         WHERE CODIGO_PUERTO =
+                  vuce.Pckg_Lector_Ebxml.Fn_Valor_Texto ( $P{ORDENVUCE},'PTO_INGRESO'))
+          PUESTO_CONTROL_LLEGADA
+  FROM DUAL]]>
+	</queryString>
+	<field name="EXPORTACION" class="java.lang.String"/>
+	<field name="REEXPORTACION" class="java.lang.String"/>
+	<field name="PRODUCTO_PROCESADO" class="java.lang.String"/>
+	<field name="DIRECCION_EJECUTIVA" class="java.lang.String"/>
+	<field name="PROCEDIMIENTO_ESP_PREVIOS" class="java.lang.String"/>
+	<field name="FLAG_ONPF" class="java.lang.String"/>
+	<field name="ANTECEDENTE_EXPO" class="java.lang.String"/>
+	<field name="NO_REQUIERE_ANTEC" class="java.lang.String"/>
+	<field name="IMPORTADOR" class="java.lang.String"/>
+	<field name="DIRECCION_IMPORTADOR" class="java.lang.String"/>
+	<field name="PAIS_IMPORTADOR" class="java.lang.String"/>
+	<field name="ES_NUEVO_IMPORTADOR" class="java.lang.String"/>
+	<field name="ENVIO(A)" class="java.lang.String"/>
+	<field name="ENVIO(B)" class="java.lang.String"/>
+	<field name="ENVIO(C)" class="java.lang.String"/>
+	<field name="ENVIO(D)" class="java.lang.String"/>
+	<field name="ENVIO(E)" class="java.lang.String"/>
+	<field name="DESC_LUGAR_INSPECCION" class="java.lang.String"/>
+	<field name="FECHA_INSPECCION" class="java.sql.Timestamp"/>
+	<field name="HORA_INSPECCION" class="java.lang.String"/>
+	<field name="FECHA_PROBABLE_ENBARQUE" class="java.sql.Timestamp"/>
+	<field name="FECHA_PROBABLE_DESENBARQUE" class="java.sql.Timestamp"/>
+	<field name="USO_DESTINADO" class="java.lang.String"/>
+	<field name="PAIS_DESTINO" class="java.lang.String"/>
+	<field name="MEDIO_DE_TRANSPORTE" class="java.lang.String"/>
+	<field name="PUESTO_CONTROL_SALIDA" class="java.lang.String"/>
+	<field name="PUESTO_CONTROL_LLEGADA" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="513" splitType="Stretch">
+			<frame>
+				<reportElement uuid="6bde51e0-9115-4ae9-88e3-1bae99da1509" positionType="Float" x="0" y="324" width="555" height="187"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<rectangle radius="6">
+					<reportElement uuid="f3c42dc7-29dd-4639-a739-cda74ccbfb69" positionType="Float" stretchType="RelativeToTallestObject" mode="Transparent" x="1" y="15" width="553" height="167"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</rectangle>
+				<staticText>
+					<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" positionType="Float" x="300" y="44" width="163" height="17"/>
+					<textElement/>
+					<text><![CDATA[E) Instalación del exportador (IE)]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" positionType="Float" x="454" y="97" width="3" height="17"/>
+					<textElement/>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement uuid="617466f3-7a95-4e0e-92a1-5cc459e4b910" style="informacion" positionType="Float" x="231" y="44" width="46" height="17"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{ENVIO(B)}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy" isBlankWhenNull="true">
+					<reportElement uuid="76fee5c6-aa88-4b1c-93de-437823f42d83" style="informacion" positionType="Float" x="153" y="97" width="122" height="17"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{FECHA_INSPECCION}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" positionType="Float" x="277" y="131" width="78" height="17"/>
+					<textElement/>
+					<text><![CDATA[Uso destinado]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" positionType="Float" x="15" y="165" width="135" height="17"/>
+					<textElement/>
+					<text><![CDATA[Puesto de control de salida]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" positionType="Float" x="150" y="97" width="3" height="17"/>
+					<textElement/>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" positionType="Float" x="454" y="114" width="3" height="17"/>
+					<textElement/>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" positionType="Float" x="15" y="78" width="106" height="17"/>
+					<textElement/>
+					<text><![CDATA[Lugar de inspección]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement uuid="905631ed-a7ea-418a-b0bf-b6daa432f5e2" style="informacion" positionType="Float" x="457" y="97" width="92" height="17"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{HORA_INSPECCION}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy" isBlankWhenNull="true">
+					<reportElement uuid="d2f056de-ce79-471e-9ecf-60dbb618a330" style="informacion" positionType="Float" x="153" y="114" width="122" height="17"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{FECHA_PROBABLE_ENBARQUE}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement uuid="617466f3-7a95-4e0e-92a1-5cc459e4b910" style="informacion" positionType="Float" x="231" y="27" width="46" height="17"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{ENVIO(A)}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" positionType="Float" x="15" y="97" width="106" height="17"/>
+					<textElement/>
+					<text><![CDATA[Fecha de inspección]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" positionType="Float" x="277" y="114" width="165" height="17"/>
+					<textElement/>
+					<text><![CDATA[Fecha probable de desembarque]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement uuid="2bdd6a00-3b4a-4870-b62c-a0ec9f0d76b0" style="informacion" positionType="Float" x="153" y="165" width="122" height="17"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{PUESTO_CONTROL_SALIDA}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" positionType="Float" x="463" y="44" width="3" height="17"/>
+					<textElement/>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" positionType="Float" x="463" y="27" width="3" height="17"/>
+					<textElement/>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement uuid="617466f3-7a95-4e0e-92a1-5cc459e4b910" style="informacion" positionType="Float" x="466" y="27" width="46" height="17"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{ENVIO(D)}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" positionType="Float" x="228" y="27" width="3" height="17"/>
+					<textElement/>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" positionType="Float" x="277" y="165" width="140" height="17"/>
+					<textElement/>
+					<text><![CDATA[Puesto de control de llegada]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement uuid="2bdd6a00-3b4a-4870-b62c-a0ec9f0d76b0" style="informacion" positionType="Float" x="153" y="78" width="401" height="17"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{DESC_LUGAR_INSPECCION}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" positionType="Float" x="228" y="61" width="3" height="17"/>
+					<textElement/>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" positionType="Float" x="150" y="148" width="3" height="17"/>
+					<textElement/>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" positionType="Float" x="15" y="27" width="213" height="17"/>
+					<textElement/>
+					<text><![CDATA[A) Planta de tratamiento y empaque (PTE)]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy" isBlankWhenNull="true">
+					<reportElement uuid="4147f1e7-42a3-4475-8b43-78a6b5cce344" style="informacion" positionType="Float" x="457" y="114" width="92" height="17"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{FECHA_PROBABLE_DESENBARQUE}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" positionType="Float" x="15" y="131" width="65" height="17"/>
+					<textElement/>
+					<text><![CDATA[País destino]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" positionType="Float" x="15" y="114" width="135" height="17"/>
+					<textElement/>
+					<text><![CDATA[Fecha probable de embarque]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" positionType="Float" x="15" y="148" width="99" height="17"/>
+					<textElement/>
+					<text><![CDATA[Medio de transporte]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement uuid="2bdd6a00-3b4a-4870-b62c-a0ec9f0d76b0" style="informacion" positionType="Float" x="83" y="131" width="192" height="17"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{PAIS_DESTINO}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" positionType="Float" x="80" y="131" width="3" height="17"/>
+					<textElement/>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement uuid="2bdd6a00-3b4a-4870-b62c-a0ec9f0d76b0" style="informacion" positionType="Float" x="355" y="131" width="172" height="17"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{USO_DESTINADO}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement uuid="617466f3-7a95-4e0e-92a1-5cc459e4b910" style="informacion" positionType="Float" x="466" y="44" width="46" height="17"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{ENVIO(E)}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" positionType="Float" x="300" y="27" width="163" height="17"/>
+					<textElement/>
+					<text><![CDATA[D) Puesto de control (PC)]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" positionType="Float" x="150" y="165" width="3" height="17"/>
+					<textElement/>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement uuid="2bdd6a00-3b4a-4870-b62c-a0ec9f0d76b0" style="informacion" positionType="Float" x="420" y="165" width="129" height="17"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{PUESTO_CONTROL_LLEGADA}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement uuid="617466f3-7a95-4e0e-92a1-5cc459e4b910" style="informacion" positionType="Float" x="231" y="61" width="46" height="17"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{ENVIO(C)}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" positionType="Float" x="228" y="44" width="3" height="17"/>
+					<textElement/>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" positionType="Float" x="417" y="165" width="3" height="17"/>
+					<textElement/>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" positionType="Float" x="352" y="131" width="3" height="17"/>
+					<textElement/>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" positionType="Float" x="150" y="78" width="3" height="17"/>
+					<textElement/>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement uuid="2bdd6a00-3b4a-4870-b62c-a0ec9f0d76b0" style="informacion" positionType="Float" x="153" y="148" width="172" height="17"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{MEDIO_DE_TRANSPORTE}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" positionType="Float" x="277" y="97" width="106" height="17"/>
+					<textElement/>
+					<text><![CDATA[Hora de inspección]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" positionType="Float" x="15" y="61" width="213" height="17"/>
+					<textElement/>
+					<text><![CDATA[C) Planta empacadora (PE)]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" positionType="Float" x="150" y="114" width="3" height="17"/>
+					<textElement/>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" positionType="Float" x="15" y="44" width="213" height="17"/>
+					<textElement/>
+					<text><![CDATA[B) Planta de tratamiento (PT)]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="a9772bd6-8941-4bd8-af95-79fe498167a9" style="cabecera" positionType="Float" x="15" y="2" width="37" height="20"/>
+					<textElement/>
+					<text><![CDATA[ENVÍO]]></text>
+				</staticText>
+				<line>
+					<reportElement uuid="b8bc379c-6c5b-4a9d-8d11-3107286929e5" positionType="Float" mode="Opaque" x="0" y="95" width="554" height="1" forecolor="#FFFFFF"/>
+					<graphicElement>
+						<pen lineWidth="0.0" lineStyle="Double"/>
+					</graphicElement>
+				</line>
+			</frame>
+			<subreport>
+				<reportElement uuid="1173b7fb-293d-437e-898f-033c374050c6" positionType="Float" x="0" y="6" width="555" height="5"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="ORDENVUCE">
+					<subreportParameterExpression><![CDATA[$P{ORDENVUCE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "formato_SNS_datos_solicitante.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement uuid="022c01fc-6483-459c-b573-7ed36ef59cbb" x="0" y="0" width="555" height="5"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="ORDENVUCE">
+					<subreportParameterExpression><![CDATA[$P{ORDENVUCE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "formato_vuce_cabecera.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement uuid="9b31653f-0879-4459-98bb-55da06ad6dbb" positionType="Float" x="0" y="314" width="555" height="5"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="ORDENVUCE">
+					<subreportParameterExpression><![CDATA[$P{ORDENVUCE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "formato_sns022_detalle_producto.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement uuid="a9772bd6-8941-4bd8-af95-79fe498167a9" style="cabecera" positionType="Float" x="15" y="297" width="460" height="15"/>
+				<textElement/>
+				<text><![CDATA[PLANTA, PRODUCTO VEGETAL U OTRO ARTÍCULO REGLAMENTADO A CERTIFICAR]]></text>
+			</staticText>
+			<frame>
+				<reportElement uuid="1a84b921-28df-4087-a29a-a8761d2d7d8a" positionType="Float" x="0" y="190" width="555" height="105"/>
+				<staticText>
+					<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" positionType="Float" x="15" y="73" width="118" height="17"/>
+					<textElement/>
+					<text><![CDATA[País]]></text>
+				</staticText>
+				<rectangle radius="6">
+					<reportElement uuid="f3c42dc7-29dd-4639-a739-cda74ccbfb69" positionType="Float" mode="Transparent" x="1" y="12" width="553" height="85"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</rectangle>
+				<staticText>
+					<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" positionType="Float" x="15" y="22" width="118" height="17"/>
+					<textElement/>
+					<text><![CDATA[¿Es importador nuevo?]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" positionType="Float" x="133" y="56" width="3" height="17"/>
+					<textElement/>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="a9772bd6-8941-4bd8-af95-79fe498167a9" style="cabecera" positionType="Float" x="15" y="0" width="145" height="20"/>
+					<textElement/>
+					<text><![CDATA[DATOS DEL IMPORTADOR]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" positionType="Float" x="15" y="39" width="118" height="17"/>
+					<textElement/>
+					<text><![CDATA[Nombre]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" positionType="Float" x="133" y="73" width="3" height="17"/>
+					<textElement/>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" positionType="Float" x="133" y="39" width="3" height="17"/>
+					<textElement/>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<textField>
+					<reportElement uuid="5052d145-a0c7-47b1-8f0b-a9ecb292788f" style="informacion" positionType="Float" x="139" y="39" width="410" height="17"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{IMPORTADOR}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" positionType="Float" x="133" y="22" width="3" height="17"/>
+					<textElement/>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<textField>
+					<reportElement uuid="5052d145-a0c7-47b1-8f0b-a9ecb292788f" style="informacion" positionType="Float" x="139" y="73" width="410" height="17"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{PAIS_IMPORTADOR}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" positionType="Float" x="15" y="56" width="118" height="17"/>
+					<textElement/>
+					<text><![CDATA[Dirección]]></text>
+				</staticText>
+				<textField>
+					<reportElement uuid="5052d145-a0c7-47b1-8f0b-a9ecb292788f" style="informacion" positionType="Float" x="139" y="22" width="161" height="17"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{ES_NUEVO_IMPORTADOR}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="5052d145-a0c7-47b1-8f0b-a9ecb292788f" style="informacion" positionType="Float" x="139" y="56" width="410" height="17"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{DIRECCION_IMPORTADOR}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement uuid="46137da5-e1f3-4edb-9491-2efbed8d4970" positionType="Float" x="0" y="14" width="555" height="175"/>
+				<textField>
+					<reportElement uuid="5052d145-a0c7-47b1-8f0b-a9ecb292788f" style="informacion" positionType="Float" x="509" y="110" width="40" height="17"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{NO_REQUIERE_ANTEC}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="5052d145-a0c7-47b1-8f0b-a9ecb292788f" style="informacion" positionType="Float" x="411" y="23" width="100" height="17"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{PRODUCTO_PROCESADO}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" positionType="Float" x="15" y="40" width="87" height="17"/>
+					<textElement/>
+					<text><![CDATA[Es reexportación]]></text>
+				</staticText>
+				<rectangle radius="6">
+					<reportElement uuid="f3c42dc7-29dd-4639-a739-cda74ccbfb69" positionType="Float" mode="Transparent" x="1" y="12" width="553" height="155"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</rectangle>
+				<staticText>
+					<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" positionType="Float" x="15" y="96" width="207" height="39"/>
+					<textElement/>
+					<text><![CDATA[Solicita certificación s/adjuntar requisitos de la ONPF del país de destino, c/antecedentes de exportación]]></text>
+				</staticText>
+				<textField>
+					<reportElement uuid="5052d145-a0c7-47b1-8f0b-a9ecb292788f" style="informacion" positionType="Float" x="411" y="40" width="140" height="17"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{DIRECCION_EJECUTIVA}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" positionType="Float" x="402" y="40" width="3" height="17"/>
+					<textElement/>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" positionType="Float" x="102" y="23" width="3" height="17"/>
+					<textElement/>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<textField>
+					<reportElement uuid="5052d145-a0c7-47b1-8f0b-a9ecb292788f" style="informacion" positionType="Float" x="108" y="23" width="100" height="17"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{EXPORTACION}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" positionType="Float" x="102" y="40" width="3" height="17"/>
+					<textElement/>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<textField>
+					<reportElement uuid="5052d145-a0c7-47b1-8f0b-a9ecb292788f" style="informacion" positionType="Float" x="228" y="67" width="40" height="17"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{PROCEDIMIENTO_ESP_PREVIOS}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="a9772bd6-8941-4bd8-af95-79fe498167a9" style="cabecera" positionType="Float" x="15" y="0" width="155" height="20"/>
+					<textElement/>
+					<text><![CDATA[DETALLE DE LA SOLICITUD]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" positionType="Float" x="277" y="40" width="125" height="17"/>
+					<textElement/>
+					<text><![CDATA[Dirección ejecutiva]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" positionType="Float" x="277" y="57" width="194" height="39"/>
+					<textElement/>
+					<text><![CDATA[Solicita certificación adjuntando requisitos de la ONPF del país de destino]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" positionType="Float" x="277" y="23" width="125" height="17"/>
+					<textElement/>
+					<text><![CDATA[Es productos procesados]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" positionType="Float" x="502" y="110" width="3" height="17"/>
+					<textElement/>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<textField>
+					<reportElement uuid="5052d145-a0c7-47b1-8f0b-a9ecb292788f" style="informacion" positionType="Float" x="509" y="67" width="40" height="17"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{FLAG_ONPF}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" positionType="Float" x="402" y="23" width="3" height="17"/>
+					<textElement/>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" positionType="Float" x="15" y="23" width="87" height="17"/>
+					<textElement/>
+					<text><![CDATA[Es exportación]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" positionType="Float" x="277" y="96" width="225" height="61"/>
+					<textElement/>
+					<text><![CDATA[Solicita certificación s/adjuntar requisitos y s/antecedentes de exportación, para envíos de las categorías 2 y 3 (muestra) excepto los comprendidos en el punto 1 o que se encuentren en negociación]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" positionType="Float" x="502" y="67" width="3" height="17"/>
+					<textElement/>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<textField>
+					<reportElement uuid="5052d145-a0c7-47b1-8f0b-a9ecb292788f" style="informacion" positionType="Float" x="108" y="40" width="100" height="17"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{REEXPORTACION}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" positionType="Float" x="15" y="57" width="207" height="39"/>
+					<textElement/>
+					<text><![CDATA[El producto a certificar requiere contar con procedimiento específicos previos a la certificación]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" positionType="Float" x="222" y="67" width="3" height="17"/>
+					<textElement/>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<textField>
+					<reportElement uuid="5052d145-a0c7-47b1-8f0b-a9ecb292788f" style="informacion" positionType="Float" x="228" y="110" width="40" height="17"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{ANTECEDENTE_EXPO}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="26c0f371-a14d-448b-bc2c-00f5160cee84" style="etiqueta" positionType="Float" x="222" y="110" width="3" height="17"/>
+					<textElement/>
+					<text><![CDATA[:]]></text>
+				</staticText>
+			</frame>
+			<rectangle>
+				<reportElement uuid="b89ccc41-aa48-4996-9330-5d58c063fdde" positionType="Float" x="-20" y="-20" width="21" height="20" backcolor="#004B92"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="formato_SNS024" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="274c4006-7073-48ee-907b-0d9d3ace38dc">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Arial8" style="marco" mode="Opaque" fontName="Arial" fontSize="8" isStrikeThrough="false"/>
+	<style name="marco" hAlign="Center" vAlign="Middle" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="true">
+		<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+			<topPen lineWidth="0.5"/>
+			<leftPen lineWidth="0.5"/>
+			<bottomPen lineWidth="0.5"/>
+			<rightPen lineWidth="0.5"/>
+		</box>
+	</style>
+	<parameter name="CODICERTLUG" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT PRG_EXP_CERTIFICADO_LUGAR.NUME_CERT_LUG,
+        PRG_EXP_CERTIFICADO_LUGAR.CODI_SEDE_SED,
+        PRG_EXP_CERTIFICADO_LUGAR.CODI_PROD_MOS,
+        PRG_EXP_CERTIFICADO_LUGAR.CODI_PRED_MOS,
+        to_char(PRG_EXP_CERTIFICADO_LUGAR.FECH_CERT_LUG,'YYYY') ANIO,
+        PATRON_PRODUCTORES.APES_PROD_MOS,
+        PATRON_PRODUCTORES.NOMB_PROD_MOS,
+        PATRON_PRODUCTORES.RAZO_PROD_MOS,
+        PATRON_PRODUCTORES.DIRE_PROD_MOS,
+        PATRON_PRODUCTORES.TELE_PROD_MOS,
+        decode(PATRON_PRODUCTORES.tipo_prod_mos,'J',PATRON_PRODUCTORES.ruc_prod_mos,PATRON_PRODUCTORES.iden_prod_mos) documento,
+        PATRON_PRODUCTORES.TIPO_PROD_MOS,
+        PREDIOS.NOMB_PRED_MOS,
+        SIGA.TDISTRITOS.NOMB_DIST_TDI,
+        SIGA.TPROVINCIAS.NOMB_PROV_TPR,
+        SIGA.TDEPARTAMENTOS.NOMB_DPTO_DPT,
+        SIGA.SUBSECTOR.NOMB_SUBS_SBS,
+        VALLE_SECTOR.NOMB_SECT_SEC,
+        SIGA.VALLE.NOMB_VALL_VAL,
+        PRG_EXP_CERTIFICADO_LUGAR.NUME_CAMP_EXP,
+        TO_CHAR(PRG_EXP_CERTIFICADO_LUGAR.FECH_CERT_LUG, 'dd/mm/yyyy') FECH_CERT_LUG,
+        SEDES_INEI.DESC_SEDE_SED,
+        PRG_EXP_CERTIFICADO_LUGAR.CODI_SOLI_LUG,
+        PRG_EXP_CERTIFICADO_LUGAR.FECH_INI_ACT,
+        PRG_EXP_CERTIFICADO_LUGAR.FECH_FIN_ACT,
+		(select se.nomencla from finalbpm.servicio_sede_firma se,finalbpm.centro_tramite ce where se.codigo_centro_tramite=ce.codigo_centro_tramite
+		and ce.codi_sede_sed=PRG_EXP_CERTIFICADO_LUGAR.CODI_SEDE_SED and se.vigente='X' and se.codigo_servicio='015') nomencla,
+		(select se.persona_id from finalbpm.servicio_sede_firma se,finalbpm.centro_tramite ce where se.codigo_centro_tramite=ce.codigo_centro_tramite
+		and ce.codi_sede_sed=PRG_EXP_CERTIFICADO_LUGAR.CODI_SEDE_SED and se.vigente='X' and se.codigo_servicio='015') persona_id
+    FROM PRG_EXP_CERTIFICADO_LUGAR,
+         PATRON_PRODUCTORES,
+         PREDIOS,
+         SIGA.TDISTRITOS,
+         SIGA.TPROVINCIAS,
+         SIGA.TDEPARTAMENTOS,
+         SIGA.SUBSECTOR,
+         VALLE_SECTOR,
+         SIGA.VALLE,
+         SEDES_INEI
+   WHERE ( PRG_EXP_CERTIFICADO_LUGAR.CODI_SEDE_SED = PATRON_PRODUCTORES.CODI_SEDE_SED ) and
+         ( PRG_EXP_CERTIFICADO_LUGAR.CODI_PROD_MOS = PATRON_PRODUCTORES.CODI_PROD_MOS ) and
+         ( PREDIOS.CODI_SEDE_SED = PRG_EXP_CERTIFICADO_LUGAR.CODI_SEDE_SED ) and
+         ( PREDIOS.CODI_PROD_MOS = PRG_EXP_CERTIFICADO_LUGAR.CODI_PROD_MOS ) and
+         ( PREDIOS.CODI_PRED_MOS = PRG_EXP_CERTIFICADO_LUGAR.CODI_PRED_MOS ) and
+         ( SIGA.TDISTRITOS.CODI_DEPA_DPT = PREDIOS.CODI_DEPA_DPT ) and
+         ( SIGA.TDISTRITOS.CODI_PROV_TPR = PREDIOS.CODI_PROV_TPR ) and
+         ( SIGA.TDISTRITOS.CODI_DIST_TDI = PREDIOS.CODI_DIST_TDI ) and
+         ( SIGA.TPROVINCIAS.CODI_DEPA_DPT = SIGA.TDISTRITOS.CODI_DEPA_DPT ) and
+         ( SIGA.TPROVINCIAS.CODI_PROV_TPR = SIGA.TDISTRITOS.CODI_PROV_TPR ) and
+         ( SIGA.TDEPARTAMENTOS.CODI_DEPA_DPT = SIGA.TPROVINCIAS.CODI_DEPA_DPT ) and
+         ( PRG_EXP_CERTIFICADO_LUGAR.CODI_SEDE_SED = SIGA.SUBSECTOR.CODI_SEDE_SED ) and
+         ( PRG_EXP_CERTIFICADO_LUGAR.CODI_VALL_VAL = SIGA.SUBSECTOR.CODI_VALL_VAL ) and
+         ( PRG_EXP_CERTIFICADO_LUGAR.CODI_SECT_SEC = SIGA.SUBSECTOR.CODI_SECT_SEC ) and
+         ( PRG_EXP_CERTIFICADO_LUGAR.CODI_SUBS_SBS = SIGA.SUBSECTOR.CODI_SUBS_SBS ) and
+         ( SIGA.SUBSECTOR.CODI_SEDE_SED = VALLE_SECTOR.CODI_SEDE_SED ) and
+         ( SIGA.SUBSECTOR.CODI_VALL_VAL = VALLE_SECTOR.CODI_VALL_VAL ) and
+         ( SIGA.SUBSECTOR.CODI_SECT_SEC = VALLE_SECTOR.CODI_SECT_SEC ) and
+         ( VALLE_SECTOR.CODI_SEDE_SED = SIGA.VALLE.CODI_SEDE_SED ) and
+         ( VALLE_SECTOR.CODI_VALL_VAL = SIGA.VALLE.CODI_VALL_VAL ) and
+         ( PRG_EXP_CERTIFICADO_LUGAR.CODI_SEDE_SED = SEDES_INEI.CODI_SEDE_SED ) and
+         ( ( PRG_EXP_CERTIFICADO_LUGAR.CODI_CERT_LUG = $P{CODICERTLUG} ) )]]>
+	</queryString>
+	<field name="NUME_CERT_LUG" class="java.lang.String"/>
+	<field name="CODI_SEDE_SED" class="java.lang.String"/>
+	<field name="CODI_PROD_MOS" class="java.lang.String"/>
+	<field name="CODI_PRED_MOS" class="java.lang.String"/>
+	<field name="ANIO" class="java.lang.String"/>
+	<field name="APES_PROD_MOS" class="java.lang.String"/>
+	<field name="NOMB_PROD_MOS" class="java.lang.String"/>
+	<field name="RAZO_PROD_MOS" class="java.lang.String"/>
+	<field name="DIRE_PROD_MOS" class="java.lang.String"/>
+	<field name="TELE_PROD_MOS" class="java.lang.String"/>
+	<field name="DOCUMENTO" class="java.lang.String"/>
+	<field name="TIPO_PROD_MOS" class="java.lang.String"/>
+	<field name="NOMB_PRED_MOS" class="java.lang.String"/>
+	<field name="NOMB_DIST_TDI" class="java.lang.String"/>
+	<field name="NOMB_PROV_TPR" class="java.lang.String"/>
+	<field name="NOMB_DPTO_DPT" class="java.lang.String"/>
+	<field name="NOMB_SUBS_SBS" class="java.lang.String"/>
+	<field name="NOMB_SECT_SEC" class="java.lang.String"/>
+	<field name="NOMB_VALL_VAL" class="java.lang.String"/>
+	<field name="NUME_CAMP_EXP" class="java.lang.String"/>
+	<field name="FECH_CERT_LUG" class="java.lang.String"/>
+	<field name="DESC_SEDE_SED" class="java.lang.String"/>
+	<field name="CODI_SOLI_LUG" class="java.lang.String"/>
+	<field name="FECH_INI_ACT" class="java.sql.Timestamp"/>
+	<field name="FECH_FIN_ACT" class="java.sql.Timestamp"/>
+	<field name="NOMENCLA" class="java.lang.String"/>
+	<field name="PERSONA_ID" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="167" splitType="Stretch">
+			<image>
+				<reportElement uuid="77925b34-89e1-44d7-a6a8-fbed10601616" x="0" y="0" width="160" height="60"/>
+				<imageExpression><![CDATA[$P{SUBREPORT_DIR} + "logo.bmp"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="7391633c-205e-4999-83aa-243cca9f4db0" style="Arial8" x="378" y="12" width="167" height="20"/>
+				<textElement/>
+				<text><![CDATA[Código de productor y lugar de producción]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e95b7d95-0f44-480b-a401-c046fb7b79d2" style="Arial8" mode="Opaque" x="378" y="32" width="55" height="14"/>
+				<textElement/>
+				<text><![CDATA[DE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e95b7d95-0f44-480b-a401-c046fb7b79d2" style="Arial8" mode="Opaque" x="433" y="32" width="57" height="14"/>
+				<textElement/>
+				<text><![CDATA[Productor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e95b7d95-0f44-480b-a401-c046fb7b79d2" style="Arial8" mode="Opaque" x="490" y="32" width="55" height="14"/>
+				<textElement/>
+				<text><![CDATA[L. producción]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="f75caa91-fb37-43a5-aeca-dab13f30f1e7" style="Arial8" x="378" y="46" width="55" height="14"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{CODI_SEDE_SED}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="e8f7cbd7-9c97-472b-a659-ea9923090a68" style="Arial8" x="433" y="46" width="57" height="14"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{CODI_PROD_MOS}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="623bd38a-1615-404c-bea7-229902d5f189" style="Arial8" x="490" y="46" width="55" height="14"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{CODI_PRED_MOS}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="ed045790-d0cc-4681-a989-048c2cfdb0c4" x="0" y="70" width="555" height="16"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CERTIFICADO DE LUGAR DE PRODUCCION CON FINES DE EXPORTACION]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="00be0bec-8bf7-445b-91b2-d8f383d9f7a3" x="0" y="90" width="555" height="12"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Nº " + $F{NUME_CERT_LUG} + "-" + $P{CODICERTLUG}.substring(3,7) + "-"+ $F{NOMENCLA}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="6a31b865-358a-4188-b446-83276f59c5a6" x="0" y="112" width="555" height="45"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["En conformidad con el informe de Inspección fitosanitaria del lugar de producción Nº "+ $F{CODI_SOLI_LUG} + " y en virtud de la aplicacion de medidas fitosanitarias para el control, supresión y erradicación de las moscas de la fruta y vigilancia de otras plagas cuarentenarias, acorde a lo dispuesto por la legislacion vigente y a los Planes de Trabajo suscritos por el SENASA para posibilitar la exportacion de se procede a otorgar el presente Certificado al lugar de producción cuyos datos se mencionan a continuación:"]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="205" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="2c855f2e-beaa-42c0-8cf1-ed6643c7c09c" x="0" y="120" width="555" height="48"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="2c855f2e-beaa-42c0-8cf1-ed6643c7c09c" x="0" y="60" width="555" height="30"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="2c855f2e-beaa-42c0-8cf1-ed6643c7c09c" x="0" y="30" width="555" height="30"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="a7237380-305c-4864-81ba-0e841cd8b77a" x="99" y="0" width="456" height="30"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="cbe22246-8cce-459e-8d8c-b66d552576c6" x="0" y="0" width="99" height="30"/>
+			</rectangle>
+			<textField>
+				<reportElement uuid="6fc2db27-2626-41fa-9198-4d2f3436862a" style="Arial8" x="77" y="3" width="11" height="12"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{TIPO_PROD_MOS}.equals("N") ? "X" : ""]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="42b33f29-1b4a-473c-adb7-50436bc3ae44" x="2" y="3" width="75" height="12"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[1. Persona Natural]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="42b33f29-1b4a-473c-adb7-50436bc3ae44" x="2" y="14" width="75" height="13"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[2. Persona Juridica]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="6fc2db27-2626-41fa-9198-4d2f3436862a" style="Arial8" x="77" y="15" width="11" height="12"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{TIPO_PROD_MOS}.equals("J") ? "X" : ""]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="8179f45a-60fa-477e-84f6-e4031cf67398" x="101" y="3" width="70" height="12"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[3. Razón Social]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="6a4ad823-8383-4190-aa9f-3e82a844dd20" x="101" y="15" width="454" height="12"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{RAZO_PROD_MOS}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="42b33f29-1b4a-473c-adb7-50436bc3ae44" x="77" y="32" width="75" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[4. Apellidos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="42b33f29-1b4a-473c-adb7-50436bc3ae44" x="303" y="32" width="75" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[5. Nombre(s)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="42b33f29-1b4a-473c-adb7-50436bc3ae44" x="470" y="32" width="75" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[6. DNI/RUC]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="6a4ad823-8383-4190-aa9f-3e82a844dd20" x="2" y="46" width="218" height="12"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{APES_PROD_MOS}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="6a4ad823-8383-4190-aa9f-3e82a844dd20" x="230" y="46" width="214" height="12"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NOMB_PROD_MOS}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="6a4ad823-8383-4190-aa9f-3e82a844dd20" x="470" y="46" width="75" height="12"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DOCUMENTO}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="508c0f76-b344-4bdc-ae9d-3e56860f784a" x="220" y="30" width="1" height="30"/>
+			</line>
+			<line>
+				<reportElement uuid="508c0f76-b344-4bdc-ae9d-3e56860f784a" x="455" y="30" width="1" height="30"/>
+			</line>
+			<staticText>
+				<reportElement uuid="42b33f29-1b4a-473c-adb7-50436bc3ae44" x="456" y="62" width="99" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[8. Teléfono]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="42b33f29-1b4a-473c-adb7-50436bc3ae44" x="2" y="62" width="453" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[7. Dirección]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="6a4ad823-8383-4190-aa9f-3e82a844dd20" x="2" y="75" width="453" height="12"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DIRE_PROD_MOS}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="6a4ad823-8383-4190-aa9f-3e82a844dd20" x="456" y="75" width="99" height="12"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TELE_PROD_MOS}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="508c0f76-b344-4bdc-ae9d-3e56860f784a" x="455" y="60" width="1" height="30"/>
+			</line>
+			<rectangle>
+				<reportElement uuid="2c855f2e-beaa-42c0-8cf1-ed6643c7c09c" x="0" y="90" width="555" height="30"/>
+			</rectangle>
+			<textField>
+				<reportElement uuid="6a4ad823-8383-4190-aa9f-3e82a844dd20" x="13" y="106" width="542" height="12"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NOMB_PRED_MOS}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="42b33f29-1b4a-473c-adb7-50436bc3ae44" x="3" y="92" width="128" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[9. Nombre del lugar de producción]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="42b33f29-1b4a-473c-adb7-50436bc3ae44" x="3" y="124" width="75" height="12"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[10. Zona de prod:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="6a4ad823-8383-4190-aa9f-3e82a844dd20" x="78" y="124" width="190" height="12"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NOMB_VALL_VAL}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="42b33f29-1b4a-473c-adb7-50436bc3ae44" x="273" y="124" width="75" height="12"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[13. Distrito:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="6a4ad823-8383-4190-aa9f-3e82a844dd20" x="350" y="124" width="205" height="12"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NOMB_DIST_TDI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="6a4ad823-8383-4190-aa9f-3e82a844dd20" x="350" y="139" width="205" height="12"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NOMB_PROV_TPR}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="42b33f29-1b4a-473c-adb7-50436bc3ae44" x="273" y="139" width="75" height="12"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[14. Provincia:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="6a4ad823-8383-4190-aa9f-3e82a844dd20" x="78" y="139" width="190" height="12"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NOMB_SECT_SEC}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="42b33f29-1b4a-473c-adb7-50436bc3ae44" x="3" y="139" width="75" height="12"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[11. Sector:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="6a4ad823-8383-4190-aa9f-3e82a844dd20" x="350" y="154" width="205" height="12"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NOMB_DPTO_DPT}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="42b33f29-1b4a-473c-adb7-50436bc3ae44" x="273" y="154" width="75" height="12"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[15. Departamento:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="6a4ad823-8383-4190-aa9f-3e82a844dd20" x="78" y="154" width="190" height="12"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NOMB_SUBS_SBS}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="42b33f29-1b4a-473c-adb7-50436bc3ae44" x="3" y="154" width="75" height="12"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[12. Sub sector:]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="295d0116-5661-4fb5-b86b-44a2d300cf3c" x="0" y="137" width="555" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="295d0116-5661-4fb5-b86b-44a2d300cf3c" x="0" y="151" width="555" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="508c0f76-b344-4bdc-ae9d-3e56860f784a" x="75" y="121" width="1" height="47"/>
+			</line>
+			<line>
+				<reportElement uuid="508c0f76-b344-4bdc-ae9d-3e56860f784a" x="267" y="121" width="1" height="47"/>
+			</line>
+			<line>
+				<reportElement uuid="508c0f76-b344-4bdc-ae9d-3e56860f784a" x="347" y="120" width="1" height="48"/>
+			</line>
+			<subreport>
+				<reportElement uuid="d2184363-03d7-4f8c-93ff-940e2d1b36e3" x="0" y="168" width="556" height="36"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="CODISOLILUG">
+					<subreportParameterExpression><![CDATA[$F{CODI_SOLI_LUG}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="CODICERTLUG">
+					<subreportParameterExpression><![CDATA[$P{CODICERTLUG}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "formato_SNS024_detalle.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="20" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="324e6435-3ea4-4426-bed7-62bec674f6d8" x="0" y="0" width="556" height="20"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="42b33f29-1b4a-473c-adb7-50436bc3ae44" x="4" y="4" width="96" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[21. Inicio de actividades]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="6a4ad823-8383-4190-aa9f-3e82a844dd20" x="103" y="4" width="81" height="12"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FECH_INI_ACT}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="42b33f29-1b4a-473c-adb7-50436bc3ae44" x="276" y="4" width="96" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[22. Fin de actividades]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="6a4ad823-8383-4190-aa9f-3e82a844dd20" x="375" y="4" width="81" height="12"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FECH_FIN_ACT}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="508c0f76-b344-4bdc-ae9d-3e56860f784a" x="269" y="0" width="1" height="20"/>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="123" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="6a31b865-358a-4188-b446-83276f59c5a6" x="0" y="21" width="555" height="45"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["La presente certificación del lugar de producción tendrá vigencia para la campaña de exportación " + $F{NUME_CAMP_EXP} + ". Esta certificación será anulada si no se mantiene las condiciones bajo las cuales se certificó el lugar de producción, así como por el incumplimiento de las recomendaciones efectuadas por el SENASA en las visitas de inspección que se efectuen."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="42b33f29-1b4a-473c-adb7-50436bc3ae44" x="0" y="73" width="56" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[Lugar y fecha:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="f8be533b-016f-464f-9038-c39fe2ef3242" x="56" y="73" width="343" height="12"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DESC_SEDE_SED}.trim() + "    " + $F{FECH_CERT_LUG}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

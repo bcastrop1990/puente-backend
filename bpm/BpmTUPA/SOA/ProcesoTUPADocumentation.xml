@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?oracleBPM version="12.1.3" fileRevision="20120601"?>
+<processDocumentation xmlns="http://xmlns.oracle.com/bpm/taskMetadataService/processDocumentation">
+   <component name="ProcesoTUPA">
+      <topicDocumentations>
+         <topicDocumentation name="ProcesoTUPA">
+            <labels>
+               <label locale="en">Proceso TUPA</label>
+            </labels>
+         </topicDocumentation>
+         <topicDocumentation name="ACT41579129308412">
+            <labels>
+               <label locale="en">Obtener Expediente TUPA</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT4157914022433">
+            <labels>
+               <label locale="en">Obtener Plazo TUPA</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT41579156109627">
+            <labels>
+               <label locale="en">Obtener Fecha de Caducidad</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT41579184940867">
+            <labels>
+               <label locale="en">Proceso Pago</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT41579201543873">
+            <labels>
+               <label locale="en">Generar IIV</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="EVT41579104830618">
+            <labels>
+               <label locale="en">Start</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="EVT41579104830632">
+            <labels>
+               <label locale="en">End</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="GTW41579179836298">
+            <labels>
+               <label locale="en">Dividir</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="GTW41579180923735">
+            <labels>
+               <label locale="en">Incorporar</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf41579104830663"/>
+         <topicDocumentation name="sf41579133064084"/>
+         <topicDocumentation name="sf41579146649981"/>
+         <topicDocumentation name="sf41579171810560"/>
+         <topicDocumentation name="sf4157918092388"/>
+         <topicDocumentation name="sf41579180923895"/>
+         <topicDocumentation name="sf41579186456555"/>
+         <topicDocumentation name="sf41579199090333"/>
+         <topicDocumentation name="sf41579202738141"/>
+      </topicDocumentations>
+   </component>
+</processDocumentation>

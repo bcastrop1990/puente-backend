@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PLANTILLA_DORI-PFIA" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f8e97392-2a95-40cc-841c-30d14891e36d">
+	<property name="ireport.zoom" value="1.1269722013523682"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="213"/>
+	<style name="marco">
+		<box topPadding="5" leftPadding="5" bottomPadding="5" rightPadding="5">
+			<topPen lineWidth="0.5"/>
+			<leftPen lineWidth="0.5"/>
+			<bottomPen lineWidth="0.5"/>
+			<rightPen lineWidth="0.5"/>
+		</box>
+	</style>
+	<parameter name="NEXPEDIENTE" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ORACLE_REF_CURSOR" class="java.sql.ResultSet" isForPrompting="false"/>
+	<parameter name="FIRMA" class="java.io.InputStream" isForPrompting="false"/>
+	<parameter name="SUBTITULO" class="java.lang.String"/>
+	<queryString language="plsql">
+		<![CDATA[{call Pckg_General.SP_GET_REPORTE_PFI($P{NEXPEDIENTE}, $P{ORACLE_REF_CURSOR})}]]>
+	</queryString>
+	<field name="f_numero_permiso" class="java.lang.String"/>
+	<field name="f_fecha_emision" class="java.lang.String"/>
+	<field name="f_fecha_vigencia" class="java.lang.String"/>
+	<field name="f_fecha_ampliacion" class="java.lang.String"/>
+	<variable name="NPERMISO" class="java.lang.String"/>
+	<title>
+		<band height="149" splitType="Stretch">
+			<image>
+				<reportElement uuid="5c06c970-f949-4f33-a967-acf1042db221" x="19" y="0" width="120" height="40"/>
+				<imageExpression><![CDATA[$P{SUBREPORT_DIR} + "logo.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="d7096341-d387-4d1b-9c83-7d150ee4ceb8" x="433" y="8" width="100" height="20" forecolor="#999999"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[AMPLIADO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0f152b85-b4f5-4ede-b674-db0d3cdc4af7" x="0" y="57" width="555" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PERMISO FITOSANITARIO DE IMPORTACIÓN]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="745b200e-0389-48ef-86cd-5cf066417734" x="0" y="77" width="554" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["N° de PFI: " + $P{SUBTITULO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="81a6256e-5b06-4d6f-8deb-0aceb72ed544" x="307" y="129" width="79" height="18"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ampliado hasta:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a3703e75-c586-43ac-a77d-d800b29512f4" x="10" y="129" width="135" height="18"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Lugar y Fecha de Emisión:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="0c506d0e-a33d-4bf5-8c6c-3a31f655e7f3" x="145" y="129" width="150" height="18"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Lima, " + $F{f_fecha_emision}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="2a5ba6ed-e763-48fd-9bd4-347c4bb737b2" x="93" y="111" width="134" height="17"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{NEXPEDIENTE}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="ceb5c857-267a-431f-82bb-def4273337bb" x="10" y="111" width="83" height="17"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[N° Expediente:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="0483bd82-b341-4162-aad1-60ab52d2f786" x="417" y="111" width="112" height="17"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{f_fecha_vigencia}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="9be36e48-bbbb-40c6-a006-f35e12433fe8" x="387" y="129" width="142" height="18"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{f_fecha_ampliacion}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="44e16b3c-35c9-4adf-b54b-89cce4b52702" x="307" y="111" width="109" height="17"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Término de Vigencia:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0f152b85-b4f5-4ede-b674-db0d3cdc4af7" x="139" y="5" width="293" height="36"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ESTE DOCUMENTO NO AUTORIZA EL INTERNAMIENTO DE LA MERCANCÍA AL PAÍS]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="134">
+			<subreport>
+				<reportElement uuid="ebc58d91-2d0a-4355-8437-94df99964cb7" x="3" y="0" width="552" height="22"/>
+				<subreportParameter name="NEXPEDIENTE">
+					<subreportParameterExpression><![CDATA[$P{NEXPEDIENTE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="ORACLE_REF_CURSOR"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<returnValue subreportVariable="NPERMISO" toVariable="NPERMISO"/>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "datos_permiso.jasper"]]></subreportExpression>
+			</subreport>
+			<image>
+				<reportElement uuid="4d9aa715-48f9-4934-9f68-37f9192edece" positionType="Float" x="375" y="32" width="180" height="90"/>
+				<imageExpression><![CDATA[$P{FIRMA}]]></imageExpression>
+			</image>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="102">
+			<textField>
+				<reportElement uuid="a79366c4-dd15-4469-bf68-473794b9b60e" x="353" y="81" width="175" height="20"/>
+				<textElement textAlignment="Right">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="7c4acf0e-c976-436c-8885-db2a577b69fb" x="528" y="81" width="25" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="0efff44c-7245-498e-bb2e-3b466de0bcce" style="marco" x="3" y="10" width="550" height="71"/>
+				<textElement verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[- Válido por 90 días calendario a partir de la fecha de su emisión y para un solo Embarque.
+- Cualquier enmendadura o añadidura invalida este documento.
+- EL SENASA podrá anular la validez del permiso Fitosanitario de Importación de detectarse plagas cuarentenarias en el país Exportador, en los embarques efectuados o cuando se establezcan nuevos requisitos fitosanitarios.
+- Todo envío que esté contenido en embalajes de madera, deberán cumplir con las disposiciones establecidas en la R.D N° 105-2005-AG-SENASA-DGSV
+- Ante la presencia de cualquier plaga determinada como cuarentenaria por el SENASA, los envíos se sujetaran a las disposiciones establecidas por la institución.
+- Las mercancías autorizadas en el presente documento, que sean transportadas como envíos de entrega rápida, serán aceptados para inspección cuando se presente la DSEER con subpartida arancelaria 9809.00.00.20 y 9809.00.00.30, según corresponda.]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<lastPageFooter>
+		<band height="102">
+			<staticText>
+				<reportElement uuid="0efff44c-7245-498e-bb2e-3b466de0bcce" style="marco" x="80" y="10" width="473" height="71"/>
+				<textElement verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[- Válido por 90 días calendario a partir de la fecha de su emisión y para un solo Embarque.
+- Cualquier enmendadura o añadidura invalida este documento.
+- EL SENASA podrá anular la validez del permiso Fitosanitario de Importación de detectarse plagas cuarentenarias en el país Exportador, en los embarques efectuados o cuando se establezcan nuevos requisitos fitosanitarios.
+- Todo envío que esté contenido en embalajes de madera, deberán cumplir con las disposiciones establecidas en la R.D N° 105-2005-AG-SENASA-DGSV
+- Ante la presencia de cualquier plaga determinada como cuarentenaria por el SENASA, los envíos se sujetaran a las disposiciones establecidas por la institución.
+- Las mercancías autorizadas en el presente documento, que sean transportadas como envíos de entrega rápida, serán aceptados para inspección cuando se presente la DSEER con subpartida arancelaria 9809.00.00.20 y 9809.00.00.30, según corresponda.]]></text>
+			</staticText>
+			<textField evaluationTime="Report">
+				<reportElement uuid="7c4acf0e-c976-436c-8885-db2a577b69fb" x="528" y="81" width="25" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="a79366c4-dd15-4469-bf68-473794b9b60e" x="353" y="81" width="175" height="20"/>
+				<textElement textAlignment="Right">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+		</band>
+	</lastPageFooter>
+</jasperReport>

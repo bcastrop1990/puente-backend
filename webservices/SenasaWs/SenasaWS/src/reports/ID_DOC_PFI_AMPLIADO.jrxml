@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ID_DOC_PFI_CUARENTENA_1_AMP" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f8e97392-2a95-40cc-841c-30d14891e36d">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="NEXPEDIENTE" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ORACLE_REF_CURSOR" class="java.sql.ResultSet" isForPrompting="false"/>
+	<parameter name="FIRMA" class="java.lang.String"/>
+	<parameter name="FIRMA2" class="java.lang.String"/>
+	<queryString language="plsql">
+		<![CDATA[{call Pckg_General.SP_GET_REPORTE_PFI($P{NEXPEDIENTE}, $P{ORACLE_REF_CURSOR})}]]>
+	</queryString>
+	<field name="f_numero_permiso" class="java.lang.String"/>
+	<field name="f_fecha_emision" class="java.lang.String"/>
+	<field name="f_fecha_vigencia" class="java.lang.String"/>
+	<field name="f_fecha_ampliacion" class="java.lang.String"/>
+	<variable name="NPERMISO" class="java.lang.String"/>
+	<background>
+		<band height="802" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="a8c71bfd-8946-40e9-8474-700f2a94cbaa" x="0" y="649" width="554" height="133"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="cc638229-60b7-456d-b2b0-021ef0da5124" x="3" y="649" width="552" height="133"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Calibri"/>
+				</textElement>
+				<text><![CDATA[- Válido por 90 días calendario a partir de la fecha de su emisión y para un solo Embarque.
+- Este documento no autoriza el intermediario al país de la planta, producto vegetal y/o artículo reglamentado con las características arriba señaladas.
+- Cualquier enmendadura o añadidura invalida este documento.
+- EL SENASA podrá anular la validez del permiso Fitosanitario de Importación de detectarse plagas cuarentenarias en el país Exportador, en los embarques efectuados o cuando se establezcan nuevos requisitos fitosanitarios.
+- Todo envío que esté contenido en embalajes de madera, deberán cumplir con las disposiciones establecidas en la R.D N° 105-2005-AG-SENASA-DGSV
+- Ante la presencia de cualquier plaga determinada como cuarentenaria por el SENASA, los envíos se sujetaran a las disposiciones establecidas por la institución.
+]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="a79366c4-dd15-4469-bf68-473794b9b60e" x="339" y="782" width="175" height="20"/>
+				<textElement textAlignment="Right">
+					<font fontName="Calibri"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="7c4acf0e-c976-436c-8885-db2a577b69fb" x="514" y="782" width="40" height="20"/>
+				<textElement>
+					<font fontName="Calibri"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement uuid="5c06c970-f949-4f33-a967-acf1042db221" x="1" y="0" width="100" height="50"/>
+				<imageExpression><![CDATA[$P{SUBREPORT_DIR} + "logo.bmp"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="d7096341-d387-4d1b-9c83-7d150ee4ceb8" x="335" y="15" width="100" height="20" forecolor="#999999"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[AMPLIADO]]></text>
+			</staticText>
+		</band>
+	</background>
+	<title>
+		<band height="29" splitType="Stretch"/>
+	</title>
+	<columnHeader>
+		<band height="197" splitType="Stretch">
+			<subreport>
+				<reportElement uuid="ebc58d91-2d0a-4355-8437-94df99964cb7" x="3" y="109" width="552" height="22"/>
+				<subreportParameter name="NEXPEDIENTE">
+					<subreportParameterExpression><![CDATA[$P{NEXPEDIENTE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="ORACLE_REF_CURSOR"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<returnValue subreportVariable="NPERMISO" toVariable="NPERMISO"/>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "datos_permiso.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement uuid="81a6256e-5b06-4d6f-8deb-0aceb72ed544" x="281" y="90" width="119" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calibri" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Ampliado hasta:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="44e16b3c-35c9-4adf-b54b-89cce4b52702" x="281" y="70" width="119" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calibri" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Término de Vigencia:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ceb5c857-267a-431f-82bb-def4273337bb" x="3" y="70" width="100" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calibri" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[N° Expediente:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a3703e75-c586-43ac-a77d-d800b29512f4" x="3" y="90" width="136" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calibri" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Lugar y Fecha de Emisión: Lima, ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b27b34a4-e124-4c28-80fb-de3c727a6c6e" x="156" y="32" width="76" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calibri" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[N° de PFI: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0f152b85-b4f5-4ede-b674-db0d3cdc4af7" x="100" y="12" width="332" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PERMISO FITOSANITARIO DE IMPORTACIÓN]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="970b85a0-914d-4f0e-a40e-4615231a36ed" x="232" y="32" width="126" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{f_numero_permiso}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="2a5ba6ed-e763-48fd-9bd4-347c4bb737b2" x="103" y="70" width="160" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{NEXPEDIENTE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="0c506d0e-a33d-4bf5-8c6c-3a31f655e7f3" x="139" y="90" width="124" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{f_fecha_emision}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="0483bd82-b341-4162-aad1-60ab52d2f786" x="398" y="70" width="137" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{f_fecha_vigencia}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="9be36e48-bbbb-40c6-a006-f35e12433fe8" x="398" y="89" width="137" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{f_fecha_ampliacion}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement uuid="8f427c85-57ed-432a-8d16-1697e2013cd5" x="454" y="147" width="100" height="50"/>
+				<imageExpression><![CDATA[$P{FIRMA}]]></imageExpression>
+			</image>
+		</band>
+	</columnHeader>
+</jasperReport>

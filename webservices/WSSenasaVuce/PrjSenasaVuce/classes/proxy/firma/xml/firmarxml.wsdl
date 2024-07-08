@@ -1,0 +1,61 @@
+<definitions name="firmarxml" targetNamespace="http://clases/"
+             xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://clases/"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <types>
+        <xsd:schema>
+            <xsd:import namespace="http://clases/" schemaLocation="firmarxml_xsd_1.xsd"/>
+        </xsd:schema>
+    </types>
+    <message name="firmar">
+        <part name="parameters" element="tns:firmar"/>
+    </message>
+    <message name="firmarResponse">
+        <part name="parameters" element="tns:firmarResponse"/>
+    </message>
+    <message name="obtenerRespuesta">
+        <part name="parameters" element="tns:obtenerRespuesta"/>
+    </message>
+    <message name="obtenerRespuestaResponse">
+        <part name="parameters" element="tns:obtenerRespuestaResponse"/>
+    </message>
+    <portType name="firmarxml">
+        <operation name="firmar">
+            <input message="tns:firmar"/>
+            <output message="tns:firmarResponse"/>
+        </operation>
+        <operation name="obtenerRespuesta">
+            <input message="tns:obtenerRespuesta"/>
+            <output message="tns:obtenerRespuestaResponse"/>
+        </operation>
+    </portType>
+    <binding name="firmarxmlPortBinding" type="tns:firmarxml">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="firmar">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="obtenerRespuesta">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="firmarxml">
+        <port name="firmarxmlPort" binding="tns:firmarxmlPortBinding">
+            <soap:address location="http://bpm.senasa.gob.pe:7003/WSFirmaXMLProd/firmarxml"/>
+        </port>
+    </service>
+</definitions>
+
+
+

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+            xmlns="http://soa.senasa.gob.pe/service/ORG/IIV/proceso_generar_iiv-v1.0"
+            targetNamespace="http://soa.senasa.gob.pe/service/ORG/IIV/proceso_generar_iiv-v1.0" elementFormDefault="qualified">
+  <xsd:element name="informe">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="numeroExpediente" type="xsd:string"/>
+        <xsd:element name="plantilla" type="xsd:string"/>
+        <xsd:element name="codigo" type="xsd:string"/>
+        <xsd:element name="ucmid" type="xsd:string"/>
+        <xsd:element name="tipo" type="xsd:string"/>
+        <xsd:element name="subtipo" type="xsd:string"/>
+        <xsd:element name="titulo" type="xsd:string"/>
+        <xsd:element name="codigoCentroTramite" type="xsd:string"/>        
+        <xsd:element name="codigoProcedimiento" type="xsd:string"/>
+        <xsd:element name="idSolicitante" type="xsd:string"/>
+        <xsd:element name="ucmidExpediente" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

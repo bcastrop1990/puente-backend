@@ -1,0 +1,18 @@
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+  <system systemId="http://bpm.senasa.gob.pe:7003/WSFirmaXmlProd/firmarxml?WSDL"
+          uri="../proxy/firma/xml/firmarxml.wsdl"/>
+  <system systemId="http://bpm.senasa.gob.pe:7003/senasaws/TramiteDocumentarioPort?wsdl"
+          uri="../proxy/senasaws/tramite/TramiteDocumentario.wsdl"/>
+  <system systemId="http://bpm.senasa.gob.pe:7003/senasaws/TramiteDocumentarioPort?wsdl"
+          uri="../proxy/senasaws/tramite/TramiteDocumentario.wsdl"/>
+  <system systemId="http://bpm.senasa.gob.pe:7003/WSFirmaXMLProd/firmarxml?WSDL"
+          uri="../proxy/firma/xml/firmarxml.wsdl"/>
+  <system systemId="http://bpm.senasa.gob.pe:7003/WSFirmaXMLProd/firmarxml?WSDL"
+          uri="../proxy/firma/xml/firmarxml.wsdl"/>
+  <system systemId="http://bpm.senasa.gob.pe:7003/senasaws/TramiteDocumentarioPort?wsdl"
+          uri="../proxy/senasaws/tramite/TramiteDocumentario.wsdl"/>
+  <system systemId="http://servicios.senasa.gob.pe:7003/IntegracionTrustedXML/firmarxml?WSDL"
+          uri="../proxy/softnet/firma/xml/firmarxml.wsdl"/>
+  <system systemId="http://bpmdes.senasa.gob.pe:7003/senasaws/TramiteDocumentarioPort?wsdl"
+          uri="../proxy/senasaws/tramite/TramiteDocumentario.wsdl"/>
+</catalog>

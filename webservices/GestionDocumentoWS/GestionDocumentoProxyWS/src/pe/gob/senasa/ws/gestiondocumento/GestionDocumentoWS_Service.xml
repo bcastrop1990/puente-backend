@@ -1,0 +1,15 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle-webservice-clients xmlns:ns2="http://java.sun.com/xml/ns/javaee">
+   <webservice-client>
+      <service-qname localpart="GestionDocumentoWS" namespaceURI="http://gestiondocumento.ws.senasa.gob.pe"/>
+      <port-info>
+         <wsdl-port localpart="GestionDocumentoWSPort" namespaceURI="http://gestiondocumento.ws.senasa.gob.pe"/>
+         <runtime/>
+         <operations>
+            <operation name="registrarDocumentoServidor"/>
+            <operation name="registrarDocumento"/>
+            <operation name="obtenerURL"/>
+         </operations>
+      </port-info>
+   </webservice-client>
+</oracle-webservice-clients>

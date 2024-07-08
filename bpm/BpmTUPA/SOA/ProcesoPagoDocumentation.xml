@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?oracleBPM version="12.1.3" fileRevision="20120601"?>
+<processDocumentation xmlns="http://xmlns.oracle.com/bpm/taskMetadataService/processDocumentation">
+   <component name="ProcesoPago">
+      <topicDocumentations>
+         <topicDocumentation name="ProcesoPago">
+            <labels>
+               <label locale="en">Proceso Pago</label>
+            </labels>
+         </topicDocumentation>
+         <topicDocumentation name="ACT41577156867454">
+            <labels>
+               <label locale="en">Obtener Datos Pago VUCE</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT4157720590284">
+            <labels>
+               <label locale="en">Generar Documento Boleta</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT41578345310790">
+            <labels>
+               <label locale="en">Obtener Codigo Documento Padre</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT41578352266514">
+            <labels>
+               <label locale="en">Registrar Documento Std</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT41578386418039">
+            <labels>
+               <label locale="en">Actualizar URL Boleta</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT41578413001388">
+            <labels>
+               <label locale="en">Obtener Datos Pago</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="EVT41576896343795">
+            <labels>
+               <label locale="en">Start</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="EVT41576896343773">
+            <labels>
+               <label locale="en">End</label>
+            </labels>
+         </topicDocumentation>
+         <topicDocumentation name="GTW41578405572633">
+            <labels>
+               <label locale="en">¿Canal?</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf41576896343760"/>
+         <topicDocumentation name="sf41577198801441"/>
+         <topicDocumentation name="sf41577231344874"/>
+         <topicDocumentation name="sf41578350890059"/>
+         <topicDocumentation name="sf41578354561326"/>
+         <topicDocumentation name="sf41578387491474"/>
+         <topicDocumentation name="sf41578407202653">
+            <labels>
+               <label locale="en"></label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf41578407956438">
+            <labels>
+               <label locale="en"></label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf41578414604767"/>
+      </topicDocumentations>
+   </component>
+</processDocumentation>

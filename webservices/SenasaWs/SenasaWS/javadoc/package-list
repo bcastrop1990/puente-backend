@@ -1,0 +1,10 @@
+pe.gob.senasa.bean
+pe.gob.senasa.connection
+pe.gob.senasa.dao
+pe.gob.senasa.db
+pe.gob.senasa.dbtypes
+pe.gob.senasa.interfaces
+pe.gob.senasa.tupa
+pe.gob.senasa.tupa.cis
+pe.gob.senasa.util
+pe.gob.senasa.ws

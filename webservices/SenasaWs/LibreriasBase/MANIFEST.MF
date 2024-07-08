@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Implementation-Vendor: Senasa
+Implementation-Title: LibreriasBase Implementation
+Implementation-Version: 1.0
+Specification-Title: LibreriasBase
+Specification-Version: 1.0
+

@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="formato_SNS024_detalle" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="f54be674-cf15-462c-8c9b-3ffa6709c91a">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="cabecera">
+		<box>
+			<topPen lineWidth="0.5"/>
+			<leftPen lineWidth="0.5"/>
+			<bottomPen lineWidth="0.5"/>
+			<rightPen lineWidth="0.5"/>
+		</box>
+	</style>
+	<style name="detalle">
+		<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+			<topPen lineWidth="0.0"/>
+			<leftPen lineWidth="0.5"/>
+			<bottomPen lineWidth="0.0"/>
+			<rightPen lineWidth="0.5"/>
+		</box>
+	</style>
+	<style name="pie">
+		<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+			<leftPen lineWidth="0.0"/>
+			<rightPen lineWidth="0.0"/>
+		</box>
+	</style>
+	<parameter name="CODISOLILUG" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="CODICERTLUG" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT CULTIVOS.DESC_CULT_MOS,
+         HOSPEDANTE.NOMB_HOSP_MOS,
+			(SELECT SUM(PRG_EXP_SOLICITUD_LUGAR_ESP.AREA_TOTA_LUG)
+			FROM PRG_EXP_SOLICITUD_LUGAR_ESP
+			WHERE PRG_EXP_SOLICITUD_LUGAR_ESP.CODI_SOLI_LUG = $P{CODISOLILUG}
+			AND PRG_EXP_SOLICITUD_LUGAR_ESP.CODI_HOSP_MOS = PRG_EXP_CERTIFICADO_LUGAR_ESP.CODI_HOSP_MOS
+			AND PRG_EXP_SOLICITUD_LUGAR_ESP.SECU_RECI_LUG = (SELECT MIN(PRG_EXP_CERTIFICADO_LUGAR_ESP.SECU_RECI_LUG)
+			FROM PRG_EXP_CERTIFICADO_LUGAR_ESP
+			WHERE PRG_EXP_CERTIFICADO_LUGAR_ESP.CODI_CERT_LUG = $P{CODICERTLUG})
+			) AREA_TOTAL,
+         SUM(PRG_EXP_CERTIFICADO_LUGAR_ESP.AREA_CERT_LUG) AREA_CERTIFICADA,
+         SUM(PRG_EXP_CERTIFICADO_LUGAR_ESP.AREA_CERT_LUG*PRG_EXP_CERTIFICADO_LUGAR_ESP.REND_PROM_LUG) AUTORIZADO
+    FROM PRG_EXP_CERTIFICADO_LUGAR_ESP,
+         CULTIVOS,
+         HOSPEDANTE
+   WHERE ( CULTIVOS.CODI_HOSP_MOS = PRG_EXP_CERTIFICADO_LUGAR_ESP.CODI_HOSP_MOS ) and
+         ( CULTIVOS.CODI_CULT_MOS = PRG_EXP_CERTIFICADO_LUGAR_ESP.CODI_CULT_MOS ) and
+         ( HOSPEDANTE.CODI_HOSP_MOS = CULTIVOS.CODI_HOSP_MOS ) and
+         ( ( PRG_EXP_CERTIFICADO_LUGAR_ESP.CODI_CERT_LUG = $P{CODICERTLUG} ) )
+GROUP BY HOSPEDANTE.NOMB_HOSP_MOS,
+         CULTIVOS.DESC_CULT_MOS,
+         PRG_EXP_CERTIFICADO_LUGAR_ESP.CODI_HOSP_MOS
+ORDER BY HOSPEDANTE.NOMB_HOSP_MOS ASC,
+         CULTIVOS.DESC_CULT_MOS ASC]]>
+	</queryString>
+	<field name="DESC_CULT_MOS" class="java.lang.String"/>
+	<field name="NOMB_HOSP_MOS" class="java.lang.String"/>
+	<field name="AREA_TOTAL" class="java.math.BigDecimal"/>
+	<field name="AREA_CERTIFICADA" class="java.math.BigDecimal"/>
+	<field name="AUTORIZADO" class="java.math.BigDecimal"/>
+	<variable name="AREA_CERTIFICADA_1" class="java.math.BigDecimal" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{AREA_CERTIFICADA}]]></variableExpression>
+	</variable>
+	<variable name="AUTORIZADO_1" class="java.math.BigDecimal" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{AUTORIZADO}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="24" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="84a5f791-d821-46ce-a74b-cc094df4768a" style="cabecera" x="0" y="0" width="171" height="24"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[16. Cultivo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b3006dba-cc4c-4df3-bbd5-63d38727ab0f" style="cabecera" x="171" y="0" width="58" height="24"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[17. Area Total
+(Ha)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="802df92a-fd27-48f2-8d41-48eb8fb23b3c" style="cabecera" x="229" y="0" width="166" height="24"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[18. Especie/Variedad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8258e678-bb1c-49a3-b469-6cb799461687" style="cabecera" x="395" y="0" width="80" height="24"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[19. Area
+Certificar (Ha)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c0a5a5ca-7dc8-43cf-bc43-32d371b65e71" style="cabecera" x="475" y="0" width="80" height="24"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[20. Volumen
+Autorizado(TM)]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="12" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="af376c2d-c657-4e81-9228-b05d2a45a5e5" style="detalle" x="0" y="0" width="171" height="12"/>
+				<textElement>
+					<font fontName="Arial" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NOMB_HOSP_MOS}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="98047b9e-d790-4eec-8679-0c2ed7c8dd38" style="detalle" x="171" y="0" width="58" height="12"/>
+				<textElement>
+					<font fontName="Arial" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{AREA_TOTAL}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="acb7e8c6-5351-41b4-81f0-203ac06e1b48" style="detalle" x="229" y="0" width="166" height="12"/>
+				<textElement>
+					<font fontName="Arial" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DESC_CULT_MOS}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="5647cdd6-70e3-4134-b818-b38b791bf47d" style="detalle" x="395" y="0" width="80" height="12"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{AREA_CERTIFICADA}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="d63df90f-1b31-4790-89df-7386da6a0c72" style="detalle" x="475" y="0" width="80" height="12"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{AUTORIZADO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="12" splitType="Stretch">
+			<textField>
+				<reportElement uuid="14d2ed07-5593-4e10-b5c8-4f5af0cd3ea6" style="pie" x="394" y="0" width="80" height="12"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{AREA_CERTIFICADA_1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="eda9e5a7-c44a-4378-8c9b-15a5286290e4" style="pie" x="475" y="0" width="80" height="12"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{AUTORIZADO_1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="ccbb60be-2421-4516-9d40-749ec709396e" style="pie" x="370" y="0" width="24" height="12"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total:]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="e186b2e7-b76f-4a6a-beba-b3574fc1aace" x="0" y="11" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement uuid="005d78db-2781-4402-b405-7d283e22e6ea" x="170" y="0" width="1" height="12"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement uuid="005d78db-2781-4402-b405-7d283e22e6ea" x="229" y="0" width="1" height="12"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement uuid="005d78db-2781-4402-b405-7d283e22e6ea" x="394" y="0" width="1" height="12"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement uuid="005d78db-2781-4402-b405-7d283e22e6ea" x="475" y="0" width="1" height="12"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement uuid="005d78db-2781-4402-b405-7d283e22e6ea" x="554" y="0" width="1" height="12"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement uuid="005d78db-2781-4402-b405-7d283e22e6ea" x="0" y="0" width="1" height="12"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

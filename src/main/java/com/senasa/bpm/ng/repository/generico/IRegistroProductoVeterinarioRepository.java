@@ -1,0 +1,12 @@
+package com.senasa.bpm.ng.repository.generico;
+
+import com.senasa.bpm.ng.model.generico.SolicitudRegistroProductosVeterinarios;
+import com.senasa.bpm.ng.model.generico.SolicitudRenovacionProductosVeterinarios;
+
+public interface IRegistroProductoVeterinarioRepository {
+	public SolicitudRegistroProductosVeterinarios RetornaSolicitudRegistroProductosVeterinarios(
+			SolicitudRegistroProductosVeterinarios solicitudRegistroProductosVeterinarios);
+
+	public SolicitudRenovacionProductosVeterinarios RetornaRenovacionProductosVeterinarios(
+			SolicitudRenovacionProductosVeterinarios solicitudRenovacionProductosVeterinarios);
+}

@@ -1,0 +1,688 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dgm:gDiagram xmlns:dgm="http://xmlns.oracle.com/sca/soadgm">
+    <dgm:gService name="IniciarSolicitudCanalVUCE.service">
+        <dgm:body borderWidth="2" arcRad="20" X="21" Y="1184" width="137" height="84">
+            <dgm:borderColor r="153" g="153" b="153"/>
+            <dgm:bgColor r="255" g="255" b="255"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="11" Y="1177" width="156" height="98">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:outputPort name="IniciarSolicitudCanalVUCE.service" X="127" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/bpmn/bpmnProcess/IniciarSolicitudCanalVUCE#wsdl.interface(IniciarSolicitudCanalVUCEPortType)"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/soap_service_20x20.png" X="20" Y="4" width="20" height="20"/>
+        <dgm:operations>
+            <dgm:item>start</dgm:item>
+        </dgm:operations>
+    </dgm:gService>
+    <dgm:gReference name="WSExpediente">
+        <dgm:body borderWidth="2" arcRad="20" X="1270" Y="26" width="136" height="168">
+            <dgm:borderColor r="153" g="153" b="153"/>
+            <dgm:bgColor r="255" g="255" b="255"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="1260" Y="19" width="156" height="182">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="WSExpediente" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://expediente.ws.senasa.gob.pe#wsdl.interface(Expediente)"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/soap_service_20x20.png" X="27" Y="4" width="20" height="20"/>
+        <dgm:operations>
+            <dgm:item>cierreTotal</dgm:item>
+            <dgm:item>obtenerOrdenPorMTO</dgm:item>
+            <dgm:item>obtenerExpedienteStd</dgm:item>
+            <dgm:item>anexarDocumentoExpediente</dgm:item>
+            <dgm:item>registrarExpediente</dgm:item>
+            <dgm:item>registrarTrazabilidadTUPAInicio</dgm:item>
+            <dgm:item>obtenerExpedienteTupa</dgm:item>
+            <dgm:item>cerrarExpediente</dgm:item>
+            <dgm:item>obtenerExpedienteVuce</dgm:item>
+        </dgm:operations>
+    </dgm:gReference>
+    <dgm:gReference name="WSServicioTUPA">
+        <dgm:body borderWidth="2" arcRad="20" X="1270" Y="426" width="136" height="168">
+            <dgm:borderColor r="153" g="153" b="153"/>
+            <dgm:bgColor r="255" g="255" b="255"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="1260" Y="419" width="156" height="182">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="WSServicioTUPA" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://serviciotupa.ws.senasa.gob.pe#wsdl.interface(ServicioTUPA)"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/soap_service_20x20.png" X="27" Y="4" width="20" height="20"/>
+        <dgm:operations>
+            <dgm:item>obtenerListaVacunas</dgm:item>
+            <dgm:item>obtenerExpediente</dgm:item>
+            <dgm:item>anularExpediente</dgm:item>
+            <dgm:item>obtenerPuntosIngreso</dgm:item>
+            <dgm:item>obtenerOperLogisticoJuridica</dgm:item>
+            <dgm:item>obtenerClaseExpServicio</dgm:item>
+            <dgm:item>obtenerServiciosXClase</dgm:item>
+            <dgm:item>obtenerInspeccionesExpediente</dgm:item>
+            <dgm:item>obtenerTipoServicioExpediente</dgm:item>
+            <dgm:item>obtenerProductosExp</dgm:item>
+            <dgm:item>obtenerProductosInspeccion</dgm:item>
+            <dgm:item>obtenerOperador</dgm:item>
+            <dgm:item>obtenerListaAnalisis</dgm:item>
+            <dgm:item>obtenerSolicitanteExp</dgm:item>
+            <dgm:item>obtenerServiciosExpediente</dgm:item>
+            <dgm:item>anularServicioExpediente</dgm:item>
+            <dgm:item>obtenerListaRecibos</dgm:item>
+            <dgm:item>anularBoletas</dgm:item>
+            <dgm:item>obtenerInformacionServicioTupa</dgm:item>
+            <dgm:item>obtenerNumeroCertificado</dgm:item>
+            <dgm:item>obtenerServicio</dgm:item>
+            <dgm:item>obtenerDescripcionServicio</dgm:item>
+            <dgm:item>servicioTupaCobrarPorProducto</dgm:item>
+            <dgm:item>obtenerAreasGestion</dgm:item>
+            <dgm:item>obtenerCentrosTramite</dgm:item>
+            <dgm:item>obtenerCentrosTramitePorDepartamento</dgm:item>
+            <dgm:item>obtenerServicioXCentroTramite</dgm:item>
+            <dgm:item>obtenerRequisitoXServicio</dgm:item>
+            <dgm:item>obtenerExpedientePersonaNatural</dgm:item>
+            <dgm:item>obtenerExpedientePersonaJuridica</dgm:item>
+            <dgm:item>obtenerOperLogisticoNatural</dgm:item>
+            <dgm:item>obtenerServiciosTupa</dgm:item>
+            <dgm:item>obtenerNumeroExpediente</dgm:item>
+        </dgm:operations>
+    </dgm:gReference>
+    <dgm:gReference name="WSGeneral">
+        <dgm:body borderWidth="2" arcRad="20" X="1270" Y="690" width="136" height="168">
+            <dgm:borderColor r="153" g="153" b="153"/>
+            <dgm:bgColor r="255" g="255" b="255"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="1260" Y="683" width="156" height="182">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="WSGeneral" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://general.ws.senasa.gob.pe#wsdl.interface(General)"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/soap_service_20x20.png" X="27" Y="4" width="20" height="20"/>
+        <dgm:operations>
+            <dgm:item>generaNumeroExpediente</dgm:item>
+            <dgm:item>generaNumeroSolicitud</dgm:item>
+            <dgm:item>insertarTrazabilidad</dgm:item>
+            <dgm:item>reporteDocumentosNoAtendidos</dgm:item>
+            <dgm:item>obtenerNombreServicio</dgm:item>
+            <dgm:item>verificarEstadoPermiso</dgm:item>
+            <dgm:item>obtenerFechaAmpliacion</dgm:item>
+            <dgm:item>obtenerDatosGuardacustodia</dgm:item>
+            <dgm:item>obtenerDatosPFTI</dgm:item>
+            <dgm:item>obtenerAdjuntosVuce</dgm:item>
+            <dgm:item>cargarDatosPFTI</dgm:item>
+            <dgm:item>obtenerUcmidPorExpediente</dgm:item>
+            <dgm:item>ValidarConfidencial</dgm:item>
+            <dgm:item>obtenerPasswordFirmante</dgm:item>
+            <dgm:item>actualizarTrazabilidad</dgm:item>
+            <dgm:item>actualizarCodigoProcTupaCPE</dgm:item>
+            <dgm:item>guardarExpedienteTemporal</dgm:item>
+            <dgm:item>consultaTrazaMensaje</dgm:item>
+            <dgm:item>obtenerCaducidad</dgm:item>
+            <dgm:item>registrarServiciosExp</dgm:item>
+            <dgm:item>consultaGeneral</dgm:item>
+            <dgm:item>consultaDocumentosPendientes</dgm:item>
+            <dgm:item>reporteNumeroDerivaciones</dgm:item>
+            <dgm:item>createQR</dgm:item>
+        </dgm:operations>
+    </dgm:gReference>
+    <dgm:gReference name="WSDocumentoStd">
+        <dgm:body borderWidth="2" arcRad="20" X="1270" Y="1628" width="136" height="168">
+            <dgm:borderColor r="153" g="153" b="153"/>
+            <dgm:bgColor r="255" g="255" b="255"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="1260" Y="1621" width="156" height="182">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="WSDocumentoStd" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://documentoStd.ws.senasa.gob.pe#wsdl.interface(DocumentoStd)"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/soap_service_20x20.png" X="27" Y="4" width="20" height="20"/>
+        <dgm:operations>
+            <dgm:item>consultaPendientes</dgm:item>
+            <dgm:item>exportarReporte</dgm:item>
+            <dgm:item>grabarDocAnexo</dgm:item>
+            <dgm:item>obtenerPlantilla</dgm:item>
+            <dgm:item>previsualizarDocumento</dgm:item>
+            <dgm:item>generarDocumento</dgm:item>
+            <dgm:item>consultaGeneral</dgm:item>
+            <dgm:item>reporteGeneral</dgm:item>
+            <dgm:item>grabarDocEnRegistroArchivo</dgm:item>
+            <dgm:item>consultarParticipacion</dgm:item>
+            <dgm:item>grabarResolutivoProv</dgm:item>
+            <dgm:item>actualizarDocumento</dgm:item>
+            <dgm:item>registrarDocumento</dgm:item>
+            <dgm:item>solicitarServicioOCR</dgm:item>
+            <dgm:item>verificarServicioOCR</dgm:item>
+        </dgm:operations>
+    </dgm:gReference>
+    <dgm:gReference name="WSInspeccion">
+        <dgm:body borderWidth="2" arcRad="20" X="1270" Y="1830" width="136" height="168">
+            <dgm:borderColor r="153" g="153" b="153"/>
+            <dgm:bgColor r="255" g="255" b="255"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="1260" Y="1823" width="156" height="182">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="WSInspeccion" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://inspeccion.ws.senasa.gob.pe#wsdl.interface(Inspecccion)"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/soap_service_20x20.png" X="27" Y="4" width="20" height="20"/>
+        <dgm:operations>
+            <dgm:item>listarTipoCrianzas</dgm:item>
+            <dgm:item>generarInformeInspeccionPreliminar</dgm:item>
+            <dgm:item>listarRazaAnimal</dgm:item>
+            <dgm:item>obtenerTipoMuestrasXClase</dgm:item>
+            <dgm:item>actualizarProductoInspeccion</dgm:item>
+            <dgm:item>registrarLote</dgm:item>
+            <dgm:item>consultarLote</dgm:item>
+            <dgm:item>registrarConcepto</dgm:item>
+            <dgm:item>listarSexoAnimal</dgm:item>
+            <dgm:item>solicitudAnalisisLaboratorioVegetal</dgm:item>
+            <dgm:item>consultarConcepto</dgm:item>
+            <dgm:item>obtenerAreaLaboratorioXClase</dgm:item>
+            <dgm:item>obtenerProcedenciaOrigenMuestra</dgm:item>
+            <dgm:item>listaServicioAnalisisVegetal</dgm:item>
+            <dgm:item>listaMotivo</dgm:item>
+            <dgm:item>listaServicioAnalisisAnimal</dgm:item>
+            <dgm:item>listaTipoEspecieAnimal</dgm:item>
+            <dgm:item>respuestaSolicitudAnalisisLaboratorio</dgm:item>
+            <dgm:item>solicitudAnalisisLaboratorioAnimal</dgm:item>
+            <dgm:item>listarUnidadTiempo</dgm:item>
+            <dgm:item>obtenerProductosInspeccionExp</dgm:item>
+            <dgm:item>listarTiposRechazos</dgm:item>
+            <dgm:item>listarTipoIdentificacionAnimal</dgm:item>
+        </dgm:operations>
+    </dgm:gReference>
+    <dgm:gReference name="WSPagos">
+        <dgm:body borderWidth="2" arcRad="20" X="1270" Y="1224" width="136" height="168">
+            <dgm:borderColor r="153" g="153" b="153"/>
+            <dgm:bgColor r="255" g="255" b="255"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="1260" Y="1217" width="156" height="182">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="WSPagos" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://pagos.ws.senasa.gob.pe#wsdl.interface(Pagos)"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/soap_service_20x20.png" X="27" Y="4" width="20" height="20"/>
+        <dgm:operations>
+            <dgm:item>guardarReciboPago</dgm:item>
+            <dgm:item>generarReciboPago</dgm:item>
+            <dgm:item>actualizarRecibo</dgm:item>
+            <dgm:item>obtenerTipoPagos</dgm:item>
+            <dgm:item>registrarPago</dgm:item>
+            <dgm:item>obtenerTarifario</dgm:item>
+            <dgm:item>obtenerRecibo</dgm:item>
+            <dgm:item>existeNumeroBoleta</dgm:item>
+            <dgm:item>obtenerReciboVUCE</dgm:item>
+        </dgm:operations>
+    </dgm:gReference>
+    <dgm:gReference name="WSDocumentos">
+        <dgm:body borderWidth="2" arcRad="20" X="1270" Y="1426" width="136" height="168">
+            <dgm:borderColor r="153" g="153" b="153"/>
+            <dgm:bgColor r="255" g="255" b="255"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="1260" Y="1419" width="156" height="182">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="WSDocumentos" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://documentos.ws.senasa.gob.pe#wsdl.interface(Documentos)"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/soap_service_20x20.png" X="27" Y="4" width="20" height="20"/>
+        <dgm:operations>
+            <dgm:item>eliminarNumeroDocumento</dgm:item>
+            <dgm:item>previsualizarIngreso</dgm:item>
+            <dgm:item>ObtenerCodDocumentoStdPadre</dgm:item>
+            <dgm:item>crearDocumento</dgm:item>
+            <dgm:item>generarDocumentoRegistroGCA</dgm:item>
+            <dgm:item>ejecutarIngreso</dgm:item>
+            <dgm:item>generarDocumentoAutorizacionSEExpoZoo</dgm:item>
+            <dgm:item>generarDocumentoIIVFIto</dgm:item>
+            <dgm:item>obtenerFirmante</dgm:item>
+            <dgm:item>obtenerUrlDocumento</dgm:item>
+            <dgm:item>grabarDocumentoStdHijo</dgm:item>
+            <dgm:item>obtenerDocumento</dgm:item>
+            <dgm:item>crearDocumentoExpoFito</dgm:item>
+            <dgm:item>generarDocumento</dgm:item>
+            <dgm:item>generarNumeroDocumento</dgm:item>
+        </dgm:operations>
+    </dgm:gReference>
+    <dgm:gReference name="WSTrazabilidad">
+        <dgm:body borderWidth="2" arcRad="20" X="1270" Y="892" width="136" height="96">
+            <dgm:borderColor r="153" g="153" b="153"/>
+            <dgm:bgColor r="255" g="255" b="255"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="1260" Y="885" width="156" height="110">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="WSTrazabilidad" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://trazabilidad.ws.senasa.gob.pe#wsdl.interface(Trazabilidad)"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/soap_service_20x20.png" X="27" Y="4" width="20" height="20"/>
+        <dgm:operations>
+            <dgm:item>insertarTrazabilidad</dgm:item>
+            <dgm:item>actualizarTrazabilidad</dgm:item>
+        </dgm:operations>
+    </dgm:gReference>
+    <dgm:gReference name="WSFuncionario">
+        <dgm:body borderWidth="2" arcRad="20" X="1270" Y="226" width="136" height="168">
+            <dgm:borderColor r="153" g="153" b="153"/>
+            <dgm:bgColor r="255" g="255" b="255"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="1260" Y="219" width="156" height="182">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="WSFuncionario" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://funcionario.ws.senasa.gob.pe#wsdl.interface(Funcionario)"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/soap_service_20x20.png" X="27" Y="4" width="20" height="20"/>
+        <dgm:operations>
+            <dgm:item>obtenerFuncionarioPorNombre</dgm:item>
+            <dgm:item>autenticarUsuario</dgm:item>
+            <dgm:item>obtenerAreas</dgm:item>
+            <dgm:item>obtenerTiposIE</dgm:item>
+            <dgm:item>obtenerReemplazo</dgm:item>
+            <dgm:item>obtenerJefePorDepartamento</dgm:item>
+            <dgm:item>buscarFuncionariosPorNombre</dgm:item>
+            <dgm:item>obtenerEntidadesPorFiltro</dgm:item>
+            <dgm:item>buscarDestinatarioPorCentroTramite</dgm:item>
+            <dgm:item>obtenerSubTipos</dgm:item>
+            <dgm:item>obtenerFuncionarioConAsistentes</dgm:item>
+            <dgm:item>obtenerEntidades</dgm:item>
+            <dgm:item>obtenerSubentidades</dgm:item>
+            <dgm:item>obtenerTipos</dgm:item>
+            <dgm:item>validarUsuario</dgm:item>
+            <dgm:item>obtenerFuncionarioPorIdPersona</dgm:item>
+            <dgm:item>obtenerFuncionarioPorUserName</dgm:item>
+            <dgm:item>obtenerFuncionarios</dgm:item>
+            <dgm:item>obtenerJefeInmediato</dgm:item>
+            <dgm:item>obtenerFuncionariosSubordinados</dgm:item>
+            <dgm:item>obtenerSubareas</dgm:item>
+            <dgm:item>obtenerJefePorSede</dgm:item>
+        </dgm:operations>
+    </dgm:gReference>
+    <dgm:gReference name="WSGestionVUCE">
+        <dgm:body borderWidth="2" arcRad="20" X="1270" Y="1022" width="136" height="168">
+            <dgm:borderColor r="153" g="153" b="153"/>
+            <dgm:bgColor r="255" g="255" b="255"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="1260" Y="1015" width="156" height="182">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="WSGestionVUCE" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://documentos.ws.senasa.gob.pe#wsdl.interface(GestionVUCEWS)"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/soap_service_20x20.png" X="27" Y="4" width="20" height="20"/>
+        <dgm:operations>
+            <dgm:item>obtenerAdjuntos</dgm:item>
+            <dgm:item>obtenerExpediente</dgm:item>
+            <dgm:item>obtenerDatosConsultaPlantaTra</dgm:item>
+            <dgm:item>obtenerDatosPersona</dgm:item>
+            <dgm:item>obtenerDatosSolicitudLugarProd</dgm:item>
+            <dgm:item>obtenerDatosProductoInspeccion</dgm:item>
+            <dgm:item>obtenerDatosConceptoInspeccion</dgm:item>
+            <dgm:item>obtenerDatosLoteInspeccion</dgm:item>
+            <dgm:item>obtenerDatosIIVFito</dgm:item>
+            <dgm:item>obtenerDatosIIVZoo</dgm:item>
+            <dgm:item>obtenerDatosExpoFito</dgm:item>
+            <dgm:item>obtenerDatosExpoZoo</dgm:item>
+            <dgm:item>obtenerDatosModExpoFito</dgm:item>
+            <dgm:item>enviarReqPagoSuce</dgm:item>
+            <dgm:item>generarCFEFirmado</dgm:item>
+            <dgm:item>notificarProgramacionInspeccion</dgm:item>
+            <dgm:item>notificarSubsanacion</dgm:item>
+            <dgm:item>notificarPagoSuce</dgm:item>
+            <dgm:item>recepcionResultadoPagoSuce</dgm:item>
+            <dgm:item>cierreTramite</dgm:item>
+            <dgm:item>enviarNotificacion</dgm:item>
+            <dgm:item>obtenerDatosConsultaTecnica</dgm:item>
+            <dgm:item>ingresarRespuestaConsultaTecnica</dgm:item>
+        </dgm:operations>
+    </dgm:gReference>
+    <dgm:gComponent name="RegistrarSolicitud">
+        <dgm:body borderWidth="2" arcRad="20" X="301" Y="721" width="130" height="361">
+            <dgm:borderColor r="69" g="113" b="140"/>
+            <dgm:lightBgColor r="166" g="208" b="230"/>
+            <dgm:darkBgColor r="99" g="162" b="201"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="291" Y="714" width="150" height="377">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:outputPort name="HumanTasks.HTResgistrarSolicitud.reference" X="120" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/bpel/workflow/taskService#wsdl.interface(TaskService)" callbackInterface="http://xmlns.oracle.com/bpel/workflow/taskService#wsdl.interface(TaskServiceCallback)"/>
+        <dgm:outputPort name="HumanTasks.HTRegistrarRequisito.reference" X="120" Y="40" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/bpel/workflow/taskService#wsdl.interface(TaskService)" callbackInterface="http://xmlns.oracle.com/bpel/workflow/taskService#wsdl.interface(TaskServiceCallback)"/>
+        <dgm:outputPort name="HumanTasks.HTGenerarDocumentoResolutivo.reference" X="120" Y="65" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/bpel/workflow/taskService#wsdl.interface(TaskService)" callbackInterface="http://xmlns.oracle.com/bpel/workflow/taskService#wsdl.interface(TaskServiceCallback)"/>
+        <dgm:outputPort name="Services.Externals.WSExpediente.reference" X="120" Y="90" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://expediente.ws.senasa.gob.pe#wsdl.interface(Expediente)"/>
+        <dgm:outputPort name="Services.Externals.WSServicioTUPA.reference" X="120" Y="115" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://serviciotupa.ws.senasa.gob.pe#wsdl.interface(ServicioTUPA)"/>
+        <dgm:outputPort name="Services.Externals.WSGeneral.reference" X="120" Y="140" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://general.ws.senasa.gob.pe#wsdl.interface(General)"/>
+        <dgm:outputPort name="Services.Externals.WSPagos.reference" X="120" Y="165" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://pagos.ws.senasa.gob.pe#wsdl.interface(Pagos)"/>
+        <dgm:outputPort name="Services.Externals.WSDocumentos.reference" X="120" Y="190" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://documentos.ws.senasa.gob.pe#wsdl.interface(Documentos)"/>
+        <dgm:outputPort name="Services.Externals.WSDocumentoStd.reference" X="120" Y="215" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://documentoStd.ws.senasa.gob.pe#wsdl.interface(DocumentoStd)"/>
+        <dgm:outputPort name="Services.Externals.WSInspeccion.reference" X="120" Y="240" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://inspeccion.ws.senasa.gob.pe#wsdl.interface(Inspecccion)"/>
+        <dgm:outputPort name="Services.Externals.WSTrazabilidad.reference" X="120" Y="265" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://trazabilidad.ws.senasa.gob.pe#wsdl.interface(Trazabilidad)"/>
+        <dgm:outputPort name="Services.Externals.WSFuncionario.reference" X="120" Y="290" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://funcionario.ws.senasa.gob.pe#wsdl.interface(Funcionario)"/>
+        <dgm:outputPort name="Services.Externals.WSGestionVUCE.reference" X="120" Y="315" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://documentos.ws.senasa.gob.pe#wsdl.interface(GestionVUCEWS)"/>
+        <dgm:nodeIcon URI="/oracle/bpm/fusion/soa/msg/images/bpmncomponent20x20.png" X="10" Y="4" width="20" height="20"/>
+    </dgm:gComponent>
+    <dgm:gComponent name="HTResgistrarSolicitud">
+        <dgm:body borderWidth="2" arcRad="20" X="634" Y="570" width="130" height="61">
+            <dgm:borderColor r="109" g="136" b="65"/>
+            <dgm:lightBgColor r="201" g="224" b="155"/>
+            <dgm:darkBgColor r="157" g="195" b="93"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="624" Y="563" width="150" height="77">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="TaskService" X="-10" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/bpel/workflow/taskService#wsdl.interface(TaskService)" callbackInterface="http://xmlns.oracle.com/bpel/workflow/taskService#wsdl.interface(TaskServiceCallback)"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/workflow/resources/images/humantask_20x20.png" X="10" Y="4" width="20" height="20"/>
+    </dgm:gComponent>
+    <dgm:gComponent name="HTRegistrarRequisito">
+        <dgm:body borderWidth="2" arcRad="20" X="634" Y="663" width="130" height="61">
+            <dgm:borderColor r="109" g="136" b="65"/>
+            <dgm:lightBgColor r="201" g="224" b="155"/>
+            <dgm:darkBgColor r="157" g="195" b="93"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="624" Y="656" width="150" height="77">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="TaskService" X="-10" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/bpel/workflow/taskService#wsdl.interface(TaskService)" callbackInterface="http://xmlns.oracle.com/bpel/workflow/taskService#wsdl.interface(TaskServiceCallback)"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/workflow/resources/images/humantask_20x20.png" X="10" Y="4" width="20" height="20"/>
+    </dgm:gComponent>
+    <dgm:gComponent name="HTGenerarDocumentoResolutivo">
+        <dgm:body borderWidth="2" arcRad="20" X="634" Y="756" width="130" height="61">
+            <dgm:borderColor r="109" g="136" b="65"/>
+            <dgm:lightBgColor r="201" g="224" b="155"/>
+            <dgm:darkBgColor r="157" g="195" b="93"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="624" Y="749" width="150" height="77">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="TaskService" X="-10" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/bpel/workflow/taskService#wsdl.interface(TaskService)" callbackInterface="http://xmlns.oracle.com/bpel/workflow/taskService#wsdl.interface(TaskServiceCallback)"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/workflow/resources/images/humantask_20x20.png" X="10" Y="4" width="20" height="20"/>
+    </dgm:gComponent>
+    <dgm:gComponent name="IniciarSolicitudCanalVUCE">
+        <dgm:body borderWidth="2" arcRad="20" X="301" Y="1169" width="130" height="311">
+            <dgm:borderColor r="69" g="113" b="140"/>
+            <dgm:lightBgColor r="166" g="208" b="230"/>
+            <dgm:darkBgColor r="99" g="162" b="201"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="291" Y="1162" width="150" height="327">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="IniciarSolicitudCanalVUCE.service" X="-10" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/bpmn/bpmnProcess/IniciarSolicitudCanalVUCE#wsdl.interface(IniciarSolicitudCanalVUCEPortType)"/>
+        <dgm:outputPort name="HumanTasks.HTGenerarDocumentoResolutivo.reference" X="120" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/bpel/workflow/taskService#wsdl.interface(TaskService)" callbackInterface="http://xmlns.oracle.com/bpel/workflow/taskService#wsdl.interface(TaskServiceCallback)"/>
+        <dgm:outputPort name="Services.Externals.WSExpediente.reference" X="120" Y="40" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://expediente.ws.senasa.gob.pe#wsdl.interface(Expediente)"/>
+        <dgm:outputPort name="Services.Externals.WSFuncionario.reference" X="120" Y="65" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://funcionario.ws.senasa.gob.pe#wsdl.interface(Funcionario)"/>
+        <dgm:outputPort name="Services.Externals.WSServicioTUPA.reference" X="120" Y="90" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://serviciotupa.ws.senasa.gob.pe#wsdl.interface(ServicioTUPA)"/>
+        <dgm:outputPort name="Services.Externals.WSGeneral.reference" X="120" Y="115" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://general.ws.senasa.gob.pe#wsdl.interface(General)"/>
+        <dgm:outputPort name="Services.Externals.WSTrazabilidad.reference" X="120" Y="140" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://trazabilidad.ws.senasa.gob.pe#wsdl.interface(Trazabilidad)"/>
+        <dgm:outputPort name="Services.Externals.WSGestionVUCE.reference" X="120" Y="165" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://documentos.ws.senasa.gob.pe#wsdl.interface(GestionVUCEWS)"/>
+        <dgm:outputPort name="Services.Externals.WSPagos.reference" X="120" Y="190" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://pagos.ws.senasa.gob.pe#wsdl.interface(Pagos)"/>
+        <dgm:outputPort name="Services.Externals.WSDocumentos.reference" X="120" Y="215" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://documentos.ws.senasa.gob.pe#wsdl.interface(Documentos)"/>
+        <dgm:outputPort name="Services.Externals.WSDocumentoStd.reference" X="120" Y="240" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://documentoStd.ws.senasa.gob.pe#wsdl.interface(DocumentoStd)"/>
+        <dgm:outputPort name="Services.Externals.WSInspeccion.reference" X="120" Y="265" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://inspeccion.ws.senasa.gob.pe#wsdl.interface(Inspecccion)"/>
+        <dgm:nodeIcon URI="/oracle/bpm/fusion/soa/msg/images/bpmncomponent20x20.png" X="10" Y="4" width="20" height="20"/>
+    </dgm:gComponent>
+    <dgm:gComponent name="GestionarExpediente">
+        <dgm:body borderWidth="2" arcRad="20" X="301" Y="351" width="130" height="236">
+            <dgm:borderColor r="69" g="113" b="140"/>
+            <dgm:lightBgColor r="166" g="208" b="230"/>
+            <dgm:darkBgColor r="99" g="162" b="201"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="291" Y="344" width="150" height="252">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:outputPort name="HumanTasks.HTGestionarExpediente.reference" X="120" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/bpel/workflow/taskService#wsdl.interface(TaskService)" callbackInterface="http://xmlns.oracle.com/bpel/workflow/taskService#wsdl.interface(TaskServiceCallback)"/>
+        <dgm:outputPort name="Services.Externals.WSExpediente.reference" X="120" Y="40" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://expediente.ws.senasa.gob.pe#wsdl.interface(Expediente)"/>
+        <dgm:outputPort name="Services.Externals.WSFuncionario.reference" X="120" Y="65" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://funcionario.ws.senasa.gob.pe#wsdl.interface(Funcionario)"/>
+        <dgm:outputPort name="Services.Externals.WSTrazabilidad.reference" X="120" Y="90" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://trazabilidad.ws.senasa.gob.pe#wsdl.interface(Trazabilidad)"/>
+        <dgm:outputPort name="Services.Externals.WSServicioTUPA.reference" X="120" Y="115" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://serviciotupa.ws.senasa.gob.pe#wsdl.interface(ServicioTUPA)"/>
+        <dgm:outputPort name="Services.Externals.WSGeneral.reference" X="120" Y="140" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://general.ws.senasa.gob.pe#wsdl.interface(General)"/>
+        <dgm:outputPort name="Services.Externals.WSGestionVUCE.reference" X="120" Y="165" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://documentos.ws.senasa.gob.pe#wsdl.interface(GestionVUCEWS)"/>
+        <dgm:outputPort name="HumanTasks.HTGenerarDocumentoResolutivo.reference" X="120" Y="190" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/bpel/workflow/taskService#wsdl.interface(TaskService)" callbackInterface="http://xmlns.oracle.com/bpel/workflow/taskService#wsdl.interface(TaskServiceCallback)"/>
+        <dgm:nodeIcon URI="/oracle/bpm/fusion/soa/msg/images/bpmncomponent20x20.png" X="10" Y="4" width="20" height="20"/>
+    </dgm:gComponent>
+    <dgm:gComponent name="HTGestionarExpediente">
+        <dgm:body borderWidth="2" arcRad="20" X="634" Y="112" width="130" height="61">
+            <dgm:borderColor r="109" g="136" b="65"/>
+            <dgm:lightBgColor r="201" g="224" b="155"/>
+            <dgm:darkBgColor r="157" g="195" b="93"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="624" Y="105" width="150" height="77">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="TaskService" X="-10" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/bpel/workflow/taskService#wsdl.interface(TaskService)" callbackInterface="http://xmlns.oracle.com/bpel/workflow/taskService#wsdl.interface(TaskServiceCallback)"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/workflow/resources/images/humantask_20x20.png" X="10" Y="4" width="20" height="20"/>
+    </dgm:gComponent>
+    <dgm:gWireLink source="RegistrarSolicitud/HumanTasks.HTResgistrarSolicitud.reference" target="HTResgistrarSolicitud/TaskService" width="2">
+        <dgm:gSegment X1="441" Y1="746" X2="465" Y2="746"/>
+        <dgm:gSegment X1="465" Y1="746" X2="465" Y2="595"/>
+        <dgm:gSegment X1="465" Y1="595" X2="624" Y2="595"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="RegistrarSolicitud/HumanTasks.HTRegistrarRequisito.reference" target="HTRegistrarRequisito/TaskService" width="2">
+        <dgm:gSegment X1="441" Y1="771" X2="480" Y2="771"/>
+        <dgm:gSegment X1="480" Y1="771" X2="480" Y2="688"/>
+        <dgm:gSegment X1="480" Y1="688" X2="624" Y2="688"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="RegistrarSolicitud/HumanTasks.HTGenerarDocumentoResolutivo.reference" target="HTGenerarDocumentoResolutivo/TaskService" width="2">
+        <dgm:gSegment X1="441" Y1="796" X2="495" Y2="796"/>
+        <dgm:gSegment X1="495" Y1="796" X2="495" Y2="781"/>
+        <dgm:gSegment X1="495" Y1="781" X2="624" Y2="781"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="IniciarSolicitudCanalVUCE/HumanTasks.HTGenerarDocumentoResolutivo.reference" target="HTGenerarDocumentoResolutivo/TaskService" width="2">
+        <dgm:gSegment X1="441" Y1="1194" X2="510" Y2="1194"/>
+        <dgm:gSegment X1="510" Y1="1194" X2="510" Y2="781"/>
+        <dgm:gSegment X1="510" Y1="781" X2="624" Y2="781"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="RegistrarSolicitud/Services.Externals.WSExpediente.reference" target="WSExpediente" width="2">
+        <dgm:gSegment X1="441" Y1="821" X2="600" Y2="821"/>
+        <dgm:gSegment X1="600" Y1="821" X2="600" Y2="876"/>
+        <dgm:gSegment X1="600" Y1="876" X2="966" Y2="876"/>
+        <dgm:gSegment X1="966" Y1="876" X2="966" Y2="36"/>
+        <dgm:gSegment X1="966" Y1="36" X2="1260" Y2="36"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="RegistrarSolicitud/Services.Externals.WSServicioTUPA.reference" target="WSServicioTUPA" width="2">
+        <dgm:gSegment X1="441" Y1="846" X2="585" Y2="846"/>
+        <dgm:gSegment X1="585" Y1="846" X2="585" Y2="891"/>
+        <dgm:gSegment X1="585" Y1="891" X2="981" Y2="891"/>
+        <dgm:gSegment X1="981" Y1="891" X2="981" Y2="436"/>
+        <dgm:gSegment X1="981" Y1="436" X2="1260" Y2="436"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="RegistrarSolicitud/Services.Externals.WSGeneral.reference" target="WSGeneral" width="2">
+        <dgm:gSegment X1="441" Y1="871" X2="570" Y2="871"/>
+        <dgm:gSegment X1="570" Y1="871" X2="570" Y2="906"/>
+        <dgm:gSegment X1="570" Y1="906" X2="996" Y2="906"/>
+        <dgm:gSegment X1="996" Y1="906" X2="996" Y2="700"/>
+        <dgm:gSegment X1="996" Y1="700" X2="1260" Y2="700"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="RegistrarSolicitud/Services.Externals.WSPagos.reference" target="WSPagos" width="2">
+        <dgm:gSegment X1="441" Y1="896" X2="555" Y2="896"/>
+        <dgm:gSegment X1="555" Y1="896" X2="555" Y2="921"/>
+        <dgm:gSegment X1="555" Y1="921" X2="1191" Y2="921"/>
+        <dgm:gSegment X1="1191" Y1="921" X2="1191" Y2="1234"/>
+        <dgm:gSegment X1="1191" Y1="1234" X2="1260" Y2="1234"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="RegistrarSolicitud/Services.Externals.WSDocumentos.reference" target="WSDocumentos" width="2">
+        <dgm:gSegment X1="441" Y1="921" X2="540" Y2="921"/>
+        <dgm:gSegment X1="540" Y1="921" X2="540" Y2="936"/>
+        <dgm:gSegment X1="540" Y1="936" X2="1176" Y2="936"/>
+        <dgm:gSegment X1="1176" Y1="936" X2="1176" Y2="1436"/>
+        <dgm:gSegment X1="1176" Y1="1436" X2="1260" Y2="1436"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="RegistrarSolicitud/Services.Externals.WSDocumentoStd.reference" target="WSDocumentoStd" width="2">
+        <dgm:gSegment X1="441" Y1="946" X2="525" Y2="946"/>
+        <dgm:gSegment X1="525" Y1="946" X2="525" Y2="951"/>
+        <dgm:gSegment X1="525" Y1="951" X2="1161" Y2="951"/>
+        <dgm:gSegment X1="1161" Y1="951" X2="1161" Y2="1638"/>
+        <dgm:gSegment X1="1161" Y1="1638" X2="1260" Y2="1638"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="RegistrarSolicitud/Services.Externals.WSInspeccion.reference" target="WSInspeccion" width="2">
+        <dgm:gSegment X1="441" Y1="971" X2="1146" Y2="971"/>
+        <dgm:gSegment X1="1146" Y1="971" X2="1146" Y2="1840"/>
+        <dgm:gSegment X1="1146" Y1="1840" X2="1260" Y2="1840"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="RegistrarSolicitud/Services.Externals.WSTrazabilidad.reference" target="WSTrazabilidad" width="2">
+        <dgm:gSegment X1="441" Y1="996" X2="1011" Y2="996"/>
+        <dgm:gSegment X1="1011" Y1="996" X2="1011" Y2="902"/>
+        <dgm:gSegment X1="1011" Y1="902" X2="1260" Y2="902"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="IniciarSolicitudCanalVUCE/Services.Externals.WSExpediente.reference" target="WSExpediente" width="2">
+        <dgm:gSegment X1="441" Y1="1219" X2="1041" Y2="1219"/>
+        <dgm:gSegment X1="1041" Y1="1219" X2="1041" Y2="36"/>
+        <dgm:gSegment X1="1041" Y1="36" X2="1260" Y2="36"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="IniciarSolicitudCanalVUCE/Services.Externals.WSFuncionario.reference" target="WSFuncionario" width="2">
+        <dgm:gSegment X1="441" Y1="1244" X2="1056" Y2="1244"/>
+        <dgm:gSegment X1="1056" Y1="1244" X2="1056" Y2="236"/>
+        <dgm:gSegment X1="1056" Y1="236" X2="1260" Y2="236"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="RegistrarSolicitud/Services.Externals.WSFuncionario.reference" target="WSFuncionario" width="2">
+        <dgm:gSegment X1="441" Y1="1021" X2="465" Y2="1021"/>
+        <dgm:gSegment X1="465" Y1="1021" X2="465" Y2="1017"/>
+        <dgm:gSegment X1="465" Y1="1017" X2="1026" Y2="1017"/>
+        <dgm:gSegment X1="1026" Y1="1017" X2="1026" Y2="236"/>
+        <dgm:gSegment X1="1026" Y1="236" X2="1260" Y2="236"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="IniciarSolicitudCanalVUCE/Services.Externals.WSServicioTUPA.reference" target="WSServicioTUPA" width="2">
+        <dgm:gSegment X1="441" Y1="1269" X2="1071" Y2="1269"/>
+        <dgm:gSegment X1="1071" Y1="1269" X2="1071" Y2="436"/>
+        <dgm:gSegment X1="1071" Y1="436" X2="1260" Y2="436"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="IniciarSolicitudCanalVUCE/Services.Externals.WSGeneral.reference" target="WSGeneral" width="2">
+        <dgm:gSegment X1="441" Y1="1294" X2="1086" Y2="1294"/>
+        <dgm:gSegment X1="1086" Y1="1294" X2="1086" Y2="700"/>
+        <dgm:gSegment X1="1086" Y1="700" X2="1260" Y2="700"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="IniciarSolicitudCanalVUCE/Services.Externals.WSTrazabilidad.reference" target="WSTrazabilidad" width="2">
+        <dgm:gSegment X1="441" Y1="1319" X2="1101" Y2="1319"/>
+        <dgm:gSegment X1="1101" Y1="1319" X2="1101" Y2="902"/>
+        <dgm:gSegment X1="1101" Y1="902" X2="1260" Y2="902"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="IniciarSolicitudCanalVUCE/Services.Externals.WSGestionVUCE.reference" target="WSGestionVUCE" width="2">
+        <dgm:gSegment X1="441" Y1="1344" X2="1116" Y2="1344"/>
+        <dgm:gSegment X1="1116" Y1="1344" X2="1116" Y2="1032"/>
+        <dgm:gSegment X1="1116" Y1="1032" X2="1260" Y2="1032"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="RegistrarSolicitud/Services.Externals.WSGestionVUCE.reference" target="WSGestionVUCE" width="2">
+        <dgm:gSegment X1="441" Y1="1046" X2="480" Y2="1046"/>
+        <dgm:gSegment X1="480" Y1="1046" X2="480" Y2="1032"/>
+        <dgm:gSegment X1="480" Y1="1032" X2="1260" Y2="1032"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="IniciarSolicitudCanalVUCE/Services.Externals.WSPagos.reference" target="WSPagos" width="2">
+        <dgm:gSegment X1="441" Y1="1369" X2="1131" Y2="1369"/>
+        <dgm:gSegment X1="1131" Y1="1369" X2="1131" Y2="1234"/>
+        <dgm:gSegment X1="1131" Y1="1234" X2="1260" Y2="1234"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="IniciarSolicitudCanalVUCE/Services.Externals.WSDocumentos.reference" target="WSDocumentos" width="2">
+        <dgm:gSegment X1="441" Y1="1394" X2="510" Y2="1394"/>
+        <dgm:gSegment X1="510" Y1="1394" X2="510" Y2="1436"/>
+        <dgm:gSegment X1="510" Y1="1436" X2="1260" Y2="1436"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="IniciarSolicitudCanalVUCE/Services.Externals.WSDocumentoStd.reference" target="WSDocumentoStd" width="2">
+        <dgm:gSegment X1="441" Y1="1419" X2="495" Y2="1419"/>
+        <dgm:gSegment X1="495" Y1="1419" X2="495" Y2="1638"/>
+        <dgm:gSegment X1="495" Y1="1638" X2="1260" Y2="1638"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="IniciarSolicitudCanalVUCE/Services.Externals.WSInspeccion.reference" target="WSInspeccion" width="2">
+        <dgm:gSegment X1="441" Y1="1444" X2="480" Y2="1444"/>
+        <dgm:gSegment X1="480" Y1="1444" X2="480" Y2="1840"/>
+        <dgm:gSegment X1="480" Y1="1840" X2="1260" Y2="1840"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="IniciarSolicitudCanalVUCE/Services.Externals.WSInspeccion.reference" target="WSInspeccion" width="2">
+        <dgm:gSegment X1="441" Y1="1444" X2="465" Y2="1444"/>
+        <dgm:gSegment X1="465" Y1="1444" X2="465" Y2="1855"/>
+        <dgm:gSegment X1="465" Y1="1855" X2="921" Y2="1855"/>
+        <dgm:gSegment X1="921" Y1="1855" X2="921" Y2="1840"/>
+        <dgm:gSegment X1="921" Y1="1840" X2="1260" Y2="1840"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="GestionarExpediente/HumanTasks.HTGestionarExpediente.reference" target="HTGestionarExpediente/TaskService" width="2">
+        <dgm:gSegment X1="441" Y1="376" X2="465" Y2="376"/>
+        <dgm:gSegment X1="465" Y1="376" X2="465" Y2="137"/>
+        <dgm:gSegment X1="465" Y1="137" X2="624" Y2="137"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="GestionarExpediente/Services.Externals.WSExpediente.reference" target="WSExpediente" width="2">
+        <dgm:gSegment X1="441" Y1="401" X2="921" Y2="401"/>
+        <dgm:gSegment X1="921" Y1="401" X2="921" Y2="36"/>
+        <dgm:gSegment X1="921" Y1="36" X2="1260" Y2="36"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="GestionarExpediente/Services.Externals.WSFuncionario.reference" target="WSFuncionario" width="2">
+        <dgm:gSegment X1="441" Y1="426" X2="936" Y2="426"/>
+        <dgm:gSegment X1="936" Y1="426" X2="936" Y2="236"/>
+        <dgm:gSegment X1="936" Y1="236" X2="1260" Y2="236"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="GestionarExpediente/Services.Externals.WSTrazabilidad.reference" target="WSTrazabilidad" width="2">
+        <dgm:gSegment X1="441" Y1="451" X2="1236" Y2="451"/>
+        <dgm:gSegment X1="1236" Y1="451" X2="1236" Y2="902"/>
+        <dgm:gSegment X1="1236" Y1="902" X2="1260" Y2="902"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="GestionarExpediente/Services.Externals.WSServicioTUPA.reference" target="WSServicioTUPA" width="2">
+        <dgm:gSegment X1="441" Y1="476" X2="951" Y2="476"/>
+        <dgm:gSegment X1="951" Y1="476" X2="951" Y2="436"/>
+        <dgm:gSegment X1="951" Y1="436" X2="1260" Y2="436"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="GestionarExpediente/Services.Externals.WSGeneral.reference" target="WSGeneral" width="2">
+        <dgm:gSegment X1="441" Y1="501" X2="1221" Y2="501"/>
+        <dgm:gSegment X1="1221" Y1="501" X2="1221" Y2="700"/>
+        <dgm:gSegment X1="1221" Y1="700" X2="1260" Y2="700"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="GestionarExpediente/Services.Externals.WSGestionVUCE.reference" target="WSGestionVUCE" width="2">
+        <dgm:gSegment X1="441" Y1="526" X2="1206" Y2="526"/>
+        <dgm:gSegment X1="1206" Y1="526" X2="1206" Y2="1032"/>
+        <dgm:gSegment X1="1206" Y1="1032" X2="1260" Y2="1032"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="GestionarExpediente/HumanTasks.HTGenerarDocumentoResolutivo.reference" target="HTGenerarDocumentoResolutivo/TaskService" width="2">
+        <dgm:gSegment X1="441" Y1="551" X2="525" Y2="551"/>
+        <dgm:gSegment X1="525" Y1="551" X2="525" Y2="781"/>
+        <dgm:gSegment X1="525" Y1="781" X2="624" Y2="781"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="IniciarSolicitudCanalVUCE.service" target="IniciarSolicitudCanalVUCE/IniciarSolicitudCanalVUCE.service" width="2">
+        <dgm:gSegment X1="168" Y1="1194" X2="291" Y2="1194"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+</dgm:gDiagram>

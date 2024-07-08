@@ -1,0 +1,18 @@
+<xsd:schema xmlns:ns0="http://clases/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://clases/">
+    <xsd:complexType name="firmar">
+        <xsd:sequence>
+            <xsd:element name="xmlToSign" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="trustedXUser" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="trustedXPwd" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="signerDN" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="tipo" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="firmarResponse">
+        <xsd:sequence>
+            <xsd:element name="xmlSignping" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="firmar" type="ns0:firmar"/>
+    <xsd:element name="firmarResponse" type="ns0:firmarResponse"/>
+</xsd:schema>

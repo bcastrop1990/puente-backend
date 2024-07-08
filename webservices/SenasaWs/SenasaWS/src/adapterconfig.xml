@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<config>
+
+   <adapter type="scs" default="true" name="senasades">
+      <config>  
+         <property name="port">4444</property>
+         <property name="host">srvdevwebc.senasa.gob.pe</property>
+         <property name="type">socket</property>
+         <property name="connectionTimeout">1200000</property>
+      </config>
+      <beans template="classpath:/META-INF/resources/adapter/adapter-services-scs.jxml"/>
+   </adapter>
+   
+   <adapter type="scs"  name="senasates">
+      <config>
+         <property name="port">4444</property>
+         <property name="host">webcenterqa.senasa.gob.pe</property>
+         <property name="type">socket</property>
+         <property name="connectionTimeout">1200000</property>
+      </config>
+      <beans template="classpath:/META-INF/resources/adapter/adapter-services-scs.jxml"/>
+   </adapter>
+   
+   <adapter type="scs"  name="senasaprod">
+    <config>
+      <property name="port">4444</property>
+      <property name="host">ucm.senasa.gob.pe</property>
+      <property name="type">socket</property>
+      <property name="connectionTimeout">1200000</property>
+    </config>
+    <beans template="classpath:/META-INF/resources/adapter/adapter-services-scs.jxml"/>
+  </adapter>
+  
+</config>

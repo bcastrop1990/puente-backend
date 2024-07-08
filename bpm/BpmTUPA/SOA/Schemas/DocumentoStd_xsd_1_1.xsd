@@ -1,0 +1,306 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<xsd:schema xmlns:ns0="http://documentoStd.ws.senasa.gob.pe" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     targetNamespace="http://documentoStd.ws.senasa.gob.pe">
+    <xsd:complexType name="actualizarDocumento">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="ns0:documentoStd" minOccurs="0"/>
+            <xsd:element name="arg1" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="actualizarDocumentoResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:auditoria" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="consultaGeneral">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="ns0:reporteItem" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="consultaGeneralResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:reporteItem" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="consultaPendientes">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="ns0:reporteItem" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="consultaPendientesResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:reporteItem" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="consultarParticipacion">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="arg1" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="consultarParticipacionResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:auditoria" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="exportarReporte">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="ns0:reporteItem" minOccurs="0"/>
+            <xsd:element name="arg1" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="exportarReporteResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:reporteItem" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="generarDocumento">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="xsd:base64Binary" minOccurs="0" nillable="true"/>
+            <xsd:element name="arg1" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="arg2" type="ns0:documentoStd" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="generarDocumentoResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:documentoStd" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="grabarDocAnexo">
+        <xsd:sequence>
+            <xsd:element name="codExpediente" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="tipo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="subTipo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="nombre" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="usuario" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="grabarDocAnexoResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:documentoStd" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="grabarDocEnRegistroArchivo">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="arg1" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="arg2" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="arg3" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="grabarDocEnRegistroArchivoResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:auditoria" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="grabarResolutivoProv">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="arg1" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="arg2" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="arg3" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="arg4" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="arg5" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="arg6" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="arg7" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="arg8" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="grabarResolutivoProvResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:auditoria" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerPlantilla">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="arg1" type="ns0:documentoStd" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="obtenerPlantillaResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:documentoStd" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="previsualizarDocumento">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="xsd:base64Binary" minOccurs="0" nillable="true"/>
+            <xsd:element name="arg1" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="arg2" type="ns0:documentoStd" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="previsualizarDocumentoResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:documentoStd" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="registrarDocumento">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="ns0:documentoStd" minOccurs="0"/>
+            <xsd:element name="arg1" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="registrarDocumentoResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:documentoStd" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="reporteGeneral">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="ns0:reporteItem" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="reporteGeneralResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:reporteItem" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="solicitarServicioOCR">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="arg1" type="xsd:base64Binary" minOccurs="0" nillable="true"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="solicitarServicioOCRResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="verificarServicioOCR">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="verificarServicioOCRResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:base64Binary" minOccurs="0" nillable="true"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="documentoStd">
+        <xsd:sequence>
+            <xsd:element name="archivo" type="xsd:base64Binary" minOccurs="0"/>
+            <xsd:element name="areaDestino" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="asunto" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="auditoria" type="ns0:auditoria" minOccurs="0"/>
+            <xsd:element name="autor" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="autorId" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codigo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codigoPadre" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="conFirma" type="xsd:boolean"/>
+            <xsd:element name="confidencial" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="encargatura" type="xsd:boolean"/>
+            <xsd:element name="escenario" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="fechaRegistro" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="firmantes" type="ns0:funcionarioStd" minOccurs="0" maxOccurs="unbounded"
+                 nillable="true"/>
+            <xsd:element name="fisico" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="folio" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="nombreArchivo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="numeroDocumento" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="personaDestino" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="previsualizar" type="xsd:boolean"/>
+            <xsd:element name="referencia" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="subTipo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="subareaDestino" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="tipo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="tipoAdjunto" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="ucmId" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="auditoria">
+        <xsd:sequence>
+            <xsd:element name="estado" type="xsd:boolean"/>
+            <xsd:element name="mensajeSistema" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="mensajeUsuario" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="funcionarioStd">
+        <xsd:sequence>
+            <xsd:element name="area" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="fecha" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="nombre" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="subArea" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="tipo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="usuario" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="reporteItem">
+        <xsd:sequence>
+            <xsd:element name="accion" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="anio" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="areaEntidadDest" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="areaEntidadRem" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="areaFunc" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="asunto" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="auditoria" type="ns0:auditoria" minOccurs="0"/>
+            <xsd:element name="codElemento" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codElementoRpta" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="estado" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="fecha" type="xsd:dateTime" minOccurs="0"/>
+            <xsd:element name="fechaHora" type="xsd:dateTime" minOccurs="0"/>
+            <xsd:element name="fechaRegDesde" type="xsd:dateTime" minOccurs="0"/>
+            <xsd:element name="fechaRegHasta" type="xsd:dateTime" minOccurs="0"/>
+            <xsd:element name="idAreaEntidadDest" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="idAreaEntidadRem" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="idAreaFunc" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="idEscenarioDest" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="idEscenarioRem" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="idPersonaDest" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="idPersonaFunc" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="idPersonaRem" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="idProceso" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="idSubAreaEntidadDest" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="idSubAreaEntidadRem" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="idSubAreaFunc" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="idSubTipoDocumental" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="idTipoDocumental" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="idTipoOrigenDestino" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="notas" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="numeroDocumento" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="numeroExpediente" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="personaDest" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="personaFunc" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="personaRem" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="proveido" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="reporte" type="xsd:base64Binary" minOccurs="0"/>
+            <xsd:element name="subAreFunc" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="subAreaEntidadDest" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="subAreaEntidadRem" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="tipoCertificado" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="tipoReporte" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="titulo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="urgencia" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="actualizarDocumento" type="ns0:actualizarDocumento"/>
+    <xsd:element name="actualizarDocumentoResponse" type="ns0:actualizarDocumentoResponse"/>
+    <xsd:element name="consultaGeneral" type="ns0:consultaGeneral"/>
+    <xsd:element name="consultaGeneralResponse" type="ns0:consultaGeneralResponse"/>
+    <xsd:element name="consultaPendientes" type="ns0:consultaPendientes"/>
+    <xsd:element name="consultaPendientesResponse" type="ns0:consultaPendientesResponse"/>
+    <xsd:element name="consultarParticipacion" type="ns0:consultarParticipacion"/>
+    <xsd:element name="consultarParticipacionResponse" type="ns0:consultarParticipacionResponse"/>
+    <xsd:element name="exportarReporte" type="ns0:exportarReporte"/>
+    <xsd:element name="exportarReporteResponse" type="ns0:exportarReporteResponse"/>
+    <xsd:element name="generarDocumento" type="ns0:generarDocumento"/>
+    <xsd:element name="generarDocumentoResponse" type="ns0:generarDocumentoResponse"/>
+    <xsd:element name="grabarDocAnexo" type="ns0:grabarDocAnexo"/>
+    <xsd:element name="grabarDocAnexoResponse" type="ns0:grabarDocAnexoResponse"/>
+    <xsd:element name="grabarDocEnRegistroArchivo" type="ns0:grabarDocEnRegistroArchivo"/>
+    <xsd:element name="grabarDocEnRegistroArchivoResponse" type="ns0:grabarDocEnRegistroArchivoResponse"/>
+    <xsd:element name="grabarResolutivoProv" type="ns0:grabarResolutivoProv"/>
+    <xsd:element name="grabarResolutivoProvResponse" type="ns0:grabarResolutivoProvResponse"/>
+    <xsd:element name="obtenerPlantilla" type="ns0:obtenerPlantilla"/>
+    <xsd:element name="obtenerPlantillaResponse" type="ns0:obtenerPlantillaResponse"/>
+    <xsd:element name="previsualizarDocumento" type="ns0:previsualizarDocumento"/>
+    <xsd:element name="previsualizarDocumentoResponse" type="ns0:previsualizarDocumentoResponse"/>
+    <xsd:element name="registrarDocumento" type="ns0:registrarDocumento"/>
+    <xsd:element name="registrarDocumentoResponse" type="ns0:registrarDocumentoResponse"/>
+    <xsd:element name="reporteGeneral" type="ns0:reporteGeneral"/>
+    <xsd:element name="reporteGeneralResponse" type="ns0:reporteGeneralResponse"/>
+    <xsd:element name="solicitarServicioOCR" type="ns0:solicitarServicioOCR"/>
+    <xsd:element name="solicitarServicioOCRResponse" type="ns0:solicitarServicioOCRResponse"/>
+    <xsd:element name="verificarServicioOCR" type="ns0:verificarServicioOCR"/>
+    <xsd:element name="verificarServicioOCRResponse" type="ns0:verificarServicioOCRResponse"/>
+</xsd:schema>
+<!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is JAX-WS RI 2.3.0-wls122140-b190328.0053 svn-revision#unknown. -->

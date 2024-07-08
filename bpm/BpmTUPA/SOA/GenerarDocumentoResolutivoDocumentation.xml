@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?oracleBPM version="12.1.3" fileRevision="20120601"?>
+<processDocumentation xmlns="http://xmlns.oracle.com/bpm/taskMetadataService/processDocumentation">
+   <component name="GenerarDocumentoResolutivo">
+      <topicDocumentations>
+         <topicDocumentation name="GenerarDocumentoResolutivo">
+            <labels>
+               <label locale="en">Generar Documento Resolutivo</label>
+            </labels>
+         </topicDocumentation>
+         <topicDocumentation name="ACT41471500159943">
+            <labels>
+               <label locale="en">Generar Documento Resolutivo</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT41587347397013">
+            <labels>
+               <label locale="en">Obtener Expediente TUPA</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT41587735739853">
+            <labels>
+               <label locale="en">Buscar Destinatario por Centro de Tramite</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT41587772188878">
+            <labels>
+               <label locale="en">Iniciar Datos</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT41587781401154">
+            <labels>
+               <label locale="en">Set UserName</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT41587813448565">
+            <labels>
+               <label locale="en">Obtener Estado Expediente VUCE</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT4158782841006">
+            <labels>
+               <label locale="en">Obtener Servicio TUPA</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT41587863926568">
+            <labels>
+               <label locale="en">Obtener Plazo</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT41587890164653">
+            <labels>
+               <label locale="en">Obtener Fecha Caducidad</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT41587949017224">
+            <labels>
+               <label locale="en">Trazabilidad Derivacion</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT41587997583228">
+            <labels>
+               <label locale="en">Obtener Datos Funcionario Responsable</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT41604801743316">
+            <labels>
+               <label locale="en">Generar CFE Firmado</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT4160485365845">
+            <labels>
+               <label locale="en">Cerrar Expediente</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT41604922399047">
+            <labels>
+               <label locale="en">Cierre Otro Sistemas</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT41605130946376">
+            <labels>
+               <label locale="en">Trazabilidad Cierre Expediente</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT41751443448096">
+            <labels>
+               <label locale="en">Notificar Observacion</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="EVT41471496050019">
+            <labels>
+               <label locale="en">Start</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="EVT41471496050086">
+            <labels>
+               <label locale="en">End</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="EVT41587585423658">
+            <labels>
+               <label locale="en">End</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="EVT41644299947242">
+            <labels>
+               <label locale="en">End</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="GTW4158758076366">
+            <labels>
+               <label locale="en">¿Expediente Cerrado?</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="GTW41587727911846">
+            <labels>
+               <label locale="en">¿Es manual?</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="GTW41587837416089">
+            <labels>
+               <label locale="en">¿Canal VUCE?</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="GTW41604797318683">
+            <labels>
+               <label locale="en">¿Exportacion Fitosanitaria?</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="GTW41604936382860">
+            <labels>
+               <label locale="en">¿Cierre en otro sistemas?</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="GTW41637252048668">
+            <labels>
+               <label locale="en">Canal</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="GTW41637751464560">
+            <labels>
+               <label locale="en">Accion</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="GTW41751133938754">
+            <labels>
+               <label locale="en">¿Es manual?</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf4147149605005"/>
+         <topicDocumentation name="sf41471503300389"/>
+         <topicDocumentation name="sf41587352404745"/>
+         <topicDocumentation name="sf41587584919153"/>
+         <topicDocumentation name="sf41587588504262"/>
+         <topicDocumentation name="sf41587733519445"/>
+         <topicDocumentation name="sf41587777915522"/>
+         <topicDocumentation name="sf41587788259534"/>
+         <topicDocumentation name="sf41587794095280"/>
+         <topicDocumentation name="sf41587825483144"/>
+         <topicDocumentation name="sf41587838802746"/>
+         <topicDocumentation name="sf41587841472195"/>
+         <topicDocumentation name="sf41587843676261"/>
+         <topicDocumentation name="sf41587880951955"/>
+         <topicDocumentation name="sf41587881982159"/>
+         <topicDocumentation name="sf41587905948760"/>
+         <topicDocumentation name="sf41587987814959"/>
+         <topicDocumentation name="sf41588010103052"/>
+         <topicDocumentation name="sf4160480119814"/>
+         <topicDocumentation name="sf41604826318657"/>
+         <topicDocumentation name="sf41604840189431"/>
+         <topicDocumentation name="sf41604863135457"/>
+         <topicDocumentation name="sf41604928565516"/>
+         <topicDocumentation name="sf41604938678230"/>
+         <topicDocumentation name="sf41604939201195"/>
+         <topicDocumentation name="sf4160517510837"/>
+         <topicDocumentation name="sf41637253857249"/>
+         <topicDocumentation name="sf41637258271728"/>
+         <topicDocumentation name="sf41637752242767"/>
+         <topicDocumentation name="sf41644300985623"/>
+         <topicDocumentation name="sf41751135692252"/>
+         <topicDocumentation name="sf41751448107170"/>
+         <topicDocumentation name="sf41751450853177"/>
+         <topicDocumentation name="sf41751984264838"/>
+      </topicDocumentations>
+   </component>
+</processDocumentation>

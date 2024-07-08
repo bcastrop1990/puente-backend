@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ID_DOC_SOLICITUD_MPFI" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d3c49a44-5cdd-4e5f-8582-b80886ecf803">
+	<property name="ireport.zoom" value="1.7715610000000015"/>
+	<property name="ireport.x" value="18"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="NEXPEDIENTE" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ORACLE_REF_CURSOR" class="java.sql.ResultSet"/>
+	<queryString language="plsql">
+		<![CDATA[{call Pckg_General.SP_GET_REPORTE_PFI($P{NEXPEDIENTE}, $P{ORACLE_REF_CURSOR})}]]>
+	</queryString>
+	<field name="f_numero_permiso" class="java.lang.String"/>
+	<field name="f_nombre_solicitante" class="java.lang.String"/>
+	<field name="f_fecha_emision" class="java.lang.String"/>
+	<field name="f_punto_ingreso" class="java.lang.String"/>
+	<field name="f_indicador_ampliacion" class="java.lang.String"/>
+	<field name="f_centro_tramite" class="java.lang.String"/>
+	<background>
+		<band height="802" splitType="Stretch">
+			<image>
+				<reportElement uuid="5c06c970-f949-4f33-a967-acf1042db221" x="19" y="14" width="120" height="40"/>
+				<imageExpression><![CDATA[$P{SUBREPORT_DIR} + "logo.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="1db5517d-8fa3-41bc-98ab-38898e594018" x="139" y="13" width="300" height="54" forecolor="#999999"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SOLICITUD DE MODIFICACION
+PERMISO FITOSANITARIO DE IMPORTACIÓN O
+PERMISO FITOSANITARIO DE TRANSITO INTERNACIONAL
+]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="48aea97a-854e-480e-a61f-bae7ec58fe4f" x="0" y="782" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</background>
+	<title>
+		<band height="67" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="44" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="c09169ab-6c68-4c15-98d1-62a3904253ec" x="0" y="12" width="125" height="20"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DIRECCION EJECUTIVA:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="56330a69-3e17-4f72-a959-13defee16a1f" x="345" y="11" width="44" height="20"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="5b35528c-e9c9-45c3-b73d-884b9a81bc34" x="389" y="12" width="116" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{f_fecha_emision}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="1729bfd2-3482-4ecb-af2a-1a177ee99497" x="125" y="12" width="124" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{f_centro_tramite}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="116" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="ad1adc57-a304-4a20-851e-48a0b40178c5" mode="Opaque" x="49" y="0" width="506" height="20" forecolor="#FFFFFF" backcolor="#999999"/>
+				<box leftPadding="4"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DOCUMENTO A MODIFICAR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1755108b-0f66-4181-b5ca-fe906ef88bcf" mode="Opaque" x="0" y="0" width="49" height="20" forecolor="#FFFFFF" backcolor="#999999"/>
+				<box leftPadding="4"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[PARTE I:]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement uuid="0bd60b07-e593-4852-912b-41cce027062d" x="0" y="30" width="555" height="20"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="9e3afbc4-5d4d-4a7f-a116-3bcb3bc72909" x="0" y="30" width="144" height="20"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CERTIFICADO PFI / PFTI N° :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ad1adc57-a304-4a20-851e-48a0b40178c5" mode="Opaque" x="50" y="60" width="505" height="20" forecolor="#FFFFFF" backcolor="#999999"/>
+				<box leftPadding="4"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[INFORMACION DE LA EMPRESA SOLICITANTE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1755108b-0f66-4181-b5ca-fe906ef88bcf" mode="Opaque" x="0" y="60" width="50" height="20" forecolor="#FFFFFF" backcolor="#999999"/>
+				<box leftPadding="4"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[PARTE II:]]></text>
+			</staticText>
+			<subreport>
+				<reportElement uuid="38d783a4-bcba-4805-8b67-91ceb536b942" x="1" y="90" width="555" height="26"/>
+				<subreportParameter name="NEXPEDIENTE">
+					<subreportParameterExpression><![CDATA[$P{NEXPEDIENTE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "datos_soli.jasper"]]></subreportExpression>
+			</subreport>
+			<textField>
+				<reportElement uuid="19a5688c-45e6-4d80-aae7-15a608e0a006" x="144" y="30" width="140" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{f_numero_permiso}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<columnFooter>
+		<band height="284" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="0bd60b07-e593-4852-912b-41cce027062d" x="1" y="95" width="554" height="19"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="0bd60b07-e593-4852-912b-41cce027062d" x="1" y="31" width="554" height="64"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="3505db9e-d646-4a4a-81b5-e865eea1849c" x="1" y="240" width="402" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[Por tanto, solicito a usted se digne disponer a quien corresponda acceder a dicho trámite.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="fc1aef51-256d-4d74-b5c2-910699474ccd" x="184" y="41" width="128" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[Solo por 90 días adicionales]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement uuid="0bd60b07-e593-4852-912b-41cce027062d" x="0" y="192" width="554" height="19"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="73c812b9-6004-4bbf-97d1-2a92d4f0d9a3" x="10" y="95" width="151" height="19"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE DEL IMPORTADOR]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement uuid="0bd60b07-e593-4852-912b-41cce027062d" x="1" y="211" width="554" height="19"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="73c812b9-6004-4bbf-97d1-2a92d4f0d9a3" x="284" y="95" width="165" height="19"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE DEL EXPORTADOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="63bfcc48-a02a-4d77-a94f-a554e4fbe0c8" x="18" y="41" width="64" height="15"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[AMPLIACION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="48383e79-eac1-4501-ad69-39ab6719b620" x="5" y="192" width="214" height="20"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PUNTO DE CONTROL DE INGRESO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1755108b-0f66-4181-b5ca-fe906ef88bcf" mode="Opaque" x="1" y="0" width="60" height="20" forecolor="#FFFFFF" backcolor="#999999"/>
+				<box leftPadding="4"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[PARTE III:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ad1adc57-a304-4a20-851e-48a0b40178c5" mode="Opaque" x="61" y="0" width="495" height="20" forecolor="#FFFFFF" backcolor="#999999"/>
+				<box leftPadding="4"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SERVICIO SOLICITADO]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement uuid="0bd60b07-e593-4852-912b-41cce027062d" x="1" y="114" width="554" height="19"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="4efa93db-32b1-469b-a226-ba4ce0474bae" x="18" y="66" width="76" height="15"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[MODIFICACION]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement uuid="971aea34-0716-455e-a260-89f37f965cb3" x="117" y="41" width="35" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="971aea34-0716-455e-a260-89f37f965cb3" x="117" y="61" width="35" height="20"/>
+			</rectangle>
+			<line>
+				<reportElement uuid="f6e16160-95a9-48be-a8e4-419c77ab028c" x="273" y="192" width="1" height="38"/>
+			</line>
+			<staticText>
+				<reportElement uuid="195b7dd3-2145-4a2f-b76a-4f7008ed7060" x="279" y="192" width="175" height="20"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PUNTO DE CONTROL SALIDA]]></text>
+			</staticText>
+			<subreport>
+				<reportElement uuid="d678fcbf-f9f9-4190-9f15-88ff30bcf6a8" x="0" y="133" width="554" height="38"/>
+				<subreportParameter name="P_NUMERO_PERMISO">
+					<subreportParameterExpression><![CDATA[$F{f_numero_permiso}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="P_FLAG">
+					<subreportParameterExpression><![CDATA["P"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="REF_CURSOR"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "detalle_permiso.jasper"]]></subreportExpression>
+			</subreport>
+			<textField>
+				<reportElement uuid="b7c08c15-f2c5-4bc2-bff3-526b7a5a2445" x="10" y="114" width="262" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{f_nombre_solicitante}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="b6c8a1f5-f32b-43bd-b97c-e3eeec68990e" x="5" y="212" width="183" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{f_punto_ingreso}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement uuid="6e795a8e-b578-47a9-a3d2-002a7641ae45" x="117" y="41" width="35" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{f_indicador_ampliacion}.equals( "S" ) ? "X" :""]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement uuid="6e795a8e-b578-47a9-a3d2-002a7641ae45" x="117" y="61" width="35" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{f_indicador_ampliacion}.equals( null ) ? "X" :""]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="f6e16160-95a9-48be-a8e4-419c77ab028c" x="273" y="96" width="1" height="38"/>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

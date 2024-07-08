@@ -1,0 +1,53 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Faults>
+   <Fault>
+      <severity>warning</severity>
+      <loc/>
+      <line/>
+      <col/>
+      <file>HumanTasks/HTGestionarExpediente.task</file>
+      <name>HumanTasks/HTGestionarExpediente.task</name>
+      <fix/>
+      <msg>Error assignee not specified</msg>
+   </Fault>
+   <Fault>
+      <severity>warning</severity>
+      <loc/>
+      <line/>
+      <col/>
+      <file>HumanTasks/HTResgistrarSolicitud.task</file>
+      <name>HumanTasks/HTResgistrarSolicitud.task</name>
+      <fix/>
+      <msg>Error assignee not specified</msg>
+   </Fault>
+   <Fault>
+      <severity>warning</severity>
+      <loc/>
+      <line/>
+      <col/>
+      <file>HumanTasks/HTGenerarDocumentoResolutivo.task</file>
+      <name>HumanTasks/HTGenerarDocumentoResolutivo.task</name>
+      <fix/>
+      <msg>Empty Participant definition for Stage1.Participant1</msg>
+   </Fault>
+   <Fault>
+      <severity>warning</severity>
+      <loc/>
+      <line/>
+      <col/>
+      <file>HumanTasks/HTGenerarDocumentoResolutivo.task</file>
+      <name>HumanTasks/HTGenerarDocumentoResolutivo.task</name>
+      <fix/>
+      <msg>Error assignee not specified</msg>
+   </Fault>
+   <Fault>
+      <severity>warning</severity>
+      <loc/>
+      <line/>
+      <col/>
+      <file>HumanTasks/HTRegistrarRequisito.task</file>
+      <name>HumanTasks/HTRegistrarRequisito.task</name>
+      <fix/>
+      <msg>Error assignee not specified</msg>
+   </Fault>
+</Faults>
